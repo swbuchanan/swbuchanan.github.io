@@ -25,6 +25,7 @@ ul {
 }
 
 li a, .dropbtn {
+	font-family: verdana;
     display: block;
     color: #000;
     padding: 8px 16px;
@@ -45,7 +46,8 @@ li a:hover {
 
 
 li.dropdown {
-    display: inline-block;
+	font-family: verdana;
+    display: block;
     text-align: center;
 }
 
