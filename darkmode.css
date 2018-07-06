@@ -46,6 +46,7 @@ li a:hover {
 
 li.dropdown {
     display: inline-block;
+    text-align: center;
 }
 
 .dropdown-content {
