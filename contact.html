@@ -15,9 +15,10 @@
 
 
 
-<div id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav" style="z-index: 20">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <hr>
+  <a href="../index">Home</a>
   <a href="#">Math</a>
   <a href="#">Puzzles</a>
   <a href="games/sudoku">Games</a>
@@ -40,7 +41,7 @@ function closeNav() {
 </script>
 
 <!-- This is the thing that opens the sidebar -->
-<img src="images/sidebar.png" style="cursor: pointer; position:absolute; padding: 0 1%; width:25px; height:25px;" onmouseover="" onclick="openNav()"></img>
+<img src="images/sidebar.png" style="z-index: 1; cursor: pointer; position:absolute; padding: 0 1%; width:25px; height:25px;" onmouseover="" onclick="openNav()"></img>
 
 
 
