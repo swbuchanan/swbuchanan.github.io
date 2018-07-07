@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -8,21 +10,33 @@
 
 <body>
 
-<ul>
-  <li><a href="index.html">Thing 1</a></li>
-  <li><a class="active" href="thing2.html">Thing 2</a></li>
-  <li><a href="thing3.html">Thing 3</a></li>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
 
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </li>
-  <li><a href="#about">Thing 4</a></li>
-</ul>
+<script type="text/javascript">
+	
+/* Set the width of the side navigation to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!-- Use any element to open the sidenav -->
+<span onmouseover="openNav()"> ooo</span>
+
+
+
+
 
 
 <h1>Hello World</h1>
