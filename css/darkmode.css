@@ -59,6 +59,15 @@ li a:hover {
     color: white;
 }
 
+/* vertical line */
+.vl {
+    border-left: 2px solid white;
+    height: 600px;
+    position: absolute;
+    left: 55%;
+    top: 20%;
+}
+
 /* container for the header image with text */
 .container {
     position: relative;
