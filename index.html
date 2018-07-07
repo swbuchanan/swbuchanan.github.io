@@ -7,6 +7,36 @@
 
 <body>
 
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <hr>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<script type="text/javascript">
+	
+/* Set the width of the side navigation to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!-- Use any element to open the sidenav -->
+<img src="sidebar.png" style="position:absolute;padding:.4% 1%;width:25px;height:25px;" onclick="openNav()"></img>
+
+
+
+
+
+<!-- 
 <ul>
   <li><a class="active" href="#home">Thing 1</a></li>
   <li><a href="thing2.html">Thing 2</a></li>
@@ -14,7 +44,7 @@
   <li><a href="#about">Thing 4</a></li>
 </ul>
 
-
+ -->
 <h1>Hello World</h1>
 <p>this is a cool website</p>
 

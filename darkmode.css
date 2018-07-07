@@ -25,6 +25,16 @@ div.textblock p{
 	width: 62%;
 }
 
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-style: inset;
+    border-width: 1px;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -121,10 +131,10 @@ li.dropdown {
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
     position: absolute;
-    top: 0;
-    right: 25px;
+    top: 10px;
+    left: -5px;
     font-size: 36px;
-    margin-left: 50px;
+    margin-left: 5px;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -140,12 +150,3 @@ li.dropdown {
 }
 
 
-/* Set the width of the side navigation to 250px */
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-}
-
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
