@@ -5,7 +5,7 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="darkmode.css">
+	<link rel="stylesheet" href="../darkmode.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 </head>
 
@@ -13,14 +13,15 @@
 <!-- <body> -->
 
 
+<!-- 
+<img src="../squarepaper.png" style="position: absolute; z-index: -1; right: 15%; width: 25%"></img>
+ -->
 
-<img src="squarepaper.png" style="position: absolute; z-index: -1; right: 15%; width: 25%"></img>
 
-
-
-<div id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav" style="z-index: 2">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <hr>
+  <a href="../index.html">Home</a>
   <a href="#">Math</a>
   <a href="#">Puzzles</a>
   <a href="#">Games</a>
@@ -43,8 +44,7 @@ function closeNav() {
 </script>
 
 <!-- This is the thing that opens the sidebar -->
-<img src="sidebar.png" style="cursor: pointer; position:absolute; padding: 0 1%; width:25px; height:25px;" onmouseover="" onclick="openNav()"></img>
-
+<img src="../sidebar.png" style="z-index: 1; cursor: pointer; position:absolute; padding: 0 1%; width:25px; height:25px;" onmouseover="" onclick="openNav()"></img>
 
 
 
@@ -58,9 +58,15 @@ function closeNav() {
 </ul>
 
  -->
-<div style='width:361px'><IFRAME style='WIDTH: 361px; HEIGHT: 560px' src='http://sudokugooglegadget.com/standard.aspx' frameBorder='0' ></IFRAME><div style='padding=top:5px;text-align:right;font-family:verdana,arial;font-size:11px'>Supplied by <a href='http://sudoku.com.au'>Sudoku</a></div></div>
+<div style='width:361px'>
+	<IFRAME style='float: left; position: relative; padding-top: 50%; padding-left: 120%; padding-right: 20%; WIDTH: 361px; HEIGHT: 560px' src='http://sudokugooglegadget.com/standard.aspx' frameBorder='0' ></IFRAME>
+<!-- 	<div style='position: absolute; padding-left: 25%; padding-top:5px;text-align:right;font-family:verdana,arial;font-size:11px'>Supplied by <a href='http://sudoku.com.au'>Sudoku</a></div>
+ --></div>
 
+</body>
 
+<h1 style="font-family: 'Roboto Condensed'; position: relative; width: 25%; padding-top: 18%; padding-left: 50%">Rules:</h1>
+<p style="text-align: left; position: relative; width: 25%; padding-top: 0%; padding-left: 50%">The objective of sudoku is to fill the 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids contains all of the digits from 1 to 9 exactly once.</p>
 
 
 </html>
