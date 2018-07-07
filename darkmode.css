@@ -3,13 +3,12 @@ body {
 }
 
 h1 {
-	font-family: Alef;
     color: white;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 p {
-    font-family: Lucida Sans Unicode;
+    font-family: Palatino;
     font-size: 20px;
     color: white;
     text-align: center;
