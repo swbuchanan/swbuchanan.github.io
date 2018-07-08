@@ -11,16 +11,33 @@
 }
 
 
+.dropcontainericon {
+	z-index: 2;
+	cursor: pointer;
+	position:absolute;
+	margin: 17px 15px;
+	width:25px;
+	height:25px;
+	transition: .3s;
+}
+
+.dropcontainericon.open {
+	transform: rotate(90deg);
+}
+
 .dropcontainer {
-	margin: 2% 5%;
+	margin: 38px 5%;
 	height: 0px;
 	margin-top: 20px;
 	cursor: pointer;
+	transition: .5s;
+	z-index: 3;
+	position:relative;
+	width:75%; height:25px;
 }
 
 .dropcontainer.open{
 	margin-bottom: 288px;
-	margin-top: 20px;
 }
 
 .dropdown.open {

@@ -46,9 +46,9 @@ function closeNav() {
 
 
 
-<div id=dropContainer1 class="dropcontainer" style="transition: .5s; z-index: 3; position:relative; width:75%; height:25px;" onmouseover="" onclick="openDrop1()">
+<div id=dropContainer1 class="dropcontainer" onmouseover="" onclick="openDrop1()">
   <!-- This is the thing that opens the dropdown -->
-  <img src="../images/pointer.png" style="z-index: 2; cursor: pointer; position:absolute; margin: 17px 5px; width:25px; height:25px;" onmouseover="" onclick="openDrop1()"></img>
+  <img id=pointer1 class="dropcontainericon" src="../images/pointer.png" onmouseover="" onclick="openDrop1()"></img>
   <div id="myDropdown1" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%">
     <a href="#">Home</a>
     <a href="#">Things</a>
@@ -59,9 +59,9 @@ function closeNav() {
 
 </div>
 
-<div id=dropContainer2 class="dropcontainer" style="transition: .5s; z-index: 3; position:relative; width:75%; height:25px;" onmouseover="" onclick="openDrop2()">
+<div id=dropContainer2 class="dropcontainer" onmouseover="" onclick="openDrop2()">
   <!-- This is the thing that opens the dropdown -->
-  <img src="../images/pointer.png" style="z-index: 2; cursor: pointer; position:absolute; margin: 17px 5px; width:25px; height:25px;" onmouseover="" onclick="openDrop2()"></img>
+  <img id=pointer2 class="dropcontainericon" src="../images/pointer.png" onmouseover="" onclick="openDrop2()"></img>
   <div id="myDropdown2" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%">
     <a href="#">Home</a>
     <a href="#">Things</a>
@@ -72,9 +72,9 @@ function closeNav() {
 
 </div>
 
-<div id=dropContainer3 class="dropcontainer" style="transition: .5s; z-index: 3; position:relative; width:75%; height:25px;" onmouseover="" onclick="openDrop3()">
+<div id=dropContainer3 class="dropcontainer" onmouseover="" onclick="openDrop3()">
   <!-- This is the thing that opens the dropdown -->
-  <img src="../images/pointer.png" style="z-index: 2; cursor: pointer; position:absolute; margin: 17px 5px; width:25px; height:25px;" onmouseover="" onclick="openDrop3()"></img>
+  <img id=pointer3 class="dropcontainericon" src="../images/pointer.png" onmouseover="" onclick="openDrop3()"></img>
   <div id="myDropdown3" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%">
     <a href="#">Home</a>
     <a href="#">Things</a>
@@ -95,7 +95,6 @@ function openDrop1() {
   if (!open1) {
 
     document.getElementById("myDropdown1").style.height = "250px";
-    // document.getElementById("dropContainer1").style.marginBottom = "250px";  pushes everything below the menu down 
     
     open1= true;
   } else {
@@ -103,6 +102,7 @@ function openDrop1() {
     open1 = false;
 
   }
+  document.getElementById("pointer1").classList.toggle("open"); /* rotates the little arrow thingy */
   document.getElementById("dropContainer1").classList.toggle("open");
 }
  
@@ -118,6 +118,7 @@ function openDrop2() {
     open2 = false;
 
   }
+  document.getElementById("pointer2").classList.toggle("open");
   document.getElementById("dropContainer2").classList.toggle("open");
 }
 
@@ -125,13 +126,14 @@ function openDrop2() {
 var open3 = false
 
 function openDrop3() {
-  if (!open2) {
+  if (!open3) {
     document.getElementById("myDropdown3").style.height = "250px";
     open3 = true;
   } else {
     document.getElementById("myDropdown3").style.height = "0px";
     open3 = false;  
   }
+  document.getElementById("pointer3").classList.toggle("open");
   document.getElementById("dropContainer3").classList.toggle("open");
 }
 
