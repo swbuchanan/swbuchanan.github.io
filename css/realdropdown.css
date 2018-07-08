@@ -10,21 +10,17 @@
     transition: 0.5s; /* 0.5 second transition effect to slide in the dropdown */
 }
 
-.opencontainer {
-	transition: .5s;
-	height: 250px;
-	margin-bottom: 250px;
-	background-color: red;
-}
 
 .dropcontainer {
-	margin: 0% 5%;
+	margin: 2% 5%;
 	height: 0px;
-	margin-bottom: 0px;
+	margin-top: 20px;
+	cursor: pointer;
 }
 
 .dropcontainer.open{
-	margin-bottom: 250px;
+	margin-bottom: 288px;
+	margin-top: 20px;
 }
 
 .dropdown.open {
