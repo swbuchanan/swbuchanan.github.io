@@ -16,7 +16,7 @@
   <a href="../index.html">Home</a>
 
   <div id=dropContainerNav class="dropcontainer" style="display: block; width: 80%; margin-left: 28px; margin-top: 0%; height: 1px">
-    <img id=pointerNav class="dropcontainericon" src="/images/pointer.png" style="top: 1px; right: 0px; width: 10px; height: 10px;" onmouseover="" onclick="openDropNav()"></img> <!-- This is the little arrow icon -->
+    <img id=pointerNav class="dropcontainericon" src="../images/pointer.png" style="top: 1px; right: 0px; width: 10px; height: 10px;" onmouseover="" onclick="openDropNav()"></img> <!-- This is the little arrow icon -->
     <div id="myDropdownNav" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%; height: 0px; padding-top: 40px; background-color: #111">
       <p style="transition: .3s; text-align: left; top: -19px; left: 4px; font-size: 25px; color: #818181;" onmouseover="this.style.color='#f1f1f1'" onmouseout="this.style.color='#818181'" onclick="openDropNav()">Math</p>
       <!-- <p style="top: 0px">Math 2</p> -->
@@ -95,75 +95,7 @@ function closeNav() {
 
 
 
-<script type="text/javascript">
-  
-var open1 = false
-
-function openDrop1() {
-  if (!open1) {
-
-    document.getElementById("myDropdown1").style.height = "250px";
-    
-    open1= true;
-  } else {
-    document.getElementById("myDropdown1").style.height = "0px";
-    open1 = false;
-
-  }
-  document.getElementById("pointer1").classList.toggle("open"); /* rotates the little arrow thingy */
-  document.getElementById("dropContainer1").classList.toggle("open");
-}
- 
-
-var open2 = false
-
-function openDrop2() {
-  if (!open2) {
-    document.getElementById("myDropdown2").style.height = "250px";
-    open2 = true;
-  } else {
-    document.getElementById("myDropdown2").style.height = "0px";
-    open2 = false;
-
-  }
-  document.getElementById("pointer2").classList.toggle("open");
-  document.getElementById("dropContainer2").classList.toggle("open");
-}
-
-
-var open3 = false
-
-function openDrop3() {
-  if (!open3) {
-    document.getElementById("myDropdown3").style.height = "250px";
-    open3 = true;
-  } else {
-    document.getElementById("myDropdown3").style.height = "0px";
-    open3 = false;  
-  }
-  document.getElementById("pointer3").classList.toggle("open");
-  document.getElementById("dropContainer3").classList.toggle("open");
-}
-
-
-var openNavDrop = false
-
-function openDropNav() {
-  if (!openNavDrop) {
-    document.getElementById("myDropdownNav").style.height = "80px";
-    document.getElementById("dropContainerNav").style.marginBottom = "120px";
-    openNavDrop = true;
-  } else {
-    document.getElementById("myDropdownNav").style.height = "0px";
-    document.getElementById("dropContainerNav").style.marginBottom = "40px";
-    openNavDrop = false;  
-  }
-  document.getElementById("pointerNav").classList.toggle("open");
-  // document.getElementById("dropContainerNav").classList.toggle("open");
-}
-
-
-</script>
+<script src="../js/dropdown.js"></script> <!-- The javascript that powers the dropdown menu -->
 
 
 

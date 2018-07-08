@@ -3,6 +3,7 @@
 
 <head>
 	<link rel="stylesheet" href="css/darkmode.css">
+	<link rel="stylesheet" href="css/realdropdown.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 </head>
 
@@ -33,7 +34,7 @@
   <a href="index">Home</a>
 
   <div id=dropContainerNav class="dropcontainer" style="display: block; width: 80%; margin-left: 28px; margin-top: 0%; height: 1px">
-    <img id=pointerNav class="dropcontainericon" src="/images/pointer.png" style="top: 1px; right: 0px; width: 10px; height: 10px;" onmouseover="" onclick="openDropNav()"></img> <!-- This is the little arrow icon -->
+    <img id=pointerNav class="dropcontainericon" src="images/pointer.png" style="top: 1px; right: 0px; width: 10px; height: 10px;" onmouseover="" onclick="openDropNav()"></img> <!-- This is the little arrow icon -->
     <div id="myDropdownNav" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%; height: 0px; padding-top: 40px; background-color: #111">
       <p style="transition: .3s; text-align: left; top: -19px; left: 4px; font-size: 25px; color: #818181;" onmouseover="this.style.color='#f1f1f1'" onmouseout="this.style.color='#818181'" onclick="openDropNav()">Math</p>
       <!-- <p style="top: 0px">Math 2</p> -->
@@ -56,17 +57,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 <script type="text/javascript">
 
 /* Set the width of the side navigation to 250px */
@@ -79,6 +69,12 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 </script>
+
+<script src="js/dropdown.js"></script> <!-- The javascript that powers the dropdown menu -->
+
+
+
+
 
 <!-- This is the thing that opens the sidebar -->
 <img src="images/sidebar.png" style="z-index: 1; cursor: pointer; position:static; padding: 1% 1%; width:25px; height:25px;" onmouseover="" onclick="openNav()"></img>
