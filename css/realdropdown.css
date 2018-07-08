@@ -1,0 +1,62 @@
+.dropdown {
+    height: 100%; /* 100% Full-height */
+    width: 50%; 
+    height: 0px; /* 0 height - change this with JavaScript */
+    z-index: 1; /* Stay on top */
+    background-color: rgb(43, 31, 35); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-y: hidden;
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the dropdown */
+}
+
+.opencontainer {
+	transition: .5s;
+	height: 250px;
+	margin-bottom: 250px;
+	background-color: red;
+}
+
+.dropcontainer {
+	margin: 0% 5%;
+	height: 0px;
+	margin-bottom: 0px;
+}
+
+.dropcontainer.open{
+	margin-bottom: 250px;
+}
+
+.dropdown.open {
+	margin-bottom: 250px;
+}
+
+/* The navigation menu links */
+.dropdown a {
+    padding: 8px 8px 8px 100px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.dropdown a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.dropdown .closebtn {
+    position: absolute;
+    top: 10px;
+    left: -5px;
+    font-size: 36px;
+    margin-left: 5px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+.main {
+    transition: margin-left .5s;
+    padding: 20px;
+}

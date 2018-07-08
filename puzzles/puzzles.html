@@ -2,18 +2,17 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="../css/darkmode.css">
+  <link rel="stylesheet" href="../css/realdropdown.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 </head>
 
 <body style="background-color: rgb(53, 41, 45)">
-<!-- <body> -->
 
+<!-- 
+<img src="../images/escher3.png" style="position: absolute; z-index: -1; left: 10%; top: 10%; width: 30%"></img>
 
-
-<img src="images/escher3.png" style="position: absolute; z-index: -1; left: 10%; top: 10%; width: 30%"></img>
-
-
+ -->
 
 <div id="mySidenav" class="sidenav" style="z-index: 20">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -21,7 +20,7 @@
   <a href="../index">Home</a>
   <a href="#">Math</a>
   <a href="#">Puzzles</a>
-  <a href="games/sudoku">Games</a>
+  <a href="../games/sudoku">Games</a>
   <hr>
   <a href="#">About</a>
   <a href="#">Contact</a>
@@ -41,20 +40,111 @@ function closeNav() {
 </script>
 
 <!-- This is the thing that opens the sidebar -->
-<img src="images/sidebar.png" style="z-index: 1; cursor: pointer; position:absolute; padding: 0 1%; width:25px; height:25px;" onmouseover="" onclick="openNav()"></img>
+<img src="../images/sidebar.png" style="z-index: 4; cursor: pointer; position:static; padding: 1% 1%; width:25px; height:25px;" onmouseover="" onclick="openNav()"></img>
 
 
 
 
-<!-- <hr style="position: absolute; margin-top: 27%"; width="75%">
+
+<div id=dropContainer1 class="dropcontainer" style="transition: .5s; z-index: 3; cursor: pointer; position:relative; width:75%; height:25px;" onmouseover="" onclick="openDrop1()">
+  <!-- This is the thing that opens the dropdown -->
+  <img src="../images/pointer.png" style="z-index: 2; cursor: pointer; position:absolute; margin: 17px 5px; width:25px; height:100%;" onmouseover="" onclick="openDrop1()"></img>
+  <div id="myDropdown1" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%">
+    <a href="#">Home</a>
+    <a href="#">Things</a>
+    <a href="#">Stuff</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+</div>
+
+<div id=dropContainer2 class="dropcontainer" style="transition: .5s; z-index: 3; cursor: pointer; position:relative; margin: 1.5% 5%; width:75%; height:25px;" onmouseover="" onclick="openDrop2()">
+  <!-- This is the thing that opens the dropdown -->
+  <img src="../images/pointer.png" style="z-index: 2; cursor: pointer; position:absolute; margin: 17px 5px; width:25px; height:25px;" onmouseover="" onclick="openDrop2()"></img>
+  <div id="myDropdown2" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%">
+    <a href="#">Home</a>
+    <a href="#">Things</a>
+    <a href="#">Stuff</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+</div>
+
+<div id=dropContainer3 class="dropcontainer" style="transition: .5s; z-index: 3; cursor: pointer; position:relative; margin: 0% 5%; width:75%; height:25px;" onmouseover="" onclick="openDrop3()">
+  <!-- This is the thing that opens the dropdown -->
+  <img src="../images/pointer.png" style="z-index: 2; cursor: pointer; position:absolute; margin: 17px 5px; width:25px; height:25px;" onmouseover="" onclick="openDrop3()"></img>
+  <div id="myDropdown3" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%">
+    <a href="#">Home</a>
+    <a href="#">Things</a>
+    <a href="#">Stuff</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+  
+var open1 = false
+
+function openDrop1() {
+  if (!open1) {
+
+    document.getElementById("myDropdown1").style.height = "250px";
+    // document.getElementById("dropContainer1").style.marginBottom = "250px";  pushes everything below the menu down 
+    
+    open1= true;
+  } else {
+    document.getElementById("myDropdown1").style.height = "0px";
+    open1 = false;
+
+  }
+  document.getElementById("dropContainer1").classList.toggle("open");
+}
+ 
+
+var open2 = false
+
+function openDrop2() {
+  if (!open2) {
+    document.getElementById("myDropdown2").style.height = "250px";
+    open2 = true;
+  } else {
+    document.getElementById("myDropdown2").style.height = "0px";
+    open2 = false;
+
+  }
+  document.getElementById("dropContainer2").classList.toggle("open");
+}
+
+
+var open3 = false
+
+function openDrop3() {
+  if (!open2) {
+    document.getElementById("myDropdown3").style.height = "250px";
+    open3 = true;
+  } else {
+    document.getElementById("myDropdown3").style.height = "0px";
+    open3 = false;  
+  }
+  document.getElementById("dropContainer3").classList.toggle("open");
+}
+
+
+
+</script>
+
+
+
+
+
+<!-- <h1 style="word-wrap: break-word; position: relative; text-align: left; padding-left: 5%; padding-top: 10%; font-family: 'Roboto Condensed'; font-size: 32px; letter-spacing: 2px;">a</h1>
+
  -->
-<h1 style="word-wrap: break-word; position: relative; text-align: left; padding-left: 57%; padding-top: 10%; font-family: 'Roboto Condensed'; font-size: 32px; letter-spacing: 2px;">swbuchanan42@students.tntech.edu</h1>
-<div class="vl" style="height: 60%; top: 20%;"></div>
-<!-- 
-<p style="position: absolute; text-align: left; padding-left: 10%; padding-top: 12%"></p>
- -->
-</body>
+<!-- <div class="vl" style="height: 60%; top: 20%;"></div> -->
 
-
-
-</html>
