@@ -6,6 +6,7 @@
 
 <head>
 	<link rel="stylesheet" href="../css/darkmode.css">
+	<link rel="stylesheet" href="../css/realdropdown.css"
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 </head>
 
@@ -21,14 +22,24 @@
 <div id="mySidenav" class="sidenav" style="z-index: 20">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <hr>
-  <a href="../index">Home</a>
-  <a href="#">Math</a>
-  <a href="#">Puzzles</a>
-  <a href="#">Games</a>
+  <a href="../index.html">Home</a>
+
+  <div id=dropContainerNav class="dropcontainer" style="display: block; width: 80%; margin-left: 28px; margin-top: 0%; height: 1px">
+    <img id=pointerNav class="dropcontainericon" src="../images/pointer.png" style="top: 1px; right: 0px; width: 10px; height: 10px;" onmouseover="" onclick="openDropNav()"></img> <!-- This is the little arrow icon -->
+    <div id="myDropdownNav" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%; height: 0px; padding-top: 40px; background-color: #111">
+      <p style="transition: .3s; text-align: left; top: -19px; left: 4px; font-size: 25px; color: #818181;" onmouseover="this.style.color='#f1f1f1'" onmouseout="this.style.color='#818181'" onclick="openDropNav()">Math</p>
+      <!-- <p style="top: 0px">Math 2</p> -->
+      <a style="z-index: 30; position: absolute; left: -80px; top: 40px; font-size: 20px; color: #AAAAAA" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#AAAAAA'" href="../fun/recreational.html">Recreational</a>
+      <a style="z-index: 30; position: absolute; left: -80px; top: 80px; font-size: 20px; color: #AAAAAA" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#AAAAAA'" href="../research/research.html">Research</a>
+    </div>
+  </div>
+  <a href="../puzzles/puzzles">Puzzles</a>
+  <a href="../games/sudoku">Games</a>
   <hr>
   <a href="#">About</a>
-  <a href="#">Contact</a>
+  <a href="../contact">Contact</a>
 </div>
+
 
 <script type="text/javascript">
 	
@@ -46,18 +57,9 @@ function closeNav() {
 <!-- This is the thing that opens the sidebar -->
 <img src="../images/sidebar.png" style="z-index: 1; cursor: pointer; position:absolute; padding: 0 1%; width:25px; height:25px;" onmouseover="" onclick="openNav()"></img>
 
+<script src="../js/dropdown.js"></script>
 
 
-
-<!-- 
-<ul>
-  <li><a class="active" href="#home">Thing 1</a></li>
-  <li><a href="thing2.html">Thing 2</a></li>
-  <li><a href="thing3.html">Thing 3</a></li>
-  <li><a href="#about">Thing 4</a></li>
-</ul>
-
- -->
 <div style='width:361px'>
 	<IFRAME style='float: left; position: relative; padding-top: 50%; padding-left: 120%; padding-right: 20%; WIDTH: 361px; HEIGHT: 560px' src='http://sudokugooglegadget.com/standard.aspx' frameBorder='0' ></IFRAME>
 <!-- 	<div style='position: absolute; padding-left: 25%; padding-top:5px;text-align:right;font-family:verdana,arial;font-size:11px'>Supplied by <a href='http://sudoku.com.au'>Sudoku</a></div>
