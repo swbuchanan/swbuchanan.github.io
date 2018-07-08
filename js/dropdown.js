@@ -1,7 +1,7 @@
 var open1 = false
 function openDrop1() {
   if (!open1) {
-    document.getElementById("myDropdown1").style.height = "250px";
+    document.getElementById("myDropdown1").style.height = "275px";
     open1= true;
   } else {
     document.getElementById("myDropdown1").style.height = "0px";
