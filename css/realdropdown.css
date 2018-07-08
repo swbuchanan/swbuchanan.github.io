@@ -36,6 +36,7 @@
 	width:75%; height:25px;
 }
 
+
 .dropcontainer.open{
 	margin-bottom: 288px;
 }
@@ -66,6 +67,18 @@
     left: -5px;
     font-size: 36px;
     margin-left: 5px;
+}
+
+#myDropdownNav a:hover {
+	font-size: 72;
+}
+
+#myDropdownNav {
+	cursor: default;
+}
+
+#myDropdownNav p {
+	cursor: pointer;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
