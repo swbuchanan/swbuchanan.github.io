@@ -1,14 +1,16 @@
 var open1 = false
 function openDrop1() {
   if (!open1) {
-    document.getElementById("myDropdown1").style.height = "275px";
+    document.getElementById("myDropdown1").style.height = "700px";
+    // document.getElementById("myDropdown1").style.marginBottom = "288px";
     open1= true;
   } else {
     document.getElementById("myDropdown1").style.height = "0px";
+    // document.getElementById("myDropdown1").style.marginBottom = "0px";
     open1 = false;
   }
   document.getElementById("pointer1").classList.toggle("open"); /* rotates the little arrow thingy */
-  document.getElementById("dropContainer1").classList.toggle("open");
+  document.getElementById("dropContainer1").classList.toggle("open1");
 } 
 
 var open2 = false
