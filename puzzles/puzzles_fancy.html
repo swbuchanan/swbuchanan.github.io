@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../css/darkmode.css">
+  <link rel="stylesheet" href="../css/realdropdown.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+</head>
+
+<body style="background-color: rgb(63, 51, 55)">
+
+
+<div id="mySidenav" class="sidenav" style="z-index: 20">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <hr>
+  <a href="../index.html">Home</a>
+
+  <div id=dropContainerNav class="dropcontainer" style="display: block; width: 80%; margin-left: 28px; margin-top: 0%; height: 1px">
+    <img id=pointerNav class="dropcontainericon" src="../images/pointer.png" style="top: 1px; right: 0px; width: 10px; height: 10px;" onmouseover="" onclick="openDropNav()"></img> <!-- This is the little arrow icon -->
+    <div id="myDropdownNav" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%; height: 0px; padding-top: 40px; background-color: #111">
+      <p style="transition: .3s; text-align: left; top: -19px; left: 4px; font-size: 25px; color: #818181;" onmouseover="this.style.color='#f1f1f1'" onmouseout="this.style.color='#818181'" onclick="openDropNav()">Math</p>
+      <!-- <p style="top: 0px">Math 2</p> -->
+      <a style="z-index: 30; position: absolute; left: -80px; top: 40px; font-size: 20px; color: #AAAAAA" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#AAAAAA'" href="../fun/recreational.html">Recreational</a>
+      <a style="z-index: 30; position: absolute; left: -80px; top: 80px; font-size: 20px; color: #AAAAAA" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#AAAAAA'" href="../research/research.html">Research</a>
+    </div>
+  </div>
+  <a href="../puzzles/puzzles">Puzzles</a>
+  <a href="../games/sudoku">Games</a>
+  <hr>
+  <a href="#">About</a>
+  <a href="../contact">Contact</a>
+</div>
+
+
+
+<script type="text/javascript">
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px"; /* Set the width of the side navigation to 250px */
+}
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0"; /* Set the width of the side navigation to 0 */
+}
+</script>
+
+<!-- This is the thing that opens the sidebar -->
+<img src="../images/sidebar.png" style="z-index: 4; cursor: pointer; position:static; padding: 1% 1%; width:25px; height:25px;" onmouseover="" onclick="openNav()"></img>
+
+
+<div id=dropContainer1 class="dropcontainer" onmouseover="" onclick="openDrop1()">
+  <!-- This is the thing that opens the dropdown -->
+  <img id=pointer1 class="dropcontainericon" src="../images/pointer.png" onmouseover="" onclick="openDrop1()"></img>
+  <div id="myDropdown1" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%">
+    <p style="position: absolute; text-align: left; left: 100px; top: -2px; font-family: 'Roboto Condensed'">Induction</p>
+    <div style="background-color: #f1f1f1; width: 90%; height: 2px; left: 5%; right: 5%; position: absolute;"></div>
+    <p style="text-align: left; width: 80%; margin-left: 7.5%; margin-right: 10%; font-weight: bold">The King's Wise Men</p>
+    <br><br>
+    <p style="position: relative; text-align: left; width: 80%; margin-left: 10%; margin-right: 10%"> The King called the three wisest men in the country to his court to decide who would become his new advisor. He placed a hat on each of their heads, such that each wise man could see all of the other hats, but none of them could see their own. Each hat was either white or blue. The king gave his word to the wise men that at least one of them was wearing a blue hat; in other words, there could be one, two, or three blue hats, but not zero. The king also announced that the contest would be fair to all three men. The wise men were also forbidden to speak to each other. The king declared that whichever man stood up first and correctly announced the colour of his own hat would become his new advisor. The wise men sat for a very long time before one stood up and correctly announced the answer. What did he say, and how did he work it out? </p>
+    <p style="text-align: left; width: 80%; margin-left: 7.5%; margin-right: 10%; font-weight: bold">Josephine's Problem</p>
+    <br><br>
+    <p style="position: relative; text-align: left; width: 80%; margin-left: 10%; margin-right: 10%"> In Josephine's Kingdom every woman has to pass a logic exam before being allowed to marry. Every married woman knows about the fidelity of every man in the Kingdom except for her own husband, and etiquette demands that no woman should be told about the fidelity of her husband. Also, a gunshot fired in any house in the Kingdom will be heard in any other house. Queen Josephine announced that at least one unfaithful man had been discovered in the Kingdom, and that any woman knowing her husband to be unfaithful was required to shoot him at midnight following the day after she discovered his infidelity. How did the wives manage this? </p>
+
+    <p style="text-align: left; width: 80%; margin-left: 7.5%; margin-right: 10%; font-weight: bold">Prisoners and Hats</p>
+    <br><br>
+    <p style="position: relative; text-align: left; width: 80%; margin-left: 10%; margin-right: 10%">Four prisoners are arrested for a crime, but the jail is full and the jailer has nowhere to put them. He eventually comes up with the solution of giving them a puzzle so if they succeed they can go free but if they fail they are executed.  The jailer seats three of the men into a line. B faces the wall, C faces B, and D faces C and B. The fourth man, A, is put behind a screen (or in a separate room). The jailer gives all four men party hats. He explains that there are two black hats and two white hats, that each prisoner is wearing one of the hats, and that each of the prisoners see only the hats in front of him but neither on himself nor behind him. The fourth man behind the screen can't see or be seen by any other prisoner. No communication among the prisoners is allowed.  If any prisoner can figure out what color hat he has on his own head with 100% certainty (without guessing) and tell the jailer, all four prisoners go free. If any prisoner suggests an incorrect answer, all four prisoners are executed. How do the prisoners escape? </p>
+
+
+
+    <!-- <hr style="position: absolute; width: 80%; margin-right: 0" align="center"> -->
+  </div>
+
+</div>
+
+<div id=dropContainer2 class="dropcontainer" onmouseover="" onclick="openDrop2()">
+  <!-- This is the thing that opens the dropdown -->
+  <img id=pointer2 class="dropcontainericon" src="../images/pointer.png" onmouseover="" onclick="openDrop2()"></img>
+  <div id="myDropdown2" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%">
+    <a href="#">Home</a>
+    <a href="#">Things</a>
+    <a href="#">Stuff</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+</div>
+
+<div id=dropContainer3 class="dropcontainer" onmouseover="" onclick="openDrop3()">
+  <!-- This is the thing that opens the dropdown -->
+  <img id=pointer3 class="dropcontainericon" src="../images/pointer.png" onmouseover="" onclick="openDrop3()"></img>
+  <div id="myDropdown3" class="dropdown" style="z-index: 1; position: absolute; margin: 0% 0%; width: 100%">
+    <p style="position: absolute; text-align: left; left: 100px; top: -2px; font-family: 'Roboto Condensed'">Game Theory</p>
+    <a href="#">Home</a>
+    <a href="#">Things</a>
+    <a href="#">Stuff</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+</div>
+
+
+
+<script src="../js/dropdown.js"></script> <!-- The javascript that powers the dropdown menu -->
+
+
+
+
+
+<!-- <h1 style="word-wrap: break-word; position: relative; text-align: left; padding-left: 5%; padding-top: 10%; font-family: 'Roboto Condensed'; font-size: 32px; letter-spacing: 2px;">a</h1>
+
+ -->
+<!-- <div class="vl" style="height: 60%; top: 20%;"></div> -->
+
