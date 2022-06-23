@@ -10,7 +10,8 @@ layout: default
   {{ content }}
 
   {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Blog Posts" }}</h2>
+    <h3> This is a small website where you can find my posts about things I'm interested in.  For more information about me, see the "About Me" page. </h3>
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
       <li>

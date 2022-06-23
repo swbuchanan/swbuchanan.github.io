@@ -4,4 +4,4 @@ title: About Me
 permalink: /about/
 ---
 
-I study math and I like programming and reading.
+I'm a math PhD student at the University of Tennessee in Knoxville.
