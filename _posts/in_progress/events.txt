@@ -1,9 +1,7 @@
----
 layout: post
 title: Modeling the Unmodelable
 usemathjax: true
 tags: mathematics elementary probability
----
 
 # Finite Random Events
 
