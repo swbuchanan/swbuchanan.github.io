@@ -5,9 +5,8 @@ layout: page
 Notes coming soon.
 
 
-[Topology I](https://drive.google.com/uc?export=download&id=1MzbXmwuLwV2gbp0A9gQxiG_7Tt_31mnv/)
+[Topology I](https://drive.google.com/uc?id=1MzbXmwuLwV2gbp0A9gQxiG_7Tt_31mnv&export=download)
 
 [Topology II](https://drive.google.com/uc?id=1Iq07PnbBOREcdomB6zi2Qnddq4t2nv9D&export=download)
 
-[Topology II](https://drive.google.com/uc?export=download&id=1Iq07PnbBOREcdomB6zi2Qnddq4t2nv9D/)
 
