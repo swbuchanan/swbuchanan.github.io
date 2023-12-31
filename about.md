@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-I'm a PhD student studying geometric analysis at the Australian National University.  Below is a link to my CV.
+I'm a PhD student studying geometric analysis at the Australian National University.  Below is an (outdated) link to my CV.
 I hope to use this site to post short articles about topics that interest me.
 
 
