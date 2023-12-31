@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-I'm a math PhD student at the University of Tennessee in Knoxville.  Below is a link to my CV.
+I'm a PhD student studying geometric analysis at the Australian National University.  Below is a link to my CV.
 I hope to use this site to post short articles about topics that interest me.
 
 
@@ -11,4 +11,4 @@ I hope to use this site to post short articles about topics that interest me.
 
 # Contact
 
-To get in touch with me, email me at `sbucha14@vols.utk.edu`.
+To get in touch with me, email me at `steven.buchanan@anu.edu.au`.
