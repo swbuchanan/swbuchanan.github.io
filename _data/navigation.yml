@@ -5,7 +5,7 @@ main:
     url: "https://stevenbuchanan.net"
   - title: "About"
     url: /about/
-  - title: "Post Archives"
+  - title: "Articles"
     url: /archives/
   - title: "Notes"
     url: /notes/

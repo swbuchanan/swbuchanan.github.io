@@ -14,8 +14,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Steven Buchanan
-author: Steven
-description: Some stuff
+author: Steven Buchanan
+description: A personal website with articles on mathematical topics and some professional information about me
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://stevenbuchanan.net" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
