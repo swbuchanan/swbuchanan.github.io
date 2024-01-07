@@ -9,29 +9,31 @@ title: "My research, part 2"
 In this article, I will not be talking about my own research yet, but instead I'll be talking about research completed by others.
 
 Event though it isn't the focus of my research, I want to talk about curve shortening flow since it is a particularly simple and concrete example of a geometric flow.
-Through explaining this flow, I hope to give an idea of what it's like to work on geometric flows.
-Similarly, I hope to provide some insight into what research questions are generally like in the field of pure mathematics, as this is a topic that confuses many people who have little formal education in math.
+I also hope to give an example of what an actual research question in this field is like, since most of the time when I explain my research field I have to stay at the level of vague ideas and intuitive explanations.
+This article will still be quite vague compared to the actual research papers, but at least it will be a vague explanation of a significant result in this area.
 
-
-In the field of geometric flows, we usually have some partial differential equation like the heat equation or the equation that describes curve shortening flow.
-It's important to note that "solving the equation" is not a focus of research in the area.
+In the field of geometric flows, we usually have some partial differential equation like the heat equation or the curve shortening flow equation.
+It's often easy to describe the flow without the use of an equation, but the equation is critical when it comes to actually doing mathematics.
+It's natuaral to think that equations exist as things that are to be solved, but it should be noted that solving these equations is never a major research question.
 Indeed, solutions to these equations are generally easy to come by.
 In the last article I linked [this website](https://a.carapetis.com/csf/), which lets you observe solutions to curve shortening flow that begin with a curve that you can draw yourself.[^solutions].
 
-A solution to a geometric flow is just the initial setup (in this case, it's the curve that you draw), and then all the curves at every instant in time afterwards.
-What makes these time-slices of curves a solution is that if you play the time-slices like a movie (this is what the website does for you), you see the curve moving according to the curve shortening flow equation.
+A solution to a geometric flow is just the initial setup consisting of a manifold and its geometry (in this case the manifold is the curve and the geometry is the shape of the curve) and then all the curves at every instant in time afterwards.
+What makes these time-slices of curves a solution is that if you play the time-slices like a movie (this is what the website does for you), you see the curve move according to the curve shortening flow equation (remember that the curve shortening flow tells a curve how to change shape over time).
 It could be moving in a way that satisfied some other geometric equation, or it could be moving randomly, but it's moving according to the rule of curve shortening flow, and therefore it is a solution.
-Generally, a solution to a geometric flow of a manifold is again a collection of time-slices of a manifold changing geometry such that if you play the time-slices like a movie, you "see" the geometry changing over time in a way that is described by whatever equation you happen to be looking at.
+To summarize this paragraph: a solution to a geometric flow of a manifold (think about a curve) is a collection of time-slices of a manifold changing geometry (think about the curve changing shape) such that if you could play the time-slices like a movie, you would see the geometry changing over time in a way that is described by the equation associated to the geometric flow you're thinking of.
 
-When we have a partial differential equation, rather than just trying to solve the equation, usually the interesting problem is to prove that any solution to the equation must have certain properties.
-Or more often, that any solution with property A must also have property X, or something to that effect.
-To slightly undermine my previous point, occasionally we are interested in trying to construct a solution to the equation that has some certain properties or is missing some certain properties, or demonstrates that some idea is true or some other idea is false.
+When we have a partial differential equation, rather than just trying to solve the equation, usually a more interesting problem is to prove that any solution to the equation must have certain properties.
+Or more often, that any solution with properties A, B, and C necessarily has some particular behavior, or doesn't have some other behavior, or something to that effect.
+To slightly undermine my previous point about solving the equation, occasionally we are interested in trying to construct a solution to the equation that has some certain properties or is missing some certain properties, or demonstrates that some idea is true or some other idea is false.
+It also can be a challenging problem to prove that solutions to the equation always have to exist!
+For instance, not every curve has a well-defined normal vector at every point (think about what happens if the curve has a "corner" somewhere).
+Since the normal vector is part of the equation, not having a normal vector means that the curve shortening flow equation can't tell the curve how to move if the curve doesn't have a normal vector somewhere[^normal].
+Even if we start with a curve that is completely smooth and has no corners, if we let it flow according to curve shortening flow, how do we know it won't later on develop a corner and break the flow?
+This doesn't happen, but the fact that it doesn't happen is a non-obvious fact requiring proof.
 
-However, most often the goal in mathematical research is to prove a claim.
-In geometric flows, we usually want to prove some statement about solutions to some geometric evolution equation.
-Sometimes it's too much to ask to be able to prove a statement that refers to every possible solution to an equation, so instead we only look at solutions that have some properties that make our lives easier.
-
-As an example, I'll discuss the proof of the following statement about certain solutions to the curve shortening flow.
+Okay, so we know what solutions to curve shortening flow are, and we're interested in proving that certain types of solutions (that is, solutions with certain properties as mentioned in the previous paragraph) behave in a certain way.
+As an example of this, I'll discuss the proof of the following statement about certain solutions to the curve shortening flow.
 
 > If we begin with a curve forming a closed loop in 2-dimensional space without crossing over itself, then as the curve moves according to curve shortening flow, it will never cross over itself, but instead will shrink to a point.
 > Moreover, as it shrinks it will become more and more circular.
@@ -74,7 +76,10 @@ That is, the curvature is changing over time in such a way that the maximum curv
 The only way that can be true is if the curvature everywhere is the same, and the only way *that* can be true is if the curve is a circle.
 So, over time the curve is becoming a circle.[^circle]
 
-Notice that it's important that we're talking about the *ratio* of the maximum and minimum curvatures instead of just 
+Notice that it's important that we're talking about the *ratio* of the maximum and minimum curvatures instead of just the maximum and minimum curvatures directly.
+As the curve shrinks to a tiny circle (and eventually shrinks into nothing), the curvature increases without bound.
+A tiny circle is more curved than a large one, but the ratio of the maximum and minimum curvatures on a tiny circle is still 1.
+If all we knew was that the maximum and minimum curvatures were increasing without bound, this wouldn't be enough to say that the curve is becoming circular, but the fact about the ratio approaching 1 is a stronger fact.
 
 ## Footnotes
 
@@ -82,6 +87,9 @@ Notice that it's important that we're talking about the *ratio* of the maximum a
     Precisely, one example of a solution is $$\gamma(x,t) = (\sqrt{9 - 2t} \cos x, \sqrt{9 - 2t} \sin x).$$
     The curve described by this equation (which, by necessity, tells us how the curve looks at each time-slice) looks like a circle with initial radius 3 that is shrinking inwards.
     If you could draw a perfect circle on the website (and if the website could actually process a perfect circle), this equation describes what you would see.
+
+[^normal]: Don't worry, there's a way to fix this problem, and the curve shortening flow still works even if the curve you start with has sharp corners.
+    (But worse things can happen too.)
 
 [^gage_hamilton]: To be completely accurate, Gage and Hamilton proved the result under the additional assumption that the curve you start with is *convex*, meaning that if you travel around the curve in a counterclockwise direction, you can only turn to the left (or go straight for a while).
     Later, Grayson proved that if you start with an arbitrary curve that doesn't intersect itself, eventually it will *become* convex without ever intersecting itself.
