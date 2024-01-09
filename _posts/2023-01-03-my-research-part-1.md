@@ -4,8 +4,6 @@ usemathjax: true
 title: "My research, part 1"
 ---
 
-test
-
 I study a particular type of solution to a particular *geometric evolution equation*.
 A geometric evolution equation describes how a mathematical object called a manifold (a simple line or a sphere is an example of a manifold) changing shape over time.
 What makes the evolution geometric is that the particular way in which the manifold changes depends on the shape, i.e. the geometry, of the manifold at any point in time.
@@ -17,6 +15,7 @@ One simple geometric evolution equation describes a type of event that everyone 
 
 Suppose we have a wire[^1] that has been unevenly heated:
 
+<img title="a title" alt="Alt text" src="/assets/my_research_part_1_graphic1.svg">
 <p style="text-align: center;">graphic 1</p>
 
 We can visualize the distribution of heat throughout the wire by a graph:
@@ -24,8 +23,8 @@ We can visualize the distribution of heat throughout the wire by a graph:
 <p style="text-align: center;">graphic 2</p>
 
 Now, if we allow time to pass, the heat will rapidly diffuse throughout the wire.
-Notice that in some places on the wire, there were points with a lot of heat surrounded by areas with relatively little.
-The temperature changed at these points much quicker than it did at points whose temperature was close to the temperature of the surrounding areas.
+Notice that in some places on the wire, there were points with a lot of heat surrounded by areas with relatively little (as well as points of relatively low temperature compared to their surroundings).
+The temperature changed at these points much quicker than it did at points whose temperature was close, on average, to the temperature of the surrounding areas.
 
 <p style="text-align: center;">graphic 3</p>
 
@@ -83,6 +82,8 @@ To define the curve shortening flow, start with a curve sitting in 2 dimensions:
 At each point on this curve, consider the direction that is perpendicular to the curve at that point:
 
 <p style="text-align: center;">graphic 6</p>
+
+(Only a few arrows are drawn to illustrate the principle, but at any point on the curve we could draw such an arrow.)
 
 These arrows are called *normal vectors*.
 For a 1-dimensional curve sitting inside 2-dimensional space, the only geometric information available at a point is a single number describing the curvature at that point.
