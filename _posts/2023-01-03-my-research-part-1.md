@@ -15,26 +15,24 @@ One simple geometric evolution equation describes a type of event that everyone 
 
 Suppose we have a wire[^1] that has been unevenly heated:
 
-<img title="a title" alt="Alt text" src="/assets/my_research_part_1_graphic1.svg">
-<p style="text-align: center;">graphic 1</p>
+<img align="center" title="Graphic 1" alt="Alt text" src="/assets/my_research_part_1_graphic1.svg">
 
 We can visualize the distribution of heat throughout the wire by a graph:
 
-<p style="text-align: center;">graphic 2</p>
+<img align="center" title="Graphic 2" alt="Alt text" src="/assets/my_research_part_1_graphic2.svg">
 
-Now, if we allow time to pass, the heat will rapidly diffuse throughout the wire.
+Now, if we allow time to pass, the heat will rapidly diffuse throughout the wire, and the graph will change correspondingly (we are mostly interested in how the graph changes).
 Notice that in some places on the wire, there were points with a lot of heat surrounded by areas with relatively little (as well as points of relatively low temperature compared to their surroundings).
 The temperature changed at these points much quicker than it did at points whose temperature was close, on average, to the temperature of the surrounding areas.
 
-<p style="text-align: center;">graphic 3</p>
+<img align="center" title="Graphic 3" alt="Alt text" src="/assets/my_research_part_1_graphic3.svg">
 
 So it seems like a general rule for heat diffusion is that the greater the temperature differential with surrounding areas, the faster the diffusion.
 Not too complicated.
 But notice that temperature differential between a point and the surrounding areas is reflected in the geometry of the graph!
 Points like this show up in the graph as sharp spikes.
 The mathematical way to identify this is with the (spatial) second derivative.
-
-<p style="text-align: center;">graphic 4</p>
+I won't go into detail about derivatives, but it suffices to say that the magnitude of the second derivative is highest at the peaks and valleys of the graph, and lowest at the points in between.
 
 This idea gives us the *heat equation*, the simplest model of heat diffusion.
 The equation looks like this:
@@ -77,11 +75,11 @@ A cool interactive demonstration of the curve shortening flow can be found [here
 
 To define the curve shortening flow, start with a curve sitting in 2 dimensions:
 
-<p style="text-align: center;">graphic 5</p>
+<img align="center" title="Graphic 4" alt="Alt text" src="/assets/my_research_part_1_graphic4.svg">
 
 At each point on this curve, consider the direction that is perpendicular to the curve at that point:
 
-<p style="text-align: center;">graphic 6</p>
+<img align="center" title="Graphic 5" alt="Alt text" src="/assets/my_research_part_1_graphic5.svg">
 
 (Only a few arrows are drawn to illustrate the principle, but at any point on the curve we could draw such an arrow.)
 
@@ -92,14 +90,14 @@ If the curvature is positive, it means that the curve is turning to the left fro
 The curvature is negative at points where the curve is curving to the right from the same perspective.
 More positive or more negative curvatures mean that the curve is turning more sharply to the left or right.
 
-<p style="text-align: center;">graphic 7</p>
+<img align="center" title="Graphic 6" alt="Alt text" src="/assets/my_research_part_1_graphic6.svg">
 
 So at every point along the curve, we have a normal vector that points in a certain direction, and we have a number.
 The curve shortening flow says that every point of the curve will move in the direction of the normal vector at a speed equal to the curvature at that point.
 
 So if we consider the curve shortening flow applied to our curve from before, some points will move inwards quickly or slowly, and some will move outwards quickly or slowly.
 
-<p style="text-align: center;">graphic 8</p>
+<img align="center" title="Graphic 7" alt="Alt text" src="/assets/my_research_part_1_graphic7.svg">
 
 Notice that some points move in the opposite direction of the normal vector.
 This is because the curvature is negative at those points, so they move in the direction of the normal vector with negative speed.
