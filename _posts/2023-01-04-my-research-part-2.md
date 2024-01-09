@@ -5,7 +5,7 @@ title: "My research, part 2"
 ---
 
 This is the second part in a series of short articles I'm trying to write about my research.
-[See the first one here]({% post_url 2023-01-03-my-research-part-1 %})
+[See the first one here.]({% post_url 2023-01-03-my-research-part-1 %})
 
 ## Research questions in curve shortening flow
 
