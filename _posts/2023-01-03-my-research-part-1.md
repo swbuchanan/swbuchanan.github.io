@@ -117,7 +117,7 @@ What does mathematical research relating to such an equation look like?
 Good question!
 That is the subject of the next post.
 
-[Next post: mathematical research on curve shortening flow]({% post_url 2023-01-04-my-research-part-2 %})
+[Next post: mathematical research on curve shortening flow]({% post_url 2023-01-08-my-research-part-2 %})
 
 ### Footnotes
 
