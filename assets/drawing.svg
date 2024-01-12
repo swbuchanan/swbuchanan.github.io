@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0973349"
+     inkscape:cx="-260.63147"
+     inkscape:cy="555.89229"
+     inkscape:window-width="1920"
+     inkscape:window-height="1061"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Send"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.2) rotate(180) translate(6,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path39056" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Mend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4) rotate(180) translate(10,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path39050" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4) translate(10,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path39047" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path39041" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient9975">
+      <stop
+         style="stop-color:#8e00b2;stop-opacity:0.98823529"
+         offset="0"
+         id="stop9963" />
+      <stop
+         style="stop-color:#ff0606;stop-opacity:0.99607843"
+         offset="0.15048918"
+         id="stop9965" />
+      <stop
+         style="stop-color:#b22200;stop-opacity:0.98823529;"
+         offset="0.5"
+         id="stop9967" />
+      <stop
+         style="stop-color:#d81100;stop-opacity:0.98431373;"
+         offset="0.78464055"
+         id="stop9969" />
+      <stop
+         style="stop-color:#5e00eb;stop-opacity:0.98039216"
+         offset="0.875"
+         id="stop9971" />
+      <stop
+         style="stop-color:#890044;stop-opacity:0.98039216"
+         offset="1"
+         id="stop9973" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient7912">
+      <stop
+         style="stop-color:#8e00b2;stop-opacity:0.98823529"
+         offset="0"
+         id="stop7900" />
+      <stop
+         style="stop-color:#ff0661;stop-opacity:0.99607843"
+         offset="0.15094495"
+         id="stop7902" />
+      <stop
+         style="stop-color:#9f00b2;stop-opacity:0.98823529"
+         offset="0.5"
+         id="stop7904" />
+      <stop
+         style="stop-color:#d8006b;stop-opacity:0.98431373"
+         offset="0.78464055"
+         id="stop7906" />
+      <stop
+         style="stop-color:#be00eb;stop-opacity:0.98039216"
+         offset="0.875"
+         id="stop7908" />
+      <stop
+         style="stop-color:#890044;stop-opacity:0.98039216"
+         offset="1"
+         id="stop7910" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient951-3-6">
+      <stop
+         style="stop-color:#1d00ec;stop-opacity:0.98823529"
+         offset="0"
+         id="stop5625" />
+      <stop
+         style="stop-color:#ff0606;stop-opacity:0.99607843"
+         offset="0.15048918"
+         id="stop5627" />
+      <stop
+         style="stop-color:#b22200;stop-opacity:0.98823529;"
+         offset="0.5"
+         id="stop5629" />
+      <stop
+         style="stop-color:#d81100;stop-opacity:0.98431373;"
+         offset="0.78464055"
+         id="stop5631" />
+      <stop
+         style="stop-color:#5e00eb;stop-opacity:0.98039216"
+         offset="0.875"
+         id="stop5633" />
+      <stop
+         style="stop-color:#1400fe;stop-opacity:0.98039216"
+         offset="1"
+         id="stop5635" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient951-3-6-7">
+      <stop
+         style="stop-color:#1d00ec;stop-opacity:0.98823529"
+         offset="0"
+         id="stop947" />
+      <stop
+         style="stop-color:#ff0606;stop-opacity:0.99607843"
+         offset="0.15048918"
+         id="stop4355" />
+      <stop
+         style="stop-color:#1700b2;stop-opacity:0.98823529"
+         offset="0.5"
+         id="stop3611" />
+      <stop
+         style="stop-color:#d81100;stop-opacity:0.98431373;"
+         offset="0.78464055"
+         id="stop3613" />
+      <stop
+         style="stop-color:#5e00eb;stop-opacity:0.98039216"
+         offset="0.875"
+         id="stop3615" />
+      <stop
+         style="stop-color:#fe0000;stop-opacity:0.97985506"
+         offset="1"
+         id="stop949" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient951-3-6-7"
+       id="linearGradient1012"
+       x1="30.186497"
+       y1="100.46097"
+       x2="168.15076"
+       y2="100.46097"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-274.65834)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient951-3-6"
+       id="linearGradient2939"
+       x1="30.186497"
+       y1="100.46097"
+       x2="168.15076"
+       y2="100.46097"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-274.65834)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient9975"
+       id="linearGradient7725"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-10.733771)"
+       x1="30.340498"
+       y1="100.47199"
+       x2="168.15076"
+       y2="100.46097" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7912"
+       id="linearGradient7727"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-10.733771)"
+       x1="30.340498"
+       y1="100.47199"
+       x2="168.15076"
+       y2="100.46097" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:url(#linearGradient2939);fill-opacity:1;stroke:url(#linearGradient1012);stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m -244.47185,100.46097 h 12.90468 20.45997 17.31832 31.11726 29.56657 26.59746"
+       id="path857"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic1.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.988235;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.980168"
+       d="m -243.93308,92.895342 c 0,0 11.49662,-50.355581 22.42,-50.355581 14.2276,0 31.86981,49.297108 46.13786,49.297108 14.69487,0 19.40329,-41.01351 33.39192,-41.01351 9.34207,0 13.82342,31.839463 19.03609,32.115202 5.46347,0.289006 15.65352,-36.231629 15.65352,-36.231629"
+       id="path6654"
+       sodipodi:nodetypes="cssssc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic2.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:url(#linearGradient7725);fill-opacity:1;stroke:url(#linearGradient7727);stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 19.452719,100.46097 h 12.90468 l 24.129155,0 13.649135,0 h 31.117261 29.56657 26.59746"
+       id="path7721"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic3.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.988235;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:0.980168"
+       d="m 19.991489,74.131582 c 0,0 11.49662,-18.029089 22.42,-18.029089 14.2276,0 31.86981,25.684854 46.13786,25.684854 14.694871,0 19.403291,-16.734289 33.391921,-16.734289 9.34207,0 13.82342,5.279737 19.03609,5.555476 5.46347,0.289006 15.65352,-10.863037 15.65352,-10.863037"
+       id="path7723"
+       sodipodi:nodetypes="cssssc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic3.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.988235;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.980168"
+       d="m 19.799321,92.895342 c 0,0 11.49662,-50.355581 22.42,-50.355581 14.2276,0 31.86981,49.297108 46.13786,49.297108 14.694869,0 19.403289,-41.01351 33.391919,-41.01351 9.34207,0 13.82342,31.839463 19.03609,32.115202 5.46347,0.289006 15.65352,-36.231629 15.65352,-36.231629"
+       id="path10247"
+       sodipodi:nodetypes="cssssc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic3.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       x="3.7487941"
+       y="16.258059"
+       id="text32448"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic3.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan32446"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'TeX Gyre Termes Math';-inkscape-font-specification:'TeX Gyre Termes Math';fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="3.7487941"
+         y="16.258059">Here the temperature is higher</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'TeX Gyre Termes Math';-inkscape-font-specification:'TeX Gyre Termes Math';fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="3.7487941"
+         y="21.643847"
+         id="tspan37200">than the surrounding temperature,</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'TeX Gyre Termes Math';-inkscape-font-specification:'TeX Gyre Termes Math';fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="3.7487941"
+         y="27.029634"
+         id="tspan65753">and we see that the graph moved</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'TeX Gyre Termes Math';-inkscape-font-specification:'TeX Gyre Termes Math';fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="3.7487941"
+         y="32.415421"
+         id="tspan65755">more at this point</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'TeX Gyre Termes Math';-inkscape-font-specification:'TeX Gyre Termes Math';fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       x="68.873795"
+       y="30.955772"
+       id="text38556"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic3.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         style="font-size:4.23333px;stroke-width:0.5"
+         x="68.873795"
+         y="30.955772"
+         id="tspan38712">Here the temperature is roughly</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:4.23333px;stroke-width:0.5"
+         x="68.873795"
+         y="36.247437"
+         id="tspan44075">the same as the surrounding</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:4.23333px;stroke-width:0.5"
+         x="68.873795"
+         y="41.539097"
+         id="tspan38716">temperature on average, and the</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:4.23333px;stroke-width:0.5"
+         x="68.873795"
+         y="46.830757"
+         id="tspan68451">graph moved very little (if at all)</tspan></text>
+    <path
+       style="fill:#090005;fill-opacity:0.980392;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-start:url(#Arrow1Mstart)"
+       d="M 40.637032,54.092649 23.47824,35.265388"
+       id="path38887"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic3.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#090005;fill-opacity:0.980392;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-start:url(#Arrow1Mstart)"
+       d="M 69.558532,68.976917 88.834802,50.043324"
+       id="path45012"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic3.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       d="m -57.558934,195.39966 c -6.430055,-8.13573 -19.995357,-8.60347 -30.268164,-7.18745 -8.114855,1.11857 -13.591842,9.73357 -21.482202,11.93455 -17.28981,4.82292 -44.59983,-13.41515 -53.81285,1.98999 -3.31696,5.54631 3.04853,13.99282 8.53515,17.40762 10.71844,6.67101 25.40955,-2.05919 37.87458,-0.0566 7.63215,1.22616 14.4222,5.83207 22.012191,7.2967 14.946172,2.88415 30.558678,5.25249 45.580315,2.79144 2.853861,-0.46756 5.933452,-1.28196 8.037555,-3.26587 6.912871,-6.51797 16.598451,-17.27656 12.262726,-25.73075 -4.442034,-8.66148 -22.49644,2.28899 -28.739301,-5.17958 -1.1e-5,-1e-5 1e-5,-4e-5 0,-5e-5 z"
+       id="path53523"
+       sodipodi:nodetypes="aaaaaaaaaaaa"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic6.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       d="m 146.87683,195.39966 c -6.43005,-8.13573 -19.99536,-8.60347 -30.26816,-7.18745 -8.11486,1.11857 -13.59184,9.73357 -21.482204,11.93455 -17.28981,4.82292 -44.59983,-13.41515 -53.81285,1.98999 -3.31696,5.54631 3.04853,13.99282 8.53515,17.40762 10.71844,6.67101 25.40955,-2.05919 37.87458,-0.0566 7.63215,1.22616 14.422204,5.83207 22.012194,7.2967 14.94617,2.88415 30.55867,5.25249 45.58031,2.79144 2.85386,-0.46756 5.93345,-1.28196 8.03756,-3.26587 6.91287,-6.51797 16.59845,-17.27656 12.26272,-25.73075 -4.44203,-8.66148 -22.49644,2.28899 -28.7393,-5.17958 -1e-5,-1e-5 10e-6,-4e-5 0,-5e-5 z"
+       id="path53813"
+       sodipodi:nodetypes="aaaaaaaaaaaa"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic5.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.199303;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-end:url(#Arrow1Mend)"
+       d="m 89.315077,219.85084 1.7629,-7.55391"
+       id="path54079"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic5.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'TeX Gyre Termes Math';-inkscape-font-specification:'TeX Gyre Termes Math';fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       x="-188.61513"
+       y="174.91579"
+       id="text55837"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic6.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan55835"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-188.61513"
+         y="174.91579">high positive curvature</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-188.61513"
+         y="180.20744"
+         id="tspan69675">(the graph is turning</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-188.61513"
+         y="185.49911"
+         id="tspan69677">sharply to the left)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'TeX Gyre Termes Math';-inkscape-font-specification:'TeX Gyre Termes Math';fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       x="-87.934868"
+       y="242.18436"
+       id="text59727"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic6.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan59725"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-87.934868"
+         y="242.18436">even lower positive curvature</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-87.934868"
+         y="247.47601"
+         id="tspan75275">(the graph is turning</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-87.934868"
+         y="252.76768"
+         id="tspan75277">slowly to the left)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'TeX Gyre Termes Math';-inkscape-font-specification:'TeX Gyre Termes Math';fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       x="-140.53485"
+       y="169.35109"
+       id="text61339"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic6.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan61337"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-140.53485"
+         y="169.35109">no curvature</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-140.53485"
+         y="174.64275"
+         id="tspan73015">(the graph goes</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-140.53485"
+         y="179.93442"
+         id="tspan73017">straight for just a</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-140.53485"
+         y="185.22607"
+         id="tspan73019">little while)</tspan></text>
+    <path
+       style="fill:#090005;fill-opacity:0.980392;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-end:url(#Arrow1Send)"
+       d="m -126.20797,188.81692 -5.62873,7.79235"
+       id="path61638"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic6.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#090005;fill-opacity:0.980392;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-end:url(#Arrow1Send)"
+       d="m -166.57152,187.09707 1.40589,13.61807"
+       id="path61860"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic6.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#090005;fill-opacity:0.980392;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-end:url(#Arrow1Send)"
+       d="m -75.760471,237.54353 0.655324,-6.01385"
+       id="path61961"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic6.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       d="m -256.5653,195.39966 c -6.43005,-8.13573 -19.99535,-8.60347 -30.26816,-7.18745 -8.11486,1.11857 -13.59184,9.73357 -21.4822,11.93455 -17.28981,4.82292 -44.59983,-13.41515 -53.81285,1.98999 -3.31696,5.54631 3.04853,13.99282 8.53515,17.40762 10.71844,6.67101 25.40955,-2.05919 37.87458,-0.0566 7.63215,1.22616 14.4222,5.83207 22.01219,7.2967 14.94617,2.88415 30.55868,5.25249 45.58031,2.79144 2.85386,-0.46756 5.93345,-1.28196 8.03756,-3.26587 6.91287,-6.51797 16.59845,-17.27656 12.26272,-25.73075 -4.44203,-8.66148 -22.49644,2.28899 -28.7393,-5.17958 -1e-5,-1e-5 10e-6,-4e-5 0,-5e-5 z"
+       id="path62100"
+       sodipodi:nodetypes="aaaaaaaaaaaa" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       d="m -57.558934,284.29179 c -6.430055,-8.13573 -19.995357,-8.60347 -30.268164,-7.18745 -8.114855,1.11857 -13.591842,9.73357 -21.482202,11.93455 -17.28981,4.82292 -44.59983,-13.41515 -53.81285,1.98999 -3.31696,5.54631 3.04853,13.99282 8.53515,17.40762 10.71844,6.67101 25.40955,-2.05919 37.87458,-0.0566 7.63215,1.22616 14.4222,5.83207 22.012191,7.2967 14.946172,2.88415 30.558678,5.25249 45.580315,2.79144 2.853861,-0.46756 5.933452,-1.28196 8.037555,-3.26587 6.912871,-6.51797 16.598451,-17.27656 12.262726,-25.73075 -4.442034,-8.66148 -22.49644,2.28899 -28.739301,-5.17958 -1.1e-5,-10e-6 1e-5,-4e-5 0,-5e-5 z"
+       id="path62102"
+       sodipodi:nodetypes="aaaaaaaaaaaa"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic7.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:1.5, 1.5;stroke-dashoffset:0;stroke-opacity:0.988235"
+       d="m -58.149314,283.88331 c -9.430953,-4.86026 -19.440595,-6.62651 -29.343488,-5.39906 -7.6709,0.9508 -14.243728,6.09138 -21.646008,8.3169 -13.43577,4.0395 -34.49078,-3.30219 -41.1,9.07341 -1.57849,2.95569 1.03685,7.27605 3.65835,9.36303 7.92053,6.30554 20.14013,2.34532 30.04699,4.43074 7.38641,1.55486 14.37092,4.87232 21.833241,6.00827 14.710775,2.23934 30.021974,4.40588 44.615544,1.49912 2.961289,-0.58983 6.23829,-1.49438 8.245781,-3.74984 4.287017,-4.81657 8.411535,-12.47469 5.912128,-18.41866 -3.210942,-7.63611 -14.859108,-7.32915 -22.222538,-11.12391 z"
+       id="path62123"
+       sodipodi:nodetypes="ssaaaaaaaas"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic7.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.199303;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-end:url(#Arrow1Mend)"
+       d="m 140.30357,190.29931 -3.21161,6.72814"
+       id="path64206"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic5.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.199303;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-end:url(#Arrow1Mend)"
+       d="m 175.02017,199.55082 -5.21982,4.2246"
+       id="path64288"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic5.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.199303;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-end:url(#Arrow1Mend)"
+       d="m 176.77793,203.38899 -6.51046,1.19387"
+       id="path64290"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic5.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.199303;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-end:url(#Arrow1Mend)"
+       d="m 163.22238,226.57536 -3.72048,-4.67848"
+       id="path64292"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic5.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.199303;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-end:url(#Arrow1Mend)"
+       d="m 40.552019,203.94983 7.501913,1.97248"
+       id="path64393"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic5.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'TeX Gyre Termes Math';-inkscape-font-specification:'TeX Gyre Termes Math';fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       x="-146.52675"
+       y="235.69461"
+       id="text75365"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic6.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan75359"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-146.52675"
+         y="235.69461">low negative curvature</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-146.52675"
+         y="240.98627"
+         id="tspan75361">(the graph is turning</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5"
+         x="-146.52675"
+         y="246.27794"
+         id="tspan75363">slowly to the right)</tspan></text>
+    <path
+       style="fill:#090005;fill-opacity:0.980392;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235;marker-end:url(#Arrow1Send)"
+       d="m -121.75913,230.35718 2.14554,-9.41568"
+       id="path78693"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic6.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;fill-opacity:0.980392;stroke:#000000;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.988235"
+       d="m -57.558934,117.94469 c -6.430055,-8.13573 -19.995357,-8.60347 -30.268164,-7.18745 -8.114855,1.11857 -13.591842,9.73357 -21.482202,11.93455 -17.28981,4.82292 -44.59983,-13.41515 -53.81285,1.98999 -3.31696,5.54631 3.04853,13.99282 8.53515,17.40762 10.71844,6.67101 25.40955,-2.05919 37.87458,-0.0566 7.63215,1.22616 14.4222,5.83207 22.012191,7.2967 14.946172,2.88415 30.558678,5.25249 45.580315,2.79144 2.853861,-0.46756 5.933452,-1.28196 8.037555,-3.26587 6.912871,-6.51797 16.598451,-17.27656 12.262726,-25.73075 -4.442034,-8.66148 -22.49644,2.28899 -28.739301,-5.17958 -1.1e-5,-10e-6 1e-5,-4e-5 0,-5e-5 z"
+       id="path86498"
+       sodipodi:nodetypes="aaaaaaaaaaaa"
+       inkscape:export-filename="/home/stevenbuchanon/swbuchanan.github.io/assets/my_research_part_1_graphic4.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>
