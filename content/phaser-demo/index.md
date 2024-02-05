@@ -1,15 +1,13 @@
 +++
-title = 'Phaser Demo'
-date = 2024-02-05T17:25:28+11:00
-description = 'cool'
+title = "My research, part 1asotehusa"
+date = 2024-01-03T21:01:30+11:00
 draft = false
 +++
 
+# auoeua
 
-# Phaser Game
+h
 
-<div id="game-container"></div>
 
-<script src="/js/phaser-game.js"></script>
-
+{{< phaser-game >}}
 
