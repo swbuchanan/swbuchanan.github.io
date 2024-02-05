@@ -1,4 +1,5 @@
 baseURL = "https://swbuchanan.github.io/swbuchanan.github.io"
+#relativeURLs = true
 disqusShortname = ""
 enableGitInfo = true
 enableRobotsTXT = true

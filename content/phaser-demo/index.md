@@ -9,5 +9,5 @@ draft = false
 h
 
 
-{{< test >}}
+{{< phaser-game >}}
 
