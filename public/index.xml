@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TeXify3</title>
+    <link>https://swbuchanan.github.io/swbuchanan.github.io/</link>
+    <description>Recent content on TeXify3</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>placeholder@gmail.com (Steven Buchanan)</managingEditor>
+    <webMaster>placeholder@gmail.com (Steven Buchanan)</webMaster><atom:link href="https://swbuchanan.github.io/swbuchanan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test Post</title>
+      <link>https://swbuchanan.github.io/swbuchanan.github.io/posts/test-post/</link>
+      <pubDate>Sun, 04 Feb 2024 21:01:30 +1100</pubDate>
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      <guid>https://swbuchanan.github.io/swbuchanan.github.io/posts/test-post/</guid>
+      <description>&lt;h2 id=&#34;the-worst-website-on-the-internet&#34;&gt;The worst website on the internet&lt;/h2&gt;
+&lt;p&gt;hello&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

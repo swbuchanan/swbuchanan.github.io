@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://swbuchanan.github.io/swbuchanan.github.io/sitemap.xml
