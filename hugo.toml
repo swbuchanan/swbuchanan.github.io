@@ -6,7 +6,7 @@ hasCJKLanguage = true
 languageCode = "en"
 paginate = 5
 rssLimit = 10
-theme = "hugo-texify3"
+theme = "hugo-texify3s"
 title = "TeXify3"
 
 [author]
