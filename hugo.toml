@@ -1,4 +1,4 @@
-baseURL = "https://michaelneuper.github.io/hugo-texify3/"
+baseURL = "https://swbuchanan.github.io/swbuchanan.github.io"
 disqusShortname = ""
 enableGitInfo = true
 enableRobotsTXT = true
@@ -11,7 +11,7 @@ title = "TeXify3"
 
 [author]
 name = "Steven Buchanan"
-email = "steven.buchanan@gmai.locm"
+email = "placeholder@gmail.com"
 
 [taxonomies]
 tags = "tags"
