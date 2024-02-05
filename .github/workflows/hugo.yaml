@@ -5,7 +5,6 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches:
-      - master
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -77,4 +76,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v3
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ce197eab49f85b251674464df016648f26af2965
