@@ -101,9 +101,7 @@ If the curvature is positive, it means that the curve is turning to the left fro
 The curvature is negative at points where the curve is curving to the right from the same perspective.
 More positive or more negative curvatures mean that the curve is turning more sharply to the left or right.
 
-<div style="text-align: center;">
 ![alt](/my_research_part_1_graphic6.png)
-</div>
 
 So at every point along the curve, we have a normal vector that points in a certain direction, and we have a number.
 The curve shortening flow says that every point of the curve will move in the direction of the normal vector at a speed equal to the curvature at that point.
