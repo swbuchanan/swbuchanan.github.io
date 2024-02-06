@@ -1,3 +1,8 @@
 <!-- layouts/shortcodes/phaser-game.html -->
 <div id="game-container"></div>
-<script type="module" src="{{ .Site.BaseURL }}js/phaser-game.js"></script>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
+    <!-- <script src="{{ .Site.BaseURL }}js/test.js"></script> -->
+
+</head>
+<script src="{{ .Site.BaseURL }}js/phaser-game.js"></script>

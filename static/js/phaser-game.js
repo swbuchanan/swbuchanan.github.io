@@ -1,5 +1,5 @@
 // Import the Phaser library
-import Phaser from 'phaser';
+// import Phaser from 'phaser';
 
 // Phaser configuration
 const config = {
