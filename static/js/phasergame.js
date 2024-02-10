@@ -1,3 +1,4 @@
+
 class Example extends Phaser.Scene
 {
     preload ()

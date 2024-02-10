@@ -7,9 +7,9 @@ draft = false
 # auoeua
 
 h
+i
 
-
-{{< phaser-game >}}
+{{< phasergame >}}
 
 hello
 
