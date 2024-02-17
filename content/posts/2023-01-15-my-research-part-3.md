@@ -1,11 +1,10 @@
 ---
-layout: post
-usemathjax: true
 title: "My research, part 3"
+date: 2024-01-15
 ---
 
 This is the third part in a series of short articles I'm trying to write about my research.
-[See the first one here.]({% post_url 2023-01-03-my-research-part-1 %})
+[See the first one here.]({{< ref "2023-01-03-my-research-part-1" >}})
 
 In this article, I will introduce some preliminary notions that will be necessary in describing the work that I do (and in fact they are fundamental to all research in geometry).
 The two notions are these: manifolds and metric tensors.

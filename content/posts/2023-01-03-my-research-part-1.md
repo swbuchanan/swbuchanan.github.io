@@ -1,8 +1,7 @@
-+++
-title = "My research, part 1"
-date = 2024-01-03T21:01:30+11:00
-draft = false
-+++
+---
+title: "My research, part 1"
+date: 2024-01-03T21:01:30+11:00
+---
 
 
 I study a particular type of solution to a particular *geometric evolution equation*.
@@ -10,7 +9,7 @@ A geometric evolution equation describes how a mathematical object called a mani
 What makes the evolution geometric is that the particular way in which the manifold changes depends on the shape, i.e. the geometry, of the manifold at any point in time.
 
 This may sound complicated, and indeed it often is, but we can get a good feel for the topic by looking at some simple examples.
-One simple geometric evolution equation describes a type of event that everyone will be familiar with: the diffusion of heat through an object.
+One simple geometric evolution equation describes a type of process that everyone will be familiar with: the diffusion of heat through an object.
 
 ## The heat equation
 
@@ -132,7 +131,7 @@ What does mathematical research relating to such an equation look like?
 Good question!
 That is the subject of the next post.
 
-[Next post: mathematical research on curve shortening flow]({/content/posts/2023-01-08-my-research-part-2)
+[Next post: mathematical research on curve shortening flow]({{< ref "2023-01-08-my-research-part-2.md" >}})
 
 ### Footnotes
 
