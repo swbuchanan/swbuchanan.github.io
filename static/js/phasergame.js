@@ -1,8 +1,9 @@
-const screenwidth = 800;
-const screenheight = 600;
+const screenwidth = 600;
+const screenheight = 400;
 const graphScale = 60;
 const originX = screenwidth / 2;
 const originY = screenheight / 2;
+var isMouseOverCanvas = false;
 
 // The graph coordinates are the intuitive ones, where (0,0) is in the center of the screen, and the values of x and y range from about -10 to 10
 
@@ -71,6 +72,18 @@ class Example extends Phaser.Scene {
         this.point2.y -= this.originY;
 
     });
+
+
+
+    this.input.on('gameout', function() {
+      isMouseOverCanvas = false;
+    });
+
+    this.input.on('gameover', function() {
+      isMouseOverCanvas = true;
+    });
+
+
   }
 
 
@@ -102,10 +115,8 @@ class Example extends Phaser.Scene {
       // Draw y-axis
       this.graphics.lineBetween(screenwidth/2,0,screenwidth/2,screenheight);
 
-      this.graphics.lineBetween(originX, originY, this.point2.x + originX, this.point2.y + originY);
 
 
-//      const parametricFunction = t => [t,t**2]
       const func1 = t => 2*Math.cos(t) + Math.cos(t)*(.2*Math.cos(4*t));
       const func2 = t => Math.sin(t) + Math.sin(t)*(.2*Math.sin(3*t) - .2*Math.cos(5*t));
 
@@ -113,11 +124,13 @@ class Example extends Phaser.Scene {
       const func2prime = t => Math.cos(t)*(.2*Math.sin(3*t) - .2*Math.cos(5*t) + 1) + Math.sin(t)*(Math.sin(5*t) + .6*Math.cos(3*t));
 
       const parametricFunction = t => [func1(t), func2(t)];
-      this.drawParametricFunction(this.graphics, parametricFunction, 0, 2*Math.PI, 80);
-      this.graphics.strokePath();
+      this.drawParametricFunction(this.graphics, parametricFunction, 0, 2*Math.PI+.1, 80);
+      this.graphics.strokePath(); 
 
       // animate the normal vector
-      this.movingPoint += .005;
+      if (isMouseOverCanvas) {
+        this.movingPoint += .005;
+      }
       const [movingPointX, movingPointY] = graphToScreenCoords([func1(this.movingPoint), func2(this.movingPoint)]);
 
       var [normVecX, normVecY] = [func2prime(this.movingPoint), -func1prime(this.movingPoint)];
@@ -126,22 +139,17 @@ class Example extends Phaser.Scene {
       [normVecX,normVecY] = graphToScreenCoords([func1(this.movingPoint)+ normVecX, func2(this.movingPoint) + normVecY]);
       this.graphics.lineBetween(movingPointX, movingPointY, normVecX, normVecY);
 
-//      this.graphics.strokePath();
-
-
-
-        this.text.setText([
-            'Dot product: ' + 10,
-        ]);
     }
 }
 
 const config = {
-    width: 800,
-    height: 600,
-    type: Phaser.AUTO,
-    parent: 'game-container',
-    scene: Example
+  width: 600,
+  height: 400,
+  type: Phaser.AUTO,
+  parent: 'game-container',
+  scene: Example,
+  transparent: true,
+  fps: {target: 30}
 };
 
 const game = new Phaser.Game(config);
