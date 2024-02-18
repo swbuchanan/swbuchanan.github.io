@@ -1,0 +1,14 @@
+<!-- layouts/shortcodes/phaser-game.html -->
+<div id="game-container"></div>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
+    <script type="module" src="{{ .Site.BaseURL }}js/main.js"></script>
+
+</head>
+<div class="multi-container">
+<div class="sketch">
+    <canvas id="draw-zone" class="sketch-child" width=500 height=500></canvas>
+    <p id="draw-zone-instruction" class="instruction">Draw here!</p>
+    <button id="draw-zone-undo-button" class="button embedded-button">Undo</button>
+</div>
+</div>

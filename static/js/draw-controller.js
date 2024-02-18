@@ -1,5 +1,5 @@
 import CanvasController from './canvas-controller.js';
-import { palette } from '../color.js';
+import { palette } from './color.js';
 
 const maxDrawDist = 3;
 

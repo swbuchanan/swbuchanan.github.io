@@ -1,7 +1,6 @@
-import DrawController from './controller/draw-controller.js';
+import DrawController from './draw-controller.js';
 import Conductor from './conductor.js';
-import SelfDrawController from './controller/self-draw/self-draw-controller.js';
-import { getScrollPosition } from './controller/controller-util.js';
+import { getScrollPosition } from './controller-util.js';
 
 let conductor = null;
 
@@ -19,19 +18,6 @@ function init() {
         controllers.push(controller);
     }
 
-    const comboWave = getWave(t => Math.sin(2 * Math.PI * t) + 0.5 * Math.sin(6 * Math.PI * t), 128);
-    if (hasElement('combo-sine-wave')) {
-        let controller = new WaveController('combo-sine-wave');
-        // Here we stretch out the wave to make it look nicer. Kind of lazy but w/e.
-        controller.setPath(comboWave.map(t => 2 * t));
-        controllers.push(controller);
-    }
-    if (hasElement('combo-sine-wave-split')) {
-        let controller = new WaveSplitController('combo-sine-wave-split');
-        controller.setPath(comboWave);
-        controller.fadeFrequencies = false;
-        controllers.push(controller);
-    }
 
     if (hasElement('together-button')) {
         const button = document.getElementById('together-button');
@@ -164,35 +150,10 @@ function init() {
         controllers.push(controller);
     }
 
-    const adjustedPeaceHandPoints = peaceHandPoints.map(p => {
-        return {x: p.x * 1.5 - 170, y:p.y * 1.5 - 50}
-    });
-    if (hasElement('peace-epicycles')) {
-        let controller = new EpicyclesController('peace-epicycles');
-        controller.setPath(adjustedPeaceHandPoints, -1, 0.05);
-        controllers.push(controller);
-    }
-    if (hasElement('peace-3d')) {
-        let controller = new SkewedPathController('peace-3d');
-        controller.setPath(adjustedPeaceHandPoints, -1, 0.05);
-        controllers.push(controller);
-    }
-    let peaceBuildUpSlider;
-    if (hasElement('peace-build-up-slider')) {
-        peaceBuildUpSlider = new RangeController('peace-build-up-slider');
-        controllers.push(peaceBuildUpSlider);
-    }
-    if (hasElement('peace-build-up')) {
-        let controller = new EpicyclesController('peace-build-up');
-        controller.setPath(adjustedPeaceHandPoints, -1, 0.05);
-        if (peaceBuildUpSlider) {
-            peaceBuildUpSlider.onValueChange.push(val => controller.setFourierAmt(val));
-        }
-        controllers.push(controller);
-    }
 
     let drawZone, circleZoneSlider;
     if (hasElement('draw-zone')) {
+      console.log("yay");
         drawZone = new DrawController('draw-zone');
         controllers.push(drawZone);
     }
