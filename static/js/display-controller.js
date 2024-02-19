@@ -17,6 +17,8 @@ export default class DisplayController extends CanvasController {
         this.drawing = false;
         this.onDrawingStart = [];
         this.onDrawingEnd = [];
+        this.drawParametricFunction(t => [t, 10*Math.cos(t)], -10,10, 300);
+        console.log('display controller constructed');
     }
 
     get path() {
@@ -33,8 +35,10 @@ export default class DisplayController extends CanvasController {
         const actualWidth = (canvasPosition.right - canvasPosition.left) - 2;
         const actualHeight = (canvasPosition.top - canvasPosition.bottom) - 2; // -2 ?
         // const scale = this.width / actualWidth;
-        canvasX = actualWidth/2 + coords[0];
-        canvasY = -(actualWidth/2 + coords[1]);
+        const graphScale = 20;
+        let canvasX = actualWidth/2 + graphScale*coords[0];
+        let canvasY = actualWidth/2 - graphScale*coords[1];
+        console.log(`converted ${coords} to ${[canvasX, canvasY]}`);
         return [canvasX, canvasY];
     }
 
@@ -45,12 +49,15 @@ export default class DisplayController extends CanvasController {
         // func should be a function that takes in a number and returns a tuple
         const dt = (paramEnd - paramStart)/numSegments;
         for (let t = paramStart; t < paramEnd; t += dt) {
-            point = {
-                x: scale * (this.graphCoordsToCanvasCoords(func(t))[0] - canvasPosition.x),
-                y: scale * (this.graphCoordsToCanvasCoords(func(t))[1] - canvasPosition.y)
+            const point = {
+                  x: scale * (this.graphCoordsToCanvasCoords(func(t))[0]),
+                  y: scale * (this.graphCoordsToCanvasCoords(func(t))[1])
             }
+            console.log(point);
             this.points.push(point);
+            this.pathEndIndex = this.points.length;
         }
+        console.log(this.points);
     }
 
 
@@ -88,7 +95,6 @@ export default class DisplayController extends CanvasController {
 
     render() {
         this.clear();
-
         this.drawPoints(this.path);
     }
 

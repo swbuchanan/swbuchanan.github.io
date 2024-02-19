@@ -20,7 +20,7 @@ function init() {
     }
 
     if (hasElement('display-zone')) {
-        displayZone = new DisplayController('display-zone');
+        let displayZone = new DisplayController('display-zone');
         controllers.push(displayZone);
     }
 
