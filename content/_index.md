@@ -7,6 +7,9 @@ I may also upload some lecture notes if I ever get around to finishing any.
 
 I can be reached at steven.buchanan@anu.edu.au.
 
+
+or you can try {{< email >}}
+
 ### My work
 
 Currently I am learning and doing research in the field of geometric analysis.
@@ -18,5 +21,5 @@ I am in the process of writing a series of short articles for a general audience
 ### Testing
 
 
-
-{{< main >}}
+<!-- see shortcodes/main.html -->
+{{< main >}} 

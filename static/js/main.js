@@ -1,6 +1,7 @@
 import DrawController from './draw-controller.js';
 import Conductor from './conductor.js';
-import { getScrollPosition } from './controller-util.js';
+import { getScrollPosition } from './controller-util.js'; // I guess I don't use this?
+import DisplayController from './display-controller.js';
 
 let conductor = null;
 
@@ -18,7 +19,10 @@ function init() {
         controllers.push(controller);
     }
 
-
+    if (hasElement('display-zone')) {
+        displayZone = new DisplayController('display-zone');
+        controllers.push(displayZone);
+    }
 
     let drawZone, circleZoneSlider;
     if (hasElement('draw-zone')) {
@@ -42,7 +46,7 @@ function init() {
     if (hasElement('email-text')) {
         const emailElement = document.getElementById('email-text');
         // Add my email using js so that non-js scrapers can't just get it
-        const email = 'fourier' + '@' + 'jezzamon.com';
+        const email = 'steven.buchanan' + '@' + 'anu.edu.au';
         const emailText = `<a href="mailto:${email}">${email}</a>`;
         emailElement.innerHTML = emailText;
     }
