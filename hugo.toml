@@ -8,7 +8,7 @@ languageCode = "en"
 paginate = 5
 rssLimit = 10
 theme = "hugo-texify3s"
-title = "TeXify3"
+title = "Steven's website"
 
 [author]
 name = "Steven Buchanan"
@@ -19,7 +19,7 @@ tags = "tags"
 categories = "categories"
 
 [params]
-title="Steven"
+title="Steven Buchanan"
 description = "its me i'm stupid"
 footnote = """
 Powered by  <a class=link href=https://gohugo.io target=_blank rel=noopener>Hugo</a> | 

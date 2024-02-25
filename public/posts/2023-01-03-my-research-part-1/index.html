@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 105%">
+
+<head><script src="/swbuchanan.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=swbuchanan.github.io/livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <meta name="author" content="Steven Buchanan">
+
+  
+  
+  <meta name="description" content="I study a particular type of solution to a particular geometric evolution equation. A geometric evolution equation describes how a mathematical object called a manifold (a simple line or a sphere is an example of a manifold) changes shape over time. What makes the evolution geometric is that the particular way in which the manifold changes depends on the shape, i.e. the geometry, of the manifold at any point in time.">
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/swbuchanan.github.io//images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/swbuchanan.github.io//images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/swbuchanan.github.io//images/favicon-16x16.png">
+
+  
+  
+  <meta name="keywords" content='hugo latex theme blog texify texify2 texify3 steven buchanan'>
+  
+
+  
+  
+  <link rel="stylesheet" href='/swbuchanan.github.io/katex/katex.min.css'>
+<script defer defer src='/swbuchanan.github.io/katex/katex.min.js'></script>
+<script defer src='/swbuchanan.github.io/katex/contrib/auto-render.min.js'></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+  
+
+  
+  
+
+  
+  <meta property="og:title" content="My research, part 1" />
+<meta property="og:description" content="I study a particular type of solution to a particular geometric evolution equation. A geometric evolution equation describes how a mathematical object called a manifold (a simple line or a sphere is an example of a manifold) changes shape over time. What makes the evolution geometric is that the particular way in which the manifold changes depends on the shape, i.e. the geometry, of the manifold at any point in time." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-03T21:01:30+11:00" />
+<meta property="article:modified_time" content="2024-02-17T20:40:00+11:00" /><meta property="og:site_name" content="Steven Buchanan" />
+
+
+
+  
+  <link rel="canonical" href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/">
+
+  
+  
+  <meta itemprop="name" content="My research, part 1">
+<meta itemprop="description" content="I study a particular type of solution to a particular geometric evolution equation. A geometric evolution equation describes how a mathematical object called a manifold (a simple line or a sphere is an example of a manifold) changes shape over time. What makes the evolution geometric is that the particular way in which the manifold changes depends on the shape, i.e. the geometry, of the manifold at any point in time."><meta itemprop="datePublished" content="2024-01-03T21:01:30+11:00" />
+<meta itemprop="dateModified" content="2024-02-17T20:40:00+11:00" />
+<meta itemprop="wordCount" content="1486">
+<meta itemprop="keywords" content="" />
+
+  
+  
+  
+    <link rel="stylesheet" href="/swbuchanan.github.io/css/common.min.e562d763c6d0825495eb17de8b2c1d9800cf7c08db1c36accedf77a5fccfc4b9.css" integrity="sha256-5WLXY8bQglSV6xfeiywdmADPfAjbHDaszt93pfzPxLk=" crossorigin="anonymous">
+  
+
+  
+  
+    <link rel="stylesheet" href="/swbuchanan.github.io/css/content.min.ba38eba94cb47fef9936258c42d11ff19fa9686a30b38e783773fe3f15eb44dc.css" integrity="sha256-ujjrqUy0f&#43;&#43;ZNiWMQtEf8Z&#43;paGows454N3P&#43;PxXrRNw=" crossorigin="anonymous">
+  
+
+  
+  
+  <title>My research, part 1 - Steven&#39;s website</title>
+  
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="My research, part 1"/>
+<meta name="twitter:description" content="I study a particular type of solution to a particular geometric evolution equation. A geometric evolution equation describes how a mathematical object called a manifold (a simple line or a sphere is an example of a manifold) changes shape over time. What makes the evolution geometric is that the particular way in which the manifold changes depends on the shape, i.e. the geometry, of the manifold at any point in time."/>
+
+
+  
+
+
+  <link rel="stylesheet" href="/swbuchanan.github.io/css/single.min.be779f459ad7e3aaf8afd0f80c6a61ca6c50993f5f18512532100ac6d93f0fa9.css" integrity="sha256-vnefRZrX46r4r9D4DGphymxQmT9fGFElMhAKxtk/D6k=" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="/swbuchanan.github.io/css/single.min.78a121b7d7a160420f9daab0ea13add66c37b9c44f27bba07b27207e2b0975d2.css" integrity="sha256-eKEht9ehYEIPnaqw6hOt1mw3ucRPJ7ugeycgfisJddI=" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+  <div id="wrapper">
+    
+
+
+<header id="header">
+  <h1>
+    <a href="http://localhost:1313/swbuchanan.github.io/">Steven Buchanan</a>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle theme">
+        <svg width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+        <path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/>
+        </svg>
+    </button>
+  </h1>
+
+  <nav>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17,11H16a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm0,4H16a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2ZM11,9h6a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2ZM21,3H7A1,1,0,0,0,6,4V7H3A1,1,0,0,0,2,8V18a3,3,0,0,0,3,3H18a4,4,0,0,0,4-4V4A1,1,0,0,0,21,3ZM6,18a1,1,0,0,1-2,0V9H6Zm14-1a2,2,0,0,1-2,2H7.82A3,3,0,0,0,8,18V5H20Zm-9-4h1a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2Zm0,4h1a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2Z"/></svg>
+</span>
+      
+      <a class="link" href="/swbuchanan.github.io/posts/">Posts</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg
+   width="3.7796605mm"
+   height="5.4871044mm"
+   viewBox="0 0 3.7796605 5.4871044"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="qmark.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0973349"
+     inkscape:cx="36.907603"
+     inkscape:cy="79.282998"
+     inkscape:window-width="1920"
+     inkscape:window-height="1061"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-80.582025,-117.61358)">
+    <text
+       xml:space="preserve"
+       style="font-size:7.76111px;font-family:'TeX Gyre Termes Math';-inkscape-font-specification:'TeX Gyre Termes Math';fill:#090005;fill-opacity:0.980392;stroke:none;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:1.5, 1.5;stroke-dashoffset:0;stroke-opacity:0.988235"
+       x="80.372475"
+       y="122.99979"
+       id="text1706"><tspan
+         sodipodi:role="line"
+         id="tspan1704"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'TeX Gyre Bonum Math';-inkscape-font-specification:'TeX Gyre Bonum Math';stroke:none;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:1.5, 1.5;stroke-dashoffset:0"
+         x="80.372475"
+         y="122.99979">?</tspan></text>
+  </g>
+</svg>
+</span>
+      
+      <a class="link" href="/swbuchanan.github.io/phaser-demo/">Phaser Demo</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
+<path d="M10.07031,20.50291a1.00008,1.00008,0,0,0-1.18115-.9834c-1.30908.24024-2.96191.27637-3.40137-.958a5.70754,5.70754,0,0,0-1.83691-2.415,1.20073,1.20073,0,0,1-.1665-.10938,1,1,0,0,0-.93067-.64551H2.54883a.99965.99965,0,0,0-1,.99512c-.00391.81543.811,1.33789,1.1416,1.51465a4.4408,4.4408,0,0,1,.92383,1.35937c.36426,1.02344,1.42285,2.57617,4.46582,2.376.001.03516.00195.06836.00244.09863l.00439.26758a1,1,0,0,0,2,0l-.00488-.31836C10.07715,21.4951,10.07031,21.22068,10.07031,20.50291Zm10.667-15.126c.03174-.125.063-.26367.09034-.41992a6.27792,6.27792,0,0,0-.40821-3.293,1.002,1.002,0,0,0-.61572-.58007c-.356-.12012-1.67041-.35645-4.18408,1.25a13.86918,13.86918,0,0,0-6.354,0C6.76221.751,5.45459.9658,5.10205,1.07908a.99744.99744,0,0,0-.63135.584,6.3003,6.3003,0,0,0-.40332,3.35644c.02442.12793.05078.2461.07813.35449A6.26928,6.26928,0,0,0,2.89014,9.20311a8.42168,8.42168,0,0,0,.04248.92187c.334,4.60254,3.334,5.98438,5.42431,6.459-.04345.125-.083.25878-.11816.40039a1.00023,1.00023,0,0,0,1.94238.47851,1.6784,1.6784,0,0,1,.46778-.87793.99947.99947,0,0,0-.5459-1.74512c-3.4541-.39453-4.95362-1.80175-5.1792-4.89843a6.61076,6.61076,0,0,1-.03369-.73828,4.25769,4.25769,0,0,1,.91943-2.71289,3.022,3.022,0,0,1,.1958-.23145.99988.99988,0,0,0,.188-1.02441,3.3876,3.3876,0,0,1-.15527-.55567A4.09356,4.09356,0,0,1,6.1167,3.06346a7.54263,7.54263,0,0,1,2.415,1.17968,1.00877,1.00877,0,0,0,.82764.13282,11.77716,11.77716,0,0,1,6.17285.001,1.00549,1.00549,0,0,0,.83056-.13769,7.572,7.572,0,0,1,2.40528-1.19043,4.03977,4.03977,0,0,1,.0874,1.57812,3.205,3.205,0,0,1-.16895.60743.9999.9999,0,0,0,.188,1.02441c.07715.08691.1543.18066.22363.26855A4.12186,4.12186,0,0,1,20,9.20311a7.03888,7.03888,0,0,1-.0376.77734c-.22021,3.05566-1.72558,4.46387-5.1958,4.85937a1,1,0,0,0-.54541,1.7461,1.63079,1.63079,0,0,1,.46631.9082,3.06079,3.06079,0,0,1,.09229.81934v2.334C14.77,21.2949,14.77,21.78025,14.77,22.00291a1,1,0,1,0,2,0c0-.2168,0-.69238.00977-1.33984V18.31346a4.8815,4.8815,0,0,0-.15479-1.31153,4.25638,4.25638,0,0,0-.11621-.416,6.51258,6.51258,0,0,0,5.44531-6.42383A8.69677,8.69677,0,0,0,22,9.20311,6.13062,6.13062,0,0,0,20.7373,5.37693Z"/></svg>
+</span>
+      
+      <a class="link" href="https://github.com/swbuchanan/hugo-texify3s">GitHub</a>
+    </span>
+    
+  </nav>
+</header>
+<hr class="head-rule"></hr>
+    
+<main id="main" class="post">
+  
+  <div class="post-heading">
+    <h1 class="post-title">My research, part 1</h1>
+    <div class="publish-metadata">
+      
+      <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 9H21M7 3V5M17 3V5M6 13H8M6 17H8M11 13H13M11 17H13M16 13H18M16 17H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      3 January 2024
+      
+      
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          1486 words
+        </span>
+      
+      
+      
+        
+      
+      
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          ~7 mins
+        </span>
+      
+    </div>
+  </div>
+
+  
+  
+  
+  <details>
+    <summary>
+      <b>Table of Contents</b>
+    </summary>
+    <div class="toc numbered-subtitles"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-heat-equation">The heat equation</a></li>
+    <li><a href="#geometric-evolution-equations">Geometric evolution equations</a></li>
+    <li><a href="#the-curve-shortening-flow">The curve shortening flow</a>
+      <ul>
+        <li><a href="#footnotes">Footnotes</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+  </details>
+  
+  
+  <article class="content numbered-subtitles">
+    
+    <p>I study a particular type of solution to a particular <em>geometric evolution equation</em>.
+A geometric evolution equation describes how a mathematical object called a manifold (a simple line or a sphere is an example of a manifold) changes shape over time.
+What makes the evolution geometric is that the particular way in which the manifold changes depends on the shape, i.e. the geometry, of the manifold at any point in time.</p>
+<p>This may sound complicated, and indeed it often is, but we can get a good feel for the topic by looking at some simple examples.
+One simple geometric evolution equation describes a type of process that everyone will be familiar with: the diffusion of heat through an object.</p>
+<h2 id="the-heat-equation">The heat equation</h2>
+<p>Suppose we have a wire<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> that has been unevenly heated:</p>
+<!-- raw HTML omitted -->
+<p>We can visualize the distribution of heat throughout the wire by a graph:</p>
+<!-- raw HTML omitted -->
+<p>Now, if we allow time to pass, the heat will rapidly diffuse throughout the wire, and the graph will change correspondingly (we are mostly interested in how the graph changes).
+Notice that in some places on the wire, there were points with a lot of heat surrounded by areas with relatively little (as well as points of relatively low temperature compared to their surroundings).
+The temperature changed at these points much quicker than it did at points whose temperature was close, on average, to the temperature of the surrounding areas.</p>
+<!-- raw HTML omitted -->
+<p>So it seems like a general rule for heat diffusion is that the greater the temperature differential with surrounding areas, the faster the diffusion.
+Not too complicated.
+But notice that temperature differential between a point and the surrounding areas is reflected in the geometry of the graph!
+Points like this show up in the graph as sharp spikes.
+The mathematical way to identify this is with the (spatial) second derivative.
+I won&rsquo;t go into detail about derivatives, but it suffices to say that the magnitude of the second derivative is highest at the peaks and valleys of the graph, and lowest at the points in between.</p>
+<p>This idea gives us the <em>heat equation</em>, the simplest model of heat diffusion.
+The equation looks like this:</p>
+<p>$$\frac{\partial}{\partial t} f = \Delta f,$$</p>
+<p>where $f$ is the function that describes whatever heat distribution the wire has (it&rsquo;s the equation we would use to make the graph).</p>
+<p>Don&rsquo;t panic if you&rsquo;re not familar with the notation!
+This equation says mathematically exactly what we observed before about how heat diffusion works.</p>
+<p>The left hand side is the time derivative of $f$, which by definition describes how $f$ changes over time.
+The right hand side is the (spatial) second derivative of $f$, which as we remarked before just tells us how sharp the graph is at a given point.
+So if we interpret this equation into English, all it says is that the temperature of the wire is going to change over time, and if a point is surrounded by lower temperature, the temperature will decrease at a rate proportional to how much lower the surrounding temperature is (a corresponding statement holds for points surrounded by areas of higher temperature).</p>
+<h2 id="geometric-evolution-equations">Geometric evolution equations</h2>
+<p>Now let&rsquo;s forget about the wire and any physical interpretation of heat diffusion, and just think about the graph changing over time according to the heat equation.
+What we have is a 1-dimensional manifold (the line that forms the graph) with some geometry (the way that the line curves) and a partial differential equation telling us how the geometry of the manifold changes over time according to the geometry that it already has at a given time.</p>
+<p>This is the idea of a geometric evolution equation.
+We start with a manifold that has some geometry<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> to describe how it&rsquo;s shaped.
+Then we have some differential equation that looks at how the manifold is shaped at a certain point, and tells the manifold to change over time in some way depending on that geometry.
+When the manifold moves according to one of these geometric evolution equations, we have a <em>geometric flow</em>.
+There are many different ways we can tell the manifold to move based on its geometry.
+These different flows have varying degrees of simplicity, usefulness, and physicality.</p>
+<p>In general, manifolds can have any dimension.
+In higher dimensions, there are more directions in which a manifold can curve, which means that it is more complicated to describe the geometry of a manifold at a certain point.
+To describe the geometry, we use an object called a <em>tensor field</em>.
+A future post will be about abstract manifolds and the tensors that we use to describe their geometry.</p>
+<h2 id="the-curve-shortening-flow">The curve shortening flow</h2>
+<p>Before moving on to that topic, however, we will examine a geometric flow in a situation that is simple enough that we don&rsquo;t need the language of manifolds and tensors to describe it (although we could talk about this situation in those terms if we were so inclined).
+The flow we will examine is called the <em>curve shortening flow</em>, and watching it in action might remind you of the diffusion of heat.</p>
+<p>A cool interactive demonstration of the curve shortening flow can be found <a href="https://a.carapetis.com/csf/">here</a> and I recommend playing with this as you read the remainder of the post.</p>
+<p>To define the curve shortening flow, start with a curve sitting in 2 dimensions:</p>
+<!-- raw HTML omitted -->
+<p>At each point on this curve, consider the direction that is perpendicular to the curve at that point:</p>
+<!-- raw HTML omitted -->
+<p>(Only a few arrows are drawn to illustrate the principle, but at any point on the curve we could draw such an arrow.)</p>
+<p>These arrows are called <em>normal vectors</em>.
+For a 1-dimensional curve sitting inside 2-dimensional space, the only geometric information available at a point is a single number describing the curvature at that point.
+If the curvature at a point is 0, it means that the curve looks like a flat line in a small area around that point.
+If the curvature is positive, it means that the curve is turning to the left from the perspective of someone who would be moving around the curve counterclockwise.
+The curvature is negative at points where the curve is curving to the right from the same perspective.
+More positive or more negative curvatures mean that the curve is turning more sharply to the left or right.</p>
+<p><img src="/my_research_part_1_graphic6.png" alt="alt"></p>
+<p>So at every point along the curve, we have a normal vector that points in a certain direction, and we have a number.
+The curve shortening flow says that every point of the curve will move in the direction of the normal vector at a speed equal to the curvature at that point.</p>
+<p>So if we consider the curve shortening flow applied to our curve from before, some points will move inwards quickly or slowly, and some will move outwards quickly or slowly.</p>
+<!-- raw HTML omitted -->
+<p>Notice that some points move in the opposite direction of the normal vector.
+This is because the curvature is negative at those points, so they move in the direction of the normal vector with negative speed.</p>
+<p>The differential equation to describe the curve shortening flow looks like this:</p>
+<p>$$\frac{\partial}{\partial t} \gamma = \kappa \mathsf N.$$</p>
+<p>Here $\gamma$ is the function that describes the curve, $\kappa$ is curvature, and $\mathsf N$ is the normal vector.
+This means that $\kappa \mathsf N$ is a vector that points in the direction of $\mathsf N$ and has length equal to $\kappa$: exactly the vector that should describe how points move under this flow.
+So this equation has a similar form as the heat equation.
+On the left hand side we have the time derivative of the curve.
+That is, the left hand side is referring to how the curve changes over time.
+The right hand side, as mentioned already, is a vector pointing perpendicularly to the curve with length equal to the curvature.
+So the equation says that the curve will change over time by moving in the normal direction with curvature speed.</p>
+<p>What does mathematical research relating to such an equation look like?
+Good question!
+That is the subject of the next post.</p>
+<p><a href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/">Next post: mathematical research on curve shortening flow</a></p>
+<h3 id="footnotes">Footnotes</h3>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>For technical reasons, the wire is infinitely long and perfectly insulated.  Not very reasonable physical assumptions, but a precise understanding of an oversimplified situation is very frequently much more valuable than a vague understanding of a real situation.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>In the case of the graph, we can see the geometry by calculating the second derivative, or just by looking at the shape of the graph, since it&rsquo;s drawn out for us.
+For an abstract manifold, we don&rsquo;t have this luxury; in general a manifold is not sitting inside a larger space the way that the graph sits inside the larger space of the plane on which the graph is drawn.
+We need other tools to describe the geometry of abstract manifolds.
+This is where the <em>metric tensor</em> comes in.
+Hopefully I&rsquo;ll have another post on this topic soon.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    
+  </article>
+
+  <button onclick="topFunction()" id="back-to-top" title="Go to top">Back to Top</button>
+
+  
+
+<div id="sharingbuttons">
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+</div>
+  <div class="paginator">
+    
+    <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/" title="Test post">← prev</a>
+    
+    
+    <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/" title="My research, part 2">next →</a>
+    
+  </div>
+  <div class="comment">
+    
+    
+    
+      <script src="https://giscus.app/client.js"
+        data-repo="michaelneuper/hugo-texify3"
+        data-repo-id="R_kgDOIjPNaQ"
+        data-category="General"
+        data-category-id="DIC_kwDOIjPNac4CaklA"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme=""
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+  </script>
+  
+  </div>
+  
+  
+</main>
+
+    <footer id="footer">
+
+</footer>
+
+  </div>
+
+  
+  <script src='http://localhost:1313/swbuchanan.github.io/js/script.js' defer></script>
+
+  
+  
+
+  
+  
+
+  
+  
+
+</body>
+
+</html>

@@ -23,3 +23,7 @@ I am in the process of writing a series of short articles for a general audience
 
 <!-- see shortcodes/main.html -->
 {{< main >}} 
+
+## More testing
+
+{{< grapher >}}
