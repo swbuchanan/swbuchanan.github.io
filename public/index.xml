@@ -9,12 +9,14 @@
     <managingEditor>placeholder@gmail.com (Steven Buchanan)</managingEditor>
     <webMaster>placeholder@gmail.com (Steven Buchanan)</webMaster><atom:link href="http://localhost:1313/swbuchanan.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Another Post</title>
+      <title>An unusual problem-solving technique</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/another-post/</link>
-      <pubDate>Mon, 05 Feb 2024 18:24:58 +1100</pubDate>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
       <author>placeholder@gmail.com (Steven Buchanan)</author>
       <guid>http://localhost:1313/swbuchanan.github.io/posts/another-post/</guid>
-      <description>&lt;p&gt;content!&lt;/p&gt;
+      <description>&lt;p&gt;Consider the following problem:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 </description>
     </item>
     
@@ -224,7 +226,7 @@ If the curvature at a point is 0, it means that the curve looks like a flat line
 If the curvature is positive, it means that the curve is turning to the left from the perspective of someone who would be moving around the curve counterclockwise.
 The curvature is negative at points where the curve is curving to the right from the same perspective.
 More positive or more negative curvatures mean that the curve is turning more sharply to the left or right.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/my_research_part_1_graphic6.png&#34; alt=&#34;alt&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../my_research_part_1_graphic6.png&#34; alt=&#34;alt&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So at every point along the curve, we have a normal vector that points in a certain direction, and we have a number.
 The curve shortening flow says that every point of the curve will move in the direction of the normal vector at a speed equal to the curvature at that point.&lt;/p&gt;
 &lt;p&gt;So if we consider the curve shortening flow applied to our curve from before, some points will move inwards quickly or slowly, and some will move outwards quickly or slowly.&lt;/p&gt;

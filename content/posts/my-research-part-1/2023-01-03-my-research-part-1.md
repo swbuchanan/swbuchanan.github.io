@@ -108,12 +108,16 @@ The curve shortening flow says that every point of the curve will move in the di
 So if we consider the curve shortening flow applied to our curve from before, some points will move inwards quickly or slowly, and some will move outwards quickly or slowly.
 
 <div style="text-align: center;">
-<img src="images/my_research_part_1_graphic7.png">aoeu</img>
+![hmm](my_research_part_1_graphic7.png)
 </div>
 
-{{< figure src="/my_research_part_1_graphic7.png" title="Alternative Text" >}}
-
-
+![hmm](my_research_part_1_graphic7.png)
+![hmm](/my_research_part_1_graphic7.png)
+![hmm](assets/my_research_part_1_graphic7.png)
+![hmm](/assets/my_research_part_1_graphic7.png)
+![hmm](/static/my_research_part_1_graphic7.png)
+![hmm](static/my_research_part_1_graphic7.png)
+![hmm](/content/posts/my_research_part_1_graphic7.png)
 ![hmm](my_research_part_1_graphic7.png)
 ![hmm](/my_research_part_1_graphic7.png)
 ![hmm](assets/my_research_part_1_graphic7.png)
