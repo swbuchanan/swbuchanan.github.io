@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 105%">
+
+<head><script src="/swbuchanan.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=swbuchanan.github.io/livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <meta name="author" content="Steven Buchanan">
+
+  
+  
+  <meta name="description" content="This is the second part in a series of short articles I&rsquo;m trying to write about my research. See the first one here.
+Research questions in curve shortening flow In this article, I will not be talking about my own research yet, but instead I&rsquo;ll be talking about research completed by others.
+Event though it isn&rsquo;t the focus of my research, I want to talk about curve shortening flow since it is a particularly simple and concrete example of a geometric flow.">
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/swbuchanan.github.io//images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/swbuchanan.github.io//images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/swbuchanan.github.io//images/favicon-16x16.png">
+
+  
+  
+  <meta name="keywords" content='hugo latex theme blog texify texify2 texify3 steven buchanan'>
+  
+
+  
+  
+  <link rel="stylesheet" href='/swbuchanan.github.io/katex/katex.min.css'>
+<script defer defer src='/swbuchanan.github.io/katex/katex.min.js'></script>
+<script defer src='/swbuchanan.github.io/katex/contrib/auto-render.min.js'></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+  
+
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/">
+  <meta property="og:site_name" content="TeXify3">
+  <meta property="og:title" content="My research, part 2">
+  <meta property="og:description" content="This is the second part in a series of short articles I&amp;rsquo;m trying to write about my research. See the first one here.
+Research questions in curve shortening flow In this article, I will not be talking about my own research yet, but instead I&amp;rsquo;ll be talking about research completed by others.
+Event though it isn&amp;rsquo;t the focus of my research, I want to talk about curve shortening flow since it is a particularly simple and concrete example of a geometric flow.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-01-08T21:01:30+11:00">
+    <meta property="article:modified_time" content="2024-02-17T20:40:00+11:00">
+
+
+  
+  <link rel="canonical" href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/">
+
+  
+  
+  
+  <meta itemprop="name" content="My research, part 2">
+  <meta itemprop="description" content="This is the second part in a series of short articles I&rsquo;m trying to write about my research. See the first one here.
+Research questions in curve shortening flow In this article, I will not be talking about my own research yet, but instead I&rsquo;ll be talking about research completed by others.
+Event though it isn&rsquo;t the focus of my research, I want to talk about curve shortening flow since it is a particularly simple and concrete example of a geometric flow.">
+  <meta itemprop="datePublished" content="2024-01-08T21:01:30+11:00">
+  <meta itemprop="dateModified" content="2024-02-17T20:40:00+11:00">
+  <meta itemprop="wordCount" content="1930">
+
+  
+  
+  
+    <link rel="stylesheet" href="/swbuchanan.github.io/css/common.min.e562d763c6d0825495eb17de8b2c1d9800cf7c08db1c36accedf77a5fccfc4b9.css" integrity="sha256-5WLXY8bQglSV6xfeiywdmADPfAjbHDaszt93pfzPxLk=" crossorigin="anonymous">
+  
+
+  
+  
+    <link rel="stylesheet" href="/swbuchanan.github.io/css/content.min.ba38eba94cb47fef9936258c42d11ff19fa9686a30b38e783773fe3f15eb44dc.css" integrity="sha256-ujjrqUy0f&#43;&#43;ZNiWMQtEf8Z&#43;paGows454N3P&#43;PxXrRNw=" crossorigin="anonymous">
+  
+
+  
+  
+  <title>My research, part 2 - TeXify3</title>
+  
+
+  
+  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="My research, part 2">
+<meta name="twitter:description" content="This is the second part in a series of short articles I&rsquo;m trying to write about my research. See the first one here.
+Research questions in curve shortening flow In this article, I will not be talking about my own research yet, but instead I&rsquo;ll be talking about research completed by others.
+Event though it isn&rsquo;t the focus of my research, I want to talk about curve shortening flow since it is a particularly simple and concrete example of a geometric flow.">
+
+
+  
+
+
+  <link rel="stylesheet" href="/swbuchanan.github.io/css/single.min.be779f459ad7e3aaf8afd0f80c6a61ca6c50993f5f18512532100ac6d93f0fa9.css" integrity="sha256-vnefRZrX46r4r9D4DGphymxQmT9fGFElMhAKxtk/D6k=" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="/swbuchanan.github.io/css/single.min.78a121b7d7a160420f9daab0ea13add66c37b9c44f27bba07b27207e2b0975d2.css" integrity="sha256-eKEht9ehYEIPnaqw6hOt1mw3ucRPJ7ugeycgfisJddI=" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+  <div id="wrapper">
+    
+
+
+<header id="header">
+  <h1>
+    <a href="http://localhost:1313/swbuchanan.github.io/">Steven</a>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle theme">
+        <svg width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+        <path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/>
+        </svg>
+    </button>
+  </h1>
+
+  <nav>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17,11H16a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm0,4H16a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2ZM11,9h6a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2ZM21,3H7A1,1,0,0,0,6,4V7H3A1,1,0,0,0,2,8V18a3,3,0,0,0,3,3H18a4,4,0,0,0,4-4V4A1,1,0,0,0,21,3ZM6,18a1,1,0,0,1-2,0V9H6Zm14-1a2,2,0,0,1-2,2H7.82A3,3,0,0,0,8,18V5H20Zm-9-4h1a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2Zm0,4h1a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2Z"/></svg>
+</span>
+      
+      <a class="link" href="/swbuchanan.github.io/posts/">Blog</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+      <a class="link" href="/swbuchanan.github.io/phaser-demo/">Phaser Demo</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
+<path d="M10.07031,20.50291a1.00008,1.00008,0,0,0-1.18115-.9834c-1.30908.24024-2.96191.27637-3.40137-.958a5.70754,5.70754,0,0,0-1.83691-2.415,1.20073,1.20073,0,0,1-.1665-.10938,1,1,0,0,0-.93067-.64551H2.54883a.99965.99965,0,0,0-1,.99512c-.00391.81543.811,1.33789,1.1416,1.51465a4.4408,4.4408,0,0,1,.92383,1.35937c.36426,1.02344,1.42285,2.57617,4.46582,2.376.001.03516.00195.06836.00244.09863l.00439.26758a1,1,0,0,0,2,0l-.00488-.31836C10.07715,21.4951,10.07031,21.22068,10.07031,20.50291Zm10.667-15.126c.03174-.125.063-.26367.09034-.41992a6.27792,6.27792,0,0,0-.40821-3.293,1.002,1.002,0,0,0-.61572-.58007c-.356-.12012-1.67041-.35645-4.18408,1.25a13.86918,13.86918,0,0,0-6.354,0C6.76221.751,5.45459.9658,5.10205,1.07908a.99744.99744,0,0,0-.63135.584,6.3003,6.3003,0,0,0-.40332,3.35644c.02442.12793.05078.2461.07813.35449A6.26928,6.26928,0,0,0,2.89014,9.20311a8.42168,8.42168,0,0,0,.04248.92187c.334,4.60254,3.334,5.98438,5.42431,6.459-.04345.125-.083.25878-.11816.40039a1.00023,1.00023,0,0,0,1.94238.47851,1.6784,1.6784,0,0,1,.46778-.87793.99947.99947,0,0,0-.5459-1.74512c-3.4541-.39453-4.95362-1.80175-5.1792-4.89843a6.61076,6.61076,0,0,1-.03369-.73828,4.25769,4.25769,0,0,1,.91943-2.71289,3.022,3.022,0,0,1,.1958-.23145.99988.99988,0,0,0,.188-1.02441,3.3876,3.3876,0,0,1-.15527-.55567A4.09356,4.09356,0,0,1,6.1167,3.06346a7.54263,7.54263,0,0,1,2.415,1.17968,1.00877,1.00877,0,0,0,.82764.13282,11.77716,11.77716,0,0,1,6.17285.001,1.00549,1.00549,0,0,0,.83056-.13769,7.572,7.572,0,0,1,2.40528-1.19043,4.03977,4.03977,0,0,1,.0874,1.57812,3.205,3.205,0,0,1-.16895.60743.9999.9999,0,0,0,.188,1.02441c.07715.08691.1543.18066.22363.26855A4.12186,4.12186,0,0,1,20,9.20311a7.03888,7.03888,0,0,1-.0376.77734c-.22021,3.05566-1.72558,4.46387-5.1958,4.85937a1,1,0,0,0-.54541,1.7461,1.63079,1.63079,0,0,1,.46631.9082,3.06079,3.06079,0,0,1,.09229.81934v2.334C14.77,21.2949,14.77,21.78025,14.77,22.00291a1,1,0,1,0,2,0c0-.2168,0-.69238.00977-1.33984V18.31346a4.8815,4.8815,0,0,0-.15479-1.31153,4.25638,4.25638,0,0,0-.11621-.416,6.51258,6.51258,0,0,0,5.44531-6.42383A8.69677,8.69677,0,0,0,22,9.20311,6.13062,6.13062,0,0,0,20.7373,5.37693Z"/></svg>
+</span>
+      
+      <a class="link" href="https://github.com/swbuchanan/hugo-texify3s">GitHub</a>
+    </span>
+    
+  </nav>
+</header>
+<hr class="head-rule"></hr>
+    
+<main id="main" class="post">
+  
+  <div class="post-heading">
+    <h1 class="post-title">My research, part 2</h1>
+    <div class="publish-metadata">
+      
+      <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 9H21M7 3V5M17 3V5M6 13H8M6 17H8M11 13H13M11 17H13M16 13H18M16 17H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      8 January 2024
+      
+      
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          1930 words
+        </span>
+      
+      
+      
+        
+      
+      
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          ~10 mins
+        </span>
+      
+    </div>
+  </div>
+
+  
+  
+  
+  <details>
+    <summary>
+      <b>Table of Contents</b>
+    </summary>
+    <div class="toc numbered-subtitles"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#research-questions-in-curve-shortening-flow">Research questions in curve shortening flow</a></li>
+    <li><a href="#footnotes">Footnotes</a></li>
+  </ul>
+</nav></div>
+  </details>
+  
+  
+  <article class="content numbered-subtitles">
+    
+    <p>This is the second part in a series of short articles I&rsquo;m trying to write about my research.
+<a href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/">See the first one here.</a></p>
+<h2 id="research-questions-in-curve-shortening-flow">Research questions in curve shortening flow</h2>
+<p>In this article, I will not be talking about my own research yet, but instead I&rsquo;ll be talking about research completed by others.</p>
+<p>Event though it isn&rsquo;t the focus of my research, I want to talk about curve shortening flow since it is a particularly simple and concrete example of a geometric flow.
+I also hope to give an example of what an actual research question in this field is like, since most of the time when I explain my research field I have to stay at the level of vague ideas and intuitive explanations.
+This article will still be quite vague compared to the actual research papers, but at least it will be a vague explanation of a significant result in this area.</p>
+<p>In the field of geometric flows, we usually have some partial differential equation like the heat equation or the curve shortening flow equation.
+It&rsquo;s often easy to describe the flow without the use of an equation, but the equation is critical when it comes to actually doing mathematics.
+It&rsquo;s natuaral to think that equations exist as things that are to be solved, but it should be noted that solving these equations is never a major research question.
+Indeed, solutions to these equations are generally easy to come by.
+In the last article I linked <a href="https://a.carapetis.com/csf/">this website</a>, which lets you observe solutions to curve shortening flow that begin with a curve that you can draw yourself.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<p>A solution to a geometric flow is just the initial setup consisting of a manifold and its geometry (in this case the manifold is the curve and the geometry is the shape of the curve) and then all the curves at every instant in time afterwards.
+What makes these time-slices of curves a solution is that if you play the time-slices like a movie (this is what the website does for you), you see the curve move according to the curve shortening flow equation (remember that the curve shortening flow tells a curve how to change shape over time).
+It could be moving in a way that satisfied some other geometric equation, or it could be moving randomly, but it&rsquo;s moving according to the rule of curve shortening flow, and therefore it is a solution.
+To summarize this paragraph: a solution to a geometric flow of a manifold (think about a curve) is a collection of time-slices of a manifold changing geometry (think about the curve changing shape) such that if you could play the time-slices like a movie, you would see the geometry changing over time in a way that is described by the equation associated to the geometric flow you&rsquo;re thinking of.</p>
+<p>When we have a partial differential equation, rather than just trying to solve the equation, usually a more interesting problem is to prove that any solution to the equation must have certain properties.
+Or more often, that any solution with properties A, B, and C necessarily has some particular behavior, or doesn&rsquo;t have some other behavior, or something to that effect.
+To slightly undermine my previous point about solving the equation, occasionally we are interested in trying to construct a solution to the equation that has some certain properties or is missing some certain properties, or demonstrates that some idea is true or some other idea is false.
+It also can be a challenging problem to prove that solutions to the equation always have to exist!
+For instance, not every curve has a well-defined normal vector at every point (think about what happens if the curve has a &ldquo;corner&rdquo; somewhere).
+Since the normal vector is part of the equation, not having a normal vector means that the curve shortening flow equation can&rsquo;t tell the curve how to move if the curve doesn&rsquo;t have a normal vector somewhere<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.
+Even if we start with a curve that is completely smooth and has no corners, if we let it flow according to curve shortening flow, how do we know it won&rsquo;t later on develop a corner and break the flow?
+This doesn&rsquo;t happen, but the fact that it doesn&rsquo;t happen is a non-obvious fact requiring proof.</p>
+<p>Okay, so we know what solutions to curve shortening flow are, and we&rsquo;re interested in proving that certain types of solutions (that is, solutions with certain properties as mentioned in the previous paragraph) behave in a certain way.
+As an example of this, I&rsquo;ll discuss the proof of the following statement about certain solutions to the curve shortening flow.</p>
+<blockquote>
+<p>If we begin with a curve forming a closed loop in 2-dimensional space without crossing over itself, then as the curve moves according to curve shortening flow, it will never cross over itself, but instead will shrink to a point.
+Moreover, as it shrinks it will become more and more circular.</p>
+</blockquote>
+<p>This statement is often called the <em>Gage-Hamilton-Grayson theorem</em>.
+I won&rsquo;t discuss the technical details of this proof, but instead try to give a high-level understanding of what it takes to prove it.
+If you would like to see technical details, <a href="https://math.jhu.edu/~js/Math745/gage-hamilton.pdf">here</a> is the paper of Gage and Hamilton proving (part of) this result.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>Some important tools are the <em>normal vector</em> $$\mathsf N$$ that is perpendicular to the curve at a point, the <em>tangent vector</em> $$\mathsf T$$ that is tangent to the curve at a point, and the <em>Frenet-Serret equations</em>.
+These equations give information about the spatial derivative of the normal vector in terms of the tangent vector, and the spatial derivative of the tangent vector in terms of the normal vector.
+These equations also involve the curvature of the curve.
+The phrase &ldquo;spatial derivative&rdquo; may sound confusing, but the idea to keep in mind is that when we talk about the normal or tangent vectors, we are talking about vectors that are based at some particular point on the curve.
+Then the spatial derivative of the tangent vector describes how the tangent vector rotates as the point we&rsquo;re looking at moves around the curve.</p>
+<p>It&rsquo;s very important that these equations involve the curvature.
+The curvature is just the shape of the curve, so having equations like these gives us a way to prove things about the shape of the curve.</p>
+<p>Here&rsquo;s another important idea: since the curve shortening equation</p>
+<p>$$\frac{\partial}{\partial t} \gamma = \kappa \mathsf N$$</p>
+<p>involves the normal vector and a <em>time derivative</em>, and the Frenet-Serret equations involve the normal vector and a <em>space derivative</em>, as well as information about the shape of the curve, they give us a precise way to talk about how changes in space relate to changes in time, and then apply this to the shape of the curve.
+So we can get equations that describe how the shape of the curve is changing.
+More specifically, using these ideas we can get a differential equation for how the curvature evolves over time.</p>
+<p>This is a good time to introduce another important tool that shows up very frequently in geometric analysis: the maximum principle.
+There are some complicated mathematical statements I could write down to explain the maximum principle in full detail, but the basic idea is this:
+as heat diffuses throughout an object, the hottest parts cool down and the coldest parts heat up.
+In other words, the maximum heat is decreasing and the minimum heat is increasing.
+And even in the case where this isn&rsquo;t true, which is the case where we&rsquo;re heating the object from the outside (or the object is losing heat to the outside - previously I was talking about a perfectly insulated object), the only places that we can look to find the new hottest parts of the object are the places where we&rsquo;re introducing new heat: i.e. the edges of the object.</p>
+<p>This is true of heat diffusion, which means it is true of solutions to the heat equation.
+However, there are many other differential equations that are similar enough to the heat equation that they share this property that maximums decrease and minimums increase (or just one of these two properties, but sometimes we only need one to work).
+This is the basic idea that we call the maximum principle.
+This fact can be proved for large classes of differential equations, and the proof is quite pleasing, but it would take too long to discuss in this post.</p>
+<p>Now, when we left off three paragraphs ago, we had just found a differential equation that tells us how the curvature at any point of the curve changes over time.
+Using this differential equation (and many other concepts and technical details), we can find that the ratio of the maximum curvature at any point on the curve to the minimum curvature at any point of the curve goes to 1 as time passes.
+That is, the curvature is changing over time in such a way that the maximum curvature anywhere is equal to the minimum curvature anywhere.
+The only way that can be true is if the curvature everywhere is the same, and the only way <em>that</em> can be true is if the curve is a circle.
+So, over time the curve is becoming a circle.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<p>Notice that it&rsquo;s important that we&rsquo;re talking about the <em>ratio</em> of the maximum and minimum curvatures instead of just the maximum and minimum curvatures directly.
+As the curve shrinks to a tiny circle (and eventually shrinks into nothing), the curvature increases without bound.
+A tiny circle is more curved than a large one, but the ratio of the maximum and minimum curvatures on a tiny circle is still 1.
+If all we knew was that the maximum and minimum curvatures were increasing without bound, this wouldn&rsquo;t be enough to say that the curve is becoming circular, but the fact about the ratio approaching 1 is a stronger fact.</p>
+<h2 id="footnotes">Footnotes</h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Technically the website will show approximations of solutions, but the point that solutions are easy to come by still stands.
+Precisely, one example of a solution is $$\gamma(x,t) = (\sqrt{9 - 2t} \cos x, \sqrt{9 - 2t} \sin x).$$
+The curve described by this equation (which, by necessity, tells us how the curve looks at each time-slice) looks like a circle with initial radius 3 that is shrinking inwards.
+If you could draw a perfect circle on the website (and if the website could actually process a perfect circle), this equation describes what you would see.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Don&rsquo;t worry, there&rsquo;s a way to fix this problem, and the curve shortening flow still works even if the curve you start with has sharp corners.
+(But worse things can happen too.)&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>To be completely accurate, Gage and Hamilton proved the result under the additional assumption that the curve you start with is <em>convex</em>, meaning that if you travel around the curve in a counterclockwise direction, you can only turn to the left (or go straight for a while).
+Later, Grayson proved that if you start with an arbitrary curve that doesn&rsquo;t intersect itself, eventually it will <em>become</em> convex without ever intersecting itself.
+Together these two results prove the result we stated.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Although it&rsquo;s becoming a circle that shrinks to nothing!
+That&rsquo;s why it&rsquo;s important that we&rsquo;re talking about the <em>ratio</em> of the maximum to minimum curvatures, and not just the maximum and minimum curvatures themselves.
+The maximum curvature and minimum curvature are both going to infinity as the curve shrinks - because a tiny circle has higher curvature than a big circle.
+When things go to infinity they become hard to describe mathematically.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    
+  </article>
+
+  <button onclick="topFunction()" id="back-to-top" title="Go to top">Back to Top</button>
+
+  
+
+<div id="sharingbuttons">
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+</div>
+  <div class="paginator">
+    
+    <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/" title="My research, part 1">← prev</a>
+    
+    
+    <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/" title="My research, part 3">next →</a>
+    
+  </div>
+  <div class="comment">
+    
+    
+    
+      <script src="https://giscus.app/client.js"
+        data-repo="michaelneuper/hugo-texify3"
+        data-repo-id="R_kgDOIjPNaQ"
+        data-category="General"
+        data-category-id="DIC_kwDOIjPNac4CaklA"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme=""
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+  </script>
+  
+  </div>
+  
+  
+</main>
+
+    <footer id="footer">
+
+</footer>
+
+  </div>
+
+  
+  <script src='http://localhost:1313/swbuchanan.github.io/js/script.js' defer></script>
+
+  
+  
+
+  
+  
+
+  
+  
+  
+
+
+
+</body>
+
+</html>

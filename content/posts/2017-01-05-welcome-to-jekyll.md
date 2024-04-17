@@ -1,12 +1,8 @@
 ---
-layout: post
-usemathjax: true
-title: Test post
+title: "Test post 2"
+date: 2024-06-06
 ---
 
-The following theorem is known as the fundamental theorem of arithmetic. \
-$$\textbf{Theorem:}$$
 
-$$\sum_{k=1}^\infty k = - \frac{1}{12}$$
 
 
