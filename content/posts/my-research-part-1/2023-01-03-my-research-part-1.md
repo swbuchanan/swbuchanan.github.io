@@ -17,14 +17,14 @@ One simple geometric evolution equation describes a type of process that everyon
 Suppose we have a wire[^1] that has been unevenly heated.
 We color the hot parts of the wire red, and the cold parts of the wire blue.
 
-{{< figure src="my_research_part_1_graphic1.png" alt="alt text string" width="auto" >}}
+{{< figure src="/my_research_part_1_graphic1.png" alt="alt text string" width="auto" >}}
 
 We can visualize the distribution of heat throughout the wire by a graph, so the higher the graph is above a point on the wire, the hotter the point on the wire is.
 
 
 <div style="text-align: center;">
 hi?
-{{< figure src="my_research_part_1_graphic2.png" alt="alt text string" width="auto" >}}
+{{< figure src="/my_research_part_1_graphic2.png" alt="alt text string" width="auto" >}}
 </div>
 
 {{< figure src="my_research_part_1_graphic2.png" alt="alt text string" width="auto" >}}
