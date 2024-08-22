@@ -49,11 +49,11 @@
 
   
   <meta property="og:url" content="http://localhost:1313/swbuchanan.github.io/">
-  <meta property="og:site_name" content="TeXify3">
-  <meta property="og:title" content="TeXify3">
+  <meta property="og:site_name" content="Steven&#39;s website">
+  <meta property="og:title" content="Steven&#39;s website">
   <meta property="og:description" content="About me and this website On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts. I may also upload some lecture notes if I ever get around to finishing any.
 I can be reached at steven.buchanan@anu.edu.au.
-My work Currently I am learning and doing research in the field of geometric analysis. In particular, I study geometric flows. I am in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow.">
+or you can try My work Currently I am learning and doing research in the field of geometric analysis. In particular, I study geometric flows.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
@@ -63,15 +63,15 @@ My work Currently I am learning and doing research in the field of geometric ana
 
   
   
-  <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/swbuchanan.github.io/index.xml" title="TeXify3" />
+  <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/swbuchanan.github.io/index.xml" title="Steven's website" />
   
   
-  <meta itemprop="name" content="TeXify3">
+  <meta itemprop="name" content="Steven&#39;s website">
   <meta itemprop="description" content="About me and this website On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts. I may also upload some lecture notes if I ever get around to finishing any.
 I can be reached at steven.buchanan@anu.edu.au.
-My work Currently I am learning and doing research in the field of geometric analysis. In particular, I study geometric flows. I am in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow.">
+or you can try My work Currently I am learning and doing research in the field of geometric analysis. In particular, I study geometric flows.">
   <meta itemprop="dateModified" content="2024-02-18T13:25:14+11:00">
-  <meta itemprop="wordCount" content="103">
+  <meta itemprop="wordCount" content="109">
 
   
   
@@ -86,16 +86,16 @@ My work Currently I am learning and doing research in the field of geometric ana
 
   
   
-  <title>TeXify3</title>
+  <title>Steven&#39;s website</title>
   
 
   
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="TeXify3">
+  <meta name="twitter:title" content="Steven&#39;s website">
   <meta name="twitter:description" content="About me and this website On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts. I may also upload some lecture notes if I ever get around to finishing any.
 I can be reached at steven.buchanan@anu.edu.au.
-My work Currently I am learning and doing research in the field of geometric analysis. In particular, I study geometric flows. I am in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow.">
+or you can try My work Currently I am learning and doing research in the field of geometric analysis. In particular, I study geometric flows.">
 
 
   
@@ -113,7 +113,7 @@ My work Currently I am learning and doing research in the field of geometric ana
 
 <header id="header">
   <h1>
-    <a href="http://localhost:1313/swbuchanan.github.io/">Steven</a>
+    <a href="http://localhost:1313/swbuchanan.github.io/">Steven Buchanan</a>
     <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle theme">
         <svg width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
         <path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/>
@@ -157,12 +157,15 @@ My work Currently I am learning and doing research in the field of geometric ana
 <p>On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts.
 I may also upload some lecture notes if I ever get around to finishing any.</p>
 <p>I can be reached at <a href="mailto:steven.buchanan@anu.edu.au">steven.buchanan@anu.edu.au</a>.</p>
+<p>or you can try 
+<div id="email-text"></div></p>
 <h3 id="my-work">My work</h3>
 <p>Currently I am learning and doing research in the field of geometric analysis.
 In particular, I study geometric flows.
 I am in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow.
 <a href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/">See the first one here.</a></p>
 <h3 id="testing">Testing</h3>
+<!-- raw HTML omitted -->
 
 <div id="game-container"></div>
 <head>
@@ -172,12 +175,22 @@ I am in the process of writing a series of short articles for a general audience
 </head>
 <div class="multi-container">
 <div class="sketch">
-    <canvas id="draw-zone" class="sketch-child" width=500 height=500></canvas>
+    <canvas id="draw-zone" class="sketch-child" width=800 height=500></canvas>
     <p id="draw-zone-instruction" class="instruction">Draw here!</p>
     <button id="draw-zone-undo-button" class="button embedded-button">Undo</button>
 </div>
 </div>
 
+<canvas id="display-zone" width=500 height=500></canvas>
+
+<h2 id="more-testing">More testing</h2>
+
+
+<div id="graph-container"></div>
+<head>
+    <canvas id="graphCanvas" width="800" height="800"></canvas>
+    <script type="module" src="http://localhost:1313/swbuchanan.github.io/js/grapher.js"></script>
+</head>
 
         
     </div>

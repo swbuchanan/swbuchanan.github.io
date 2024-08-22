@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/</loc>
-    <lastmod>2024-04-17T18:02:15+10:00</lastmod>
+    <lastmod>2024-08-23T07:10:06+10:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</loc>
     <lastmod>2024-04-17T18:02:15+10:00</lastmod>
@@ -12,7 +12,7 @@
     <lastmod>2024-02-05T18:51:30+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</loc>
-    <lastmod>2024-02-17T20:40:00+11:00</lastmod>
+    <lastmod>2024-08-23T07:10:06+10:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</loc>
     <lastmod>2024-02-17T20:40:00+11:00</lastmod>
@@ -22,6 +22,9 @@
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</loc>
     <lastmod>2024-02-17T20:40:00+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/swbuchanan.github.io/posts/my-research-part-1/2023-01-03-my-research-part-1/</loc>
+    <lastmod>2024-01-03T21:01:30+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/test-post/</loc>
     <lastmod>2024-04-17T18:02:15+10:00</lastmod>

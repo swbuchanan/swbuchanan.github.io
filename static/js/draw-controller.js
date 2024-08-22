@@ -20,6 +20,7 @@ export default class DrawController extends CanvasController {
         this.canvas.addEventListener('mousedown', () => this.startDrawing());
         this.canvas.addEventListener('touchstart', () => this.startDrawing());
 
+        // you can stop drawing even if you click and drag outside of the canvas
         document.addEventListener('mouseup', () => this.stopDrawing());
         document.addEventListener('touchend', () => this.stopDrawing());
 
@@ -77,6 +78,7 @@ export default class DrawController extends CanvasController {
         this.pathEndIndex = this.undoIndexes[this.curUndoIndex];
 
         this.onDrawingEnd.forEach(fn => fn());
+        this.context.closePath();
     }
 
     undo() {
@@ -114,7 +116,7 @@ export default class DrawController extends CanvasController {
         // we have to account for the border here too
         const actualWidth = (canvasPosition.right - canvasPosition.left) - 2;
         // 500 being the 'default' width
-        const scale = 500 / actualWidth;
+        const scale = this.width / actualWidth;
         const point = {
             x: scale * (mousePosition.x - canvasPosition.x),
             y: scale * (mousePosition.y - canvasPosition.y),
@@ -145,7 +147,7 @@ export default class DrawController extends CanvasController {
 
     drawPoints(path) {
         this.context.beginPath();
-        this.context.strokeStyle = palette.pink;
+        this.context.strokeStyle = palette.blue;
         this.context.lineWidth = 2;
         for (let i = 0; i < path.length; i ++) {
             if (i == 0) {
@@ -155,7 +157,7 @@ export default class DrawController extends CanvasController {
                 this.context.lineTo(path[i].x, path[i].y);
             }
         }
-        this.context.closePath();
+        // this.context.closePath();
         this.context.stroke();
     }
 }
