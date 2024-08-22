@@ -9,6 +9,15 @@
     <managingEditor>placeholder@gmail.com (Steven Buchanan)</managingEditor>
     <webMaster>placeholder@gmail.com (Steven Buchanan)</webMaster><atom:link href="http://localhost:1313/swbuchanan.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Test post 2</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Another Post</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/another-post/</link>
       <pubDate>Mon, 05 Feb 2024 18:24:58 +1100</pubDate>
@@ -30,7 +39,7 @@
 The two notions are these: manifolds and metric tensors.
 A manifold is a mathematical structure that generalizes and makes precise the idea of &lt;em&gt;space&lt;/em&gt;.
 Space is a familiar idea.
-The (physical) space we live in is (described by) a 3-dimensional manifold.
+The (physical, i.e. ignoring the time dimension) space we live in is (described by) a 3-dimensional manifold.
 One way to see that it is 3-dimensional is to observe that if we are at some point in space, we can fix 3 different directions, perhaps forward, left, and up, and then any direction in which it is possible for us to move is some combination of these 3 directions.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;
 (Here we are counting moving backwards along one of these chosen directions as using that direction.)
 If we had only chosen 4 directions, say forward and to the right, then we could not describe any upward or downward motion in terms of these directions.
@@ -39,12 +48,55 @@ If we had chosen 4 directions, say forward, right, down, and a little bit up and
 We only need any 3 of these directions to describe any sort of motion we want in space.
 (It&amp;rsquo;s true that if we choose to use the 3 directions: forward, right, and a little bit up and to the left, then describing motion in, say, purely the leftward direction becomes unnecessarily complicated, but the important thing is that it can in principle be done.)
 So 4 directions is too many.&lt;/p&gt;
+&lt;p&gt;Another example of a manifold is a sphere, which is the infinitely thin outer surface of a ball.
+When one imagines a sphere, one probably imagines it sitting inside of 3-dimensional space, but the sphere itself is a 2-dimensional manifold.
+This can be seen for the same reason as before: if we are on the surface of the sphere and we pick out two distinguished directions relative to our position, then we can specify any point around us using only these two directions.
+For example, I could tell you that the point I&amp;rsquo;m thinking of is 3 units to my right and -3 units in front of me, if my distinguished directions happen to be &amp;ldquo;to the right&amp;rdquo; and &amp;ldquo;forward.&amp;rdquo;
+Another way to phrase this same concept is by pointing out that we can specify any point on the surface of the earth with two coordinates: latitude and longitude.&lt;/p&gt;
+&lt;p&gt;The mathematically precise way to state this idea of being able to describe the manifold in terms of a certain number of coordinates is fairly technical, but it goes something like this.
+In each dimension, there is a certain &amp;ldquo;default manifold&amp;rdquo; that is basically as nice as it&amp;rsquo;s possible for a manifold to be.
+This is called Euclidean space.
+The 1-dimensional Euclidean space is a straight line extending forever in both directions.
+Then a coordinate for this space is just a number, say $x$.
+This space is often just referred to as &lt;em&gt;the line&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The 2-dimensional Euclidean space is &lt;em&gt;the plane&lt;/em&gt;, extending forever in all directions.
+Any point in this space has a pair of 1-dimensional coordinates $(x,y)$, where each coordinate in the pair comes from 1-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;The 3-dimensional Euclidean space can be imagined as the physical space that we live in extending forever in all directions.
+It&amp;rsquo;s the space with 3 coordinates $(x,y,z)$ with each coordinate in the triplet coming from 1-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;Higher dimensional Euclidean spaces are obtained following the same pattern: simply add more coordinates.
+Once we have these spaces in our hands, we can say that a manifold with possibly some other shape, like a sphere, is some mathematical object with the property that when we look very closely around a point, it looks like one of these Euclidean spaces of some dimension.
+For example, the (idealized, without terrain features) surface of the earth looks like a piece of 2-dimensional Euclidean space.
+Or a circle, when one zooms in closely on some point, looks just like a piece of 1-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;Now we can ask an important question.
+If we are within some manifold, say on the surface of a 2-dimensional manifold, then we look all around us and, due to what it means to be a manifold, it appears to us that we are in Euclidean space.
+How exactly can we be sure that our manifold is not, in fact Euclidean space?
+The two main things that differentiate one manifold from another are the &lt;em&gt;topology&lt;/em&gt; and the &lt;em&gt;geometry&lt;/em&gt;.
+To oversimplify, these concepts refer respectively to the large-scale shape of the manifold and the small-scale shape.&lt;/p&gt;
+&lt;h2 id=&#34;topology&#34;&gt;Topology&lt;/h2&gt;
+&lt;p&gt;Topology should be considered as the &amp;ldquo;lower-level&amp;rdquo; structure of a manifold.
+Later we will be interested in ways that the geometry of the manifold can change over time, but the underlying topology of the manifold will generally be fixed.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;
+Topology is sometimes referred to as rubber-sheet geometry, because deforming a manifold in ways that one could deform a rubber sheet would not change the topology.
+For instance, the sphere has a certain topology and spheres that are, say, larger or smaller or squished or stretched or crumpled up all have different geometries, but the same underlying spherical topology.
+One way to see that the topology is different from the topology of a plane is that a sphere does not &amp;ldquo;extend forever in all directions.&amp;rdquo;
+If one starts traveling in a fixed direction on a sphere, one will eventually come back to where they started.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;
+This is not true for the plane.&lt;/p&gt;
 &lt;h2 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h2&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34;&gt;
 &lt;p&gt;We do have to be just a little bit careful when choosing these directions.  For example, if we choose: forward, left, and backward, then we are unable to describe any upward or downward motion.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;I doubt I&amp;rsquo;ll get around to talking about it, but I can&amp;rsquo;t resist mentioning it.
+There are notions of geometric evolution that allow the toplogy of the manifold to change it a certain carefully controlled way.
+The so-called Ricci flow with surgery is one famous way; analysis of this process was what led to the resolution of the Poincare conjecture.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;This is not really the correct way to state what I&amp;rsquo;m talking about, but it&amp;rsquo;s a better way to understand the idea.
+The concept of direction on a topological manifold isn&amp;rsquo;t really well-defined in the first place (although once we endow a topological manifold with a geometric structure we can sensibly talk about direction).
+The technical concept that I&amp;rsquo;m referring to is called &lt;em&gt;compactness&lt;/em&gt;, and it&amp;rsquo;s very important in many areas of mathematics.
+W&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
