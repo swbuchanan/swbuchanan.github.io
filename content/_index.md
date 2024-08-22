@@ -5,10 +5,8 @@
 On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts.
 I may also upload some lecture notes if I ever get around to finishing any.
 
-I can be reached at steven.buchanan@anu.edu.au.
+I can be reached at {{< email >}}
 
-
-or you can try {{< email >}}
 
 ### My work
 
