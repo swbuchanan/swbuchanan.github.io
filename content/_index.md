@@ -11,10 +11,12 @@ I can be reached at {{< email >}}
 ### My work
 
 Currently I am learning and doing research in the field of geometric analysis.
-In particular, I study geometric flows.
-I am in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow.
+
+Elsewhere on the site I have a brief technical description of what I'm working on at the moment.
+I am also in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow.
 [See the first one here.]({{< ref "/posts/2023-01-03-my-research-part-1.md" >}})
 
+On this page I am also testing some stuff that may someday become an interesting project; see below.
 
 ### Testing
 

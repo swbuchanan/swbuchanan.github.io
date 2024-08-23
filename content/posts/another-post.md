@@ -2,6 +2,7 @@
 layout: post
 title: "An unusual problem-solving technique"
 date: 2024-02-29
+draft: true
 ---
 
 Consider the following problem:
