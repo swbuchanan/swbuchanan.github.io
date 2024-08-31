@@ -1,7 +1,5 @@
 ### About me and this website
 
-
-
 On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts.
 I may also upload some lecture notes if I ever get around to finishing any.
 
@@ -20,9 +18,10 @@ On this page I am also testing some stuff that may someday become an interesting
 
 ### Testing
 
+{{< thing >}}
 
-<!-- see shortcodes/main.html -->
-{{< main >}} 
+<!-- see layouts/shortcodes/main.html -->
+<!-- {{< main >}} 
 
 ## More testing
 

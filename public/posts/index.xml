@@ -23,7 +23,7 @@ This is a broad idea; it applies to the description of many evolving physical sy
 Solutions of certain equations provide geometric models for corresponding physical phenomena.
 The shape of a stationary film of soap is the solution to an elliptic partial differential equation.
 The heat equation,
-$$ \frac{\partial}{\partial t} u = \Delta u,$$
+$$\frac{\partial}{\partial t} u = \Delta u,$$
 which describes diffusion processes like heat spreading through an unevenly heated object, is the prototypical parabolic partial differential equation.&lt;/p&gt;
 &lt;p&gt;Recently many differential equations and systems of equations - particularly parabolic systems - have been used to describe certain natural deformations of curves, surfaces, or Riemannian metrics (among other geometric objects).
 Aside from direct physical applications, these theories can be applied to the problem of finding canonical or &amp;ldquo;best&amp;rdquo; metrics on Riemannian manifolds.&lt;/p&gt;
@@ -33,7 +33,6 @@ Motivated by the work of Eells and Sampson on the harmonic map heat flow (a way 
 &lt;p&gt;Hamilton classified all compact 3-manifolds of positive Ricci curvature by showing that, given an arbitrary Riemannian metric with positive Ricci curvature on a 3-manifold, the metric could smoothly deform to have constant curvature.
 In particular, he examined the following.
 Given a (compact) manifold $M$, a one-parameter family $g_t$ of Riemannian metrics on $M$ is said to evolve by the Ricci flow if
-$$test$$
 $$\frac{\partial}{\partial t} g_{ij} = R_{ij}$$
 where $R$ is the Ricci curvature of $g(t)$.
 This turns out to be a weakly parabolic system of nonlinear partial differential equations.
