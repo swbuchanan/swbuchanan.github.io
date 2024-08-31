@@ -14,16 +14,9 @@ Elsewhere on the site I have a brief technical description of what I'm working o
 I am also in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow.
 [See the first one here.]({{< ref "/posts/2023-01-03-my-research-part-1.md" >}})
 
-On this page I am also testing some stuff that may someday become an interesting project; see below.
+Probably the most interesting things on this site you can find at the cool things link above.
+Currently there is a visualization of discrete curve shortening flow, inspired by Anthony Carapetis, see https://a.carapetis.com/csf/.
 
-### Discrete curve shortening flow
-
-Try clicking below to add points to form a closed polygon (you have to click at least twice before anything shows up).
-Once there are at least three points; the "normal vectors" at the vertices of the polygon are displayed.
-Then you can click the button below to move one timestep forward to simulate the motion of the polygon under the discrete curve shortening flow.
-This is a work in progress.
-
-{{< thing >}}
 
 <!-- see layouts/shortcodes/main.html -->
 <!-- {{< main >}} 

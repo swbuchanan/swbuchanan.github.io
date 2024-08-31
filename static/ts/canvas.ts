@@ -1,8 +1,6 @@
 // canvas.ts
 
 function pointDifference(p1: Point, p2: Point): Point {
-  console.log(p1);
-
   return new Point(p1.x - p2.x, p1.y - p2.y);
 }
 
@@ -39,6 +37,8 @@ class CanvasCurve {
   private normals: Point[] = [];
   private canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D;
+  private animationRunning: boolean = false;
+  private animationId: number | null = null;
 
   constructor(canvasId: string) {
     this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
@@ -47,25 +47,76 @@ class CanvasCurve {
 
     const clearButton = document.getElementById("clearButton")!;
     clearButton.addEventListener("click", this.clearPoints.bind(this));
+
+    const stepButton = document.getElementById("stepButton")!;
+    stepButton.addEventListener("click", this.flowStep.bind(this));
+
+    const toggleButton = document.getElementById("toggleButton")!;
+    toggleButton.addEventListener("click", () => {
+      this.toggleAnimation();
+      //toggleButton.textContent = this.animationRunning ? "Stop Animation" : "Start Animation";
+    });
+
+    this.flowStep = this.flowStep.bind(this);
   }
 
   private addPoint(event: MouseEvent) {
     const rect = this.canvas.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
+    // don't add the same point twice
+    if (this.points.length > 1 && this.points[this.points.length-1].x == x && this.points[this.points.length-1].y == y) {
+      console.log("go away");
+      return;
+    }
     this.points.push(new Point(x, y));
     this.normals.push(new Point(0,0));
     if (this.points.length > 2) {
       for (let i = 0; i < this.points.length; i++) {
-        //this.normals[i] = this.calculateNormal(i);
+        this.normals[i] = this.calculateNormal(i);
         continue;
       }
     }
     this.drawCurve();
+    this.drawNormals();
   }
 
-  private calculateNormal(idx: number) {
-    if (this.points.length < 3) return;
+  private calculateFlowStep(): Point[] {
+    let new_points: Point[] = [];
+    for (let i = 0; i < this.points.length; i++) {
+      let new_point_x = this.points[i].x + this.normals[i].x;
+      let new_point_y = this.points[i].y + this.normals[i].y;
+      let newPoint = new Point(new_point_x, new_point_y);
+      if (!(distance(newPoint, this.points[(i+1) % this.points.length]) < 1)){
+        new_points.push(newPoint);
+      }
+    }
+    if (new_points.length < 3) {
+      this.clearPoints();
+      return [];
+    }
+    return new_points;
+  }
+
+  private flowStep() {
+    if (this.points.length < 3) {
+      this.clearPoints();
+      return;
+    }
+    this.points = this.calculateFlowStep(); // move all the points
+    this.normals = [];
+
+    // calculate all the new normal vectors of the moved points
+    for (let i = 0; i < this.points.length; i++) {
+      let new_normal = this.calculateNormal(i);
+      this.normals.push(new Point(new_normal.x, new_normal.y));
+    }
+    this.drawCurve();
+    this.drawNormals();
+  }
+
+  private calculateNormal(idx: number): Point {
+    if (this.points.length < 2) return;
     let left_idx;
     let right_idx;
     if (idx == 0) {
@@ -75,14 +126,15 @@ class CanvasCurve {
     }
     right_idx = (idx + 1) % this.points.length;
 
+
     let difference_to_left = new Point(0,0);
     let difference_to_right = new Point(0,0);
     let bisector = new Point(0,0);
-    difference_to_left = pointDifference(this.points[idx-1], this.points[idx])
-    difference_to_right = pointDifference(this.points[idx+1], this.points[idx])
-    let kappa = 1;
+    difference_to_left = pointDifference(this.points[left_idx], this.points[idx])
+    difference_to_right = pointDifference(this.points[right_idx], this.points[idx])
+    let kappa = Math.abs(Math.PI - Math.acos(dotProduct(difference_to_left, difference_to_right)/norm(difference_to_left)/norm(difference_to_right)));
     bisector = normalize(pointSum(normalize(difference_to_left), normalize(difference_to_right)));
-    bisector = scalarMultiply(bisector, kappa);
+    bisector = scalarMultiply(bisector, .5*kappa);
     return new Point(bisector.x, bisector.y);
   }
 
@@ -105,11 +157,11 @@ class CanvasCurve {
   }
 
   private drawNormals() {
-    if (this.points.length < 3) return;
+    if (this.points.length < 2) return;
     this.context.beginPath();
     for (let i = 0; i < this.normals.length; i++) {
       this.context.moveTo(this.points[i].x, this.points[i].y);
-      this.context.lineTo(this.points[i].x + this.normals[i].x, this.points[i].y + this.normals[i].y);
+      this.context.lineTo(this.points[i].x + 20*this.normals[i].x, this.points[i].y + 20*this.normals[i].y); // normal vectors need to be scaled up for visibility
       this.context.strokeStyle = "blue";
       this.context.lineWidth = 1;
       this.context.stroke();
@@ -117,8 +169,29 @@ class CanvasCurve {
   }
 
   private clearPoints() {
-    this.points = []; // Clear the points array
+    this.points = [];
+    this.normals = [];
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height); // Clear the canvas
+    this.animationRunning = false;
+  }
+
+  private animate = (): void => {
+    this.flowStep();
+    if (this.animationRunning) {
+      this.animationId = requestAnimationFrame(this.animate);
+    }
+  }
+
+  private toggleAnimation(): void {
+    this.animationRunning = !this.animationRunning;
+    if (this.animationRunning) {
+
+      this.animate();
+    } else {
+      if (this.animationId !== null) {
+        cancelAnimationFrame(this.animationId);
+      }
+    }
   }
 
 }
@@ -126,6 +199,5 @@ class CanvasCurve {
 // Initialize the canvas curve when the page loads
 document.addEventListener("DOMContentLoaded", () => {
   const canvasCurve = new CanvasCurve("myCanvas");
-  console.log("created a canvas");
 });
 
