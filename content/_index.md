@@ -16,7 +16,12 @@ I am also in the process of writing a series of short articles for a general aud
 
 On this page I am also testing some stuff that may someday become an interesting project; see below.
 
-### Testing
+### Discrete curve shortening flow
+
+Try clicking below to add points to form a closed polygon (you have to click at least twice before anything shows up).
+Once there are at least three points; the "normal vectors" at the vertices of the polygon are displayed.
+Then you can click the button below to move one timestep forward to simulate the motion of the polygon under the discrete curve shortening flow.
+This is a work in progress.
 
 {{< thing >}}
 

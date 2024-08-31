@@ -71,7 +71,7 @@ Elsewhere on the site I have a brief technical description of what I’m working
 I can be reached at My work Currently I am learning and doing research in the field of geometric analysis.
 Elsewhere on the site I have a brief technical description of what I’m working on at the moment.">
   <meta itemprop="dateModified" content="2024-08-23T12:49:29+10:00">
-  <meta itemprop="wordCount" content="136">
+  <meta itemprop="wordCount" content="209">
 
   
   
@@ -164,7 +164,11 @@ I may also upload some lecture notes if I ever get around to finishing any.</p>
 I am also in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow.
 <a href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/">See the first one here.</a></p>
 <p>On this page I am also testing some stuff that may someday become an interesting project; see below.</p>
-<h3 id="testing">Testing</h3>
+<h3 id="discrete-curve-shortening-flow">Discrete curve shortening flow</h3>
+<p>Try clicking below to add points to form a closed polygon (you have to click at least twice before anything shows up).
+Once there are at least three points; the &ldquo;normal vectors&rdquo; at the vertices of the polygon are displayed.
+Then you can click the button below to move one timestep forward to simulate the motion of the polygon under the discrete curve shortening flow.
+This is a work in progress.</p>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,8 +177,8 @@ I am also in the process of writing a series of short articles for a general aud
   <title>Canvas Curve</title>
 </head>
 <body>
-  <canvas id="myCanvas" width="800" height="600" style="border:1px solid #000000;"></canvas>
-  <button id="clearButton">Clear Points</button>
+  <canvas id="myCanvas" width="1200" height="800" style="border:1px solid #000000;"></canvas>
+  <button id="clearButton">Clear</button>
   <script src="http://localhost:1313/swbuchanan.github.io/js/canvas.js"></script>
 </body>
 </html>
