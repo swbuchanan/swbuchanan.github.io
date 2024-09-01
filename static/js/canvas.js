@@ -27,6 +27,8 @@ var Point = /** @class */ (function () {
     }
     return Point;
 }());
+// Some things will need to be updated if I ever want to have more than one curve per canvas
+// I guess I should have a separate class that is just for canvases, and make this one just for curves
 var CanvasCurve = /** @class */ (function () {
     function CanvasCurve(canvasId) {
         var _this = this;
@@ -55,6 +57,7 @@ var CanvasCurve = /** @class */ (function () {
         this.flowStep = this.flowStep.bind(this);
     }
     CanvasCurve.prototype.addPoint = function (event) {
+        // get the position of the mouse
         var rect = this.canvas.getBoundingClientRect();
         var x = event.clientX - rect.left;
         var y = event.clientY - rect.top;

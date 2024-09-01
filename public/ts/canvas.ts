@@ -32,6 +32,8 @@ class Point {
   constructor(public x: number, public y: number) {}
 }
 
+// Some things will need to be updated if I ever want to have more than one curve per canvas
+// I guess I should have a separate class that is just for canvases, and make this one just for curves
 class CanvasCurve {
   private points: Point[] = [];
   private normals: Point[] = [];
@@ -61,6 +63,7 @@ class CanvasCurve {
   }
 
   private addPoint(event: MouseEvent) {
+    // get the position of the mouse
     const rect = this.canvas.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;

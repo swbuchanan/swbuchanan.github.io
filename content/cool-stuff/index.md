@@ -1,4 +1,13 @@
 
+### Network flow
+
+I think this is the network flow but you know I'm not really sure.
+It's something at least.
+
+{{< networkflow >}}
+
+what
+
 ### Discrete curve shortening flow
 
 Try clicking below to add points to form a closed polygon (you have to click at least twice before anything shows up), and then click the other buttons to make it do stuff.

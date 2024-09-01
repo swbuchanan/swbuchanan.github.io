@@ -18,7 +18,6 @@ function normalize(point) {
     return new Point(scalarMultiply(point, 1 / norm(point)).x, scalarMultiply(point, 1 / norm(point)).y);
 }
 function distance(point1, point2) {
-    console.log("calculating distance betweer ", point1, " and ", point2);
     return norm(pointDifference(point1, point2));
 }
 var Point = /** @class */ (function () {
@@ -28,6 +27,8 @@ var Point = /** @class */ (function () {
     }
     return Point;
 }());
+// Some things will need to be updated if I ever want to have more than one curve per canvas
+// I guess I should have a separate class that is just for canvases, and make this one just for curves
 var CanvasCurve = /** @class */ (function () {
     function CanvasCurve(canvasId) {
         var _this = this;
@@ -51,14 +52,20 @@ var CanvasCurve = /** @class */ (function () {
         var toggleButton = document.getElementById("toggleButton");
         toggleButton.addEventListener("click", function () {
             _this.toggleAnimation();
-            toggleButton.textContent = _this.animationRunning ? "Stop Animation" : "Start Animation";
+            //toggleButton.textContent = this.animationRunning ? "Stop Animation" : "Start Animation";
         });
         this.flowStep = this.flowStep.bind(this);
     }
     CanvasCurve.prototype.addPoint = function (event) {
+        // get the position of the mouse
         var rect = this.canvas.getBoundingClientRect();
         var x = event.clientX - rect.left;
         var y = event.clientY - rect.top;
+        // don't add the same point twice
+        if (this.points.length > 1 && this.points[this.points.length - 1].x == x && this.points[this.points.length - 1].y == y) {
+            console.log("go away");
+            return;
+        }
         this.points.push(new Point(x, y));
         this.normals.push(new Point(0, 0));
         if (this.points.length > 2) {
@@ -76,19 +83,21 @@ var CanvasCurve = /** @class */ (function () {
             var new_point_x = this.points[i].x + this.normals[i].x;
             var new_point_y = this.points[i].y + this.normals[i].y;
             var newPoint = new Point(new_point_x, new_point_y);
-            //console.log(i);
-            console.log(newPoint);
-            //console.log((i+1) % this.points.length);
-            console.log(this.points[(i + 1) % this.points.length]);
-            console.log(distance(newPoint, this.points[(i + 1) % this.points.length]));
-            console.log("=====");
-            if (!(distance(newPoint, this.points[i + 1 % this.points.length]) < 1)) {
+            if (!(distance(newPoint, this.points[(i + 1) % this.points.length]) < 1)) {
                 new_points.push(newPoint);
             }
+        }
+        if (new_points.length < 3) {
+            this.clearPoints();
+            return [];
         }
         return new_points;
     };
     CanvasCurve.prototype.flowStep = function () {
+        if (this.points.length < 3) {
+            this.clearPoints();
+            return;
+        }
         this.points = this.calculateFlowStep(); // move all the points
         this.normals = [];
         // calculate all the new normal vectors of the moved points
@@ -100,7 +109,7 @@ var CanvasCurve = /** @class */ (function () {
         this.drawNormals();
     };
     CanvasCurve.prototype.calculateNormal = function (idx) {
-        if (this.points.length < 3)
+        if (this.points.length < 2)
             return;
         var left_idx;
         var right_idx;
@@ -118,7 +127,7 @@ var CanvasCurve = /** @class */ (function () {
         difference_to_right = pointDifference(this.points[right_idx], this.points[idx]);
         var kappa = Math.abs(Math.PI - Math.acos(dotProduct(difference_to_left, difference_to_right) / norm(difference_to_left) / norm(difference_to_right)));
         bisector = normalize(pointSum(normalize(difference_to_left), normalize(difference_to_right)));
-        bisector = scalarMultiply(bisector, kappa);
+        bisector = scalarMultiply(bisector, .5 * kappa);
         return new Point(bisector.x, bisector.y);
     };
     CanvasCurve.prototype.drawCurve = function () {
@@ -136,7 +145,7 @@ var CanvasCurve = /** @class */ (function () {
         this.context.stroke();
     };
     CanvasCurve.prototype.drawNormals = function () {
-        if (this.points.length < 3)
+        if (this.points.length < 2)
             return;
         this.context.beginPath();
         for (var i = 0; i < this.normals.length; i++) {
