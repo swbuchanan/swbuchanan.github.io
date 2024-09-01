@@ -85,7 +85,7 @@ class CanvasGraph {
 
 
       if (this.isMouseOverVertex(x,y) !== false) {
-        console.log("clicked on vertex ", this.isMouseOverVertex(x,y));
+
       }
 
     });
@@ -103,12 +103,12 @@ class CanvasGraph {
           const vertex_idx = this.isMouseOverVertex(mouseX, mouseY);
           if (vertex_idx !== false){
             this.addEdge(this.edgeStartIdx, vertex_idx);
-            console.log('added edge between vertex ', this.edgeStartIdx, ' and vertex ', vertex_idx);
+
           }
           this.clearJunk();
         }
 
-        console.log('released right click');
+
       }
     });
 
@@ -146,13 +146,47 @@ class CanvasGraph {
     }
   }
 
-/*
+
 
   private calculateFlowStep(): Point[] {
-  }
 
- */
+    let new_vertices: Point[] = [];
+    for (let i = 0; i < this.vertices.length; i++) {
+      let new_point_x = this.vertices[i].x + .02*this.normals[i].x;
+      let new_point_y = this.vertices[i].y + .02*this.normals[i].y;
+      let newPoint = new Point(new_point_x, new_point_y);
+      new_vertices.push(newPoint);
+//      if (!(distance(newPoint, this.points[(i+1) % this.points.length]) < 1)){
+//        new_points.push(newPoint);
+//      }
+    }
+    if (new_vertices.length < 3) {
+      
+      this.clearPoints();
+      return [];
+    }
+    return new_vertices;
+  }
+  
+
+
   private flowStep() {
+    if (this.vertices.length < 3) {
+
+      this.clearPoints();
+      return;
+    }
+    this.vertices = this.calculateFlowStep(); // move all the points
+    this.normals = [];
+
+    // calculate all the new normal vectors of the moved points
+    for (let i = 0; i < this.vertices.length; i++) {
+      let new_normal = this.calculateNormal(i);
+      this.normals.push(new Point(new_normal.x, new_normal.y));
+    }
+
+    this.clearJunk();
+    this.drawCurve();
   }
 
   private calculateNormal(idx: number): Point {
@@ -163,15 +197,20 @@ class CanvasGraph {
     for (const edge of this.edges) {
       if (edge[0] == idx) {
         neighbors ++;
-        normal = pointSum(normal, this.vertices[edge[1]]);
+        let difference = pointDifference(this.vertices[edge[1]], vertex);
+
+        normal = pointSum(normal, difference);
       } else if (edge[1] == idx) {
         neighbors ++;
-        normal = pointSum(normal, this.vertices[edge[0]]);
+        let difference = pointDifference(this.vertices[edge[0]], vertex);
+
+        normal = pointSum(normal, difference);
       }
     }
     if (neighbors <= 1) {
       return new Point(0,0);
     } else {
+
       return normal;
     }
   }
@@ -209,6 +248,8 @@ class CanvasGraph {
       this.context.stroke();
     }
 
+    this.drawNormals();
+
   }
 
   private highlightVertex(idx: number) {
@@ -228,14 +269,18 @@ class CanvasGraph {
       if (normal.x != 0 || normal.y != 0) {
         this.context.beginPath();
         this.context.moveTo(this.vertices[idx].x, this.vertices[idx].y);
-        this.context.lineTo(this.vertices[idx].x + this.normals[idx].x, this.vertices[idx].y + this.normals[idx].y);
-        this.context.strokeStyle = "blue";
+        this.context.lineTo(this.vertices[idx].x + .1*this.normals[idx].x, this.vertices[idx].y + .1*this.normals[idx].y);
+        this.context.strokeStyle = "red";
         this.context.stroke(); 
       }
     }
   }
 
   private clearPoints() {
+
+    this.vertices = [];
+    this.normals = [];
+    this.edges = [];
   }
  
 

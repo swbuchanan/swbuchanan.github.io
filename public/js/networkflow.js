@@ -72,7 +72,6 @@ var CanvasGraph = /** @class */ (function () {
                 _this.edgeStartIdx = vertexUnderMouseIdx;
             }
             if (_this.isMouseOverVertex(x, y) !== false) {
-                console.log("clicked on vertex ", _this.isMouseOverVertex(x, y));
             }
         });
         // Add a mouseup event listener to detect when the right mouse button is released
@@ -87,11 +86,9 @@ var CanvasGraph = /** @class */ (function () {
                     var vertex_idx = _this.isMouseOverVertex(mouseX, mouseY);
                     if (vertex_idx !== false) {
                         _this.addEdge(_this.edgeStartIdx, vertex_idx);
-                        console.log('added edge between vertex ', _this.edgeStartIdx, ' and vertex ', vertex_idx);
                     }
                     _this.clearJunk();
                 }
-                console.log('released right click');
             }
         });
         this.flowStep = this.flowStep.bind(this);
@@ -122,13 +119,37 @@ var CanvasGraph = /** @class */ (function () {
             this.normals[edge[0]] = this.calculateNormal(edge[0]);
         }
     };
-    /*
-    
-      private calculateFlowStep(): Point[] {
-      }
-    
-     */
+    CanvasGraph.prototype.calculateFlowStep = function () {
+        var new_vertices = [];
+        for (var i = 0; i < this.vertices.length; i++) {
+            var new_point_x = this.vertices[i].x + .02 * this.normals[i].x;
+            var new_point_y = this.vertices[i].y + .02 * this.normals[i].y;
+            var newPoint = new Point(new_point_x, new_point_y);
+            new_vertices.push(newPoint);
+            //      if (!(distance(newPoint, this.points[(i+1) % this.points.length]) < 1)){
+            //        new_points.push(newPoint);
+            //      }
+        }
+        if (new_vertices.length < 3) {
+            this.clearPoints();
+            return [];
+        }
+        return new_vertices;
+    };
     CanvasGraph.prototype.flowStep = function () {
+        if (this.vertices.length < 3) {
+            this.clearPoints();
+            return;
+        }
+        this.vertices = this.calculateFlowStep(); // move all the points
+        this.normals = [];
+        // calculate all the new normal vectors of the moved points
+        for (var i = 0; i < this.vertices.length; i++) {
+            var new_normal = this.calculateNormal(i);
+            this.normals.push(new Point(new_normal.x, new_normal.y));
+        }
+        this.clearJunk();
+        this.drawCurve();
     };
     CanvasGraph.prototype.calculateNormal = function (idx) {
         // for now this is just the sum of all the edges connected to a vertex
@@ -139,11 +160,13 @@ var CanvasGraph = /** @class */ (function () {
             var edge = _a[_i];
             if (edge[0] == idx) {
                 neighbors++;
-                normal = pointSum(normal, this.vertices[edge[1]]);
+                var difference = pointDifference(this.vertices[edge[1]], vertex);
+                normal = pointSum(normal, difference);
             }
             else if (edge[1] == idx) {
                 neighbors++;
-                normal = pointSum(normal, this.vertices[edge[0]]);
+                var difference = pointDifference(this.vertices[edge[0]], vertex);
+                normal = pointSum(normal, difference);
             }
         }
         if (neighbors <= 1) {
@@ -186,6 +209,7 @@ var CanvasGraph = /** @class */ (function () {
             this.context.strokeStyle = "blue";
             this.context.stroke();
         }
+        this.drawNormals();
     };
     CanvasGraph.prototype.highlightVertex = function (idx) {
         var vertex = this.vertices[idx];
@@ -201,13 +225,16 @@ var CanvasGraph = /** @class */ (function () {
             if (normal.x != 0 || normal.y != 0) {
                 this.context.beginPath();
                 this.context.moveTo(this.vertices[idx].x, this.vertices[idx].y);
-                this.context.lineTo(this.vertices[idx].x + this.normals[idx].x, this.vertices[idx].y + this.normals[idx].y);
-                this.context.strokeStyle = "blue";
+                this.context.lineTo(this.vertices[idx].x + .1 * this.normals[idx].x, this.vertices[idx].y + .1 * this.normals[idx].y);
+                this.context.strokeStyle = "red";
                 this.context.stroke();
             }
         }
     };
     CanvasGraph.prototype.clearPoints = function () {
+        this.vertices = [];
+        this.normals = [];
+        this.edges = [];
     };
     CanvasGraph.prototype.toggleAnimation = function () {
         this.animationRunning = !this.animationRunning;

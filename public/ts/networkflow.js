@@ -72,7 +72,6 @@ var CanvasGraph = /** @class */ (function () {
                 _this.edgeStartIdx = vertexUnderMouseIdx;
             }
             if (_this.isMouseOverVertex(x, y) !== false) {
-                console.log("clicked on vertex ", _this.isMouseOverVertex(x, y));
             }
         });
         // Add a mouseup event listener to detect when the right mouse button is released
@@ -87,11 +86,9 @@ var CanvasGraph = /** @class */ (function () {
                     var vertex_idx = _this.isMouseOverVertex(mouseX, mouseY);
                     if (vertex_idx !== false) {
                         _this.addEdge(_this.edgeStartIdx, vertex_idx);
-                        console.log('added edge between vertex ", this.edgeStartIdx, " and vertex ", vertex_idx););
                     }
                     _this.clearJunk();
                 }
-                console.log('released right click');
             }
         });
         this.flowStep = this.flowStep.bind(this);
@@ -111,23 +108,75 @@ var CanvasGraph = /** @class */ (function () {
     CanvasGraph.prototype.addPoint = function (event) {
         var _a = getMousePosition(event, this.canvas), x = _a[0], y = _a[1];
         this.vertices.push(new Point(x, y));
+        this.normals.push(new Point(0, 0));
         this.drawCurve();
     };
     CanvasGraph.prototype.addEdge = function (idx1, idx2) {
         this.edges.push([idx1, idx2]);
+        // (re)calculate all normal vectors for vectors that have edges
+        for (var _i = 0, _a = this.edges; _i < _a.length; _i++) {
+            var edge = _a[_i];
+            this.normals[edge[0]] = this.calculateNormal(edge[0]);
+        }
     };
-    /*
-    
-      private calculateFlowStep(): Point[] {
-      }
-    
-     */
+    CanvasGraph.prototype.calculateFlowStep = function () {
+        var new_vertices = [];
+        for (var i = 0; i < this.vertices.length; i++) {
+            var new_point_x = this.vertices[i].x + .1 * this.normals[i].x;
+            var new_point_y = this.vertices[i].y + .1 * this.normals[i].y;
+            var newPoint = new Point(new_point_x, new_point_y);
+            new_vertices.push(newPoint);
+            //      if (!(distance(newPoint, this.points[(i+1) % this.points.length]) < 1)){
+            //        new_points.push(newPoint);
+            //      }
+        }
+        if (new_vertices.length < 3) {
+            this.clearPoints();
+            return [];
+        }
+        return new_vertices;
+    };
     CanvasGraph.prototype.flowStep = function () {
+        if (this.vertices.length < 3) {
+            this.clearPoints();
+            return;
+        }
+        this.vertices = this.calculateFlowStep(); // move all the points
+        this.normals = [];
+        // calculate all the new normal vectors of the moved points
+        for (var i = 0; i < this.vertices.length; i++) {
+            var new_normal = this.calculateNormal(i);
+            this.normals.push(new Point(new_normal.x, new_normal.y));
+        }
+        this.clearJunk();
+        this.drawCurve();
+    };
+    CanvasGraph.prototype.calculateNormal = function (idx) {
+        // for now this is just the sum of all the edges connected to a vertex
+        var normal = new Point(0, 0);
+        var neighbors = 0;
+        var vertex = this.vertices[idx];
+        for (var _i = 0, _a = this.edges; _i < _a.length; _i++) {
+            var edge = _a[_i];
+            if (edge[0] == idx) {
+                neighbors++;
+                var difference = pointDifference(this.vertices[edge[1]], vertex);
+                normal = pointSum(normal, difference);
+            }
+            else if (edge[1] == idx) {
+                neighbors++;
+                var difference = pointDifference(this.vertices[edge[0]], vertex);
+                normal = pointSum(normal, difference);
+            }
+        }
+        if (neighbors <= 1) {
+            return new Point(0, 0);
+        }
+        else {
+            return normal;
+        }
     };
     /*
-  
-    private calculateNormal(idx: number): Point {
-    }
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, 2 * Math.PI);
         ctx.fillStyle = color;
@@ -142,6 +191,7 @@ var CanvasGraph = /** @class */ (function () {
     };
     CanvasGraph.prototype.drawCurve = function () {
         var _this = this;
+        // draw the vertices
         this.vertices.forEach(function (vertex) {
             _this.context.lineWidth = 1;
             _this.context.beginPath();
@@ -150,6 +200,16 @@ var CanvasGraph = /** @class */ (function () {
             _this.context.fill();
             _this.context.stroke();
         });
+        // draw the edges
+        for (var _i = 0, _a = this.edges; _i < _a.length; _i++) {
+            var edge = _a[_i];
+            this.context.beginPath();
+            this.context.moveTo(this.vertices[edge[0]].x, this.vertices[edge[0]].y);
+            this.context.lineTo(this.vertices[edge[1]].x, this.vertices[edge[1]].y);
+            this.context.strokeStyle = "blue";
+            this.context.stroke();
+        }
+        this.drawNormals();
     };
     CanvasGraph.prototype.highlightVertex = function (idx) {
         var vertex = this.vertices[idx];
@@ -160,8 +220,21 @@ var CanvasGraph = /** @class */ (function () {
         this.context.stroke();
     };
     CanvasGraph.prototype.drawNormals = function () {
+        for (var idx = 0; idx < this.normals.length; idx++) {
+            var normal = this.normals[idx];
+            if (normal.x != 0 || normal.y != 0) {
+                this.context.beginPath();
+                this.context.moveTo(this.vertices[idx].x, this.vertices[idx].y);
+                this.context.lineTo(this.vertices[idx].x + .1 * this.normals[idx].x, this.vertices[idx].y + .1 * this.normals[idx].y);
+                this.context.strokeStyle = "red";
+                this.context.stroke();
+            }
+        }
     };
     CanvasGraph.prototype.clearPoints = function () {
+        this.vertices = [];
+        this.normals = [];
+        this.edges = [];
     };
     CanvasGraph.prototype.toggleAnimation = function () {
         this.animationRunning = !this.animationRunning;
