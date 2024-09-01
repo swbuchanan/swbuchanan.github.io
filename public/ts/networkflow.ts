@@ -27,7 +27,7 @@ class CanvasGraph {
   private edgeStartIdx: number; // the index of the vertex where we are starting to draw an edge
 
   constructor(canvasId: string) {
-    console.log("created a canvasGraph v1");
+    console.log("created a canvasGraph v5");
     this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
     this.context = this.canvas.getContext("2d")!;
     this.canvas.addEventListener("click", this.addPoint.bind(this));
@@ -67,29 +67,33 @@ class CanvasGraph {
 
     });
 
-    // Add a right-click event listener to the canvas
-    this.canvas.addEventListener('contextmenu', (event: MouseEvent) => {
-      console.log("right click");
-      // get the position of the mouse
-      const [x,y] = getMousePosition(event, this.canvas);
+    this.canvas.addEventListener('contextmenu', (event: MouseEvent) => { event.preventDefault(); }); // keep the context menu from coming up on a right click
 
-      // Prevent the default context menu from appearing
+    // Add a mousedown event listener to the canvas, although we are really only interested in right clicking
+    this.canvas.addEventListener('mousedown', (event: MouseEvent) => {
       event.preventDefault();
+      console.log(event);
+      if (event.button == 2) { //right click
+        // get the position of the mouse
+        const [x,y] = getMousePosition(event, this.canvas);
 
-      isRightClicking = true;
+        // Prevent the default context menu from appearing
+        event.preventDefault();
 
-      // If we right clicked on a vertex we should start drawing a line
-      const vertexUnderMouseIdx = this.isMouseOverVertex(x,y);
-      if (vertexUnderMouseIdx !== false) {
-        this.drawingEdge = true;
-        this.edgeStartIdx = vertexUnderMouseIdx;
+        isRightClicking = true;
+
+        // If we right clicked on a vertex we should start drawing a line
+        const vertexUnderMouseIdx = this.isMouseOverVertex(x,y);
+        if (vertexUnderMouseIdx !== false) {
+          this.drawingEdge = true;
+          this.edgeStartIdx = vertexUnderMouseIdx;
+        }
+
+
+        if (this.isMouseOverVertex(x,y) !== false) {
+
+        }
       }
-
-
-      if (this.isMouseOverVertex(x,y) !== false) {
-
-      }
-
     });
 
     // Add a mouseup event listener to detect when the right mouse button is released

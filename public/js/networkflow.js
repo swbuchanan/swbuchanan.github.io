@@ -26,7 +26,7 @@ var CanvasGraph = /** @class */ (function () {
                 _this.animationId = requestAnimationFrame(_this.animate);
             }
         };
-        console.log("created a canvasGraph v1");
+        console.log("created a canvasGraph v5");
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext("2d");
         this.canvas.addEventListener("click", this.addPoint.bind(this));
@@ -59,21 +59,25 @@ var CanvasGraph = /** @class */ (function () {
                 _this.context.stroke();
             }
         });
-        // Add a right-click event listener to the canvas
-        this.canvas.addEventListener('contextmenu', function (event) {
-            console.log("right click");
-            // get the position of the mouse
-            var _a = getMousePosition(event, _this.canvas), x = _a[0], y = _a[1];
-            // Prevent the default context menu from appearing
+        this.canvas.addEventListener('contextmenu', function (event) { event.preventDefault(); }); // keep the context menu from coming up on a right click
+        // Add a mousedown event listener to the canvas, although we are really only interested in right clicking
+        this.canvas.addEventListener('mousedown', function (event) {
             event.preventDefault();
-            isRightClicking = true;
-            // If we right clicked on a vertex we should start drawing a line
-            var vertexUnderMouseIdx = _this.isMouseOverVertex(x, y);
-            if (vertexUnderMouseIdx !== false) {
-                _this.drawingEdge = true;
-                _this.edgeStartIdx = vertexUnderMouseIdx;
-            }
-            if (_this.isMouseOverVertex(x, y) !== false) {
+            console.log(event);
+            if (event.button == 2) { //right click
+                // get the position of the mouse
+                var _a = getMousePosition(event, _this.canvas), x = _a[0], y = _a[1];
+                // Prevent the default context menu from appearing
+                event.preventDefault();
+                isRightClicking = true;
+                // If we right clicked on a vertex we should start drawing a line
+                var vertexUnderMouseIdx = _this.isMouseOverVertex(x, y);
+                if (vertexUnderMouseIdx !== false) {
+                    _this.drawingEdge = true;
+                    _this.edgeStartIdx = vertexUnderMouseIdx;
+                }
+                if (_this.isMouseOverVertex(x, y) !== false) {
+                }
             }
         });
         // Add a mouseup event listener to detect when the right mouse button is released
