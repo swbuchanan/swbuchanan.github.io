@@ -68,6 +68,7 @@ class CanvasGraph {
 
     // Add a right-click event listener to the canvas
     this.canvas.addEventListener('contextmenu', (event: MouseEvent) => {
+      console.log("right click");
       // get the position of the mouse
       const [x,y] = getMousePosition(event, this.canvas);
 
@@ -93,6 +94,7 @@ class CanvasGraph {
     // Add a mouseup event listener to detect when the right mouse button is released
     // what is window?
     window.addEventListener('mouseup', (event: MouseEvent) => {
+      console.log('mouse up');
       const [mouseX, mouseY] = getMousePosition(event, this.canvas);
       if (event.button === 2) { // Right mouse button
         isRightClicking = false; // Set the flag to false

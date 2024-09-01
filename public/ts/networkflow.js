@@ -122,8 +122,8 @@ var CanvasGraph = /** @class */ (function () {
     CanvasGraph.prototype.calculateFlowStep = function () {
         var new_vertices = [];
         for (var i = 0; i < this.vertices.length; i++) {
-            var new_point_x = this.vertices[i].x + .1 * this.normals[i].x;
-            var new_point_y = this.vertices[i].y + .1 * this.normals[i].y;
+            var new_point_x = this.vertices[i].x + .02 * this.normals[i].x;
+            var new_point_y = this.vertices[i].y + .02 * this.normals[i].y;
             var newPoint = new Point(new_point_x, new_point_y);
             new_vertices.push(newPoint);
             //      if (!(distance(newPoint, this.points[(i+1) % this.points.length]) < 1)){
