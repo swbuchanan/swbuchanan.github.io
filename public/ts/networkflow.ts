@@ -27,6 +27,7 @@ class CanvasGraph {
   private edgeStartIdx: number; // the index of the vertex where we are starting to draw an edge
 
   constructor(canvasId: string) {
+    console.log("created a canvasGraph v1");
     this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
     this.context = this.canvas.getContext("2d")!;
     this.canvas.addEventListener("click", this.addPoint.bind(this));
