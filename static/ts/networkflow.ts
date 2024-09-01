@@ -12,7 +12,16 @@ function getMousePosition(event: MouseEvent, canvas: HTMLCanvasElement): [number
   return [x,y];
 }
 
-let isRightClicking = false;
+let isRightClicking =false;
+
+function drawLine(startX, startY, endX, endY, lineWidth, lineColor, ctx) {
+  ctx.beginPath();
+  ctx.moveTo(startX, startY);
+  ctx.lineTo(endX, endY);
+  ctx.lineWidth = lineWidth;
+  ctx.strokeStyle = lineColor;
+  ctx.stroke();
+}
 
 class CanvasGraph {
   private vertices: Point[] = [];
@@ -25,6 +34,8 @@ class CanvasGraph {
   private vertexRadius = 10; // for drawing vertices and collision detection
   private drawingEdge = false;
   private edgeStartIdx: number; // the index of the vertex where we are starting to draw an edge
+  private mouseX = 0;
+  private mouseY = 0;
 
   constructor(canvasId: string) {
     this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
@@ -45,6 +56,25 @@ class CanvasGraph {
     this.canvas.addEventListener('mousemove', (event) => {
 
       const [mouseX, mouseY] = getMousePosition(event, this.canvas);
+      [this.mouseX, this.mouseY] = getMousePosition(event, this.canvas);
+
+      if (this.drawingEdge) {
+        this.clearJunk();
+        drawLine(this.vertices[this.edgeStartIdx].x,
+                 this.vertices[this.edgeStartIdx].y,
+                 mouseX,
+                 mouseY,
+                 1,
+                 "green",
+                this.context);
+/*        this.context.beginPath();
+        this.context.moveTo(this.vertices[this.edgeStartIdx].x, this.vertices[this.edgeStartIdx].y);
+        this.context.lineTo(mouseX, mouseY);
+        this.context.lineWidth = 1;
+        this.context.strokeStyle = "green";
+        this.context.stroke();
+       */
+      }
 
       const vertexidx = this.isMouseOverVertex(mouseX, mouseY);
       if (vertexidx !== false) {
@@ -52,17 +82,11 @@ class CanvasGraph {
       } else {
         // TODO:
         // I guess it's not efficient to be redrawing the canvas this often
-        this.clearJunk();
+        if (!this.drawingEdge){
+          this.clearJunk();
+        }
       }
 
-      if (this.drawingEdge) {
-        this.context.beginPath();
-        this.context.moveTo(this.vertices[this.edgeStartIdx].x, this.vertices[this.edgeStartIdx].y);
-        this.context.lineTo(mouseX, mouseY);
-        this.context.lineWidth = 1;
-        this.context.strokeStyle = "green";
-        this.context.stroke();
-      }
 
     });
 
@@ -186,7 +210,6 @@ class CanvasGraph {
     }
 
     this.clearJunk();
-    this.drawCurve();
   }
 
   private calculateNormal(idx: number): Point {
@@ -198,12 +221,10 @@ class CanvasGraph {
       if (edge[0] == idx) {
         neighbors ++;
         let difference = pointDifference(this.vertices[edge[1]], vertex);
-
         normal = pointSum(normal, difference);
       } else if (edge[1] == idx) {
         neighbors ++;
         let difference = pointDifference(this.vertices[edge[0]], vertex);
-
         normal = pointSum(normal, difference);
       }
     }
@@ -236,7 +257,7 @@ class CanvasGraph {
       this.context.arc(vertex.x, vertex.y, this.vertexRadius, 0, 2 * Math.PI);
       this.context.fillStyle = "blue";
       this.context.fill();
-      this.context.stroke();
+      //this.context.stroke();
     });
 
     // draw the edges
@@ -277,15 +298,20 @@ class CanvasGraph {
   }
 
   private clearPoints() {
-
     this.vertices = [];
     this.normals = [];
     this.edges = [];
+    this.animationRunning = false;
+    this.clearJunk();
   }
  
 
   private animate = (): void => {
     this.flowStep();
+    if (this.drawingEdge) {
+      console.log('drawing edge during animation');
+      drawLine(this.vertices[this.edgeStartIdx].x, this.vertices[this.edgeStartIdx].y, this.mouseX, this.mouseY, 1, "green", this.context);
+    }
     if (this.animationRunning) {
       this.animationId = requestAnimationFrame(this.animate);
     }

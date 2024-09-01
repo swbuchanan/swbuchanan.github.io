@@ -3,6 +3,9 @@
 
 I think this is the network flow but you know I'm not really sure.
 It's something at least.
+Left click to add points and right click and drag to draw edges between them.
+Points with only one edge are stationary.
+It's possibly 
 
 {{< networkflow >}}
 
