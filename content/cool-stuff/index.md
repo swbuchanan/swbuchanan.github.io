@@ -1,12 +1,15 @@
 
 ### Network flow
 
-I think this is the network flow but you know I'm not really sure.
+Some sort of network flow but probably not the usual one.
 It's something at least.
+Left click to add points and right click and drag to add edges between the points.
+Then click the animation button and see what happens.
+Note that points with a single edge are stationary, so your graph should have some of those or it will collapse to a point pretty quick.
+Extreme work in progress.
 
 {{< networkflow >}}
 
-what
 
 ### Discrete curve shortening flow
 
