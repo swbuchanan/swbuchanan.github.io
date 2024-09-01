@@ -284,7 +284,7 @@ class CanvasGraph {
   }
 
   private clearPoints() {
-
+    this.animationRunning = false;
     this.vertices = [];
     this.normals = [];
     this.edges = [];
@@ -301,7 +301,6 @@ class CanvasGraph {
   private toggleAnimation(): void {
     this.animationRunning = !this.animationRunning;
     if (this.animationRunning) {
-
       this.animate();
     } else {
       if (this.animationId !== null) {
