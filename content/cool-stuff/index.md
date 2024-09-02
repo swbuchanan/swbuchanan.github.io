@@ -1,11 +1,14 @@
 
 ### Network flow
 
-Some sort of network flow but probably not the usual one.
-It's something at least.
-Left click to add points and right click and drag to add edges between the points.
-Then click the animation button and see what happens.
-Note that points with a single edge are stationary, so your graph should have some of those or it will collapse to a point pretty quick.
+Some sort of network flow.
+Vertices flow in the direction defined by the sum of all the edges connected to them, treating the edges as vectors.
+Vertices with a single edge do not move.
+
+Left click to add points and right click to remove them.
+
+Right click and drag to add edges between the points.
+Left click and drag to move points.
 
 {{< networkflow >}}
 

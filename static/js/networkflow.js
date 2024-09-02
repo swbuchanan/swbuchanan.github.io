@@ -1,8 +1,3 @@
-// import * as Utils from './vectorutils';
-// some nonsense is necessary to make this work
-//class Point {
-//  constructor(public x: number, public y: number) {}
-//}
 function getMousePosition(event, canvas) {
     var rect = canvas.getBoundingClientRect();
     var x = event.clientX - rect.left;
@@ -28,22 +23,22 @@ var CanvasGraph = /** @class */ (function () {
         this.animationId = null;
         this.vertexRadius = 10; // for drawing vertices and collision detection
         this.drawingEdge = false;
+        this.draggingVertex = false;
         this.mouseX = 0;
         this.mouseY = 0;
         this.animate = function () {
             _this.flowStep();
             if (_this.drawingEdge) {
-                console.log('drawing edge during animation');
                 drawLine(_this.vertices[_this.edgeStartIdx].x, _this.vertices[_this.edgeStartIdx].y, _this.mouseX, _this.mouseY, 1, "green", _this.context);
             }
             if (_this.animationRunning) {
                 _this.animationId = requestAnimationFrame(_this.animate);
             }
         };
-        console.log("created a canvasGraph v5");
+        console.log("created a canvasGraph v4");
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext("2d");
-        this.canvas.addEventListener("click", this.addPoint.bind(this));
+        //    this.canvas.addEventListener("click", this.addPoint.bind(this));
         var clearButton = document.getElementById("clearButton");
         clearButton.addEventListener("click", this.clearPoints.bind(this));
         var stepButton = document.getElementById("stepButton");
@@ -60,13 +55,11 @@ var CanvasGraph = /** @class */ (function () {
             if (_this.drawingEdge) {
                 _this.clearJunk();
                 drawLine(_this.vertices[_this.edgeStartIdx].x, _this.vertices[_this.edgeStartIdx].y, mouseX, mouseY, 1, "green", _this.context);
-                /*        this.context.beginPath();
-                        this.context.moveTo(this.vertices[this.edgeStartIdx].x, this.vertices[this.edgeStartIdx].y);
-                        this.context.lineTo(mouseX, mouseY);
-                        this.context.lineWidth = 1;
-                        this.context.strokeStyle = "green";
-                        this.context.stroke();
-                       */
+            }
+            if (_this.draggingVertex) {
+                _this.vertices[_this.draggingVertexIdx].x = mouseX;
+                _this.vertices[_this.draggingVertexIdx].y = mouseY;
+                _this.clearJunk();
             }
             var vertexidx = _this.isMouseOverVertex(mouseX, mouseY);
             if (vertexidx !== false) {
@@ -81,18 +74,28 @@ var CanvasGraph = /** @class */ (function () {
             }
         });
         this.canvas.addEventListener('contextmenu', function (event) { event.preventDefault(); }); // keep the context menu from coming up on a right click
-        // Add a mousedown event listener to the canvas, although we are really only interested in right clicking
+        // Add a mousedown event listener to the canvas
         this.canvas.addEventListener('mousedown', function (event) {
-            event.preventDefault();
-            console.log(event);
+            // event.preventDefault();
+            // get the position of the mouse
+            var _a = getMousePosition(event, _this.canvas), x = _a[0], y = _a[1];
+            // check if there is a vertex under the mouse
+            // this returns the index of the vertex if such a vertex exists, and false otherwise
+            var vertexUnderMouseIdx = _this.isMouseOverVertex(x, y);
+            if (event.button == 0) { // left click
+                if (vertexUnderMouseIdx === false) { // add a vertex if we didn't just click on one
+                    _this.addPoint(event);
+                }
+                else { // if we did just click on a vertex we start dragging it
+                    _this.draggingVertex = true;
+                    _this.draggingVertexIdx = vertexUnderMouseIdx;
+                }
+            }
             if (event.button == 2) { //right click
-                // get the position of the mouse
-                var _a = getMousePosition(event, _this.canvas), x = _a[0], y = _a[1];
                 // Prevent the default context menu from appearing
                 event.preventDefault();
                 isRightClicking = true;
                 // If we right clicked on a vertex we should start drawing a line
-                var vertexUnderMouseIdx = _this.isMouseOverVertex(x, y);
                 if (vertexUnderMouseIdx !== false) {
                     _this.drawingEdge = true;
                     _this.edgeStartIdx = vertexUnderMouseIdx;
@@ -104,23 +107,65 @@ var CanvasGraph = /** @class */ (function () {
         // Add a mouseup event listener to detect when the right mouse button is released
         // what is window?
         window.addEventListener('mouseup', function (event) {
-            console.log('mouse up');
             var _a = getMousePosition(event, _this.canvas), mouseX = _a[0], mouseY = _a[1];
-            if (event.button === 2) { // Right mouse button
+            if (event.button === 0) { // left click
+                _this.draggingVertex = false;
+            }
+            if (event.button === 2) { // right click
                 isRightClicking = false; // Set the flag to false
                 // if we were drawing an edge and we released right click on another vertex we should create the edge between these two vertices
                 if (_this.drawingEdge) {
                     _this.drawingEdge = false;
                     var vertex_idx = _this.isMouseOverVertex(mouseX, mouseY);
                     if (vertex_idx !== false) {
-                        _this.addEdge(_this.edgeStartIdx, vertex_idx);
+                        if (vertex_idx === _this.edgeStartIdx) { // if we were drawing an edge and we released right click on the same vertex we should remove that vertex
+                            _this.removeVertex(vertex_idx);
+                        }
+                        else {
+                            _this.addEdge(_this.edgeStartIdx, vertex_idx);
+                        }
+                        _this.clearJunk();
                     }
-                    _this.clearJunk();
                 }
             }
         });
         this.flowStep = this.flowStep.bind(this);
     }
+    CanvasGraph.prototype.removeVertex = function (idx) {
+        console.log("I am removing vertex ", idx);
+        this.vertices.splice(idx, 1); // remove the vertex
+        this.normals.splice(idx, 1); // remove its normal vector
+        var removedVertices = [];
+        // remove the edges connected to it and re-index the remaining edges
+        for (var i = this.edges.length - 1; i >= 0; i--) { // we have to traverse the list backwards since it is changing size
+            if (this.edges[i][0] === idx || this.edges[i][1] === idx) {
+                for (var _i = 0, _a = this.edges; _i < _a.length; _i++) {
+                    var edge = _a[_i];
+                    console.log(edge);
+                }
+                removedVertices.push(idx);
+                this.edges.splice(i, 1);
+                for (var _b = 0, _c = this.edges; _b < _c.length; _b++) {
+                    var edge = _c[_b];
+                    console.log(edge);
+                }
+            }
+        }
+        // re-indexing
+        for (var _d = 0, _e = this.edges; _d < _e.length; _d++) {
+            var edge = _e[_d];
+            if (edge[0] >= idx)
+                edge[0]--;
+            if (edge[1] >= idx)
+                edge[1]--;
+        }
+        // (re)calculate all normal vectors for vectors that have edges
+        for (var _f = 0, _g = this.edges; _f < _g.length; _f++) {
+            var edge = _g[_f];
+            this.normals[edge[0]] = this.calculateNormal(edge[0]);
+            this.normals[edge[1]] = this.calculateNormal(edge[1]);
+        }
+    };
     // Method to check if the mouse is over any vertex
     CanvasGraph.prototype.isMouseOverVertex = function (mouseX, mouseY) {
         for (var idx = 0; idx < this.vertices.length; idx++) {
@@ -148,6 +193,11 @@ var CanvasGraph = /** @class */ (function () {
         }
     };
     CanvasGraph.prototype.calculateFlowStep = function () {
+        //console.log("normals: ", this.normals);
+        if (this.normals.length === 0) {
+            console.log("no normals");
+            return this.vertices;
+        }
         var new_vertices = [];
         for (var i = 0; i < this.vertices.length; i++) {
             var new_point_x = this.vertices[i].x + .02 * this.normals[i].x;
@@ -164,11 +214,8 @@ var CanvasGraph = /** @class */ (function () {
         }
         return new_vertices;
     };
+    // calculate and apply a timestep of the network flow
     CanvasGraph.prototype.flowStep = function () {
-        if (this.vertices.length < 3) {
-            this.clearPoints();
-            return;
-        }
         this.vertices = this.calculateFlowStep(); // move all the points
         this.normals = [];
         // calculate all the new normal vectors of the moved points
@@ -178,11 +225,13 @@ var CanvasGraph = /** @class */ (function () {
         }
         this.clearJunk();
     };
+    // calculate the normal vector of the vertex at the given index
     CanvasGraph.prototype.calculateNormal = function (idx) {
         // for now this is just the sum of all the edges connected to a vertex
         var normal = new Point(0, 0);
         var neighbors = 0;
         var vertex = this.vertices[idx];
+        // add up all the vectors defined by the edges that are connected to this vertex
         for (var _i = 0, _a = this.edges; _i < _a.length; _i++) {
             var edge = _a[_i];
             if (edge[0] == idx) {
@@ -203,14 +252,6 @@ var CanvasGraph = /** @class */ (function () {
             return normal;
         }
     };
-    /*
-        ctx.beginPath();
-        ctx.arc(x, y, radius, 0, 2 * Math.PI);
-        ctx.fillStyle = color;
-        ctx.fill();
-        ctx.stroke();
-  
-   */
     CanvasGraph.prototype.clearJunk = function () {
         // clear out everything and redraw only the curve
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height); // Clear the canvas
@@ -225,7 +266,6 @@ var CanvasGraph = /** @class */ (function () {
             _this.context.arc(vertex.x, vertex.y, _this.vertexRadius, 0, 2 * Math.PI);
             _this.context.fillStyle = "blue";
             _this.context.fill();
-            //this.context.stroke();
         });
         // draw the edges
         for (var _i = 0, _a = this.edges; _i < _a.length; _i++) {
@@ -238,6 +278,8 @@ var CanvasGraph = /** @class */ (function () {
         }
         this.drawNormals();
     };
+    // draw a circle around a vertex if our mouse is over it
+    // TODO: this doesn't work as intended when the animation is going
     CanvasGraph.prototype.highlightVertex = function (idx) {
         var vertex = this.vertices[idx];
         this.context.lineWidth = 2;
