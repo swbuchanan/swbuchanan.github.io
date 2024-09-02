@@ -1,5 +1,9 @@
+---
+title: Cool stuff
+layout: post
+---
 
-### Network flow
+## Network flow
 
 Some sort of network flow.
 Vertices flow in the direction defined by the sum of all the edges connected to them, treating the edges as vectors.
@@ -10,10 +14,12 @@ Left click to add points and right click to remove them.
 Right click and drag to add edges between the points.
 Left click and drag to move points.
 
+Moving points currently doesn't work on windows (and maybe Mac?).
+
 {{< networkflow >}}
 
 
-### Discrete curve shortening flow
+## Discrete curve shortening flow
 
 Try clicking below to add points to form a closed polygon (you have to click at least twice before anything shows up), and then click the other buttons to make it do stuff.
 Once there are at least three points; the "normal vectors" at the vertices of the polygon are displayed.
