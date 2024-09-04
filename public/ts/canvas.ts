@@ -47,13 +47,13 @@ class CanvasCurve {
     this.context = this.canvas.getContext("2d")!;
     this.canvas.addEventListener("click", this.addPoint.bind(this));
 
-    const clearButton = document.getElementById("clearButton")!;
+    const clearButton = document.getElementById("canvasCurveClearButton")!;
     clearButton.addEventListener("click", this.clearPoints.bind(this));
 
-    const stepButton = document.getElementById("stepButton")!;
+    const stepButton = document.getElementById("canvasCurveStepButton")!;
     stepButton.addEventListener("click", this.flowStep.bind(this));
 
-    const toggleButton = document.getElementById("toggleButton")!;
+    const toggleButton = document.getElementById("canvasCurveToggleButton")!;
     toggleButton.addEventListener("click", () => {
       this.toggleAnimation();
       //toggleButton.textContent = this.animationRunning ? "Stop Animation" : "Start Animation";
@@ -69,7 +69,7 @@ class CanvasCurve {
     const y = event.clientY - rect.top;
     // don't add the same point twice
     if (this.points.length > 1 && this.points[this.points.length-1].x == x && this.points[this.points.length-1].y == y) {
-      console.log("go away");
+
       return;
     }
     this.points.push(new Point(x, y));
@@ -201,6 +201,9 @@ class CanvasCurve {
 
 // Initialize the canvas curve when the page loads
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("csf loaded");
   const canvasCurve = new CanvasCurve("myCanvas");
 });
+
+console.log("4");
 
