@@ -14,8 +14,6 @@ Left click to add points and right click to remove them.
 Right click and drag to add edges between the points.
 Left click and drag to move points.
 
-Moving points currently doesn't work on windows (and maybe Mac?).
-
 {{< networkflow >}}
 
 
@@ -33,6 +31,11 @@ If you find any I'd like to know.
 In particular there is one where some polygons disappear almost immediately; if you draw something that isn't really small then it should be around for a few seconds at least, so just try again if it seems to mess up.
 
 {{< thing >}}
+
+## 3d nonsense
+
+WIP
+
 <!--
 This is just a proof of concept of something that I probably won't ever use.
 
