@@ -31,6 +31,11 @@ If you find any I'd like to know.
 In particular there is one where some polygons disappear almost immediately; if you draw something that isn't really small then it should be around for a few seconds at least, so just try again if it seems to mess up.
 
 {{< thing >}}
+
+## 3d nonsense
+
+WIP
+
 <!--
 This is just a proof of concept of something that I probably won't ever use.
 
