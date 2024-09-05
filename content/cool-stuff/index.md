@@ -14,8 +14,6 @@ Left click to add points and right click to remove them.
 Right click and drag to add edges between the points.
 Left click and drag to move points.
 
-Moving points currently doesn't work on windows (and maybe Mac?).
-
 {{< networkflow >}}
 
 
