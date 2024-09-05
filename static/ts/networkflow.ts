@@ -371,6 +371,7 @@ class CanvasGraph {
 
 // Initialize the canvas curve when the page loads
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("network flow thing");
   const canvasCurve = new CanvasGraph("networkFlowCanvas");
 });
 

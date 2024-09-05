@@ -37,19 +37,21 @@ var CanvasCurve = /** @class */ (function () {
         this.animationRunning = false;
         this.animationId = null;
         this.animate = function () {
+            console.log("animating");
             _this.flowStep();
             if (_this.animationRunning) {
                 _this.animationId = requestAnimationFrame(_this.animate);
             }
         };
+        console.log("creating a canvascurve");
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext("2d");
         this.canvas.addEventListener("click", this.addPoint.bind(this));
-        var clearButton = document.getElementById("clearButton");
+        var clearButton = document.getElementById("canvasCurveClearButton");
         clearButton.addEventListener("click", this.clearPoints.bind(this));
-        var stepButton = document.getElementById("stepButton");
+        var stepButton = document.getElementById("canvasCurveStepButton");
         stepButton.addEventListener("click", this.flowStep.bind(this));
-        var toggleButton = document.getElementById("toggleButton");
+        var toggleButton = document.getElementById("canvasCurveToggleButton");
         toggleButton.addEventListener("click", function () {
             _this.toggleAnimation();
             //toggleButton.textContent = this.animationRunning ? "Stop Animation" : "Start Animation";
@@ -57,6 +59,7 @@ var CanvasCurve = /** @class */ (function () {
         this.flowStep = this.flowStep.bind(this);
     }
     CanvasCurve.prototype.addPoint = function (event) {
+        console.log("uaoeu");
         // get the position of the mouse
         var rect = this.canvas.getBoundingClientRect();
         var x = event.clientX - rect.left;
@@ -177,5 +180,7 @@ var CanvasCurve = /** @class */ (function () {
 }());
 // Initialize the canvas curve when the page loads
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("csf loaded");
     var canvasCurve = new CanvasCurve("myCanvas");
 });
+console.log("4");
