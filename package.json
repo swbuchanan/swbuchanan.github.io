@@ -10,8 +10,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@types/three": "^0.168.0",
-    "three": "^0.168.0",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.45",
+    "postcss-cli": "^11.0.0"
   }
 }
