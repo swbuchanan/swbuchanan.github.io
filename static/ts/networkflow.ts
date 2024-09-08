@@ -40,17 +40,25 @@ class CanvasGraph {
     this.context = this.canvas.getContext("2d")!;
 //    this.canvas.addEventListener("click", this.addPoint.bind(this));
 
+    // add a button to remove all the points on the canvas
     const clearButton = document.getElementById("clearButton")!;
     clearButton.addEventListener("click", this.clearPoints.bind(this));
 
+    // add a button to move the flow forward by one timestep
     const stepButton = document.getElementById("stepButton")!;
     stepButton.addEventListener("click", this.flowStep.bind(this));
 
+    // add a button to toggle the flow on/off
     const toggleButton = document.getElementById("toggleButton")!;
     toggleButton.addEventListener("click", () => {
       this.toggleAnimation();
       //toggleButton.textContent = this.animationRunning ? "Stop Animation" : "Start Animation";
     });
+
+    // add a button to create a random graph on the canvas
+    const randomButton = document.getElementById("randomButton")!;
+    randomButton.addEventListener("click", this.addRandomGraph.bind(this));
+
     this.canvas.addEventListener('mousemove', (event) => {
 
       const [mouseX, mouseY] = getMousePosition(event, this.canvas);
@@ -240,7 +248,15 @@ class CanvasGraph {
     return new_vertices;
   }
   
+  // add a random graph to the canvas
+  private addRandomGraph() {
+    const currentVertexCount = this.vertices.length;
+    const numNewVertices = getRandomInt(20,50);
+    for (let i = 0; i < numNewVertices; i++) {
 
+      this.addVertex(getRandomInt(10, this.canvas.width - 10), getRandomInt(10, this.canvas.heigh - 10));
+    }
+  }
 
   // calculate and apply a timestep of the network flow
   private flowStep() {

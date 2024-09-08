@@ -27,3 +27,8 @@ export function distance(point1: Point, point2: Point): number {
   return norm(pointDifference(point1, point2));
 }
 
+// actually some other utils as well
+
+export function getRandomInt(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}

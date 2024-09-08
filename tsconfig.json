@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "module": "es6",
-    "target": "es6",
-    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "target": "ES6",
+    "module": "commonjs",
+    "typeRoots": ["./node_modules/@types"],  // Ensure this points to where types are stored
+    "types": []  // If you want to include specific types
   },
-  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
-
-
 
