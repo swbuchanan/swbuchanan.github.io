@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
-var THREE = require("three");
-var OrbitControls_1 = require("three/examples/jsm/controls/OrbitControls");
+var THREE = require("../../node_modules/three");
+var OrbitControls_js_1 = require("three/examples/jsm/controls/OrbitControls.js");
 // Create the scene
 var scene = new THREE.Scene();
 scene.background = new THREE.Color(0xeeeeee);
@@ -13,7 +13,7 @@ var renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 // Add orbit controls for interactivity
-var controls = new OrbitControls_1.OrbitControls(camera, renderer.domElement);
+var controls = new OrbitControls_js_1.OrbitControls(camera, renderer.domElement);
 // Create the axes
 var axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
