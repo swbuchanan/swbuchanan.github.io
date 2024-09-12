@@ -39,15 +39,21 @@ var CanvasGraph = /** @class */ (function () {
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext("2d");
         //    this.canvas.addEventListener("click", this.addPoint.bind(this));
+        // add a button to remove all the points on the canvas
         var clearButton = document.getElementById("clearButton");
         clearButton.addEventListener("click", this.clearPoints.bind(this));
+        // add a button to move the flow forward by one timestep
         var stepButton = document.getElementById("stepButton");
         stepButton.addEventListener("click", this.flowStep.bind(this));
+        // add a button to toggle the flow on/off
         var toggleButton = document.getElementById("toggleButton");
         toggleButton.addEventListener("click", function () {
             _this.toggleAnimation();
             //toggleButton.textContent = this.animationRunning ? "Stop Animation" : "Start Animation";
         });
+        // add a button to create a random graph on the canvas
+        var randomButton = document.getElementById("randomButton");
+        randomButton.addEventListener("click", this.addRandomGraph.bind(this));
         this.canvas.addEventListener('mousemove', function (event) {
             var _a;
             var _b = getMousePosition(event, _this.canvas), mouseX = _b[0], mouseY = _b[1];
@@ -170,8 +176,8 @@ var CanvasGraph = /** @class */ (function () {
     CanvasGraph.prototype.isMouseOverVertex = function (mouseX, mouseY) {
         for (var idx = 0; idx < this.vertices.length; idx++) {
             var vertex = this.vertices[idx];
-            var distance_1 = Math.sqrt(Math.pow((mouseX - vertex.x), 2) + Math.pow((mouseY - vertex.y), 2));
-            if (distance_1 <= this.vertexRadius) {
+            var distance = Math.sqrt(Math.pow((mouseX - vertex.x), 2) + Math.pow((mouseY - vertex.y), 2));
+            if (distance <= this.vertexRadius) {
                 return idx; // Return the index of the vertex if the mouse is over it
             }
         }
@@ -213,6 +219,14 @@ var CanvasGraph = /** @class */ (function () {
             return [];
         }
         return new_vertices;
+    };
+    // add a random graph to the canvas
+    CanvasGraph.prototype.addRandomGraph = function () {
+        var currentVertexCount = this.vertices.length;
+        var numNewVertices = getRandomInt(20, 50);
+        for (var i = 0; i < numNewVertices; i++) {
+            this.addVertex(getRandomInt(10, this.canvas.width - 10), getRandomInt(10, this.canvas.heigh - 10));
+        }
     };
     // calculate and apply a timestep of the network flow
     CanvasGraph.prototype.flowStep = function () {
