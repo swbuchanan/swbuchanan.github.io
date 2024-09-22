@@ -2,7 +2,7 @@
 <html lang="en" style="font-size: 105%">
 
 <head>
-	<meta name="generator" content="Hugo 0.134.0"><script src="/swbuchanan.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=swbuchanan.github.io/livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.134.1"><script src="/swbuchanan.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=swbuchanan.github.io/livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -52,8 +52,7 @@
   <meta property="og:site_name" content="Steven&#39;s website">
   <meta property="og:title" content="Steven&#39;s website">
   <meta property="og:description" content="About me and this website On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts. I may also upload some lecture notes if I ever get around to finishing any.
-I can be reached at My work Currently I am learning and doing research in the field of geometric analysis.
-Elsewhere on the site I have a brief technical description of what I’m working on at the moment. I am also in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow. See the first one here.">
+I can be reached at $email I’m always open to questions or feedback about anything I’ve made. If you find anything wrong or anything that seems broken on the website, you’d be doing me a favor to let me know.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
@@ -68,10 +67,9 @@ Elsewhere on the site I have a brief technical description of what I’m working
   
   <meta itemprop="name" content="Steven&#39;s website">
   <meta itemprop="description" content="About me and this website On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts. I may also upload some lecture notes if I ever get around to finishing any.
-I can be reached at My work Currently I am learning and doing research in the field of geometric analysis.
-Elsewhere on the site I have a brief technical description of what I’m working on at the moment. I am also in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow. See the first one here.">
+I can be reached at $email I’m always open to questions or feedback about anything I’ve made. If you find anything wrong or anything that seems broken on the website, you’d be doing me a favor to let me know.">
   <meta itemprop="dateModified" content="2024-08-31T22:50:18+10:00">
-  <meta itemprop="wordCount" content="144">
+  <meta itemprop="wordCount" content="205">
 
   
   
@@ -94,8 +92,7 @@ Elsewhere on the site I have a brief technical description of what I’m working
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Steven&#39;s website">
   <meta name="twitter:description" content="About me and this website On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts. I may also upload some lecture notes if I ever get around to finishing any.
-I can be reached at My work Currently I am learning and doing research in the field of geometric analysis.
-Elsewhere on the site I have a brief technical description of what I’m working on at the moment. I am also in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow. See the first one here.">
+I can be reached at $email I’m always open to questions or feedback about anything I’ve made. If you find anything wrong or anything that seems broken on the website, you’d be doing me a favor to let me know.">
 
 
   
@@ -210,19 +207,42 @@ Elsewhere on the site I have a brief technical description of what I’m working
 <main class="grid-container">
     <div id="content" class="index">
         
-            <h3 id="about-me-and-this-website">About me and this website</h3>
+            <h2 id="about-me-and-this-website">About me and this website</h2>
 <p>On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts.
 I may also upload some lecture notes if I ever get around to finishing any.</p>
 <p>I can be reached at 
-<div id="email-text"></div></p>
-<h3 id="my-work">My work</h3>
-<p>Currently I am learning and doing research in the field of geometric analysis.</p>
-<p>Elsewhere on the site I have a brief technical description of what I&rsquo;m working on at the moment.
+<div id="email-text">$email</div>
+
+I&rsquo;m always open to questions or feedback about anything I&rsquo;ve made. If you find anything wrong or anything that seems broken on the website, you&rsquo;d be doing me a favor to let me know.</p>
+<h2 id="my-work">My work</h2>
+<p>Right now I&rsquo;m studying under Mat Langford at ANU&rsquo;s Mathematical Sciences Institute.
+I do Ricci flow.
+Elsewhere on the site I have a brief technical description of what I&rsquo;m working on at the moment.
 I am also in the process of writing a series of short articles for a general audience describing a simple geometric flow called curve shortening flow.
 <a href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/">See the first one here.</a></p>
-<p>Probably the most interesting things on this site you can find at the cool things link above.
-Currently there is a visualization of discrete curve shortening flow, inspired by Anthony Carapetis, see <a href="https://a.carapetis.com/csf/">https://a.carapetis.com/csf/</a>.</p>
+<p>I also have some interactive visualizations of geometric flows on this website, under one of the links above.
+Inspired by Anthony Carapetis, see <a href="https://a.carapetis.com/csf/">https://a.carapetis.com/csf/</a> for a nice visualization of the curve shortening flow.</p>
+<h2 id="notes">Notes</h2>
+<p>I&rsquo;m writing some notes on calculations in Riemannian geometry, since I hate calculations.</p>
+<p><a href="./computations.pdf">Computations in Riemannian geometry</a></p>
 <!-- raw HTML omitted -->
+
+<div id="game-container"></div>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
+    <script type="module" src="http://localhost:1313/swbuchanan.github.io/js/main.js"></script>
+
+</head>
+<div class="multi-container">
+<div class="sketch">
+    <canvas id="draw-zone" class="sketch-child" width=800 height=500></canvas>
+    <p id="draw-zone-instruction" class="instruction">You can draw here!</p>
+    <button id="draw-zone-undo-button" class="button embedded-button">Undo</button>
+</div>
+</div>
+
+<canvas id="display-zone" width=500 height=500></canvas>
+
 <!-- raw HTML omitted -->
 
         
