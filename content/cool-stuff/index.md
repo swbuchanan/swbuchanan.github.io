@@ -3,6 +3,10 @@ title: Cool stuff
 layout: post
 ---
 
+## Testing some poker stuff
+
+{{< handmatrix >}}
+
 ## Network flow
 
 Some sort of network flow.
