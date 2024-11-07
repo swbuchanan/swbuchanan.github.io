@@ -5,14 +5,34 @@
     <link>http://localhost:1313/swbuchanan.github.io/</link>
     <description>Recent content on Steven&#39;s website</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>placeholder@gmail.com (Steven Buchanan)</managingEditor>
-    <webMaster>placeholder@gmail.com (Steven Buchanan)</webMaster><atom:link href="http://localhost:1313/swbuchanan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="http://localhost:1313/swbuchanan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A cute proof of Weierstrass approximation</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/</link>
+      <pubDate>Thu, 07 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/</guid>
+      <description>&lt;p&gt;The Weierstrass approximation theorem says that (on an interval of finite length) we can approximate any continuous function arbitrarily well by polynomials.
+As polynomials have very nice mathematical any computational properties, this is a very useful theorem.&lt;/p&gt;
+&lt;p&gt;Probably most people who have encountered any proof of the Weierstrass approximation theorem have already seen the essential idea of this proof.
+Indeed, this is basically the original proof that Karl Weierstrass gave in 1885, just with a slightly different perspective.
+The idea of the proof is to take $f(x)$, the function that we are trying to approximate, as initial data to the heat equation.
+Then the solution $\phi(x,t)$ to the heat equation on $\R$ with $\phi(x,0) = f(x)$ converges uniformly to $f$ as $t$ goes backwards to $0$, and is smooth for all $t &amp;gt; 0$.
+Since $\phi$ is smooth, we can apply Taylor&amp;rsquo;s theorem to obtain the uniform approximation by polynomials.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll add a few details soon.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Theorem: Weierstrass approximation. Given a continuously supported compact function $f$ on $\R$ and $\epsilon &amp;gt; 0$, there is a polynomial $p(x)$ such that $|f(x) - p(x)| &amp;lt; \epsilon$ whenever $f \neq 0$.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Proof. Take
+$$\phi(x,t) = \frac{1}{\sqrt{4 \pi t}} \int_{\R} e^{-\frac{(x-y)^2}{4t}} f(y) \, dy$$&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Ancient 2-dimensional solutions to the Ricci flow</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/</link>
       <pubDate>Fri, 23 Aug 2024 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      
       <guid>http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/</guid>
       <description>&lt;p&gt;Here I&amp;rsquo;ll give a more technical description of the work that I&amp;rsquo;m doing.
 See my other posts for a generally accessible version of the same thing.&lt;/p&gt;
@@ -81,7 +101,7 @@ I also hope to apply some of the methods we learn to classification of solutions
       <title>My research, part 3</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      
       <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</guid>
       <description>&lt;p&gt;This is the third part in a series of short articles I&amp;rsquo;m trying to write about my research.
 &lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
@@ -157,7 +177,7 @@ W&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&
       <title>My research, part 2</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</link>
       <pubDate>Mon, 08 Jan 2024 21:01:30 +1100</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      
       <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</guid>
       <description>&lt;p&gt;This is the second part in a series of short articles I&amp;rsquo;m trying to write about my research.
 &lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
@@ -256,7 +276,7 @@ When things go to infinity they become hard to describe mathematically.&amp;#160
       <title>My research, part 1</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</link>
       <pubDate>Wed, 03 Jan 2024 21:01:30 +1100</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      
       <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</guid>
       <description>&lt;p&gt;I study a particular type of solution to a particular &lt;em&gt;geometric evolution equation&lt;/em&gt;.
 A geometric evolution equation describes how a mathematical object called a manifold (a simple line or a sphere is an example of a manifold) changes shape over time.
