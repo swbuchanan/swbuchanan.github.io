@@ -6,14 +6,12 @@
     <description>Recent content in Posts on Steven&#39;s website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>placeholder@gmail.com (Steven Buchanan)</managingEditor>
-    <webMaster>placeholder@gmail.com (Steven Buchanan)</webMaster>
     <lastBuildDate>Fri, 23 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/swbuchanan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ancient 2-dimensional solutions to the Ricci flow</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/</link>
       <pubDate>Fri, 23 Aug 2024 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      
       <guid>http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/</guid>
       <description>&lt;p&gt;Here I&amp;rsquo;ll give a more technical description of the work that I&amp;rsquo;m doing.
 See my other posts for a generally accessible version of the same thing.&lt;/p&gt;
@@ -82,7 +80,7 @@ I also hope to apply some of the methods we learn to classification of solutions
       <title>My research, part 3</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      
       <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</guid>
       <description>&lt;p&gt;This is the third part in a series of short articles I&amp;rsquo;m trying to write about my research.
 &lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
@@ -158,7 +156,7 @@ W&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&
       <title>My research, part 2</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</link>
       <pubDate>Mon, 08 Jan 2024 21:01:30 +1100</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      
       <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</guid>
       <description>&lt;p&gt;This is the second part in a series of short articles I&amp;rsquo;m trying to write about my research.
 &lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
@@ -257,7 +255,7 @@ When things go to infinity they become hard to describe mathematically.&amp;#160
       <title>My research, part 1</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</link>
       <pubDate>Wed, 03 Jan 2024 21:01:30 +1100</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      
       <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</guid>
       <description>&lt;p&gt;I study a particular type of solution to a particular &lt;em&gt;geometric evolution equation&lt;/em&gt;.
 A geometric evolution equation describes how a mathematical object called a manifold (a simple line or a sphere is an example of a manifold) changes shape over time.

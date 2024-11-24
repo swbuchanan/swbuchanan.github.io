@@ -1,71 +1,80 @@
-var HandMatrix = /** @class */ (function () {
-    function HandMatrix(canvasId) {
-        this.selectedHands = [];
-        this.cardStrings = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'];
-        this.handStringMatrix = [];
-        this.cellSize = 40;
-        for (var i = 0; i < this.cardStrings.length; i++) {
-            var row = [];
-            var otherrow = [];
-            for (var j = 0; j < this.cardStrings.length; j++) {
-                if (i === j) {
-                    // Pairs (e.g., AA, KK)
-                    row.push("" + this.cardStrings[i] + this.cardStrings[j]);
-                }
-                else if (i < j) {
-                    // Suited hands (e.g., AKs, AQs)
-                    row.push("" + this.cardStrings[i] + this.cardStrings[j] + "s");
-                }
-                else {
-                    // Offsuit hands (e.g., AKo, KQo)
-                    row.push("" + this.cardStrings[j] + this.cardStrings[i] + "o");
-                }
-                otherrow.push(0);
-            }
-            this.handStringMatrix.push(row);
-            this.selectedHands.push(otherrow);
-        }
-        console.log(this.handStringMatrix);
-        this.canvas = document.getElementById(canvasId);
-        this.context = this.canvas.getContext("2d");
-        this.canvas.addEventListener("click", this.clickHand.bind(this));
-        this.cellSize = this.canvas.width / 13;
+var ToyBettingGame = /** @class */ (function () {
+    function ToyBettingGame() {
+        this.playerMoney = 0;
+        this.oppAceCount = 0;
+        this.oppQueenCount = 0;
+        this.potSize = 1;
+        this.oppBetCount = 0;
+        this.oppBetSize = 1;
     }
-    HandMatrix.prototype.clickHand = function (event) {
-        var rect = this.canvas.getBoundingClientRect();
-        var x = event.clientX - rect.left;
-        var y = event.clientY - rect.top;
-        var handIdxX = Math.floor(x / this.cellSize);
-        var handIdxY = Math.floor(y / this.cellSize);
-        console.log(this.handStringMatrix[handIdxY][handIdxX]);
-        this.selectedHands[handIdxY][handIdxX] = (this.selectedHands[handIdxY][handIdxX] + 1) % 2;
-        this.drawMatrix();
+    ToyBettingGame.prototype.drawCard = function () {
+        var randomIdx = Math.random() < 0.5 ? 0 : 1;
+        var card = ['A', 'Q'][randomIdx];
+        if (card === 'A') {
+            this.oppAceCount += 1;
+        }
+        else if (card === 'Q') {
+            this.oppQueenCount += 1;
+        }
+        return card;
     };
-    HandMatrix.prototype.drawMatrix = function () {
-        var _this = this;
-        var cellSize = this.cellSize; // Size of each cell in the matrix
-        var padding = 0; // Padding around text in each cell
-        this.context.font = '16px Arial';
-        this.context.textAlign = 'center';
-        this.context.textBaseline = 'middle';
-        this.handStringMatrix.forEach(function (row, rowIndex) {
-            row.forEach(function (hand, colIndex) {
-                var x = colIndex * cellSize + padding;
-                var y = rowIndex * cellSize + padding;
-                _this.context.fillStyle = 'white';
-                if (_this.selectedHands[rowIndex][colIndex] === 1) {
-                    _this.context.fillStyle = 'red';
-                }
-                _this.context.fillRect(x, y, cellSize, cellSize); // Draw cell border
-                _this.context.fillStyle = 'black';
-                _this.context.fillText(hand, x + cellSize / 2, y + cellSize / 2); // Draw hand text
-            });
-        });
+    ToyBettingGame.prototype.getBet = function (betAmt, potAmt, autocall) {
+        if (potAmt === void 0) { potAmt = 1; }
+        if (autocall === void 0) { autocall = false; }
+        console.log("Your opponent bets " + betAmt + " into a pot of " + potAmt + ", bringing the total pot to " + (betAmt + potAmt) + ".");
+        this.oppBetCount += 1;
+        var action;
+        if (!autocall) {
+            action = prompt('Write c to call or f to fold.');
+        }
+        else {
+            action = Math.random() < this.playerCallFreq ? 'c' : 'f';
+        }
+        if (action === 'f') {
+            console.log('You fold and forfeit the pot.');
+        }
+        else if (action === 'c') {
+            this.playerCallCount += 1;
+            if (this.oppCard === 'Q') {
+                this.playerMoney += 2;
+                console.log("You call. Your opponent shows a Q and you win the pot. You now have " + this.playerMoney + ".\nSo far you have won " + this.playerMoney / this.numRounds + " per hand.\nYour opponent has bet " + this.oppBetCount + " out of " + this.numRounds + " hands, for an observed frequency of " + this.oppBetCount / this.numRounds + ".");
+            }
+            else if (this.oppCard = 'A') {
+                this.playerMoney -= 1;
+                console.log("You call. Your opponent shows an Ace and you lose the pot. You now have " + this.playerMoney + ".\nSo far you have won " + this.playerMoney / this.numRounds + " per hand.\nYour opponent has bet " + this.oppBetCount + " out of " + this.numRounds + " hands, for an observed frequency of " + this.oppBetCount / this.numRounds + ".");
+            }
+        }
     };
-    return HandMatrix;
+    ToyBettingGame.prototype.playRounds = function (numRounds, autocall) {
+        if (autocall === void 0) { autocall = false; }
+        for (var i = 0; i < numRounds; i++) {
+            this.numRounds += 1;
+            this.playRound(autocall);
+        }
+    };
+    ToyBettingGame.prototype.playRound = function (autocall) {
+        if (autocall === void 0) { autocall = false; }
+        console.log("\n ########### NEW ROUND ########## \n");
+        console.log("There is " + this.potSize + " in the pot.");
+        this.oppCard = this.drawCard();
+        if (this.oppCard === 'A') {
+            this.getBet(this.oppBetSize, this.potSize, autocall);
+        }
+        else if (this.oppCard === 'Q') {
+            if (Math.random() <= this.oppBluffFreq) {
+                this.oppBluffCount += 1;
+                this.getBet(this.oppBetSize, this.potSize, autocall);
+            }
+            else {
+                this.playerMoney += 1;
+                console.log("Opponent checks and shows a Q. You win $1. You now have " + this.playerMoney);
+            }
+        }
+    };
+    return ToyBettingGame;
 }());
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("poker hand matrix v4 loaded");
-    var handMatrix = new HandMatrix("myPokerHandMatrix"); // this name is determined by what??
-    handMatrix.drawMatrix();
+    console.log("toy game v2 loaded...");
+    var newToyGame = new ToyBettingGame();
+    newToyGame.playRounds(5);
 });

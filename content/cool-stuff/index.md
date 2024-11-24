@@ -3,6 +3,14 @@ title: Cool stuff
 layout: post
 ---
 
+## A little poker game
+
+I think nothing should be displayed here at the moment, check in the console.
+
+{{< bettinggame >}}
+
+hello?
+
 ## Testing some poker stuff
 
 {{< handmatrix >}}
