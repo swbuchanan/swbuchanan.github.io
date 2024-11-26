@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./static/ts",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "target": "ES6",
+    "lib": ["es2015"],
     "module": "commonjs",
     "typeRoots": ["./node_modules/@types"],  // Ensure this points to where types are stored
     "types": []  // If you want to include specific types

@@ -19,8 +19,13 @@ I think nothing should be displayed here at the moment, check in the console.
   
   
   Betting game
+  
 
 
+  GAMBLE
+  Start the bettin
+  Call
+  Fold
   
 
 
@@ -89,7 +94,8 @@ Vertices with a single edge do not move.">
   <meta property="og:site_name" content="Steven&#39;s website">
   <meta property="og:title" content="Cool stuff">
   <meta property="og:description" content="A little poker game I think nothing should be displayed here at the moment, check in the console.
-&lt;!DOCTYPE html&gt; Betting game hello?
+&lt;!DOCTYPE html&gt; Betting game GAMBLE Start the bettin
+Call Fold hello?
 Testing some poker stuff &lt;!DOCTYPE html&gt; Hand Matrix Select All Select None Network flow Some sort of network flow. Vertices flow in the direction defined by the sum of all the edges connected to them, treating the edges as vectors. Vertices with a single edge do not move.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -104,10 +110,11 @@ Testing some poker stuff &lt;!DOCTYPE html&gt; Hand Matrix Select All Select Non
   
   <meta itemprop="name" content="Cool stuff">
   <meta itemprop="description" content="A little poker game I think nothing should be displayed here at the moment, check in the console.
-&lt;!DOCTYPE html&gt; Betting game hello?
+&lt;!DOCTYPE html&gt; Betting game GAMBLE Start the bettin
+Call Fold hello?
 Testing some poker stuff &lt;!DOCTYPE html&gt; Hand Matrix Select All Select None Network flow Some sort of network flow. Vertices flow in the direction defined by the sum of all the edges connected to them, treating the edges as vectors. Vertices with a single edge do not move.">
   <meta itemprop="dateModified" content="2024-11-24T17:01:53+11:00">
-  <meta itemprop="wordCount" content="335">
+  <meta itemprop="wordCount" content="341">
 
   
   
@@ -130,7 +137,8 @@ Testing some poker stuff &lt;!DOCTYPE html&gt; Hand Matrix Select All Select Non
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Cool stuff">
   <meta name="twitter:description" content="A little poker game I think nothing should be displayed here at the moment, check in the console.
-&lt;!DOCTYPE html&gt; Betting game hello?
+&lt;!DOCTYPE html&gt; Betting game GAMBLE Start the bettin
+Call Fold hello?
 Testing some poker stuff &lt;!DOCTYPE html&gt; Hand Matrix Select All Select None Network flow Some sort of network flow. Vertices flow in the direction defined by the sum of all the edges connected to them, treating the edges as vectors. Vertices with a single edge do not move.">
 
 
@@ -258,8 +266,21 @@ Testing some poker stuff &lt;!DOCTYPE html&gt; Hand Matrix Select All Select Non
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Betting game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .hidden {
+      display: none
+    }
+  </style>
 </head>
 <body>
+  <h1>GAMBLE</h1>
+  <p id="game-message">Start the bettin</p>
+  <button id="call">Call</button>
+  <button id="fold">Fold</button>
   <script src="http://localhost:1313/swbuchanan.github.io/js/toygame.js"></script>
 </body>
 </html>
