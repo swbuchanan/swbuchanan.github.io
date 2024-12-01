@@ -18,7 +18,6 @@ class ToyBettingGame {
   private callButton: HTMLButtonElement;
   private foldButton: HTMLButtonElement;
 
-  private loopRunning: boolean;
   
   constructor() {
     this.playerMoney = 0;
@@ -38,6 +37,14 @@ class ToyBettingGame {
 
   private playerCall() {
     console.log("call");
+    this.playerCallCount += 1;
+    if (this.oppCard === 'Q') {
+      this.playerMoney += 2;
+      this.gameMessage.innerHTML += (`You call. Your opponent shows a Q and you win the pot. You now have ${this.playerMoney}.\nSo far you have won ${this.playerMoney/this.numRounds} per hand.\nYour opponent has bet ${this.oppBetCount} out of ${this.numRounds} hands, for an observed frequency of ${this.oppBetCount/this.numRounds}.`);
+    } else if (this.oppCard = 'A') {
+      this.playerMoney -= 1;
+      this.gameMessage.innerHTML += (`You call. Your opponent shows an Ace and you lose the pot. You now have ${this.playerMoney}.\nSo far you have won ${this.playerMoney/this.numRounds} per hand.\nYour opponent has bet ${this.oppBetCount} out of ${this.numRounds} hands, for an observed frequency of ${this.oppBetCount/this.numRounds}.`);
+    }
   }
 
   private playerFold() {
@@ -70,14 +77,7 @@ class ToyBettingGame {
     if (action === 'f') {
       console.log('You fold and forfeit the pot.');
     } else if (action === 'c') {
-      this.playerCallCount += 1;
-      if (this.oppCard === 'Q') {
-        this.playerMoney += 2;
-        console.log(`You call. Your opponent shows a Q and you win the pot. You now have ${this.playerMoney}.\nSo far you have won ${this.playerMoney/this.numRounds} per hand.\nYour opponent has bet ${this.oppBetCount} out of ${this.numRounds} hands, for an observed frequency of ${this.oppBetCount/this.numRounds}.`);
-      } else if (this.oppCard = 'A') {
-        this.playerMoney -= 1;
-        console.log(`You call. Your opponent shows an Ace and you lose the pot. You now have ${this.playerMoney}.\nSo far you have won ${this.playerMoney/this.numRounds} per hand.\nYour opponent has bet ${this.oppBetCount} out of ${this.numRounds} hands, for an observed frequency of ${this.oppBetCount/this.numRounds}.`);
-      }
+      this.playerCall();
     }
   }
 
@@ -87,8 +87,7 @@ class ToyBettingGame {
     }
   }
 
-  private async playRound(autocall: boolean = false): Promise<void> {
-    this.loopRunning = true;
+  private playRound(autocall: boolean = false) {
 
     this.numRounds += 1;
     this.gameMessage.innerHTML += ("<br>########### NEW ROUND ##########<br>");
@@ -99,36 +98,12 @@ class ToyBettingGame {
         this.getBet(this.oppBetSize, this.potSize, autocall);
         this.gameMessage.innerHTML += (`Opponent checks and shows a Q. You win $1. You now have ${this.playerMoney}<br>`);
     } else {
-      const action = await this.waitForButtonClick("callButton", "foldButton");
+      this.gameMessage.innerHTML += (`idk`);
     }
 
     console.log(`clicked`);
   }
 
-  private waitForButtonClick(buttonId1: string, buttonId2: string): Promise<string> {
-    return new Promise((resolve) => {
-      const button1 = document.getElementById(buttonId1) as HTMLButtonElement;
-      const button2 = document.getElementById(buttonId2) as HTMLButtonElement;
-
-      const onClick1 = () => {
-        cleanup();
-        resolve(buttonId1); // Resolve with the ID of the button clicked
-      };
-
-      const onClick2 = () => {
-        cleanup();
-        resolve(buttonId2); // Resolve with the ID of the button clicked
-      };
-
-      const cleanup = () => {
-        button1.removeEventListener("click", onClick1);
-        button2.removeEventListener("click", onClick2);
-      };
-
-      button1.addEventListener("click", onClick1);
-      button2.addEventListener("click", onClick2);
-    });
-  }
 
   
 
@@ -137,7 +112,7 @@ class ToyBettingGame {
 document.addEventListener("DOMContentLoaded", () => {
   const newToyGame = new ToyBettingGame();
 
-  console.log("toy game v5 loaded");
+  console.log("toy game v6 loaded");
 
   newToyGame.playRounds(5);
   console.log('\n======== Game Over ======= \n');
