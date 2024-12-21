@@ -4,7 +4,7 @@ date: 2024-11-07
 ---
 
 The Weierstrass approximation theorem says that (on an interval of finite length) we can approximate any continuous function arbitrarily well by polynomials.
-As polynomials have very nice mathematical any computational properties, this is a very useful theorem.
+As polynomials have very nice mathematical and computational properties, this is a very useful theorem.
 
 Probably most people who have encountered any proof of the Weierstrass approximation theorem have already seen the essential idea of this proof.
 Indeed, this is basically the original proof that Karl Weierstrass gave in 1885, just with a slightly different perspective.
