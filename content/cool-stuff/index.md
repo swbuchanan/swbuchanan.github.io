@@ -5,14 +5,16 @@ layout: post
 
 ## Network flow
 
-Some sort of network flow.
-Vertices flow in the direction defined by the sum of all the edges connected to them, treating the edges as vectors.
+This is an example of a geometric flow on a graph.
+Vertices flow in the direction defined by the "sum" of all the edges connected to them, where the sum is defined by treating the edges as vectors.
 Vertices with a single edge do not move.
 
 Left click to add points and right click to remove them.
 
-Right click and drag to add edges between the points.
+Once you've added some points, right click and drag to add edges between the points.
 Left click and drag to move points.
+
+Once you've added a few points and a few edges, click the toggle animation button to see it move.
 
 {{< networkflow >}}
 
