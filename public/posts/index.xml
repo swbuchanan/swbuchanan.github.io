@@ -6,7 +6,23 @@
     <description>Recent content in Posts on Steven&#39;s website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/swbuchanan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Mar 2025 23:20:32 +1100</lastBuildDate><atom:link href="http://localhost:1313/swbuchanan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A stupid application of the Kelly Criterion</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/kelly-criterion-backgammon/</link>
+      <pubDate>Fri, 21 Mar 2025 23:20:32 +1100</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/kelly-criterion-backgammon/</guid>
+      <description>&lt;p&gt;The Kelly Criterion is a classic solution to a classic problem.
+Suppose I give you 100 dollars and an unfair coin.
+The coin lands on heads 60% of the time, but I&amp;rsquo;ll bet you even money that it lands on tails.
+If I tell you that I&amp;rsquo;ll offer you this bet 1000 times, and you can bet as much of your bankroll as you want, what is your best way of making money?
+(Your bankroll is the 100 dollars that you started with together with any money that you win by betting against me.)
+On each bet, you can maximize your expected profit by betting all of your bankroll.
+However, this leaves open the possibility of losing all your money.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>A cute proof of Weierstrass approximation</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/</link>
@@ -14,18 +30,25 @@
       
       <guid>http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/</guid>
       <description>&lt;p&gt;The Weierstrass approximation theorem says that (on an interval of finite length) we can approximate any continuous function arbitrarily well by polynomials.
-As polynomials have very nice mathematical any computational properties, this is a very useful theorem.&lt;/p&gt;
+As polynomials have very nice mathematical and computational properties, this is a very useful theorem.&lt;/p&gt;
 &lt;p&gt;Probably most people who have encountered any proof of the Weierstrass approximation theorem have already seen the essential idea of this proof.
 Indeed, this is basically the original proof that Karl Weierstrass gave in 1885, just with a slightly different perspective.
 The idea of the proof is to take $f(x)$, the function that we are trying to approximate, as initial data to the heat equation.
-Then the solution $\phi(x,t)$ to the heat equation on $\R$ with $\phi(x,0) = f(x)$ converges uniformly to $f$ as $t$ goes backwards to $0$, and is smooth for all $t &amp;gt; 0$.
+Then allow the heat distribution described by $f$ to diffuse for a very short amount of time.
+The heat equation has the remarkable property that its solutions immediately become smooth.
+But if we only allow the diffusion to happen for a sufficiently short amount of time, the distribution after this short time is still quite close (in the appropriate sense of &amp;ldquo;close&amp;rdquo;) to the original function $f$.
+Thus we have a smooth approximation.
+From there we can use Taylor&amp;rsquo;s theorem, which says that a smooth function can be approximated by polynomials.&lt;/p&gt;
+&lt;p&gt;To be more precise, we can find a function $\phi(x,t)$ so that $\phi(x,t)$ to the heat equation on $\R$ with $\phi(x,0) = f(x)$.
+Then $\phi$ converges uniformly to $f$ as $t$ goes backwards to $0$, and is smooth for all $t &amp;gt; 0$.
 Since $\phi$ is smooth, we can apply Taylor&amp;rsquo;s theorem to obtain the uniform approximation by polynomials.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;ll add a few details soon.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Theorem: Weierstrass approximation. Given a continuously supported compact function $f$ on $\R$ and $\epsilon &amp;gt; 0$, there is a polynomial $p(x)$ such that $|f(x) - p(x)| &amp;lt; \epsilon$ whenever $f \neq 0$.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Proof. Take
-$$\phi(x,t) = \frac{1}{\sqrt{4 \pi t}} \int_{\R} e^{-\frac{(x-y)^2}{4t}} f(y) \, dy$$&lt;/p&gt;
+$$\phi(x,t) = \frac{1}{\sqrt{4 \pi t}} \int_{\R} e^{-\frac{(x-y)^2}{4t}} f(y) \, dy.$$&lt;/p&gt;
+&lt;p&gt;This is our desired solution to the heat equation.
+There are still a few more details to fill in, but from here it&amp;rsquo;s mostly computation, so I&amp;rsquo;ll add the details when I have more time.&lt;/p&gt;
 </description>
     </item>
     
@@ -95,6 +118,27 @@ This classification was achievd through various papers and somewhat technical an
 Recently, Bourni, Langford, and Tinaglia have classified the convex ancient solutions to curve shortening flow.
 My project aims to re-prove the classification of ancient Ricci flows on surfaces using the more geometric methods used in this classification.
 I also hope to apply some of the methods we learn to classification of solutions in higher dimensions, or possibly classification of solutions to related flows, such as the Kähler-Ricci flow.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Test post 2</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>An unusual problem-solving technique</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/another-post/</link>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/another-post/</guid>
+      <description>&lt;p&gt;Consider the following problem:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 </description>
     </item>
     
@@ -287,21 +331,21 @@ One simple geometric evolution equation describes a type of process that everyon
 &lt;h2 id=&#34;the-heat-equation&#34;&gt;The heat equation&lt;/h2&gt;
 &lt;p&gt;Suppose we have a wire&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; that has been unevenly heated.
 We color the hot parts of the wire red, and the cold parts of the wire blue.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/swbuchanan.github.io/my_research_part_1_graphic1.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic1.png&#34;
+         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;We can visualize the distribution of heat throughout the wire by a graph, so the higher the graph is above a point on the wire, the hotter the point on the wire is.&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/swbuchanan.github.io/my_research_part_1_graphic2.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic2.png&#34;
+         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Now, if we allow time to pass, the heat will rapidly diffuse throughout the wire, and the graph will change correspondingly (we are mostly interested in how the graph changes).
 Notice that in some places on the wire, there were points with a lot of heat surrounded by areas with relatively little (as well as points of relatively low temperature compared to their surroundings).
 The temperature changed at these points much quicker than it did at points whose temperature was close, on average, to the temperature of the surrounding areas.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/swbuchanan.github.io/my_research_part_1_graphic3.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic3.png&#34;
+         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;So it seems like a general rule for heat diffusion is that the greater the temperature differential with surrounding areas, the faster the diffusion.
@@ -338,13 +382,13 @@ A future post will be about abstract manifolds and the tensors that we use to de
 The flow we will examine is called the &lt;em&gt;curve shortening flow&lt;/em&gt;, and watching it in action might remind you of the diffusion of heat.&lt;/p&gt;
 &lt;p&gt;A cool interactive demonstration of the curve shortening flow can be found &lt;a href=&#34;https://a.carapetis.com/csf/&#34;&gt;here&lt;/a&gt; and I recommend playing with this as you read the remainder of the post.&lt;/p&gt;
 &lt;p&gt;To define the curve shortening flow, start with a curve sitting in 2 dimensions:&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/swbuchanan.github.io/my_research_part_1_graphic4.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic4.png&#34;
+         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;At each point on this curve, consider the direction that is perpendicular to the curve at that point:&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/swbuchanan.github.io/my_research_part_1_graphic5.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic5.png&#34;
+         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;(Only a few arrows are drawn to illustrate the principle, but at any point on the curve we could draw such an arrow.)&lt;/p&gt;
@@ -354,15 +398,15 @@ If the curvature at a point is 0, it means that the curve looks like a flat line
 If the curvature is positive, it means that the curve is turning to the left from the perspective of someone moving around the curve counterclockwise.
 The curvature is negative at points where the curve is curving to the right from the same perspective.
 More positive or more negative curvatures mean that the curve is turning more sharply to the left or right (before we talked about &amp;ldquo;spikiness&amp;rdquo; of a graph, which is basically all we&amp;rsquo;re talking about here, but it&amp;rsquo;s in a more general context since this figure isn&amp;rsquo;t a graph of any function&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;).&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/swbuchanan.github.io/my_research_part_1_graphic6.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic6.png&#34;
+         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;So at every point along the curve, we have a normal vector that points in a certain direction, and we have a number.
 The curve shortening flow says that every point of the curve will move in the direction of the normal vector at a speed equal to the curvature at that point.&lt;/p&gt;
 &lt;p&gt;So if we consider the curve shortening flow applied to our curve from before, some points will move inwards quickly or slowly, and some will move outwards quickly or slowly.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/swbuchanan.github.io/my_research_part_1_graphic7.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic7.png&#34;
+         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Notice that some points move in the opposite direction of the normal vector.

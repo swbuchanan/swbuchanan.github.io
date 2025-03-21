@@ -3,13 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/</loc>
-    <lastmod>2024-11-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-21T12:46:16+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/</loc>
-    <lastmod>2024-11-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-21T12:46:16+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/</loc>
     <lastmod>2024-08-31T09:22:58+10:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</loc>
+    <lastmod>2024-08-23T12:49:29+10:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/swbuchanan.github.io/posts/another-post/</loc>
+    <lastmod>2024-08-23T12:49:29+10:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</loc>
     <lastmod>2024-08-23T07:10:06+10:00</lastmod>
@@ -17,11 +23,14 @@
     <loc>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</loc>
     <lastmod>2024-02-17T20:40:00+11:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/swbuchanan.github.io/posts/2024-08-23-my-research-technical-version/</loc>
+    <lastmod>2024-08-23T12:49:29+10:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</loc>
     <lastmod>2024-04-17T17:51:22+10:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/</loc>
-    <lastmod>2024-08-31T22:50:18+10:00</lastmod>
+    <lastmod>2024-09-12T21:25:27+10:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/phaser-demo/</loc>
     <lastmod>2024-08-31T22:50:18+10:00</lastmod>
@@ -29,7 +38,7 @@
     <loc>http://localhost:1313/swbuchanan.github.io/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/cool-stuff/</loc>
-    <lastmod>2024-11-24T17:01:53+11:00</lastmod>
+    <lastmod>2024-12-21T12:54:01+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/tags/</loc>
   </url>

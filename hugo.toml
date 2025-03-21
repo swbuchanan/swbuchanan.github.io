@@ -11,7 +11,7 @@ rssLimit = 10
 theme = "hugo-texify3s"
 title = "Steven's website"
 
-[author]
+[params.author]
 name = "Steven Buchanan"
 email = "placeholder@gmail.com"
 
