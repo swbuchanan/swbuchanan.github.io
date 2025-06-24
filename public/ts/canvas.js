@@ -37,13 +37,11 @@ var CanvasCurve = /** @class */ (function () {
         this.animationRunning = false;
         this.animationId = null;
         this.animate = function () {
-            console.log("animating");
             _this.flowStep();
             if (_this.animationRunning) {
                 _this.animationId = requestAnimationFrame(_this.animate);
             }
         };
-        console.log("creating a canvascurve");
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext("2d");
         this.canvas.addEventListener("click", this.addPoint.bind(this));
@@ -59,14 +57,12 @@ var CanvasCurve = /** @class */ (function () {
         this.flowStep = this.flowStep.bind(this);
     }
     CanvasCurve.prototype.addPoint = function (event) {
-        console.log("uaoeu");
         // get the position of the mouse
         var rect = this.canvas.getBoundingClientRect();
         var x = event.clientX - rect.left;
         var y = event.clientY - rect.top;
         // don't add the same point twice
         if (this.points.length > 1 && this.points[this.points.length - 1].x == x && this.points[this.points.length - 1].y == y) {
-            console.log("go away");
             return;
         }
         this.points.push(new Point(x, y));

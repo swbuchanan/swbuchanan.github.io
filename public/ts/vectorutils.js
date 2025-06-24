@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+exports.distance = exports.normalize = exports.norm = exports.dotProduct = exports.scalarMultiply = exports.pointSum = exports.pointDifference = void 0;
 function pointDifference(p1, p2) {
     return new Point(p1.x - p2.x, p1.y - p2.y);
 }

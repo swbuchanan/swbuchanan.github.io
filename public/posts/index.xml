@@ -6,7 +6,114 @@
     <description>Recent content in Posts on Steven&#39;s website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 21 Mar 2025 23:20:32 +1100</lastBuildDate><atom:link href="http://localhost:1313/swbuchanan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/swbuchanan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to tell if a 15-type puzzle is solvable</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/fifteen-puzzle/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/fifteen-puzzle/</guid>
+      <description>&lt;p&gt;I want to have a highly responsive adjustable 15-type puzzle game with timing and leaderboards.
+In order to do this, I need to be able to generate random starting positions for the board.
+However, an interesting fact about the 15 puzzle is that not all possible arrangements of the $15$ tiles on the $16 \times 16$ grid are solvable.
+For example, if one takes the starting arrangement and swaps the 14 and 15 only, the resulting arrangement cannot be solved with normal moves (i.e. without doing some swap of two other tiles).
+This would also be true for the starting arrangement with any two adjacent tiles swapped with each other.&lt;/p&gt;
+&lt;p&gt;So, my problem is to generate random starting positions, but check in some way that I don&amp;rsquo;t present the player with an unsolvable configuration.
+One possible solution to this problem is to not just generate a random configuration, but to generate a random sequence of moves from the starting position.
+This is what one would do with a physical puzzle to &amp;ldquo;randomize&amp;rdquo; it, assuming that the pieces are not allowed to be removed from the board; just make moves without paying close attention and without any pattern.
+This is actually a fine solution, it just doesn&amp;rsquo;t appeal to my mathematical sensibilities.
+What I would like is a straightforward way to take a random position and check if it is solvable or not.&lt;/p&gt;
+&lt;p&gt;Fortunately for me this problem has already been solved.
+Here I&amp;rsquo;ll explain the method I&amp;rsquo;ll use.&lt;/p&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+  &lt;meta charset=&#34;UTF-8&#34;&gt;
+  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+  &lt;title&gt;Fifteen game&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div style=&#34;text-align: center;&#34;&gt;
+  &lt;canvas id=&#34;gameCanvas&#34; width=&#34;200&#34; height=&#34;200&#34; tabindex=&#34;0&#34; style=&#34;margin:20px auto;border:1px solid #000000;display:block&#34;&gt;&lt;/canvas&gt;
+  &lt;button id=&#34;restartGame&#34;&gt;Reestart&lt;/button&gt;
+  &lt;label&gt;
+      &lt;input type=&#34;checkbox&#34; id=&#34;reverseToggle&#34;&gt;
+      Reverse controls
+  &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;game-config&#34;
+        data-size=&#34;&#34;
+        data-default-setup=&#34;&#34;&gt;
+    &lt;/div&gt;
+
+  &lt;script src=&#34;http://localhost:1313/swbuchanan.github.io/js/fifteen.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+&lt;p&gt;what&lt;/p&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+  &lt;meta charset=&#34;UTF-8&#34;&gt;
+  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+  &lt;title&gt;Fifteen game&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div style=&#34;text-align: center;&#34;&gt;
+  &lt;canvas id=&#34;gameCanvas&#34; width=&#34;200&#34; height=&#34;200&#34; tabindex=&#34;0&#34; style=&#34;margin:20px auto;border:1px solid #000000;display:block&#34;&gt;&lt;/canvas&gt;
+  &lt;button id=&#34;restartGame&#34;&gt;Reestart&lt;/button&gt;
+  &lt;label&gt;
+      &lt;input type=&#34;checkbox&#34; id=&#34;reverseToggle&#34;&gt;
+      Reverse controls
+  &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;game-config&#34;
+        data-size=&#34;5&#34;
+        data-default-setup=&#34;true&#34;&gt;
+    &lt;/div&gt;
+
+  &lt;script src=&#34;http://localhost:1313/swbuchanan.github.io/js/fifteen.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>Running every street in Canberra</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/running-canberra/</link>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/running-canberra/</guid>
+      <description>&lt;p&gt;Inspired by &lt;a href=&#34;pac.tom7.org/index.shtml&#34;&gt;this guy&lt;/a&gt;, who also has a great &lt;a href=&#34;https://www.youtube.com/watch?v=1c8i5SABqwU&#34;&gt;youtube channel&lt;/a&gt;, I have recently decided to run the length of every street in Canberra, where I&amp;rsquo;m currently staying for school.
+Soon I hope to update this page with some rules for the project and some information about how I&amp;rsquo;m gathering and processing the data.
+For now, &lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/all_routes.html&#34;&gt;here&amp;rsquo;s my current progress&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Some mathematical questions about Tetris</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/mathematical-tetris-questions/</link>
+      <pubDate>Fri, 11 Apr 2025 23:20:32 +1100</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/mathematical-tetris-questions/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://jstris.jezevec10.com/&#34;&gt;https://jstris.jezevec10.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Tetris is pretty fun.
+In case anyone reading this needs some introduction to the game, see the link.
+The oldest published mathematical analysis I could find of this game is in a master&amp;rsquo;s thesis from 1992 by John Brzustowski at the University of British Columbia.
+See here
+&lt;a href=&#34;https://open.library.ubc.ca/media/stream/pdf/831/1.0079748/1&#34;&gt;https://open.library.ubc.ca/media/stream/pdf/831/1.0079748/1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The thesis answers the question of whether or not it&amp;rsquo;s possible for a game of Tetris to go on indefinitely.
+Of course a slightly idealized version of the game is examined in the mathematical analysis; for example we don&amp;rsquo;t consider the time that it takes to place the piece.
+In the arcade version of the game, the speed of the pieces increases as the game progresses and the game gets more difficult.
+It seems natural to ignore this part of the game&lt;/p&gt;
+&lt;p&gt;However, in many versions of Tetris, there are some features that enable one to play indefinitely, with a reasonably simple strategy.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://harddrop.com/wiki/Playing_forever&#34;&gt;https://harddrop.com/wiki/Playing_forever&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>A stupid application of the Kelly Criterion</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/kelly-criterion-backgammon/</link>
@@ -20,6 +127,30 @@ If I tell you that I&amp;rsquo;ll offer you this bet 1000 times, and you can bet
 (Your bankroll is the 100 dollars that you started with together with any money that you win by betting against me.)
 On each bet, you can maximize your expected profit by betting all of your bankroll.
 However, this leaves open the possibility of losing all your money.&lt;/p&gt;
+&lt;p&gt;I recently started playing backgammon online.
+This game has a lot to recommend it; it is a highly strategic game of perfect information (according to some definitions) with some random chance involved.
+I&amp;rsquo;m not sure&lt;/p&gt;
+&lt;p&gt;In order to calculate my chances of winning, I would need to know about about some variables that are essentially unknowable.
+Backgammon Galaxy has a rating system; I assume that it tries to pair each player with another player of the same level.
+If it could successfully do this every time, each player would have a 50% chance of winning every game.
+Actually this is not quite true; a player that is in the process of improving would always be slightly underrated and thus have a slighly greater than 50% chance of winning.
+There is another complication: based on my experience over a few dozen games or so, it seems like if you rating is too low, you are likely to be ranked against a higher rated player.&lt;/p&gt;
+&lt;p&gt;In order for the Kelly Criterion to apply, my chance of winning can&amp;rsquo;t be too low.
+Note that for the classic Kelly problem, if one is making even bets with a chance of winning that is less than 50%, the Kelly Criterion tells you that the best way to make money is to bet nothing, so I would be better off not playing!
+There is a confounding factor for me: the website gives you some rewards just for playing games, as well as some rewards for checking in to the site.
+I&amp;rsquo;ll try to factor these in to get as realistic a model as possible.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s also not the case that we make even bets on the website; players are able to buy coins with real money, and to encourage them to do so, some coins are raked from every match.
+In particular, the winning player is returned the coins that he staked for the game plus 85% of the losing players stake.
+That is, 15% of one bet is removed from the coin pool every game (TODO: I know this is true for 100-coin stake games, but what about higher?).&lt;/p&gt;
+&lt;p&gt;So I need to consider the following things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;My winning chances given current distribution of ratings and my place in it,&lt;/li&gt;
+&lt;li&gt;The rewards I get for playing a certain number of games, as well as the amount I&amp;rsquo;m winning/losing by playing these games,&lt;/li&gt;
+&lt;li&gt;The rewards I get for checking into the site without necessarily playing any games,&lt;/li&gt;
+&lt;li&gt;The coins that are raked from the site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The first challenge is to determine the distribution of ratings.
+Unlike lichess, backgammongalaxy does not publish much data about&lt;/p&gt;
 </description>
     </item>
     
@@ -311,135 +442,6 @@ Together these two results prove the result we stated.&amp;#160;&lt;a href=&#34;
 That&amp;rsquo;s why it&amp;rsquo;s important that we&amp;rsquo;re talking about the &lt;em&gt;ratio&lt;/em&gt; of the maximum to minimum curvatures, and not just the maximum and minimum curvatures themselves.
 The maximum curvature and minimum curvature are both going to infinity as the curve shrinks - because a tiny circle has higher curvature than a big circle.
 When things go to infinity they become hard to describe mathematically.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My research, part 1</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</link>
-      <pubDate>Wed, 03 Jan 2024 21:01:30 +1100</pubDate>
-      
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</guid>
-      <description>&lt;p&gt;I study a particular type of solution to a particular &lt;em&gt;geometric evolution equation&lt;/em&gt;.
-A geometric evolution equation describes how a mathematical object called a manifold (a simple line or a sphere is an example of a manifold) changes shape over time.
-What makes the evolution geometric is that the particular way in which the manifold changes depends on the shape, i.e. the geometry, of the manifold at any point in time.&lt;/p&gt;
-&lt;p&gt;This may sound complicated, and indeed it often is, but we can get a good feel for the topic by looking at some simple examples.
-One simple geometric evolution equation describes a type of process that everyone will be familiar with: the diffusion of heat through an object.&lt;/p&gt;
-&lt;h2 id=&#34;the-heat-equation&#34;&gt;The heat equation&lt;/h2&gt;
-&lt;p&gt;Suppose we have a wire&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; that has been unevenly heated.
-We color the hot parts of the wire red, and the cold parts of the wire blue.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic1.png&#34;
-         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;We can visualize the distribution of heat throughout the wire by a graph, so the higher the graph is above a point on the wire, the hotter the point on the wire is.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic2.png&#34;
-         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Now, if we allow time to pass, the heat will rapidly diffuse throughout the wire, and the graph will change correspondingly (we are mostly interested in how the graph changes).
-Notice that in some places on the wire, there were points with a lot of heat surrounded by areas with relatively little (as well as points of relatively low temperature compared to their surroundings).
-The temperature changed at these points much quicker than it did at points whose temperature was close, on average, to the temperature of the surrounding areas.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic3.png&#34;
-         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;So it seems like a general rule for heat diffusion is that the greater the temperature differential with surrounding areas, the faster the diffusion.
-Not too complicated.
-It&amp;rsquo;s important to notice that temperature differential between a point and the surrounding areas is reflected in the geometry of the graph!
-Points like this show up in the graph as sharp spikes.
-So as the temperature diffuses over time, we see that the spikier parts of the graph diffuse away relatively fast.
-The mathematical way to identify spikiness of a graph is with the (spatial) second derivative.
-I won&amp;rsquo;t go into detail about derivatives, but it suffices to say that the magnitude of the second derivative is highest at the peaks and valleys of the graph, and lowest at the points in between.&lt;/p&gt;
-&lt;p&gt;This idea gives us the &lt;em&gt;heat equation&lt;/em&gt;, the simplest model of heat diffusion.
-The equation looks like this:&lt;/p&gt;
-&lt;p&gt;$$\frac{\partial}{\partial t} f = \Delta f,$$&lt;/p&gt;
-&lt;p&gt;where $f$ is the function that describes whatever heat distribution the wire has (it&amp;rsquo;s the equation we would use to make the graph).&lt;/p&gt;
-&lt;p&gt;Don&amp;rsquo;t panic if you&amp;rsquo;re not familar with the notation!
-This equation says mathematically exactly what we observed before about how heat diffusion works.&lt;/p&gt;
-&lt;p&gt;The left hand side is the time derivative of $f$, which by definition describes how $f$ changes over time.
-The right hand side is the (spatial) second derivative of $f$, which as we remarked before just tells us how sharp the graph is at a given point.
-So if we interpret this equation into English, all it says is that the temperature of the wire is going to change over time, and if a point is surrounded by lower temperature, the temperature will decrease at a rate proportional to how much lower the surrounding temperature is (a corresponding statement holds for points surrounded by areas of higher temperature).&lt;/p&gt;
-&lt;h2 id=&#34;geometric-evolution-equations&#34;&gt;Geometric evolution equations&lt;/h2&gt;
-&lt;p&gt;Now let&amp;rsquo;s forget about the wire and any physical interpretation of heat diffusion, and just think about the graph changing over time according to the heat equation.
-What we have is a 1-dimensional manifold (the line that forms the graph) with some geometry (the way that the line curves) and a partial differential equation telling us how the geometry of the manifold changes over time according to the geometry that it already has at a given time.&lt;/p&gt;
-&lt;p&gt;This is the idea of a geometric evolution equation.
-We start with a manifold that has some geometry&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; to describe how it&amp;rsquo;s shaped.
-Then we have some differential equation that looks at how the manifold is shaped at a certain point, and tells the manifold to change over time in some way depending on that geometry.
-When the manifold moves according to one of these geometric evolution equations, we have a &lt;em&gt;geometric flow&lt;/em&gt;.
-There are many different ways we can tell the manifold to move based on its geometry.
-These different flows have varying degrees of simplicity, usefulness, and physicality.&lt;/p&gt;
-&lt;p&gt;In general, manifolds can have any dimension.
-In higher dimensions, there are more directions in which a manifold can curve, which means that it is more complicated to describe the geometry of a manifold at a certain point.
-To describe the geometry, we use an object called a &lt;em&gt;tensor field&lt;/em&gt;.
-A future post will be about abstract manifolds and the tensors that we use to describe their geometry.&lt;/p&gt;
-&lt;h2 id=&#34;the-curve-shortening-flow&#34;&gt;The curve shortening flow&lt;/h2&gt;
-&lt;p&gt;Before moving on to that topic, however, we will examine a geometric flow in a situation that is simple enough that we don&amp;rsquo;t need the language of manifolds and tensors to describe it (although we could talk about this situation in those terms if we were so inclined).
-The flow we will examine is called the &lt;em&gt;curve shortening flow&lt;/em&gt;, and watching it in action might remind you of the diffusion of heat.&lt;/p&gt;
-&lt;p&gt;A cool interactive demonstration of the curve shortening flow can be found &lt;a href=&#34;https://a.carapetis.com/csf/&#34;&gt;here&lt;/a&gt; and I recommend playing with this as you read the remainder of the post.&lt;/p&gt;
-&lt;p&gt;To define the curve shortening flow, start with a curve sitting in 2 dimensions:&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic4.png&#34;
-         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;At each point on this curve, consider the direction that is perpendicular to the curve at that point:&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic5.png&#34;
-         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;(Only a few arrows are drawn to illustrate the principle, but at any point on the curve we could draw such an arrow.)&lt;/p&gt;
-&lt;p&gt;These arrows are called &lt;em&gt;normal vectors&lt;/em&gt;.
-For a 1-dimensional curve sitting inside 2-dimensional space, the only geometric information available at a point is a single number describing the curvature at that point.
-If the curvature at a point is 0, it means that the curve looks like a flat line in a small area around that point.
-If the curvature is positive, it means that the curve is turning to the left from the perspective of someone moving around the curve counterclockwise.
-The curvature is negative at points where the curve is curving to the right from the same perspective.
-More positive or more negative curvatures mean that the curve is turning more sharply to the left or right (before we talked about &amp;ldquo;spikiness&amp;rdquo; of a graph, which is basically all we&amp;rsquo;re talking about here, but it&amp;rsquo;s in a more general context since this figure isn&amp;rsquo;t a graph of any function&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;).&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic6.png&#34;
-         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;So at every point along the curve, we have a normal vector that points in a certain direction, and we have a number.
-The curve shortening flow says that every point of the curve will move in the direction of the normal vector at a speed equal to the curvature at that point.&lt;/p&gt;
-&lt;p&gt;So if we consider the curve shortening flow applied to our curve from before, some points will move inwards quickly or slowly, and some will move outwards quickly or slowly.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;my_research_part_1_graphic7.png&#34;
-         alt=&#34;alt text string&#34; width=&#34;auto&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Notice that some points move in the opposite direction of the normal vector.
-This is because the curvature is negative at those points, so they move in the direction of the normal vector with negative speed.&lt;/p&gt;
-&lt;p&gt;The differential equation to describe the curve shortening flow looks like this:&lt;/p&gt;
-&lt;p&gt;$$\frac{\partial}{\partial t} \gamma = \kappa \mathsf N.$$&lt;/p&gt;
-&lt;p&gt;Here $\gamma$ is the function that describes the curve, $\kappa$ is curvature, and $\mathsf N$ is the normal vector.
-This means that $\kappa \mathsf N$ is a vector that points in the direction of $\mathsf N$ and has length equal to $\kappa$: exactly the vector that should describe how points move under this flow.
-So this equation has a similar form as the heat equation.
-On the left hand side we have the time derivative of the curve.
-That is, the left hand side is referring to how the curve changes over time.
-The right hand side, as mentioned already, is a vector pointing perpendicularly to the curve with length equal to the curvature.
-So the equation says that the curve will change over time by moving in the normal direction with curvature speed.&lt;/p&gt;
-&lt;p&gt;What does mathematical research relating to such an equation look like?
-Good question!
-That is the subject of the next post.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/&#34;&gt;Next post: mathematical research on curve shortening flow&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h3&gt;
-&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;For technical reasons, the wire is infinitely long and perfectly insulated.  Not very reasonable physical assumptions, but a precise understanding of an oversimplified situation is very frequently much more valuable than a vague understanding of a real situation.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;
-&lt;p&gt;In the case of the graph, we can see the geometry by calculating the second derivative, or just by looking at the shape of the graph, since it&amp;rsquo;s drawn out for us.
-For an abstract manifold, we don&amp;rsquo;t have this luxury; in general a manifold is not sitting inside a larger space the way that the graph sits inside the larger space of the plane on which the graph is drawn.
-We need other tools to describe the geometry of abstract manifolds.
-This is where the &lt;em&gt;metric tensor&lt;/em&gt; comes in.
-Hopefully I&amp;rsquo;ll have another post on this topic soon.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;
-&lt;p&gt;However, this figure does have an important property that it is &lt;em&gt;locally&lt;/em&gt; a graph!  If you choose a point on the curve and only look at a small region of the curve around that point, you may notice that this region could be described using a graph of some function.  However, since there isn&amp;rsquo;t a single way to choose this function, this notion of curvature is genuinely different from the second derivative of a graph (but it&amp;rsquo;s analogous)!&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;

@@ -52,7 +52,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/swbuchanan.github.io/posts/kelly-criterion-backgammon/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-03-21T23:20:32+11:00" />
-<meta property="article:modified_time" content="2025-03-21T23:20:32+11:00" /><meta property="og:site_name" content="Steven Buchanan" />
+<meta property="article:modified_time" content="2025-03-21T23:43:13+11:00" /><meta property="og:site_name" content="Steven Buchanan" />
 
 
 
@@ -63,8 +63,8 @@
   
   <meta itemprop="name" content="A stupid application of the Kelly Criterion">
 <meta itemprop="description" content="The Kelly Criterion is a classic solution to a classic problem. Suppose I give you 100 dollars and an unfair coin. The coin lands on heads 60% of the time, but I&rsquo;ll bet you even money that it lands on tails. If I tell you that I&rsquo;ll offer you this bet 1000 times, and you can bet as much of your bankroll as you want, what is your best way of making money?"><meta itemprop="datePublished" content="2025-03-21T23:20:32+11:00" />
-<meta itemprop="dateModified" content="2025-03-21T23:20:32+11:00" />
-<meta itemprop="wordCount" content="120">
+<meta itemprop="dateModified" content="2025-03-21T23:43:13+11:00" />
+<meta itemprop="wordCount" content="558">
 <meta itemprop="keywords" content="" />
 
   
@@ -152,7 +152,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          120 words
+          558 words
         </span>
       
       
@@ -165,7 +165,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          ~1 min
+          ~3 mins
         </span>
       
     </div>
@@ -184,6 +184,30 @@ If I tell you that I&rsquo;ll offer you this bet 1000 times, and you can bet as 
 (Your bankroll is the 100 dollars that you started with together with any money that you win by betting against me.)
 On each bet, you can maximize your expected profit by betting all of your bankroll.
 However, this leaves open the possibility of losing all your money.</p>
+<p>I recently started playing backgammon online.
+This game has a lot to recommend it; it is a highly strategic game of perfect information (according to some definitions) with some random chance involved.
+I&rsquo;m not sure</p>
+<p>In order to calculate my chances of winning, I would need to know about about some variables that are essentially unknowable.
+Backgammon Galaxy has a rating system; I assume that it tries to pair each player with another player of the same level.
+If it could successfully do this every time, each player would have a 50% chance of winning every game.
+Actually this is not quite true; a player that is in the process of improving would always be slightly underrated and thus have a slighly greater than 50% chance of winning.
+There is another complication: based on my experience over a few dozen games or so, it seems like if you rating is too low, you are likely to be ranked against a higher rated player.</p>
+<p>In order for the Kelly Criterion to apply, my chance of winning can&rsquo;t be too low.
+Note that for the classic Kelly problem, if one is making even bets with a chance of winning that is less than 50%, the Kelly Criterion tells you that the best way to make money is to bet nothing, so I would be better off not playing!
+There is a confounding factor for me: the website gives you some rewards just for playing games, as well as some rewards for checking in to the site.
+I&rsquo;ll try to factor these in to get as realistic a model as possible.</p>
+<p>It&rsquo;s also not the case that we make even bets on the website; players are able to buy coins with real money, and to encourage them to do so, some coins are raked from every match.
+In particular, the winning player is returned the coins that he staked for the game plus 85% of the losing players stake.
+That is, 15% of one bet is removed from the coin pool every game (TODO: I know this is true for 100-coin stake games, but what about higher?).</p>
+<p>So I need to consider the following things:</p>
+<ul>
+<li>My winning chances given current distribution of ratings and my place in it,</li>
+<li>The rewards I get for playing a certain number of games, as well as the amount I&rsquo;m winning/losing by playing these games,</li>
+<li>The rewards I get for checking into the site without necessarily playing any games,</li>
+<li>The coins that are raked from the site.</li>
+</ul>
+<p>The first challenge is to determine the distribution of ratings.
+Unlike lichess, backgammongalaxy does not publish much data about</p>
 
     
   </article>
@@ -222,7 +246,7 @@ However, this leaves open the possibility of losing all your money.</p>
     <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/" title="A cute proof of Weierstrass approximation">← prev</a>
     
     
-    <a></a>
+    <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/mathematical-tetris-questions/" title="Some mathematical questions about Tetris">next →</a>
     
   </div>
   <div class="comment">
