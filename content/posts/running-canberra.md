@@ -8,3 +8,5 @@ Inspired by [this guy](pac.tom7.org/index.shtml), who also has a great [youtube 
 Soon I hope to update this page with some rules for the project and some information about how I'm gathering and processing the data.
 For now, [here's my current progress](/all_routes.html).
 
+
+This project has been put on hold as I am now living in Canada until February 2026.
