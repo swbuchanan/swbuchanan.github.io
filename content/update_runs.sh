@@ -1,1 +1,1 @@
-cp ~/running/all_routes.html ../static
+cp ~/github/running/all_routes.html ../static
