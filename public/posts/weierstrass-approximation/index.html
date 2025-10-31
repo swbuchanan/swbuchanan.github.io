@@ -54,7 +54,7 @@ Probably most people who have encountered any proof of the Weierstrass approxima
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-11-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-12-21T12:46:16+11:00" /><meta property="og:site_name" content="Steven Buchanan" />
+<meta property="article:modified_time" content="2025-08-30T10:09:55-04:00" /><meta property="og:site_name" content="Steven Buchanan" />
 
 
 
@@ -66,8 +66,8 @@ Probably most people who have encountered any proof of the Weierstrass approxima
   <meta itemprop="name" content="A cute proof of Weierstrass approximation">
 <meta itemprop="description" content="The Weierstrass approximation theorem says that (on an interval of finite length) we can approximate any continuous function arbitrarily well by polynomials. As polynomials have very nice mathematical and computational properties, this is a very useful theorem.
 Probably most people who have encountered any proof of the Weierstrass approximation theorem have already seen the essential idea of this proof. Indeed, this is basically the original proof that Karl Weierstrass gave in 1885, just with a slightly different perspective."><meta itemprop="datePublished" content="2024-11-07T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-12-21T12:46:16+11:00" />
-<meta itemprop="wordCount" content="331">
+<meta itemprop="dateModified" content="2025-08-30T10:09:55-04:00" />
+<meta itemprop="wordCount" content="465">
 <meta itemprop="keywords" content="" />
 
   
@@ -156,7 +156,7 @@ Probably most people who have encountered any proof of the Weierstrass approxima
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          331 words
+          465 words
         </span>
       
       
@@ -169,7 +169,7 @@ Probably most people who have encountered any proof of the Weierstrass approxima
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          ~2 mins
+          ~3 mins
         </span>
       
     </div>
@@ -191,16 +191,28 @@ The heat equation has the remarkable property that its solutions immediately bec
 But if we only allow the diffusion to happen for a sufficiently short amount of time, the distribution after this short time is still quite close (in the appropriate sense of &ldquo;close&rdquo;) to the original function $f$.
 Thus we have a smooth approximation.
 From there we can use Taylor&rsquo;s theorem, which says that a smooth function can be approximated by polynomials.</p>
-<p>To be more precise, we can find a function $\phi(x,t)$ so that $\phi(x,t)$ to the heat equation on $\R$ with $\phi(x,0) = f(x)$.
-Then $\phi$ converges uniformly to $f$ as $t$ goes backwards to $0$, and is smooth for all $t &gt; 0$.
+<p>To be more precise, we can find a function $\phi(x,t)$ so that $\phi(x,t)$ is a solution to the heat equation on $\R \times (0, \infty)$ with $\phi(x,0) = f(x)$.
+Then $\phi$ converges uniformly to $f$ as $t$ goes backwards to $0$, and the function $\phi(\cdot, t)$ is smooth for all fixed $t &gt; 0$.
 Since $\phi$ is smooth, we can apply Taylor&rsquo;s theorem to obtain the uniform approximation by polynomials.</p>
 <blockquote>
-<p>Theorem: Weierstrass approximation. Given a continuously supported compact function $f$ on $\R$ and $\epsilon &gt; 0$, there is a polynomial $p(x)$ such that $|f(x) - p(x)| &lt; \epsilon$ whenever $f \neq 0$.</p>
+<p>Theorem: Weierstrass approximation. Given a continuous compactly supported function $f$ on $\R$ and $\epsilon &gt; 0$, there is a polynomial $p(x)$ such that $|f(x) - p(x)| &lt; \epsilon$ for all $x \in \R$.</p>
 </blockquote>
 <p>Proof. Take
-$$\phi(x,t) = \frac{1}{\sqrt{4 \pi t}} \int_{\R} e^{-\frac{(x-y)^2}{4t}} f(y) \, dy.$$</p>
-<p>This is our desired solution to the heat equation.
-There are still a few more details to fill in, but from here it&rsquo;s mostly computation, so I&rsquo;ll add the details when I have more time.</p>
+$$\phi(x,t) = \frac{1}{\sqrt{4 \pi t}} \int_{\R} e^{-\frac{(x-y)^2}{4t}} f(y) \, dy.$$
+This is the convolution of $f$ with the Gaussian heat kernel, and thus is the unique solution of the heat equation with initial data $f$.
+By differentiating under the integral sign, we can see that all derivatives exist and are continuous.
+The fact that $\phi(x,t) \to f(x)$ uniformly also follows from properties of the Gaussian heat kernel.
+In particular, as $t \to 0$ from above, the kernel approximates a Dirac delta centered at $x$.
+This means that the integral converges to $f(x)$.</p>
+<p>So, given $\epsilon &gt; 0$, choose $t_0$ small enough that
+$$|\phi(x,t_0) - f(x)| &lt; \frac{\epsilon}{2}$$
+for all $x$.
+Now since $\phi(\cdot, t_0)$ is smooth on the compact support of $f$, it follows from Taylor&rsquo;s theorem that there is a polynomial $p(x)$ such that
+$$|\phi(x,t_0) - p(x)| &lt; \frac{\epsilon}{2}$$
+for all $x$.
+Now by the triangle inequality,
+$$|f(x) - p(x)| \leq |f(x) - \phi(x, t_0)| + |\phi(x,t_0) - p(x)| &lt; \epsilon,$$
+and we have our approximation.</p>
 
     
   </article>
@@ -239,7 +251,7 @@ There are still a few more details to fill in, but from here it&rsquo;s mostly c
     <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/" title="Ancient 2-dimensional solutions to the Ricci flow">← prev</a>
     
     
-    <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/running-canberra/" title="Running every street in Canberra">next →</a>
+    <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/kelly-criterion-backgammon/" title="A stupid application of the Kelly Criterion">next →</a>
     
   </div>
   <div class="comment">

@@ -67,7 +67,7 @@ In this article, I will introduce some preliminary notions that will be necessar
 <meta itemprop="description" content="This is the third part in a series of short articles I&rsquo;m trying to write about my research. See the first one here.
 In this article, I will introduce some preliminary notions that will be necessary in describing the work that I do (and in fact they are fundamental to all research in geometry). The two notions are these: manifolds and metric tensors. A manifold is a mathematical structure that generalizes and makes precise the idea of space."><meta itemprop="datePublished" content="2024-01-15T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-08-23T07:10:06+10:00" />
-<meta itemprop="wordCount" content="1131">
+<meta itemprop="wordCount" content="1413">
 <meta itemprop="keywords" content="" />
 
   
@@ -156,7 +156,7 @@ In this article, I will introduce some preliminary notions that will be necessar
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          1131 words
+          1413 words
         </span>
       
       
@@ -169,7 +169,7 @@ In this article, I will introduce some preliminary notions that will be necessar
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          ~6 mins
+          ~7 mins
         </span>
       
     </div>
@@ -184,7 +184,12 @@ In this article, I will introduce some preliminary notions that will be necessar
     </summary>
     <div class="toc numbered-subtitles"><nav id="TableOfContents">
   <ul>
-    <li><a href="#topology">Topology</a></li>
+    <li><a href="#topology">Topology</a>
+      <ul>
+        <li><a href="#a-useful-way-to-distinguish-topological-spaces">A useful way to distinguish topological spaces</a></li>
+      </ul>
+    </li>
+    <li><a href="#geometry">Geometry</a></li>
     <li><a href="#footnotes">Footnotes</a></li>
   </ul>
 </nav></div>
@@ -233,13 +238,23 @@ How exactly can we be sure that our manifold is not, in fact Euclidean space?
 The two main things that differentiate one manifold from another are the <em>topology</em> and the <em>geometry</em>.
 To oversimplify, these concepts refer respectively to the large-scale shape of the manifold and the small-scale shape.</p>
 <h2 id="topology">Topology</h2>
-<p>Topology should be considered as the &ldquo;lower-level&rdquo; structure of a manifold.
+<p>Topology should be considered as looking at the &ldquo;large-scale&rdquo; structure of a manifold.
 Later we will be interested in ways that the geometry of the manifold can change over time, but the underlying topology of the manifold will generally be fixed.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>
 Topology is sometimes referred to as rubber-sheet geometry, because deforming a manifold in ways that one could deform a rubber sheet would not change the topology.
 For instance, the sphere has a certain topology and spheres that are, say, larger or smaller or squished or stretched or crumpled up all have different geometries, but the same underlying spherical topology.
 One way to see that the topology is different from the topology of a plane is that a sphere does not &ldquo;extend forever in all directions.&rdquo;
 If one starts traveling in a fixed direction on a sphere, one will eventually come back to where they started.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>
 This is not true for the plane.</p>
+<p>I think it gives a good intuitive idea of &ldquo;large-scale&rdquo; shape of a
+This idea of &ldquo;traveling in one direction&rdquo; is not really a good mathematical way to distinguish between different topologies</p>
+<h3 id="a-useful-way-to-distinguish-topological-spaces">A useful way to distinguish topological spaces</h3>
+<p>Another common example of a surface with a different topology to either the surface of a sphere or of a plane is the surface of a donut or a bagel.
+We call this surface a torus.</p>
+<h2 id="geometry">Geometry</h2>
+<p>We see that topology gives us a way to talk about holes in a manifold, but we can&rsquo;t use the tools of topology to detect the &ldquo;small-scale&rdquo; shape of a manifold.
+For instance, topologically speaking, a sphere of radius 1 and a sphere of radius 2 are exactly the same, provided they have the same dimension.
+Similarly, we have no way to distinguish between a flat plane and something like an infinite sheet of corrugated material.
+Our topological toolbox does not provide us with any way to measure distances, curvature, angles, and similar features of the manifold.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnotes" role="doc-endnotes">
 <hr>
@@ -255,8 +270,12 @@ The so-called Ricci flow with surgery is one famous way; analysis of this proces
 <li id="fn:3">
 <p>This is not really the correct way to state what I&rsquo;m talking about, but it&rsquo;s a better way to understand the idea.
 The concept of direction on a topological manifold isn&rsquo;t really well-defined in the first place (although once we endow a topological manifold with a geometric structure we can sensibly talk about direction).
-The technical concept that I&rsquo;m referring to is called <em>compactness</em>, and it&rsquo;s very important in many areas of mathematics.
-W&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+The technical concept that I&rsquo;m referring to is called <em>compactness</em>, and it&rsquo;s very important in many areas of mathematics.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>To be more specific, it&rsquo;s not exactly that we can&rsquo;t distinguish between such features, but the mathematical object that is a topological manifold simply does not contain the information that corresponds to distances and curvature and so on.
+So if we&rsquo;re purely in the land of topological manifolds, it&rsquo;s not quite accurate to say that we can&rsquo;t distinguish between two spheres of different radii; the unique topological manifold that describes a sphere (of a given dimension) simply has no radius.
+The way I phrased it is still technically accurate, since if we have Riemannian manifolds that describe spheres with different radii, they are in fact topologically the same.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>
@@ -298,7 +317,7 @@ W&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&
     <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/" title="My research, part 2">← prev</a>
     
     
-    <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/" title="Ancient 2-dimensional solutions to the Ricci flow">next →</a>
+    <a class="link" href="http://localhost:1313/swbuchanan.github.io/posts/another-post/" title="An unusual problem-solving technique">next →</a>
     
   </div>
   <div class="comment">

@@ -2,17 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/swbuchanan.github.io/posts/fifteen-puzzle/</loc>
+    <lastmod>2025-06-24T20:00:14+10:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/</loc>
-    <lastmod>2025-08-16T13:38:50-04:00</lastmod>
+    <lastmod>2025-08-30T10:09:55-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/swbuchanan.github.io/posts/an_unintuitive_fact_about_drawing_with_replacement/</loc>
+    <lastmod>2025-08-25T07:19:39-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/running-canberra/</loc>
     <lastmod>2025-08-16T13:38:50-04:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/swbuchanan.github.io/posts/mathematical-tetris-questions/</loc>
+    <lastmod>2025-06-24T20:00:14+10:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/swbuchanan.github.io/posts/kelly-criterion-backgammon/</loc>
+    <lastmod>2025-06-24T20:00:14+10:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/</loc>
-    <lastmod>2024-12-21T12:46:16+11:00</lastmod>
+    <lastmod>2025-08-30T10:09:55-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/</loc>
     <lastmod>2024-08-31T09:22:58+10:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</loc>
+    <lastmod>2025-08-22T10:46:46-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/swbuchanan.github.io/posts/another-post/</loc>
+    <lastmod>2024-08-23T12:49:29+10:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</loc>
     <lastmod>2024-08-23T07:10:06+10:00</lastmod>
@@ -21,7 +39,7 @@
     <lastmod>2024-02-17T20:40:00+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</loc>
-    <lastmod>2024-04-17T17:51:22+10:00</lastmod>
+    <lastmod>2025-08-21T16:24:16-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/swbuchanan.github.io/</loc>
     <lastmod>2024-09-12T21:25:27+10:00</lastmod>

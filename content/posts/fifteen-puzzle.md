@@ -25,4 +25,9 @@ Here I'll explain the method I'll use.
 what
 
 
+here is another thingy
+
+{{< penney >}}
+
+
 {{< fifteen size="4" default-setup="true" >}}
