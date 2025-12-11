@@ -7,6 +7,148 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language><atom:link href="http://localhost:1313/swbuchanan.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Nagel-Schreckenberg traffic simulation</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/traffic_simulation/</link>
+      <pubDate>Thu, 11 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/traffic_simulation/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://artowen.su.domains/mc/Ch-intro.pdf&#34;&gt;this&lt;/a&gt; text book available online about Monte Carlo simulation, the first example given is a traffic simulation that shows how traffic jams can emerge seemingly out of nowhere, even when there aren&amp;rsquo;t any particularly bad drivers or disruptive incidents on the road.
+Below is a small demonstration of traffic following the &lt;strong&gt;Nagel-Schreckenberg&lt;/strong&gt; simulation rules.
+Based on these rules, we have the following setup:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The road is divided into discrete cells, each with one car.&lt;/li&gt;
+&lt;li&gt;The cars all have some velocity $v$.&lt;/li&gt;
+&lt;li&gt;There is a maximum velocity $v_{\max}$ that all cars obey.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The simulation proceeds in discrete time steps.
+At each time step, the following 4 rules are applied to all cars in parallel.
+For each car,&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;If its velocity is below $v_{\max}$, it increases its velocity by one unit.&lt;/li&gt;
+&lt;li&gt;It checks the distance to the car in front of it.&lt;/li&gt;
+&lt;li&gt;If that distance is $d$ spaces and the car has velocity $v \geq d$, then it reduces its velocity to $d-1$ in order to avoid collision.&lt;/li&gt;
+&lt;li&gt;If the velocity is positive then with probability $p$ it reduces its velocity by 1 unit. This is the key step that models random driver behavior.&lt;/li&gt;
+&lt;li&gt;The motion of the car takes place. That is, the car moves ahead by $v$ units.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here is a simulation following these rules with a road that wraps around (so the drivers are effectively driving in a circle).
+The road has length 700, there are 100 drivers, and the probability of braking is around $1/3$.
+The maximum speed is 3.&lt;/p&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+  &lt;meta charset=&#34;UTF-8&#34;&gt;
+  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+  &lt;title&gt;Canvas Curve&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;canvas id=&#34;trafficCanvas&#34; style=&#34;width: 100%; border:0px solid #000000;&#34;&gt;&lt;/canvas&gt;
+  &lt;script src=&#34;http://localhost:1313/swbuchanan.github.io/js/traffic_simulation.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+&lt;p&gt;I made this in a hurry but soon I hope to update this page with options to adjust the number of drivers, the maximum speed, and the probability $p$ of braking.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Detecting 4-cycles in a graph is easier than detecting triangles</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/graph-cycle-detection/</link>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/graph-cycle-detection/</guid>
+      <description>&lt;h2 id=&#34;an-algorithm-to-detect-triangles-in-a-graph&#34;&gt;An algorithm to detect triangles in a graph&lt;/h2&gt;
+&lt;p&gt;Recently I was looking through &lt;a href=&#34;https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf&#34;&gt;Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra&lt;/a&gt;.
+One of the applications is an algorithm to efficiently detect a triangle in a graph, such as the following.
+(There is an obvious algorithm that works by enumerating all possible triplets of vertices and checking them one at a time; this involves some multiple of $n^3$ steps, where $n$ is the number of vertices.
+That is, the algorithm has $O(n^3)$ time complexity, which is really bad.)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/graph_example.png&#34; alt=&#34;a graph with a triangle highlighted&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The algorithm works in the following way.
+Construct the adjacency matrix of the graph.
+This is done by labeling the vertices with numbers $1, 2, \dots, v$, where $v$ is the number of vertices.
+Then, the entry in row $i$, column $j$ of the matrix is $1$ if there is an edge between vertex $i$ and vertex $j$, and 0 otherwise.
+This gives us a matrix that encodes exactly the same information as the &amp;ldquo;dots and lines&amp;rdquo; representation of a graph.
+For example, this graph:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/graph_example_2.png&#34; alt=&#34;a graph with labeled vertices&#34;&gt;&lt;/p&gt;
+&lt;p&gt;has adjacency matrix
+$
+\begin{bmatrix}
+0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \\
+0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 1 \\
+1 &amp;amp; 1 &amp;amp; 0 &amp;amp; 1 \\
+0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0
+\end{bmatrix}.
+$&lt;/p&gt;
+&lt;p&gt;For the graph where we want to find triangles, call its adjacency matrix $A$.
+Now the key is to consider the square of this matrix, $A^2$.
+By definition of matrix multiplication, the entry in row $i$, column $j$ of this matrix will be (here $a_{m, n}$ denotes the entry in row $m$, column $n$ of matrix $A$)
+$$
+b_{i,j} = a_{i,1} a_{1,j} + a_{i, 2} a_{2,j} + \cdots + a_{i, v} a_{v, j}.
+$$
+Note that&lt;/p&gt;
+&lt;p&gt;$$
+a_{i,k}a_{k,j} =
+\begin{cases}
+1 &amp;amp; \text{if the vertex $k$ is adjacent to both $i$ and $j$}, \\
+0 &amp;amp; \text{otherwise,}
+\end{cases}
+$$
+from which it follows that $b_{i,j}$ is the number of neighbors that are common to vertex $i$ and vertex $j$.
+We&amp;rsquo;re almost done.
+To find a triangle, we just have to find a pair of vertices that are connected to each other and have a common neighbor.
+With the matrices that we&amp;rsquo;ve constructed, this amounts to finding some values for $i$ and $j$ for which both&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$a_{i,j} \neq 0$ (meaning that $i$ and $j$ are connected to each other) and&lt;/li&gt;
+&lt;li&gt;$b_{i,j} \neq 0$ (meaning that $i$ and $j$ have a common neighbor.
+Thus we merely have to inspect the  matrices $A$, $A^2$ to find the triangle.
+To summarize, our algorithm goes like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Construct the adjacency matrix for the graph.&lt;/li&gt;
+&lt;li&gt;Square the adjacency matrix.&lt;/li&gt;
+&lt;li&gt;Compare the adjacency matrix with its square to see if there are nonzero entries in matching cells.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The complexity bottleneck in this algorithm is in the second step.
+Currently it is conjectured but not proven that matrix multiplication can be done by an algorithm with $O(n^2)$ steps.
+The algorithm that is used most often in practice (Strassen&amp;rsquo;s algorithm) has complexity around $O(n^{2.807})$.
+The best theoretical bound is $O(n^{2.371339})$, but this and other &amp;ldquo;improvements&amp;rdquo; on Strassen&amp;rsquo;s algorithm are not used in practice since the constants hidden by the big-O notation are impractically large for the size of matrices that current computers can deal with.
+In any case, we can safely say that our algorithm to detect triangles is significantly worse than $O(n^2)$.&lt;/p&gt;
+&lt;h2 id=&#34;an-algorithm-to-detect-4-cycles-in-a-graph&#34;&gt;An algorithm to detect 4-cycles in a graph&lt;/h2&gt;
+&lt;p&gt;This is a case where a more complicated problem actually has a simpler solution.
+A triangle in a graph is also called a 3-cycle, since it is 3 vertices that form a closed loop.
+Similarly, we can ask about the existence of 4 vertices in a closed loop.&lt;/p&gt;
+&lt;p&gt;There is a very straightforward algorithm to check for 4-cycles:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;enumerate through all pairs of vertices $u$ and $v$ (this is $O(n^2)$)&lt;/li&gt;
+&lt;li&gt;compute the vertices that $u$ and $v$ have in common (this is $O(n^2)$ or better)&lt;/li&gt;
+&lt;li&gt;if the set of common vertices ever contains more than one element, we have found the 4-cycle.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So we see that this seemingly more complex problem is strictly easier, requiring only $O(n^2)$ steps.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.25/LIPIcs.FSTTCS.2023.25.pdf?&#34;&gt;Abboud, Khoury, Leibowitz, Safier - Listing 4-cycles&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf&#34;&gt;Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A project on implied probability density functions for asset prices</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/implied_stock_distributions/</link>
+      <pubDate>Tue, 04 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/implied_stock_distributions/</guid>
+      <description>&lt;p&gt;I recently completed a project for an online course in computational quant finance.
+The project is about how to derive a certain probability density function for an asset at a date in the future by looking at options that expire on that date.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://nbviewer.org/github/swbuchanan/implied-stock-distributions/blob/main/project.ipynb&#34;&gt;View the project notebook on nbviewer.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How to tell if a 15-type puzzle is solvable</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/fifteen-puzzle/</link>
       <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
@@ -67,7 +209,7 @@ Here I&amp;rsquo;ll explain the method I&amp;rsquo;ll use.&lt;/p&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;div class=&#34;wrap&#34;&gt;
-      &lt;canvas id=&#34;game&#34; width=&#34;760&#34; height=&#34;280&#34; aria-label=&#34;Penney&#39;s game&#34;&gt;&lt;/canvas&gt;
+      &lt;canvas id=&#34;penneyGame&#34; width=&#34;760&#34; height=&#34;280&#34; aria-label=&#34;Penney&#39;s game&#34;&gt;&lt;/canvas&gt;
     &lt;/div&gt;
     &lt;div class=&#34;tip&#34;&gt;Click the three tiles to toggle H/T. Then click Play.&lt;/div&gt;
     
@@ -348,121 +490,6 @@ This classification was achievd through various papers and somewhat technical an
 Recently, Bourni, Langford, and Tinaglia have classified the convex ancient solutions to curve shortening flow.
 My project aims to re-prove the classification of ancient Ricci flows on surfaces using the more geometric methods used in this classification.
 I also hope to apply some of the methods we learn to classification of solutions in higher dimensions, or possibly classification of solutions to related flows, such as the Kähler-Ricci flow.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Test post 2</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</link>
-      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</guid>
-      <description>&lt;p&gt;Hi quick test post&lt;/p&gt;
-&lt;p&gt;Here’s the torus with loops illustrating π₁:&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;I don&amp;rsquo;t know what&amp;rsquo;s going on&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>An unusual problem-solving technique</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/another-post/</link>
-      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/another-post/</guid>
-      <description>&lt;p&gt;Consider the following problem:&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My research, part 3</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</link>
-      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</guid>
-      <description>&lt;p&gt;This is the third part in a series of short articles I&amp;rsquo;m trying to write about my research.
-&lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;In this article, I will introduce some preliminary notions that will be necessary in describing the work that I do (and in fact they are fundamental to all research in geometry).
-The two notions are these: manifolds and metric tensors.
-A manifold is a mathematical structure that generalizes and makes precise the idea of &lt;em&gt;space&lt;/em&gt;.
-Space is a familiar idea.
-The (physical, i.e. ignoring the time dimension) space we live in is (described by) a 3-dimensional manifold.
-One way to see that it is 3-dimensional is to observe that if we are at some point in space, we can fix 3 different directions, perhaps forward, left, and up, and then any direction in which it is possible for us to move is some combination of these 3 directions.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;
-(Here we are counting moving backwards along one of these chosen directions as using that direction.)
-If we had only chosen 4 directions, say forward and to the right, then we could not describe any upward or downward motion in terms of these directions.
-So our physical space can&amp;rsquo;t be 2 dimensional.
-If we had chosen 4 directions, say forward, right, down, and a little bit up and to the left, then we have some redundancy.
-We only need any 3 of these directions to describe any sort of motion we want in space.
-(It&amp;rsquo;s true that if we choose to use the 3 directions: forward, right, and a little bit up and to the left, then describing motion in, say, purely the leftward direction becomes unnecessarily complicated, but the important thing is that it can in principle be done.)
-So 4 directions is too many.&lt;/p&gt;
-&lt;p&gt;Another example of a manifold is a sphere, which is the infinitely thin outer surface of a ball.
-When one imagines a sphere, one probably imagines it sitting inside of 3-dimensional space, but the sphere itself is a 2-dimensional manifold.
-This can be seen for the same reason as before: if we are on the surface of the sphere and we pick out two distinguished directions relative to our position, then we can specify any point around us using only these two directions.
-For example, I could tell you that the point I&amp;rsquo;m thinking of is 3 units to my right and -3 units in front of me, if my distinguished directions happen to be &amp;ldquo;to the right&amp;rdquo; and &amp;ldquo;forward.&amp;rdquo;
-Another way to phrase this same concept is by pointing out that we can specify any point on the surface of the earth with two coordinates: latitude and longitude.&lt;/p&gt;
-&lt;p&gt;The mathematically precise way to state this idea of being able to describe the manifold in terms of a certain number of coordinates is fairly technical, but it goes something like this.
-In each dimension, there is a certain &amp;ldquo;default manifold&amp;rdquo; that is basically as nice as it&amp;rsquo;s possible for a manifold to be.
-This is called Euclidean space.
-The 1-dimensional Euclidean space is a straight line extending forever in both directions.
-Then a coordinate for this space is just a number, say $x$.
-This space is often just referred to as &lt;em&gt;the line&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;The 2-dimensional Euclidean space is &lt;em&gt;the plane&lt;/em&gt;, extending forever in all directions.
-Any point in this space has a pair of 1-dimensional coordinates $(x,y)$, where each coordinate in the pair comes from 1-dimensional Euclidean space.&lt;/p&gt;
-&lt;p&gt;The 3-dimensional Euclidean space can be imagined as the physical space that we live in extending forever in all directions.
-It&amp;rsquo;s the space with 3 coordinates $(x,y,z)$ with each coordinate in the triplet coming from 1-dimensional Euclidean space.&lt;/p&gt;
-&lt;p&gt;Higher dimensional Euclidean spaces are obtained following the same pattern: simply add more coordinates.
-Once we have these spaces in our hands, we can say that a manifold with possibly some other shape, like a sphere, is some mathematical object with the property that when we look very closely around a point, it looks like one of these Euclidean spaces of some dimension.
-For example, the (idealized, without terrain features) surface of the earth looks like a piece of 2-dimensional Euclidean space.
-Or a circle, when one zooms in closely on some point, looks just like a piece of 1-dimensional Euclidean space.&lt;/p&gt;
-&lt;p&gt;Now we can ask an important question.
-If we are within some manifold, say on the surface of a 2-dimensional manifold, then we look all around us and, due to what it means to be a manifold, it appears to us that we are in Euclidean space.
-How exactly can we be sure that our manifold is not, in fact Euclidean space?
-The two main things that differentiate one manifold from another are the &lt;em&gt;topology&lt;/em&gt; and the &lt;em&gt;geometry&lt;/em&gt;.
-To oversimplify, these concepts refer respectively to the large-scale shape of the manifold and the small-scale shape.&lt;/p&gt;
-&lt;h2 id=&#34;topology&#34;&gt;Topology&lt;/h2&gt;
-&lt;p&gt;Topology should be considered as looking at the &amp;ldquo;large-scale&amp;rdquo; structure of a manifold.
-Later we will be interested in ways that the geometry of the manifold can change over time, but the underlying topology of the manifold will generally be fixed.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;
-Topology is sometimes referred to as rubber-sheet geometry, because deforming a manifold in ways that one could deform a rubber sheet would not change the topology.
-For instance, the sphere has a certain topology and spheres that are, say, larger or smaller or squished or stretched or crumpled up all have different geometries, but the same underlying spherical topology.
-One way to see that the topology is different from the topology of a plane is that a sphere does not &amp;ldquo;extend forever in all directions.&amp;rdquo;
-If one starts traveling in a fixed direction on a sphere, one will eventually come back to where they started.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;
-This is not true for the plane.&lt;/p&gt;
-&lt;p&gt;I think it gives a good intuitive idea of &amp;ldquo;large-scale&amp;rdquo; shape of a
-This idea of &amp;ldquo;traveling in one direction&amp;rdquo; is not really a good mathematical way to distinguish between different topologies&lt;/p&gt;
-&lt;h3 id=&#34;a-useful-way-to-distinguish-topological-spaces&#34;&gt;A useful way to distinguish topological spaces&lt;/h3&gt;
-&lt;p&gt;Another common example of a surface with a different topology to either the surface of a sphere or of a plane is the surface of a donut or a bagel.
-We call this surface a torus.&lt;/p&gt;
-&lt;h2 id=&#34;geometry&#34;&gt;Geometry&lt;/h2&gt;
-&lt;p&gt;We see that topology gives us a way to talk about holes in a manifold, but we can&amp;rsquo;t use the tools of topology to detect the &amp;ldquo;small-scale&amp;rdquo; shape of a manifold.
-For instance, topologically speaking, a sphere of radius 1 and a sphere of radius 2 are exactly the same, provided they have the same dimension.
-Similarly, we have no way to distinguish between a flat plane and something like an infinite sheet of corrugated material.
-Our topological toolbox does not provide us with any way to measure distances, curvature, angles, and similar features of the manifold.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;h2 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h2&gt;
-&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;We do have to be just a little bit careful when choosing these directions.  For example, if we choose: forward, left, and backward, then we are unable to describe any upward or downward motion.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;
-&lt;p&gt;I doubt I&amp;rsquo;ll get around to talking about it, but I can&amp;rsquo;t resist mentioning it.
-There are notions of geometric evolution that allow the toplogy of the manifold to change it a certain carefully controlled way.
-The so-called Ricci flow with surgery is one famous way; analysis of this process was what led to the resolution of the Poincare conjecture.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;
-&lt;p&gt;This is not really the correct way to state what I&amp;rsquo;m talking about, but it&amp;rsquo;s a better way to understand the idea.
-The concept of direction on a topological manifold isn&amp;rsquo;t really well-defined in the first place (although once we endow a topological manifold with a geometric structure we can sensibly talk about direction).
-The technical concept that I&amp;rsquo;m referring to is called &lt;em&gt;compactness&lt;/em&gt;, and it&amp;rsquo;s very important in many areas of mathematics.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:4&#34;&gt;
-&lt;p&gt;To be more specific, it&amp;rsquo;s not exactly that we can&amp;rsquo;t distinguish between such features, but the mathematical object that is a topological manifold simply does not contain the information that corresponds to distances and curvature and so on.
-So if we&amp;rsquo;re purely in the land of topological manifolds, it&amp;rsquo;s not quite accurate to say that we can&amp;rsquo;t distinguish between two spheres of different radii; the unique topological manifold that describes a sphere (of a given dimension) simply has no radius.
-The way I phrased it is still technically accurate, since if we have Riemannian manifolds that describe spheres with different radii, they are in fact topologically the same.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
 </description>
     </item>
     
