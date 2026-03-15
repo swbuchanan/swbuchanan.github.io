@@ -149,104 +149,6 @@ The project is about how to derive a certain probability density function for an
     </item>
     
     <item>
-      <title>How to tell if a 15-type puzzle is solvable</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/fifteen-puzzle/</link>
-      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/fifteen-puzzle/</guid>
-      <description>&lt;p&gt;I want to have a highly responsive adjustable 15-type puzzle game with timing and leaderboards.
-In order to do this, I need to be able to generate random starting positions for the board.
-However, an interesting fact about the 15 puzzle is that not all possible arrangements of the $15$ tiles on the $16 \times 16$ grid are solvable.
-For example, if one takes the starting arrangement and swaps the 14 and 15 only, the resulting arrangement cannot be solved with normal moves (i.e. without doing some swap of two other tiles).
-This would also be true for the starting arrangement with any two adjacent tiles swapped with each other.&lt;/p&gt;
-&lt;p&gt;So, my problem is to generate random starting positions, but check in some way that I don&amp;rsquo;t present the player with an unsolvable configuration.
-One possible solution to this problem is to not just generate a random configuration, but to generate a random sequence of moves from the starting position.
-This is what one would do with a physical puzzle to &amp;ldquo;randomize&amp;rdquo; it, assuming that the pieces are not allowed to be removed from the board; just make moves without paying close attention and without any pattern.
-This is actually a fine solution, it just doesn&amp;rsquo;t appeal to my mathematical sensibilities.
-What I would like is a straightforward way to take a random position and check if it is solvable or not.&lt;/p&gt;
-&lt;p&gt;Fortunately for me this problem has already been solved.
-Here I&amp;rsquo;ll explain the method I&amp;rsquo;ll use.&lt;/p&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-  &lt;meta charset=&#34;UTF-8&#34;&gt;
-  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
-  &lt;title&gt;Fifteen game&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div style=&#34;text-align: center;&#34;&gt;
-  &lt;canvas id=&#34;gameCanvas&#34; width=&#34;200&#34; height=&#34;200&#34; tabindex=&#34;0&#34; style=&#34;margin:20px auto;border:1px solid #000000;display:block&#34;&gt;&lt;/canvas&gt;
-  &lt;button id=&#34;restartGame&#34;&gt;Reestart&lt;/button&gt;
-  &lt;label&gt;
-      &lt;input type=&#34;checkbox&#34; id=&#34;reverseToggle&#34;&gt;
-      Reverse controls
-  &lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div id=&#34;game-config&#34;
-        data-size=&#34;&#34;
-        data-default-setup=&#34;&#34;&gt;
-    &lt;/div&gt;
-
-  &lt;script src=&#34;http://localhost:1313/swbuchanan.github.io/js/fifteen.js&#34;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-
-
-&lt;p&gt;what&lt;/p&gt;
-&lt;p&gt;here is another thingy&lt;/p&gt;
-&lt;!doctype html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&#34;utf-8&#34; /&gt;
-    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width,initial-scale=1&#34; /&gt;
-    &lt;title&gt;Penney&#39;s Game (Canvas)&lt;/title&gt;
-    &lt;style&gt;
-      html, body { height: 100%; margin: 0; background:#111; color:#ddd; font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
-      .wrap { display:flex; align-items:center; justify-content:center; height:100%; }
-      canvas { border: 1px solid #333; background:#0d0d0d; }
-      .tip { position:fixed; bottom:10px; width:100%; text-align:center; color:#777; font-size:12px; }
-    &lt;/style&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;div class=&#34;wrap&#34;&gt;
-      &lt;canvas id=&#34;penneyGame&#34; width=&#34;760&#34; height=&#34;280&#34; aria-label=&#34;Penney&#39;s game&#34;&gt;&lt;/canvas&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;tip&#34;&gt;Click the three tiles to toggle H/T. Then click Play.&lt;/div&gt;
-    
-    &lt;script src=&#34;http://localhost:1313/swbuchanan.github.io/js/penney.js&#34;&gt;&lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-  &lt;meta charset=&#34;UTF-8&#34;&gt;
-  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
-  &lt;title&gt;Fifteen game&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div style=&#34;text-align: center;&#34;&gt;
-  &lt;canvas id=&#34;gameCanvas&#34; width=&#34;200&#34; height=&#34;200&#34; tabindex=&#34;0&#34; style=&#34;margin:20px auto;border:1px solid #000000;display:block&#34;&gt;&lt;/canvas&gt;
-  &lt;button id=&#34;restartGame&#34;&gt;Reestart&lt;/button&gt;
-  &lt;label&gt;
-      &lt;input type=&#34;checkbox&#34; id=&#34;reverseToggle&#34;&gt;
-      Reverse controls
-  &lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div id=&#34;game-config&#34;
-        data-size=&#34;4&#34;
-        data-default-setup=&#34;true&#34;&gt;
-    &lt;/div&gt;
-
-  &lt;script src=&#34;http://localhost:1313/swbuchanan.github.io/js/fifteen.js&#34;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-
-
-</description>
-    </item>
-    
-    <item>
       <title>An unintuitive fact about random drawings with and without replacement</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/an_unintuitive_fact_about_drawing_with_replacement/</link>
       <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
@@ -319,67 +221,6 @@ Fortunately, the linearity of expectation does not require the random variables 
 Soon I hope to update this page with some rules for the project and some information about how I&amp;rsquo;m gathering and processing the data.
 For now, &lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/all_routes.html&#34;&gt;here&amp;rsquo;s my current progress&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This project has been put on hold as I am now living in Canada until February 2026.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Some mathematical questions about Tetris</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/mathematical-tetris-questions/</link>
-      <pubDate>Fri, 11 Apr 2025 23:20:32 +1100</pubDate>
-      
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/mathematical-tetris-questions/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://jstris.jezevec10.com/&#34;&gt;https://jstris.jezevec10.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Tetris is pretty fun.
-In case anyone reading this needs some introduction to the game, see the link.
-The oldest published mathematical analysis I could find of this game is in a master&amp;rsquo;s thesis from 1992 by John Brzustowski at the University of British Columbia.
-See here
-&lt;a href=&#34;https://open.library.ubc.ca/media/stream/pdf/831/1.0079748/1&#34;&gt;https://open.library.ubc.ca/media/stream/pdf/831/1.0079748/1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The thesis answers the question of whether or not it&amp;rsquo;s possible for a game of Tetris to go on indefinitely.
-Of course a slightly idealized version of the game is examined in the mathematical analysis; for example we don&amp;rsquo;t consider the time that it takes to place the piece.
-In the arcade version of the game, the speed of the pieces increases as the game progresses and the game gets more difficult.
-It seems natural to ignore this part of the game&lt;/p&gt;
-&lt;p&gt;However, in many versions of Tetris, there are some features that enable one to play indefinitely, with a reasonably simple strategy.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://harddrop.com/wiki/Playing_forever&#34;&gt;https://harddrop.com/wiki/Playing_forever&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>A stupid application of the Kelly Criterion</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/kelly-criterion-backgammon/</link>
-      <pubDate>Fri, 21 Mar 2025 23:20:32 +1100</pubDate>
-      
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/kelly-criterion-backgammon/</guid>
-      <description>&lt;p&gt;The Kelly Criterion is a classic solution to a classic problem.
-Suppose I give you 100 dollars and an unfair coin.
-The coin lands on heads 60% of the time, but I&amp;rsquo;ll bet you even money that it lands on tails.
-If I tell you that I&amp;rsquo;ll offer you this bet 1000 times, and you can bet as much of your bankroll as you want, what is your best way of making money?
-(Your bankroll is the 100 dollars that you started with together with any money that you win by betting against me.)
-On each bet, you can maximize your expected profit by betting all of your bankroll.
-However, this leaves open the possibility of losing all your money.&lt;/p&gt;
-&lt;p&gt;I recently started playing backgammon online.
-This game has a lot to recommend it; it is a highly strategic game of perfect information (according to some definitions) with some random chance involved.
-I&amp;rsquo;m not sure&lt;/p&gt;
-&lt;p&gt;In order to calculate my chances of winning, I would need to know about about some variables that are essentially unknowable.
-Backgammon Galaxy has a rating system; I assume that it tries to pair each player with another player of the same level.
-If it could successfully do this every time, each player would have a 50% chance of winning every game.
-Actually this is not quite true; a player that is in the process of improving would always be slightly underrated and thus have a slighly greater than 50% chance of winning.
-There is another complication: based on my experience over a few dozen games or so, it seems like if you rating is too low, you are likely to be ranked against a higher rated player.&lt;/p&gt;
-&lt;p&gt;In order for the Kelly Criterion to apply, my chance of winning can&amp;rsquo;t be too low.
-Note that for the classic Kelly problem, if one is making even bets with a chance of winning that is less than 50%, the Kelly Criterion tells you that the best way to make money is to bet nothing, so I would be better off not playing!
-There is a confounding factor for me: the website gives you some rewards just for playing games, as well as some rewards for checking in to the site.
-I&amp;rsquo;ll try to factor these in to get as realistic a model as possible.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s also not the case that we make even bets on the website; players are able to buy coins with real money, and to encourage them to do so, some coins are raked from every match.
-In particular, the winning player is returned the coins that he staked for the game plus 85% of the losing players stake.
-That is, 15% of one bet is removed from the coin pool every game (TODO: I know this is true for 100-coin stake games, but what about higher?).&lt;/p&gt;
-&lt;p&gt;So I need to consider the following things:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;My winning chances given current distribution of ratings and my place in it,&lt;/li&gt;
-&lt;li&gt;The rewards I get for playing a certain number of games, as well as the amount I&amp;rsquo;m winning/losing by playing these games,&lt;/li&gt;
-&lt;li&gt;The rewards I get for checking into the site without necessarily playing any games,&lt;/li&gt;
-&lt;li&gt;The coins that are raked from the site.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The first challenge is to determine the distribution of ratings.
-Unlike lichess, backgammongalaxy does not publish much data about&lt;/p&gt;
 </description>
     </item>
     
@@ -490,6 +331,208 @@ This classification was achievd through various papers and somewhat technical an
 Recently, Bourni, Langford, and Tinaglia have classified the convex ancient solutions to curve shortening flow.
 My project aims to re-prove the classification of ancient Ricci flows on surfaces using the more geometric methods used in this classification.
 I also hope to apply some of the methods we learn to classification of solutions in higher dimensions, or possibly classification of solutions to related flows, such as the Kähler-Ricci flow.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Test post 2</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</guid>
+      <description>&lt;p&gt;Hi quick test post&lt;/p&gt;
+&lt;p&gt;Here’s the torus with loops illustrating π₁:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;I don&amp;rsquo;t know what&amp;rsquo;s going on&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My research, part 3</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</guid>
+      <description>&lt;p&gt;This is the third part in a series of short articles I&amp;rsquo;m trying to write about my research.
+&lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In this article, I will introduce some preliminary notions that will be necessary in describing the work that I do (and in fact they are fundamental to all research in geometry).
+The two notions are these: manifolds and metric tensors.
+A manifold is a mathematical structure that generalizes and makes precise the idea of &lt;em&gt;space&lt;/em&gt;.
+Space is a familiar idea.
+The (physical, i.e. ignoring the time dimension) space we live in is (described by) a 3-dimensional manifold.
+One way to see that it is 3-dimensional is to observe that if we are at some point in space, we can fix 3 different directions, perhaps forward, left, and up, and then any direction in which it is possible for us to move is some combination of these 3 directions.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;
+(Here we are counting moving backwards along one of these chosen directions as using that direction.)
+If we had only chosen 4 directions, say forward and to the right, then we could not describe any upward or downward motion in terms of these directions.
+So our physical space can&amp;rsquo;t be 2 dimensional.
+If we had chosen 4 directions, say forward, right, down, and a little bit up and to the left, then we have some redundancy.
+We only need any 3 of these directions to describe any sort of motion we want in space.
+(It&amp;rsquo;s true that if we choose to use the 3 directions: forward, right, and a little bit up and to the left, then describing motion in, say, purely the leftward direction becomes unnecessarily complicated, but the important thing is that it can in principle be done.)
+So 4 directions is too many.&lt;/p&gt;
+&lt;p&gt;Another example of a manifold is a sphere, which is the infinitely thin outer surface of a ball.
+When one imagines a sphere, one probably imagines it sitting inside of 3-dimensional space, but the sphere itself is a 2-dimensional manifold.
+This can be seen for the same reason as before: if we are on the surface of the sphere and we pick out two distinguished directions relative to our position, then we can specify any point around us using only these two directions.
+For example, I could tell you that the point I&amp;rsquo;m thinking of is 3 units to my right and -3 units in front of me, if my distinguished directions happen to be &amp;ldquo;to the right&amp;rdquo; and &amp;ldquo;forward.&amp;rdquo;
+Another way to phrase this same concept is by pointing out that we can specify any point on the surface of the earth with two coordinates: latitude and longitude.&lt;/p&gt;
+&lt;p&gt;The mathematically precise way to state this idea of being able to describe the manifold in terms of a certain number of coordinates is fairly technical, but it goes something like this.
+In each dimension, there is a certain &amp;ldquo;default manifold&amp;rdquo; that is basically as nice as it&amp;rsquo;s possible for a manifold to be.
+This is called Euclidean space.
+The 1-dimensional Euclidean space is a straight line extending forever in both directions.
+Then a coordinate for this space is just a number, say $x$.
+This space is often just referred to as &lt;em&gt;the line&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The 2-dimensional Euclidean space is &lt;em&gt;the plane&lt;/em&gt;, extending forever in all directions.
+Any point in this space has a pair of 1-dimensional coordinates $(x,y)$, where each coordinate in the pair comes from 1-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;The 3-dimensional Euclidean space can be imagined as the physical space that we live in extending forever in all directions.
+It&amp;rsquo;s the space with 3 coordinates $(x,y,z)$ with each coordinate in the triplet coming from 1-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;Higher dimensional Euclidean spaces are obtained following the same pattern: simply add more coordinates.
+Once we have these spaces in our hands, we can say that a manifold with possibly some other shape, like a sphere, is some mathematical object with the property that when we look very closely around a point, it looks like one of these Euclidean spaces of some dimension.
+For example, the (idealized, without terrain features) surface of the earth looks like a piece of 2-dimensional Euclidean space.
+Or a circle, when one zooms in closely on some point, looks just like a piece of 1-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;Now we can ask an important question.
+If we are within some manifold, say on the surface of a 2-dimensional manifold, then we look all around us and, due to what it means to be a manifold, it appears to us that we are in Euclidean space.
+How exactly can we be sure that our manifold is not, in fact Euclidean space?
+The two main things that differentiate one manifold from another are the &lt;em&gt;topology&lt;/em&gt; and the &lt;em&gt;geometry&lt;/em&gt;.
+To oversimplify, these concepts refer respectively to the large-scale shape of the manifold and the small-scale shape.&lt;/p&gt;
+&lt;h2 id=&#34;topology&#34;&gt;Topology&lt;/h2&gt;
+&lt;p&gt;Topology should be considered as looking at the &amp;ldquo;large-scale&amp;rdquo; structure of a manifold.
+Later we will be interested in ways that the geometry of the manifold can change over time, but the underlying topology of the manifold will generally be fixed.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;
+Topology is sometimes referred to as rubber-sheet geometry, because deforming a manifold in ways that one could deform a rubber sheet would not change the topology.
+For instance, the sphere has a certain topology and spheres that are, say, larger or smaller or squished or stretched or crumpled up all have different geometries, but the same underlying spherical topology.
+One way to see that the topology is different from the topology of a plane is that a sphere does not &amp;ldquo;extend forever in all directions.&amp;rdquo;
+If one starts traveling in a fixed direction on a sphere, one will eventually come back to where they started.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;
+This is not true for the plane.&lt;/p&gt;
+&lt;p&gt;I think it gives a good intuitive idea of &amp;ldquo;large-scale&amp;rdquo; shape of a
+This idea of &amp;ldquo;traveling in one direction&amp;rdquo; is not really a good mathematical way to distinguish between different topologies&lt;/p&gt;
+&lt;h3 id=&#34;a-useful-way-to-distinguish-topological-spaces&#34;&gt;A useful way to distinguish topological spaces&lt;/h3&gt;
+&lt;p&gt;Another common example of a surface with a different topology to either the surface of a sphere or of a plane is the surface of a donut or a bagel.
+We call this surface a torus.&lt;/p&gt;
+&lt;h2 id=&#34;geometry&#34;&gt;Geometry&lt;/h2&gt;
+&lt;p&gt;We see that topology gives us a way to talk about holes in a manifold, but we can&amp;rsquo;t use the tools of topology to detect the &amp;ldquo;small-scale&amp;rdquo; shape of a manifold.
+For instance, topologically speaking, a sphere of radius 1 and a sphere of radius 2 are exactly the same, provided they have the same dimension.
+Similarly, we have no way to distinguish between a flat plane and something like an infinite sheet of corrugated material.
+Our topological toolbox does not provide us with any way to measure distances, curvature, angles, and similar features of the manifold.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h2&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;We do have to be just a little bit careful when choosing these directions.  For example, if we choose: forward, left, and backward, then we are unable to describe any upward or downward motion.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;I doubt I&amp;rsquo;ll get around to talking about it, but I can&amp;rsquo;t resist mentioning it.
+There are notions of geometric evolution that allow the toplogy of the manifold to change it a certain carefully controlled way.
+The so-called Ricci flow with surgery is one famous way; analysis of this process was what led to the resolution of the Poincare conjecture.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;This is not really the correct way to state what I&amp;rsquo;m talking about, but it&amp;rsquo;s a better way to understand the idea.
+The concept of direction on a topological manifold isn&amp;rsquo;t really well-defined in the first place (although once we endow a topological manifold with a geometric structure we can sensibly talk about direction).
+The technical concept that I&amp;rsquo;m referring to is called &lt;em&gt;compactness&lt;/em&gt;, and it&amp;rsquo;s very important in many areas of mathematics.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;To be more specific, it&amp;rsquo;s not exactly that we can&amp;rsquo;t distinguish between such features, but the mathematical object that is a topological manifold simply does not contain the information that corresponds to distances and curvature and so on.
+So if we&amp;rsquo;re purely in the land of topological manifolds, it&amp;rsquo;s not quite accurate to say that we can&amp;rsquo;t distinguish between two spheres of different radii; the unique topological manifold that describes a sphere (of a given dimension) simply has no radius.
+The way I phrased it is still technically accurate, since if we have Riemannian manifolds that describe spheres with different radii, they are in fact topologically the same.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My research, part 2</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</link>
+      <pubDate>Mon, 08 Jan 2024 21:01:30 +1100</pubDate>
+      
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</guid>
+      <description>&lt;p&gt;This is the second part in a series of short articles I&amp;rsquo;m trying to write about my research.
+&lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;research-questions-in-curve-shortening-flow&#34;&gt;Research questions in curve shortening flow&lt;/h2&gt;
+&lt;p&gt;In this article, I will not be talking about my own research yet, but instead I&amp;rsquo;ll be talking about research completed by others.&lt;/p&gt;
+&lt;p&gt;Event though it isn&amp;rsquo;t the focus of my research, I want to talk about curve shortening flow since it is a particularly simple and concrete example of a geometric flow.
+I also hope to give an example of what an actual research question in this field is like, since most of the time when I explain my research field I have to stay at the level of vague ideas and intuitive explanations.
+This article will still be quite vague compared to the actual research papers, but at least it will be a vague explanation of a significant result in this area.&lt;/p&gt;
+&lt;p&gt;In the field of geometric flows, we usually have some partial differential equation like the heat equation or the curve shortening flow equation.
+It&amp;rsquo;s often easy to describe the flow without the use of an equation, but the equation is critical when it comes to actually doing mathematics.
+It&amp;rsquo;s natuaral to think that equations exist as things that are to be solved, but it should be noted that solving these equations is never a major research question.
+Indeed, solutions to these equations are generally easy to come by.
+In the last article I linked &lt;a href=&#34;https://a.carapetis.com/csf/&#34;&gt;this website&lt;/a&gt;, which lets you observe solutions to curve shortening flow that begin with a curve that you can draw yourself.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;A solution to a geometric flow is just the initial setup consisting of a manifold and its geometry (in this case the manifold is the curve and the geometry is the shape of the curve) and then all the curves at every instant in time afterwards.
+What makes these time-slices of curves a solution is that if you play the time-slices like a movie (this is what the website does for you), you see the curve move according to the curve shortening flow equation (remember that the curve shortening flow tells a curve how to change shape over time).
+It could be moving in a way that satisfied some other geometric equation, or it could be moving randomly, but it&amp;rsquo;s moving according to the rule of curve shortening flow, and therefore it is a solution.
+To summarize this paragraph: a solution to a geometric flow of a manifold (think about a curve) is a collection of time-slices of a manifold changing geometry (think about the curve changing shape) such that if you could play the time-slices like a movie, you would see the geometry changing over time in a way that is described by the equation associated to the geometric flow you&amp;rsquo;re thinking of.&lt;/p&gt;
+&lt;p&gt;When we have a partial differential equation, rather than just trying to solve the equation, usually a more interesting problem is to prove that any solution to the equation must have certain properties.
+Or more often, that any solution with properties A, B, and C necessarily has some particular behavior, or doesn&amp;rsquo;t have some other behavior, or something to that effect.
+To slightly undermine my previous point about solving the equation, occasionally we are interested in trying to construct a solution to the equation that has some certain properties or is missing some certain properties, or demonstrates that some idea is true or some other idea is false.
+It also can be a challenging problem to prove that solutions to the equation always have to exist!
+For instance, not every curve has a well-defined normal vector at every point (think about what happens if the curve has a &amp;ldquo;corner&amp;rdquo; somewhere).
+Since the normal vector is part of the equation, not having a normal vector means that the curve shortening flow equation can&amp;rsquo;t tell the curve how to move if the curve doesn&amp;rsquo;t have a normal vector somewhere&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.
+Even if we start with a curve that is completely smooth and has no corners, if we let it flow according to curve shortening flow, how do we know it won&amp;rsquo;t later on develop a corner and break the flow?
+This doesn&amp;rsquo;t happen, but the fact that it doesn&amp;rsquo;t happen is a non-obvious fact requiring proof.&lt;/p&gt;
+&lt;p&gt;Okay, so we know what solutions to curve shortening flow are, and we&amp;rsquo;re interested in proving that certain types of solutions (that is, solutions with certain properties as mentioned in the previous paragraph) behave in a certain way.
+As an example of this, I&amp;rsquo;ll discuss the proof of the following statement about certain solutions to the curve shortening flow.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If we begin with a curve forming a closed loop in 2-dimensional space without crossing over itself, then as the curve moves according to curve shortening flow, it will never cross over itself, but instead will shrink to a point.
+Moreover, as it shrinks it will become more and more circular.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This statement is often called the &lt;em&gt;Gage-Hamilton-Grayson theorem&lt;/em&gt;.
+I won&amp;rsquo;t discuss the technical details of this proof, but instead try to give a high-level understanding of what it takes to prove it.
+If you would like to see technical details, &lt;a href=&#34;https://math.jhu.edu/~js/Math745/gage-hamilton.pdf&#34;&gt;here&lt;/a&gt; is the paper of Gage and Hamilton proving (part of) this result.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Some important tools are the &lt;em&gt;normal vector&lt;/em&gt; $$\mathsf N$$ that is perpendicular to the curve at a point, the &lt;em&gt;tangent vector&lt;/em&gt; $$\mathsf T$$ that is tangent to the curve at a point, and the &lt;em&gt;Frenet-Serret equations&lt;/em&gt;.
+These equations give information about the spatial derivative of the normal vector in terms of the tangent vector, and the spatial derivative of the tangent vector in terms of the normal vector.
+These equations also involve the curvature of the curve.
+The phrase &amp;ldquo;spatial derivative&amp;rdquo; may sound confusing, but the idea to keep in mind is that when we talk about the normal or tangent vectors, we are talking about vectors that are based at some particular point on the curve.
+Then the spatial derivative of the tangent vector describes how the tangent vector rotates as the point we&amp;rsquo;re looking at moves around the curve.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s very important that these equations involve the curvature.
+The curvature is just the shape of the curve, so having equations like these gives us a way to prove things about the shape of the curve.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s another important idea: since the curve shortening equation&lt;/p&gt;
+&lt;p&gt;$$\frac{\partial}{\partial t} \gamma = \kappa \mathsf N$$&lt;/p&gt;
+&lt;p&gt;involves the normal vector and a &lt;em&gt;time derivative&lt;/em&gt;, and the Frenet-Serret equations involve the normal vector and a &lt;em&gt;space derivative&lt;/em&gt;, as well as information about the shape of the curve, they give us a precise way to talk about how changes in space relate to changes in time, and then apply this to the shape of the curve.
+So we can get equations that describe how the shape of the curve is changing.
+More specifically, using these ideas we can get a differential equation for how the curvature evolves over time.&lt;/p&gt;
+&lt;p&gt;This is a good time to introduce another important tool that shows up very frequently in geometric analysis: the maximum principle.
+There are some complicated mathematical statements I could write down to explain the maximum principle in full detail, but the basic idea is this:
+as heat diffuses throughout an object, the hottest parts cool down and the coldest parts heat up.
+In other words, the maximum heat is decreasing and the minimum heat is increasing.
+And even in the case where this isn&amp;rsquo;t true, which is the case where we&amp;rsquo;re heating the object from the outside (or the object is losing heat to the outside - previously I was talking about a perfectly insulated object), the only places that we can look to find the new hottest parts of the object are the places where we&amp;rsquo;re introducing new heat: i.e. the edges of the object.&lt;/p&gt;
+&lt;p&gt;This is true of heat diffusion, which means it is true of solutions to the heat equation.
+However, there are many other differential equations that are similar enough to the heat equation that they share this property that maximums decrease and minimums increase (or just one of these two properties, but sometimes we only need one to work).
+This is the basic idea that we call the maximum principle.
+This fact can be proved for large classes of differential equations, and the proof is quite pleasing, but it would take too long to discuss in this post.&lt;/p&gt;
+&lt;p&gt;Now, when we left off three paragraphs ago, we had just found a differential equation that tells us how the curvature at any point of the curve changes over time.
+Using this differential equation (and many other concepts and technical details), we can find that the ratio of the maximum curvature at any point on the curve to the minimum curvature at any point of the curve goes to 1 as time passes.
+That is, the curvature is changing over time in such a way that the maximum curvature anywhere is equal to the minimum curvature anywhere.
+The only way that can be true is if the curvature everywhere is the same, and the only way &lt;em&gt;that&lt;/em&gt; can be true is if the curve is a circle.
+So, over time the curve is becoming a circle.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Notice that it&amp;rsquo;s important that we&amp;rsquo;re talking about the &lt;em&gt;ratio&lt;/em&gt; of the maximum and minimum curvatures instead of just the maximum and minimum curvatures directly.
+As the curve shrinks to a tiny circle (and eventually shrinks into nothing), the curvature increases without bound.
+A tiny circle is more curved than a large one, but the ratio of the maximum and minimum curvatures on a tiny circle is still 1.
+If all we knew was that the maximum and minimum curvatures were increasing without bound, this wouldn&amp;rsquo;t be enough to say that the curve is becoming circular, but the fact about the ratio approaching 1 is a stronger fact.&lt;/p&gt;
+&lt;h2 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h2&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Technically the website will show approximations of solutions, but the point that solutions are easy to come by still stands.
+Precisely, one example of a solution is $$\gamma(x,t) = (\sqrt{9 - 2t} \cos x, \sqrt{9 - 2t} \sin x).$$
+The curve described by this equation (which, by necessity, tells us how the curve looks at each time-slice) looks like a circle with initial radius 3 that is shrinking inwards.
+If you could draw a perfect circle on the website (and if the website could actually process a perfect circle), this equation describes what you would see.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Don&amp;rsquo;t worry, there&amp;rsquo;s a way to fix this problem, and the curve shortening flow still works even if the curve you start with has sharp corners.
+(But worse things can happen too.)&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;To be completely accurate, Gage and Hamilton proved the result under the additional assumption that the curve you start with is &lt;em&gt;convex&lt;/em&gt;, meaning that if you travel around the curve in a counterclockwise direction, you can only turn to the left (or go straight for a while).
+Later, Grayson proved that if you start with an arbitrary curve that doesn&amp;rsquo;t intersect itself, eventually it will &lt;em&gt;become&lt;/em&gt; convex without ever intersecting itself.
+Together these two results prove the result we stated.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;Although it&amp;rsquo;s becoming a circle that shrinks to nothing!
+That&amp;rsquo;s why it&amp;rsquo;s important that we&amp;rsquo;re talking about the &lt;em&gt;ratio&lt;/em&gt; of the maximum to minimum curvatures, and not just the maximum and minimum curvatures themselves.
+The maximum curvature and minimum curvature are both going to infinity as the curve shrinks - because a tiny circle has higher curvature than a big circle.
+When things go to infinity they become hard to describe mathematically.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 </description>
     </item>
     
