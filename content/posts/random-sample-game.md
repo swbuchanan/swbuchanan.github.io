@@ -105,4 +105,6 @@ $$ r^2 = \frac{1 - r + r^2}{2}. $$
 The positive solution to this equation is
 $$ r = \frac{-1 + \sqrt{5}}{2} \approx 0.618.$$
 Try this again in the simulation above and see that nice $50\\%$ win rate.
-The final exercise for the reader is to compute the exact win percentage of a player using the optimal strategy against someone who just chooses a threshold of $\frac 1 2$.
+The final exercises for the reader are
+- compute the exact win percentage of a player using the optimal strategy against someone who just chooses a threshold of $\frac 1 2$,
+- determine any significance in the fact that the optimal value of $r$ is the reciprocal of the golden ratio.
