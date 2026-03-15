@@ -8,15 +8,16 @@ I recently read about a game with an optimal strategy that I found surprising.
 I'll present the game and then the mathematical analysis.
 
 The rules of the game are as follows.
-You will receive a number between $0$ and $1$.
-If you like, you can keep this number, or you can draw again.
-If you draw again, you must keep the second number that you draw.
+You draw a number uniformly randomly between $0$ and $1$.
+After seeing it, you may either keep it or discard it and redraw once.
+If you redraw, you must keep the second number.
 Your opponent will do the same thing.
 You will not have any information about the numbers your opponent has drawn until the end of the round, when your number is locked in.
-You will also not know whether you opponent elected to draw again.
+You will also not know whether your opponent elected to draw again.
 Likewise, your opponent will have no information about your number and your choices.
 
 What is the optimal strategy?
+Given that we have no information about the opponent, a natural guess is that we should simply maximize the expected value of our final number.
 
 Feel free to try a few (hundred thousand) rounds of this game below, and then I will go into the mathematical analysis.
 The computer knows the optimal strategy for this game.
@@ -32,7 +33,7 @@ Otherwise you will keep the first number that you draw.
 Did you notice anything surprising?
 The optimal strategy for this game is not simply to redraw whenever the first number is below $\frac 1 2.$
 To me, this is quite unintuitive, especially considering that choosing a cutoff of $\frac 1 2$ would be the optimal strategy for a game that is only slightly different.
-Suppose that instead of simply winning or losing each round, you received a score that is equal to your number minus your opponents number.
+Suppose that instead of simply winning or losing each round, you received a score that is equal to your number minus your opponent's number.
 This way you would gain or lose points proportionally to how much larger your number is.
 Then you win if you have the highest score after a large number of these rounds.
 
@@ -55,11 +56,11 @@ That is, you may have some information about how I choose between rock, paper, a
 On the other hand, if I have chosen the best possible strategy, you cannot get any advantage by choosing some particular strategy in response.
 My optimal strategy has made you *indifferent*.
 More specifically, the optimal strategy for rock-paper-scissors is to randomly choose one of the three each round with equal probability and no correlation with the previous round.
-Then it doesn't matter how you choose.
+If I adopt this strategy then it doesn't matter how you choose.
 There's a bit more to this concept.
 For example, in rock-paper-scissors it literally does not matter what you do in response to an optimal strategy.
 You could choose rock every time, or you could throw rock, then paper, then scissors, then repeat.
-All strategies have a win rate of $\frac 1 3$ against an optimal strategy.
+All strategies have a long-term win rate of $\frac 1 3$ against an optimal strategy.
 In general this is not the case.
 It is common for optimal strategies to make one's opponent indifferent to certain actions, but usually there are certain actions that are strictly worse than the ones to which we are indifferent.
 For now, let's return to our original game.
@@ -70,13 +71,38 @@ Suppose both players use some threshold $r$.
 We can apply the idea of indifference in the following way.
 If we see any number below $r$, it is always better to redraw.
 If we see any number above $r$, it is always better to keep it.
-This means that for $r$ to be optimal, keeping has the same probability of winning as redrawing.
+This means that at an optimal threshold $r$, we must be indifferent between keeping and redrawing when our first draw is exactly $r$.
+Let us compare those two options.
 
-Given that our opponent is redrawing all numbers below $r$, the probability of winning if we keep a first draw of $r$ is $r^2$, since this is the probability of our opponent drawing a number below $r$ twice.
-The probability of winning if we redraw is $\frac{1 - r + r^2}{2}$, since, as observed previously (and the reader has no doubt proved), this is the average value that one obtains by redrawing all numbers below $r$.
-Based on the fact that keeping has the same probability of winning as redrawing, we can say
+Our opponent ends with a number below $r$ exactly when they first draw below $r$ and then redraw below $r$ again, which happens with probability $r^2$.
+Since ties occur with probability $0$, this is exactly our probability of winning.
+So the probability of winning by keeping $r$ is $r^2$.
+
+Now suppose instead that we redraw.
+Our second draw is then a fresh uniform random number $X$ in $(0,1)$.
+We want to compute the probability that $X$ beats the opponent's number.
+Let $Y$ denote the opponent's final number when they use threshold $r$.
+We start by computing the distribution of $Y$.
+
+If $0 < y < r$, then the only way the opponent can end with a number below $y$ is if they first draw a number below $r$ and then redraw a number below $y$.
+This happens with probability
+$$P(Y < y) = ry.$$
+If $r < y < 1$, then there are two ways the opponent can end below $y$: either they draw below $r$ and then redraw and end below $y$, all with probability $ry$, or their first draw is between $r$ and $y$, which happens with probability $y-r$.
+So
+$$P(Y < y) = ry + (y - r).$$
+Now fix a value $x$ of our redraw.
+The probability that this redraw wins is just $P(Y < x)$.
+Since $X$ is uniform on $(0,1)$, we average this over all $x$:
+$$P(X > Y) = \int_0^1 P(Y < x) \, dx.$$
+By the observations above,
+$$P(X > Y) = \int_0^r rx \, dx + \int_r^1 (rx + x - r) \, dx.$$
+Computing this yields
+$$P(X > Y) = \frac{1 - r + r^2}{2}.$$
+This is exactly the probability of winning by redrawing.
+
+Based on the fact that keeping $r$ has the same probability of winning as redrawing, we can say
 $$ r^2 = \frac{1 - r + r^2}{2}. $$
 The positive solution to this equation is
 $$ r = \frac{-1 + \sqrt{5}}{2} \approx 0.618.$$
-Try this again in the simulation above and see that nice $50\\%$ winrate.
-The final exercise for the reader is to compute the exact winrate of a player using the optimal strategy against someone who just chooses a threshold of $\frac 1 2$.
+Try this again in the simulation above and see that nice $50\\%$ win rate.
+The final exercise for the reader is to compute the exact win percentage of a player using the optimal strategy against someone who just chooses a threshold of $\frac 1 2$.
