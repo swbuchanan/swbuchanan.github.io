@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fifteen game</title>
+</head>
+<body>
+    <div style="text-align: center;">
+  <canvas id="gameCanvas" width="200" height="200" tabindex="0" style="margin:20px auto;border:1px solid #000000;display:block"></canvas>
+  <button id="restartGame">Reestart</button>
+  <label>
+      <input type="checkbox" id="reverseToggle">
+      Reverse controls
+  </label>
+    </div>
+    <div id="game-config"
+        data-size="{{ .Get "size" }}"
+        data-default-setup="{{ .Get "default-setup" }}">
+    </div>
+
+  <script src="{{ .Site.BaseURL }}js/fifteen.js"></script>
+</body>
+</html>
+

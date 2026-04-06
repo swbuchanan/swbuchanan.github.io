@@ -1,0 +1,1 @@
+hugo server -D -e master --baseURL http://localhost:1313/

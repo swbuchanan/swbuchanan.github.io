@@ -52,13 +52,30 @@ To oversimplify, these concepts refer respectively to the large-scale shape of t
 
 ## Topology
 
-Topology should be considered as the "lower-level" structure of a manifold.
+Topology should be considered as looking at the "large-scale" structure of a manifold.
 Later we will be interested in ways that the geometry of the manifold can change over time, but the underlying topology of the manifold will generally be fixed.[^topology]
 Topology is sometimes referred to as rubber-sheet geometry, because deforming a manifold in ways that one could deform a rubber sheet would not change the topology.
 For instance, the sphere has a certain topology and spheres that are, say, larger or smaller or squished or stretched or crumpled up all have different geometries, but the same underlying spherical topology.
 One way to see that the topology is different from the topology of a plane is that a sphere does not "extend forever in all directions."
 If one starts traveling in a fixed direction on a sphere, one will eventually come back to where they started.[^direction]
 This is not true for the plane.
+
+I think it gives a good intuitive idea of "large-scale" shape of a 
+This idea of "traveling in one direction" is not really a good mathematical way to distinguish between different topologies
+
+### A useful way to distinguish topological spaces
+
+Another common example of a surface with a different topology to either the surface of a sphere or of a plane is the surface of a donut or a bagel.
+We call this surface a torus.
+
+
+
+## Geometry
+
+We see that topology gives us a way to talk about holes in a manifold, but we can't use the tools of topology to detect the "small-scale" shape of a manifold.
+For instance, topologically speaking, a sphere of radius 1 and a sphere of radius 2 are exactly the same, provided they have the same dimension.
+Similarly, we have no way to distinguish between a flat plane and something like an infinite sheet of corrugated material.
+Our topological toolbox does not provide us with any way to measure distances, curvature, angles, and similar features of the manifold.[^features]
 
 
 ## Footnotes
@@ -70,4 +87,6 @@ The so-called Ricci flow with surgery is one famous way; analysis of this proces
 [^direction]: This is not really the correct way to state what I'm talking about, but it's a better way to understand the idea.
 The concept of direction on a topological manifold isn't really well-defined in the first place (although once we endow a topological manifold with a geometric structure we can sensibly talk about direction).
 The technical concept that I'm referring to is called *compactness*, and it's very important in many areas of mathematics.
-W
+[^features]: To be more specific, it's not exactly that we can't distinguish between such features, but the mathematical object that is a topological manifold simply does not contain the information that corresponds to distances and curvature and so on.
+So if we're purely in the land of topological manifolds, it's not quite accurate to say that we can't distinguish between two spheres of different radii; the unique topological manifold that describes a sphere (of a given dimension) simply has no radius.
+The way I phrased it is still technically accurate, since if we have Riemannian manifolds that describe spheres with different radii, they are in fact topologically the same.

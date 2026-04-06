@@ -5,15 +5,403 @@
     <link>http://localhost:1313/swbuchanan.github.io/</link>
     <description>Recent content on Steven&#39;s website</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://localhost:1313/swbuchanan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <managingEditor>placeholder@gmail.com (Steven Buchanan)</managingEditor>
+    <webMaster>placeholder@gmail.com (Steven Buchanan)</webMaster><atom:link href="http://localhost:1313/swbuchanan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A surprising probabilistic game</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/random-sample-game/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/random-sample-game/</guid>
+      <description>&lt;p&gt;I recently read about a game with an optimal strategy that I found surprising.
+I&amp;rsquo;ll present the game and then the mathematical analysis.&lt;/p&gt;
+&lt;p&gt;The rules of the game are as follows.
+You draw a number uniformly randomly between $0$ and $1$.
+After seeing it, you may either keep it or discard it and redraw once.
+If you redraw, you must keep the second number.
+Your opponent will do the same thing.
+You will not have any information about the numbers your opponent has drawn until the end of the round, when your number is locked in.
+You will also not know whether your opponent elected to draw again.
+Likewise, your opponent will have no information about your number and your choices.&lt;/p&gt;
+&lt;p&gt;What is the optimal strategy?
+Given that we have no information about the opponent, a natural guess is that we should simply maximize the expected value of our final number.&lt;/p&gt;
+&lt;p&gt;Feel free to try a few (hundred thousand) rounds of this game below, and then I will go into the mathematical analysis.
+The computer knows the optimal strategy for this game.
+If you tell the computer not to play optimally, it will simply redraw if the first number was below $\frac 1 2$ and keep the first number if it is above $\frac 1 2$.&lt;/p&gt;
+&lt;p&gt;With the slider or the text entry box, you can select a number $r$.
+Then when the game is played, you will automatically redraw if your first number is below $r$.
+Otherwise you will keep the first number that you draw.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34; /&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
+    &lt;title&gt;Probabilistic Game&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+	
+	
+	
+
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;label for=&#34;cutoffSlider&#34;&gt;Choose a value for $r$ (between $0$ and $1$):&lt;/label&gt;
+      &lt;input
+        id=&#34;cutoffSlider&#34;
+        type=&#34;range&#34;
+        min=&#34;0&#34;
+        max=&#34;1&#34;
+        step=&#34;0.01&#34;
+        value=&#34;0.50&#34;
+      /&gt;
+      &lt;input id=&#34;cutoffInput&#34; type=&#34;text&#34; value=&#34;0.50&#34; /&gt;
+    &lt;/div&gt;
+
+	&lt;div class=&#34;row&#34;&gt;
+		&lt;label for=&#34;computerPlaysOptimal&#34;&gt;Computer plays optimally:&lt;/label&gt;
+		&lt;input id=&#34;computerPlaysOptimal&#34; type=&#34;checkbox&#34; checked /&gt;
+	&lt;/div&gt;
+
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;button id=&#34;startButton&#34;&gt;Run 10,000 sims&lt;/button&gt;
+      &lt;button id=&#34;resetButton&#34;&gt;Reset&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div id=&#34;output&#34;&gt;
+		Press the run sims button to run $10{\small ,}000$ iterations of the game to test out your strategy.
+    &lt;/div&gt;
+
+    
+	&lt;script src=&#34;http://localhost:1313/swbuchanan.github.io/js/random_sample_game.js&#34;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+&lt;p&gt;Did you notice anything surprising?
+The optimal strategy for this game is not simply to redraw whenever the first number is below $\frac 1 2.$
+To me, this is quite unintuitive, especially considering that choosing a cutoff of $\frac 1 2$ would be the optimal strategy for a game that is only slightly different.
+Suppose that instead of simply winning or losing each round, you received a score that is equal to your number minus your opponent&amp;rsquo;s number.
+This way you would gain or lose points proportionally to how much larger your number is.
+Then you win if you have the highest score after a large number of these rounds.&lt;/p&gt;
+&lt;p&gt;It is not too hard to prove that in this case the optimal strategy really is just to redraw numbers below $\frac 1 2$; as an exercise for the reader I will claim that one can compute that the expected value of redrawing below a cutoff $r$ comes out to be
+$$ \frac{1 + r - r^2}{2}. $$
+Some quick calculus shows that this is maximized by taking $r = \frac 1 2$.&lt;/p&gt;
+&lt;p&gt;But the object of our game is not to get the highest number possible on average, but just to maximize our chance of getting any number higher than our opponent.
+Even when this is pointed out, it may take some reflection to see that these are not quite the same thing.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s compute the optimal threshold and thereby solve this game.&lt;/p&gt;
+&lt;p&gt;To do this, we need to apply an important concept from game theory, called &lt;em&gt;indifference&lt;/em&gt;.
+This concept applies to complex games like poker, or simple ones like the one above.
+Let&amp;rsquo;s consider it in the case of rock-paper-scissors.
+Say I have chosen some strategy for rock-paper-scissors.
+If you know something about my strategy, you may know that it will be better for you if you throw rock on the next turn, rather than paper or scissors.
+Or you may know that it would be better if you threw paper.
+That is, you may have some information about how I choose between rock, paper, and scissors that allows you to choose a strategy to exploit me.
+On the other hand, if I have chosen the best possible strategy, you cannot get any advantage by choosing some particular strategy in response.
+My optimal strategy has made you &lt;em&gt;indifferent&lt;/em&gt;.
+More specifically, the optimal strategy for rock-paper-scissors is to randomly choose one of the three each round with equal probability and no correlation with the previous round.
+If I adopt this strategy then it doesn&amp;rsquo;t matter how you choose.
+There&amp;rsquo;s a bit more to this concept.
+For example, in rock-paper-scissors it literally does not matter what you do in response to an optimal strategy.
+You could choose rock every time, or you could throw rock, then paper, then scissors, then repeat.
+All strategies have a long-term win rate of $\frac 1 3$ against an optimal strategy.
+In general this is not the case.
+It is common for optimal strategies to make one&amp;rsquo;s opponent indifferent to certain actions, but usually there are certain actions that are strictly worse than the ones to which we are indifferent.
+For now, let&amp;rsquo;s return to our original game.&lt;/p&gt;
+&lt;p&gt;Note that by symmetry, the optimal threshold values for both players are the same.
+Suppose both players use some threshold $r$.
+We can apply the idea of indifference in the following way.
+If we see any number below $r$, it is always better to redraw.
+If we see any number above $r$, it is always better to keep it.
+This means that at an optimal threshold $r$, we must be indifferent between keeping and redrawing when our first draw is exactly $r$.
+Let us compare those two options.&lt;/p&gt;
+&lt;p&gt;Our opponent ends with a number below $r$ exactly when they first draw below $r$ and then redraw below $r$ again, which happens with probability $r^2$.
+Since ties occur with probability $0$, this is exactly our probability of winning.
+So the probability of winning by keeping $r$ is $r^2$.&lt;/p&gt;
+&lt;p&gt;Now suppose instead that we redraw.
+Our second draw is then a fresh uniform random number $X$ in $(0,1)$.
+We want to compute the probability that $X$ beats the opponent&amp;rsquo;s number.
+Let $Y$ denote the opponent&amp;rsquo;s final number when they use threshold $r$.
+We start by computing the distribution of $Y$.&lt;/p&gt;
+&lt;p&gt;If $0 &amp;lt; y &amp;lt; r$, then the only way the opponent can end with a number below $y$ is if they first draw a number below $r$ and then redraw a number below $y$.
+This happens with probability
+$$P(Y &amp;lt; y) = ry.$$
+If $r &amp;lt; y &amp;lt; 1$, then there are two ways the opponent can end below $y$: either they draw below $r$ and then redraw and end below $y$, all with probability $ry$, or their first draw is between $r$ and $y$, which happens with probability $y-r$.
+So
+$$P(Y &amp;lt; y) = ry + (y - r).$$
+Now fix a value $x$ of our redraw.
+The probability that this redraw wins is just $P(Y &amp;lt; x)$.
+Since $X$ is uniform on $(0,1)$, we average this over all $x$:
+$$P(X &amp;gt; Y) = \int_0^1 P(Y &amp;lt; x) , dx.$$
+By the observations above,
+$$P(X &amp;gt; Y) = \int_0^r rx , dx + \int_r^1 (rx + x - r) , dx.$$
+Computing this yields
+$$P(X &amp;gt; Y) = \frac{1 - r + r^2}{2}.$$
+This is exactly the probability of winning by redrawing.&lt;/p&gt;
+&lt;p&gt;Based on the fact that keeping $r$ has the same probability of winning as redrawing, we can say
+$$ r^2 = \frac{1 - r + r^2}{2}. $$
+The positive solution to this equation is
+$$ r = \frac{-1 + \sqrt{5}}{2} \approx 0.618.$$
+Try this again in the simulation above and see that nice $50\%$ win rate.
+The final exercises for the reader are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;compute the exact win percentage of a player using the optimal strategy against someone who just chooses a threshold of $\frac 1 2$,&lt;/li&gt;
+&lt;li&gt;determine any significance in the fact that the optimal value of $r$ is the reciprocal of the golden ratio.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Nagel-Schreckenberg traffic simulation</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/traffic_simulation/</link>
+      <pubDate>Thu, 11 Dec 2025 00:00:00 +0000</pubDate>
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/traffic_simulation/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://artowen.su.domains/mc/Ch-intro.pdf&#34;&gt;this&lt;/a&gt; text book available online about Monte Carlo simulation, the first example given is a traffic simulation that shows how traffic jams can emerge seemingly out of nowhere, even when there aren&amp;rsquo;t any particularly bad drivers or disruptive incidents on the road.
+Below is a small demonstration of traffic following the &lt;strong&gt;Nagel-Schreckenberg&lt;/strong&gt; simulation rules.
+Based on these rules, we have the following setup:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The road is divided into discrete cells, each with one car.&lt;/li&gt;
+&lt;li&gt;The cars all have some velocity $v$.&lt;/li&gt;
+&lt;li&gt;There is a maximum velocity $v_{\max}$ that all cars obey.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The simulation proceeds in discrete time steps.
+At each time step, the following 4 rules are applied to all cars in parallel.
+For each car,&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;If its velocity is below $v_{\max}$, it increases its velocity by one unit.&lt;/li&gt;
+&lt;li&gt;It checks the distance to the car in front of it.&lt;/li&gt;
+&lt;li&gt;If that distance is $d$ spaces and the car has velocity $v \geq d$, then it reduces its velocity to $d-1$ in order to avoid collision.&lt;/li&gt;
+&lt;li&gt;If the velocity is positive then with probability $p$ it reduces its velocity by 1 unit. This is the key step that models random driver behavior.&lt;/li&gt;
+&lt;li&gt;The motion of the car takes place. That is, the car moves ahead by $v$ units.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here is a simulation following these rules with a road that wraps around (so the drivers are effectively driving in a circle).
+The road has length 700, there are 100 drivers, and the probability of braking is around $1/3$.
+The maximum speed is 3.&lt;/p&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+  &lt;meta charset=&#34;UTF-8&#34;&gt;
+  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+  &lt;title&gt;Canvas Curve&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;canvas id=&#34;trafficCanvas&#34; style=&#34;width: 100%; border:0px solid #000000;&#34;&gt;&lt;/canvas&gt;
+  &lt;script src=&#34;http://localhost:1313/swbuchanan.github.io/js/traffic_simulation.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+&lt;p&gt;I made this in a hurry but soon I hope to update this page with options to adjust the number of drivers, the maximum speed, and the probability $p$ of braking.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Detecting 4-cycles in a graph is easier than detecting triangles</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/graph-cycle-detection/</link>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/graph-cycle-detection/</guid>
+      <description>&lt;h2 id=&#34;an-algorithm-to-detect-triangles-in-a-graph&#34;&gt;An algorithm to detect triangles in a graph&lt;/h2&gt;
+&lt;p&gt;Recently I was looking through &lt;a href=&#34;https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf&#34;&gt;Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra&lt;/a&gt;.
+One of the applications is an algorithm to efficiently detect a triangle in a graph, such as the following.
+(There is an obvious algorithm that works by enumerating all possible triplets of vertices and checking them one at a time; this involves some multiple of $n^3$ steps, where $n$ is the number of vertices.
+That is, the algorithm has $O(n^3)$ time complexity, which is really bad.)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/graph_example.png&#34; alt=&#34;a graph with a triangle highlighted&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The algorithm works in the following way.
+Construct the adjacency matrix of the graph.
+This is done by labeling the vertices with numbers $1, 2, \dots, v$, where $v$ is the number of vertices.
+Then, the entry in row $i$, column $j$ of the matrix is $1$ if there is an edge between vertex $i$ and vertex $j$, and 0 otherwise.
+This gives us a matrix that encodes exactly the same information as the &amp;ldquo;dots and lines&amp;rdquo; representation of a graph.
+For example, this graph:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/graph_example_2.png&#34; alt=&#34;a graph with labeled vertices&#34;&gt;&lt;/p&gt;
+&lt;p&gt;has adjacency matrix
+$
+\begin{bmatrix}
+0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \\
+0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 1 \\
+1 &amp;amp; 1 &amp;amp; 0 &amp;amp; 1 \\
+0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0
+\end{bmatrix}.
+$&lt;/p&gt;
+&lt;p&gt;For the graph where we want to find triangles, call its adjacency matrix $A$.
+Now the key is to consider the square of this matrix, $A^2$.
+By definition of matrix multiplication, the entry in row $i$, column $j$ of this matrix will be (here $a_{m, n}$ denotes the entry in row $m$, column $n$ of matrix $A$)
+$$
+b_{i,j} = a_{i,1} a_{1,j} + a_{i, 2} a_{2,j} + \cdots + a_{i, v} a_{v, j}.
+$$
+Note that&lt;/p&gt;
+&lt;p&gt;$$
+a_{i,k}a_{k,j} =
+\begin{cases}
+1 &amp;amp; \text{if the vertex $k$ is adjacent to both $i$ and $j$}, \\
+0 &amp;amp; \text{otherwise,}
+\end{cases}
+$$
+from which it follows that $b_{i,j}$ is the number of neighbors that are common to vertex $i$ and vertex $j$.
+We&amp;rsquo;re almost done.
+To find a triangle, we just have to find a pair of vertices that are connected to each other and have a common neighbor.
+With the matrices that we&amp;rsquo;ve constructed, this amounts to finding some values for $i$ and $j$ for which both&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$a_{i,j} \neq 0$ (meaning that $i$ and $j$ are connected to each other) and&lt;/li&gt;
+&lt;li&gt;$b_{i,j} \neq 0$ (meaning that $i$ and $j$ have a common neighbor.
+Thus we merely have to inspect the  matrices $A$, $A^2$ to find the triangle.
+To summarize, our algorithm goes like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Construct the adjacency matrix for the graph.&lt;/li&gt;
+&lt;li&gt;Square the adjacency matrix.&lt;/li&gt;
+&lt;li&gt;Compare the adjacency matrix with its square to see if there are nonzero entries in matching cells.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The complexity bottleneck in this algorithm is in the second step.
+Currently it is conjectured but not proven that matrix multiplication can be done by an algorithm with $O(n^2)$ steps.
+The algorithm that is used most often in practice (Strassen&amp;rsquo;s algorithm) has complexity around $O(n^{2.807})$.
+The best theoretical bound is $O(n^{2.371339})$, but this and other &amp;ldquo;improvements&amp;rdquo; on Strassen&amp;rsquo;s algorithm are not used in practice since the constants hidden by the big-O notation are impractically large for the size of matrices that current computers can deal with.
+In any case, we can safely say that our algorithm to detect triangles is significantly worse than $O(n^2)$.&lt;/p&gt;
+&lt;h2 id=&#34;an-algorithm-to-detect-4-cycles-in-a-graph&#34;&gt;An algorithm to detect 4-cycles in a graph&lt;/h2&gt;
+&lt;p&gt;This is a case where a more complicated problem actually has a simpler solution.
+A triangle in a graph is also called a 3-cycle, since it is 3 vertices that form a closed loop.
+Similarly, we can ask about the existence of 4 vertices in a closed loop.&lt;/p&gt;
+&lt;p&gt;There is a very straightforward algorithm to check for 4-cycles:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;enumerate through all pairs of vertices $u$ and $v$ (this is $O(n^2)$)&lt;/li&gt;
+&lt;li&gt;compute the vertices that $u$ and $v$ have in common (this is $O(n^2)$ or better)&lt;/li&gt;
+&lt;li&gt;if the set of common vertices ever contains more than one element, we have found the 4-cycle.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So we see that this seemingly more complex problem is strictly easier, requiring only $O(n^2)$ steps.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.25/LIPIcs.FSTTCS.2023.25.pdf?&#34;&gt;Abboud, Khoury, Leibowitz, Safier - Listing 4-cycles&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf&#34;&gt;Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A project on implied probability density functions for asset prices</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/implied_stock_distributions/</link>
+      <pubDate>Tue, 04 Nov 2025 00:00:00 +0000</pubDate>
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/implied_stock_distributions/</guid>
+      <description>&lt;p&gt;I recently completed a project for an online course in computational quant finance.
+The project is about how to derive a certain probability density function for an asset at a date in the future by looking at options that expire on that date.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://nbviewer.org/github/swbuchanan/implied-stock-distributions/blob/main/project.ipynb&#34;&gt;View the project notebook on nbviewer.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>An unintuitive fact about random drawings with and without replacement</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/an_unintuitive_fact_about_drawing_with_replacement/</link>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/an_unintuitive_fact_about_drawing_with_replacement/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s an odd fact that I came across while doing a probability puzzle.
+I&amp;rsquo;ll start by presenting a version of this puzzle; I hope you have the patience to try it yourself, at least for a minute or two.
+I&amp;rsquo;ll present it in two parts.
+The first part is relatively easy.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Suppose you are going to draw 10 cards from a standard 52-card shuffled deck of playing cards.
+You are drawing with replacement, meaning that after each card is drawn, you note what it is and replace it back into the deck and shuffle again before the next draw.
+What is the expected number of aces that you draw during this process?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To solve this, all we have to do is calculate the expected number of aces in a single round of this game, and then multiply that number by 10.
+This is because each round is identical to the previous round.
+Since $4/52$ cards in the deck are aces, the probability of drawing an ace in a single draw is $4/52 = 1/13$.
+Thus on average, in each round of this game we expect to draw one thirteenth of an ace.
+Or, if we play this game for 10 rounds, on average we will end up drawing $10/13 \approx .77$ aces.&lt;/p&gt;
+&lt;p&gt;To be slightly more technical, we are using the fact that expectation is linear.
+If $X$ is a random variable that measures how many aces we draw, and $X_i$ is a random variable that measures how many aces we draw in round $i$, then $X = X_1 + \cdots + X_{10}$.
+Then using linearity of expectation,
+$$E[X] = E[X_1 + \cdots + X_{10}] = E[X_1] + \cdots + E[X_{10}].$$&lt;/p&gt;
+&lt;p&gt;So we see that it is sufficient to calculate the expectation for each round, as we have done.&lt;/p&gt;
+&lt;p&gt;So far so good.
+Now we proceed to a harder version of the problem.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In this version of the game, we don&amp;rsquo;t replace the cards after each round.
+If you draw 10 cards without replacement, what is the expected number of aces that you will draw?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We can&amp;rsquo;t use the same idea as before; after all, not every round of this game needs to be the same.
+If our first draw happens to be an ace, then the probability of drawing an ace in the future rounds goes down.
+Alternatively, each time we draw a card that is not an ace, the probability of drawing an ace in the next round goes up slightly.
+A further confusion is that the expectation in the previous version has to account for the fact that in some scenarios we could draw more than 4 aces.
+In this version where we draw without replacement, it&amp;rsquo;s clear that we can&amp;rsquo;t draw any more than 4.&lt;/p&gt;
+&lt;p&gt;But now we get to our unintuitive fact - despite all these considerations, the expected number of aces when we&amp;rsquo;re drawing without replacement is exactly the same as the expected number when drawing with replacement.&lt;/p&gt;
+&lt;p&gt;One way to justify this is as follows.
+We&amp;rsquo;ll use exactly the same fact that expectation is linear, but we need to choose our random variables slightly more cleverly.&lt;/p&gt;
+&lt;p&gt;Let $X_s$ denote the number of times that we draw the ace of spaces.
+Similarly, let $X_c, X_h, X_d$ denote respectively the number of times that we draw the ace of clubs, hearts, and diamonds.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Now if $X$ is the total number of aces that we have among the 10-card hand that we draw, then $X = X_s + X_c + X_h + X_d$, and so we again have that
+$$E[X] = E[X_s] + E[X_c] + E[X_h] + E[X_d].$$&lt;/p&gt;
+&lt;p&gt;Since no ace is more likely to be drawn than any other, if we find the expected number of times that the ace of spades is among the 10 cards we draw, then we are essentially done.
+In this case, $X_s = 1$ with probability $P_s$, and $X_s = 0$ with the remaining probability $1 - P_s$, where $P_s$ is the probability that the ace of spades is among the 10 cards that we draw.
+This means that $X_s = P_s.$
+This probability is easy to calculate; it&amp;rsquo;s just $10/52$.
+The chances of a particular card being in some randomly selected portion of the deck is just equal to the exact proportion that we select.
+Now, we see that indeed we get the same answer,&lt;/p&gt;
+&lt;p&gt;$$E[X] = 4 \cdot E[X_s] = 4 \cdot \frac{10}{52} = \frac{10}{13}. \phantom{\frac{\hat{1}}{0}}$$&lt;/p&gt;
+&lt;p&gt;Now the exercise for the reader is to use this idea to trick someone at the bar and make some money.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;One may object that these numbers depend on each other when we&amp;rsquo;re drawing without replacement; this is related to the complications we mentioned that seem to arise when going from drawing with replacement to drawing without replacement.
+Fortunately, the linearity of expectation does not require the random variables to be independent.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Running every street in Canberra</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/running-canberra/</link>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/running-canberra/</guid>
+      <description>&lt;p&gt;Inspired by &lt;a href=&#34;pac.tom7.org/index.shtml&#34;&gt;this guy&lt;/a&gt;, who also has a great &lt;a href=&#34;https://www.youtube.com/watch?v=1c8i5SABqwU&#34;&gt;youtube channel&lt;/a&gt;, I have recently decided to run the length of every street in Canberra, where I&amp;rsquo;m currently staying for school.
+Soon I hope to update this page with some rules for the project and some information about how I&amp;rsquo;m gathering and processing the data.
+For now, &lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/all_routes.html&#34;&gt;here&amp;rsquo;s my current progress&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This project has been put on hold as I am now living in Canada until February 2026.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>A cute proof of Weierstrass approximation</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/</link>
       <pubDate>Thu, 07 Nov 2024 00:00:00 +0000</pubDate>
-      
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
       <guid>http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/</guid>
       <description>&lt;p&gt;The Weierstrass approximation theorem says that (on an interval of finite length) we can approximate any continuous function arbitrarily well by polynomials.
-As polynomials have very nice mathematical any computational properties, this is a very useful theorem.&lt;/p&gt;
+As polynomials have very nice mathematical and computational properties, this is a very useful theorem.&lt;/p&gt;
 &lt;p&gt;Probably most people who have encountered any proof of the Weierstrass approximation theorem have already seen the essential idea of this proof.
 Indeed, this is basically the original proof that Karl Weierstrass gave in 1885, just with a slightly different perspective.
 The idea of the proof is to take $f(x)$, the function that we are trying to approximate, as initial data to the heat equation.
@@ -22,16 +410,28 @@ The heat equation has the remarkable property that its solutions immediately bec
 But if we only allow the diffusion to happen for a sufficiently short amount of time, the distribution after this short time is still quite close (in the appropriate sense of &amp;ldquo;close&amp;rdquo;) to the original function $f$.
 Thus we have a smooth approximation.
 From there we can use Taylor&amp;rsquo;s theorem, which says that a smooth function can be approximated by polynomials.&lt;/p&gt;
-&lt;p&gt;To be more precise, we can find a function $\phi(x,t)$ so that $\phi(x,t)$ to the heat equation on $\R$ with $\phi(x,0) = f(x)$.
-Then $\phi$ converges uniformly to $f$ as $t$ goes backwards to $0$, and is smooth for all $t &amp;gt; 0$.
+&lt;p&gt;To be more precise, we can find a function $\phi(x,t)$ so that $\phi(x,t)$ is a solution to the heat equation on $\R \times (0, \infty)$ with $\phi(x,0) = f(x)$.
+Then $\phi$ converges uniformly to $f$ as $t$ goes backwards to $0$, and the function $\phi(\cdot, t)$ is smooth for all fixed $t &amp;gt; 0$.
 Since $\phi$ is smooth, we can apply Taylor&amp;rsquo;s theorem to obtain the uniform approximation by polynomials.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Theorem: Weierstrass approximation. Given a continuously supported compact function $f$ on $\R$ and $\epsilon &amp;gt; 0$, there is a polynomial $p(x)$ such that $|f(x) - p(x)| &amp;lt; \epsilon$ whenever $f \neq 0$.&lt;/p&gt;
+&lt;p&gt;Theorem: Weierstrass approximation. Given a continuous compactly supported function $f$ on $\R$ and $\epsilon &amp;gt; 0$, there is a polynomial $p(x)$ such that $|f(x) - p(x)| &amp;lt; \epsilon$ for all $x \in \R$.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Proof. Take
-$$\phi(x,t) = \frac{1}{\sqrt{4 \pi t}} \int_{\R} e^{-\frac{(x-y)^2}{4t}} f(y) \, dy.$$&lt;/p&gt;
-&lt;p&gt;This is our desired solution to the heat equation.
-There are still a few more details to fill in, but from here it&amp;rsquo;s mostly computation, so I&amp;rsquo;ll add the details when I have more time.&lt;/p&gt;
+$$\phi(x,t) = \frac{1}{\sqrt{4 \pi t}} \int_{\R} e^{-\frac{(x-y)^2}{4t}} f(y) \, dy.$$
+This is the convolution of $f$ with the Gaussian heat kernel, and thus is the unique solution of the heat equation with initial data $f$.
+By differentiating under the integral sign, we can see that all derivatives exist and are continuous.
+The fact that $\phi(x,t) \to f(x)$ uniformly also follows from properties of the Gaussian heat kernel.
+In particular, as $t \to 0$ from above, the kernel approximates a Dirac delta centered at $x$.
+This means that the integral converges to $f(x)$.&lt;/p&gt;
+&lt;p&gt;So, given $\epsilon &amp;gt; 0$, choose $t_0$ small enough that
+$$|\phi(x,t_0) - f(x)| &amp;lt; \frac{\epsilon}{2}$$
+for all $x$.
+Now since $\phi(\cdot, t_0)$ is smooth on the compact support of $f$, it follows from Taylor&amp;rsquo;s theorem that there is a polynomial $p(x)$ such that
+$$|\phi(x,t_0) - p(x)| &amp;lt; \frac{\epsilon}{2}$$
+for all $x$.
+Now by the triangle inequality,
+$$|f(x) - p(x)| \leq |f(x) - \phi(x, t_0)| + |\phi(x,t_0) - p(x)| &amp;lt; \epsilon,$$
+and we have our approximation.&lt;/p&gt;
 </description>
     </item>
     
@@ -39,7 +439,7 @@ There are still a few more details to fill in, but from here it&amp;rsquo;s most
       <title>Ancient 2-dimensional solutions to the Ricci flow</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/</link>
       <pubDate>Fri, 23 Aug 2024 00:00:00 +0000</pubDate>
-      
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
       <guid>http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/</guid>
       <description>&lt;p&gt;Here I&amp;rsquo;ll give a more technical description of the work that I&amp;rsquo;m doing.
 See my other posts for a generally accessible version of the same thing.&lt;/p&gt;
@@ -105,10 +505,23 @@ I also hope to apply some of the methods we learn to classification of solutions
     </item>
     
     <item>
+      <title>Test post 2</title>
+      <link>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
+      <guid>http://localhost:1313/swbuchanan.github.io/posts/2017-01-05-welcome-to-jekyll/</guid>
+      <description>&lt;p&gt;Hi quick test post&lt;/p&gt;
+&lt;p&gt;Here’s the torus with loops illustrating π₁:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;I don&amp;rsquo;t know what&amp;rsquo;s going on&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>My research, part 3</title>
       <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      
+      <author>placeholder@gmail.com (Steven Buchanan)</author>
       <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</guid>
       <description>&lt;p&gt;This is the third part in a series of short articles I&amp;rsquo;m trying to write about my research.
 &lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
@@ -150,13 +563,23 @@ How exactly can we be sure that our manifold is not, in fact Euclidean space?
 The two main things that differentiate one manifold from another are the &lt;em&gt;topology&lt;/em&gt; and the &lt;em&gt;geometry&lt;/em&gt;.
 To oversimplify, these concepts refer respectively to the large-scale shape of the manifold and the small-scale shape.&lt;/p&gt;
 &lt;h2 id=&#34;topology&#34;&gt;Topology&lt;/h2&gt;
-&lt;p&gt;Topology should be considered as the &amp;ldquo;lower-level&amp;rdquo; structure of a manifold.
+&lt;p&gt;Topology should be considered as looking at the &amp;ldquo;large-scale&amp;rdquo; structure of a manifold.
 Later we will be interested in ways that the geometry of the manifold can change over time, but the underlying topology of the manifold will generally be fixed.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;
 Topology is sometimes referred to as rubber-sheet geometry, because deforming a manifold in ways that one could deform a rubber sheet would not change the topology.
 For instance, the sphere has a certain topology and spheres that are, say, larger or smaller or squished or stretched or crumpled up all have different geometries, but the same underlying spherical topology.
 One way to see that the topology is different from the topology of a plane is that a sphere does not &amp;ldquo;extend forever in all directions.&amp;rdquo;
 If one starts traveling in a fixed direction on a sphere, one will eventually come back to where they started.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;
 This is not true for the plane.&lt;/p&gt;
+&lt;p&gt;I think it gives a good intuitive idea of &amp;ldquo;large-scale&amp;rdquo; shape of a
+This idea of &amp;ldquo;traveling in one direction&amp;rdquo; is not really a good mathematical way to distinguish between different topologies&lt;/p&gt;
+&lt;h3 id=&#34;a-useful-way-to-distinguish-topological-spaces&#34;&gt;A useful way to distinguish topological spaces&lt;/h3&gt;
+&lt;p&gt;Another common example of a surface with a different topology to either the surface of a sphere or of a plane is the surface of a donut or a bagel.
+We call this surface a torus.&lt;/p&gt;
+&lt;h2 id=&#34;geometry&#34;&gt;Geometry&lt;/h2&gt;
+&lt;p&gt;We see that topology gives us a way to talk about holes in a manifold, but we can&amp;rsquo;t use the tools of topology to detect the &amp;ldquo;small-scale&amp;rdquo; shape of a manifold.
+For instance, topologically speaking, a sphere of radius 1 and a sphere of radius 2 are exactly the same, provided they have the same dimension.
+Similarly, we have no way to distinguish between a flat plane and something like an infinite sheet of corrugated material.
+Our topological toolbox does not provide us with any way to measure distances, curvature, angles, and similar features of the manifold.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;h2 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h2&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
@@ -172,236 +595,12 @@ The so-called Ricci flow with surgery is one famous way; analysis of this proces
 &lt;li id=&#34;fn:3&#34;&gt;
 &lt;p&gt;This is not really the correct way to state what I&amp;rsquo;m talking about, but it&amp;rsquo;s a better way to understand the idea.
 The concept of direction on a topological manifold isn&amp;rsquo;t really well-defined in the first place (although once we endow a topological manifold with a geometric structure we can sensibly talk about direction).
-The technical concept that I&amp;rsquo;m referring to is called &lt;em&gt;compactness&lt;/em&gt;, and it&amp;rsquo;s very important in many areas of mathematics.
-W&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My research, part 2</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</link>
-      <pubDate>Mon, 08 Jan 2024 21:01:30 +1100</pubDate>
-      
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</guid>
-      <description>&lt;p&gt;This is the second part in a series of short articles I&amp;rsquo;m trying to write about my research.
-&lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;research-questions-in-curve-shortening-flow&#34;&gt;Research questions in curve shortening flow&lt;/h2&gt;
-&lt;p&gt;In this article, I will not be talking about my own research yet, but instead I&amp;rsquo;ll be talking about research completed by others.&lt;/p&gt;
-&lt;p&gt;Event though it isn&amp;rsquo;t the focus of my research, I want to talk about curve shortening flow since it is a particularly simple and concrete example of a geometric flow.
-I also hope to give an example of what an actual research question in this field is like, since most of the time when I explain my research field I have to stay at the level of vague ideas and intuitive explanations.
-This article will still be quite vague compared to the actual research papers, but at least it will be a vague explanation of a significant result in this area.&lt;/p&gt;
-&lt;p&gt;In the field of geometric flows, we usually have some partial differential equation like the heat equation or the curve shortening flow equation.
-It&amp;rsquo;s often easy to describe the flow without the use of an equation, but the equation is critical when it comes to actually doing mathematics.
-It&amp;rsquo;s natuaral to think that equations exist as things that are to be solved, but it should be noted that solving these equations is never a major research question.
-Indeed, solutions to these equations are generally easy to come by.
-In the last article I linked &lt;a href=&#34;https://a.carapetis.com/csf/&#34;&gt;this website&lt;/a&gt;, which lets you observe solutions to curve shortening flow that begin with a curve that you can draw yourself.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-&lt;p&gt;A solution to a geometric flow is just the initial setup consisting of a manifold and its geometry (in this case the manifold is the curve and the geometry is the shape of the curve) and then all the curves at every instant in time afterwards.
-What makes these time-slices of curves a solution is that if you play the time-slices like a movie (this is what the website does for you), you see the curve move according to the curve shortening flow equation (remember that the curve shortening flow tells a curve how to change shape over time).
-It could be moving in a way that satisfied some other geometric equation, or it could be moving randomly, but it&amp;rsquo;s moving according to the rule of curve shortening flow, and therefore it is a solution.
-To summarize this paragraph: a solution to a geometric flow of a manifold (think about a curve) is a collection of time-slices of a manifold changing geometry (think about the curve changing shape) such that if you could play the time-slices like a movie, you would see the geometry changing over time in a way that is described by the equation associated to the geometric flow you&amp;rsquo;re thinking of.&lt;/p&gt;
-&lt;p&gt;When we have a partial differential equation, rather than just trying to solve the equation, usually a more interesting problem is to prove that any solution to the equation must have certain properties.
-Or more often, that any solution with properties A, B, and C necessarily has some particular behavior, or doesn&amp;rsquo;t have some other behavior, or something to that effect.
-To slightly undermine my previous point about solving the equation, occasionally we are interested in trying to construct a solution to the equation that has some certain properties or is missing some certain properties, or demonstrates that some idea is true or some other idea is false.
-It also can be a challenging problem to prove that solutions to the equation always have to exist!
-For instance, not every curve has a well-defined normal vector at every point (think about what happens if the curve has a &amp;ldquo;corner&amp;rdquo; somewhere).
-Since the normal vector is part of the equation, not having a normal vector means that the curve shortening flow equation can&amp;rsquo;t tell the curve how to move if the curve doesn&amp;rsquo;t have a normal vector somewhere&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.
-Even if we start with a curve that is completely smooth and has no corners, if we let it flow according to curve shortening flow, how do we know it won&amp;rsquo;t later on develop a corner and break the flow?
-This doesn&amp;rsquo;t happen, but the fact that it doesn&amp;rsquo;t happen is a non-obvious fact requiring proof.&lt;/p&gt;
-&lt;p&gt;Okay, so we know what solutions to curve shortening flow are, and we&amp;rsquo;re interested in proving that certain types of solutions (that is, solutions with certain properties as mentioned in the previous paragraph) behave in a certain way.
-As an example of this, I&amp;rsquo;ll discuss the proof of the following statement about certain solutions to the curve shortening flow.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;If we begin with a curve forming a closed loop in 2-dimensional space without crossing over itself, then as the curve moves according to curve shortening flow, it will never cross over itself, but instead will shrink to a point.
-Moreover, as it shrinks it will become more and more circular.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This statement is often called the &lt;em&gt;Gage-Hamilton-Grayson theorem&lt;/em&gt;.
-I won&amp;rsquo;t discuss the technical details of this proof, but instead try to give a high-level understanding of what it takes to prove it.
-If you would like to see technical details, &lt;a href=&#34;https://math.jhu.edu/~js/Math745/gage-hamilton.pdf&#34;&gt;here&lt;/a&gt; is the paper of Gage and Hamilton proving (part of) this result.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;Some important tools are the &lt;em&gt;normal vector&lt;/em&gt; $$\mathsf N$$ that is perpendicular to the curve at a point, the &lt;em&gt;tangent vector&lt;/em&gt; $$\mathsf T$$ that is tangent to the curve at a point, and the &lt;em&gt;Frenet-Serret equations&lt;/em&gt;.
-These equations give information about the spatial derivative of the normal vector in terms of the tangent vector, and the spatial derivative of the tangent vector in terms of the normal vector.
-These equations also involve the curvature of the curve.
-The phrase &amp;ldquo;spatial derivative&amp;rdquo; may sound confusing, but the idea to keep in mind is that when we talk about the normal or tangent vectors, we are talking about vectors that are based at some particular point on the curve.
-Then the spatial derivative of the tangent vector describes how the tangent vector rotates as the point we&amp;rsquo;re looking at moves around the curve.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s very important that these equations involve the curvature.
-The curvature is just the shape of the curve, so having equations like these gives us a way to prove things about the shape of the curve.&lt;/p&gt;
-&lt;p&gt;Here&amp;rsquo;s another important idea: since the curve shortening equation&lt;/p&gt;
-&lt;p&gt;$$\frac{\partial}{\partial t} \gamma = \kappa \mathsf N$$&lt;/p&gt;
-&lt;p&gt;involves the normal vector and a &lt;em&gt;time derivative&lt;/em&gt;, and the Frenet-Serret equations involve the normal vector and a &lt;em&gt;space derivative&lt;/em&gt;, as well as information about the shape of the curve, they give us a precise way to talk about how changes in space relate to changes in time, and then apply this to the shape of the curve.
-So we can get equations that describe how the shape of the curve is changing.
-More specifically, using these ideas we can get a differential equation for how the curvature evolves over time.&lt;/p&gt;
-&lt;p&gt;This is a good time to introduce another important tool that shows up very frequently in geometric analysis: the maximum principle.
-There are some complicated mathematical statements I could write down to explain the maximum principle in full detail, but the basic idea is this:
-as heat diffuses throughout an object, the hottest parts cool down and the coldest parts heat up.
-In other words, the maximum heat is decreasing and the minimum heat is increasing.
-And even in the case where this isn&amp;rsquo;t true, which is the case where we&amp;rsquo;re heating the object from the outside (or the object is losing heat to the outside - previously I was talking about a perfectly insulated object), the only places that we can look to find the new hottest parts of the object are the places where we&amp;rsquo;re introducing new heat: i.e. the edges of the object.&lt;/p&gt;
-&lt;p&gt;This is true of heat diffusion, which means it is true of solutions to the heat equation.
-However, there are many other differential equations that are similar enough to the heat equation that they share this property that maximums decrease and minimums increase (or just one of these two properties, but sometimes we only need one to work).
-This is the basic idea that we call the maximum principle.
-This fact can be proved for large classes of differential equations, and the proof is quite pleasing, but it would take too long to discuss in this post.&lt;/p&gt;
-&lt;p&gt;Now, when we left off three paragraphs ago, we had just found a differential equation that tells us how the curvature at any point of the curve changes over time.
-Using this differential equation (and many other concepts and technical details), we can find that the ratio of the maximum curvature at any point on the curve to the minimum curvature at any point of the curve goes to 1 as time passes.
-That is, the curvature is changing over time in such a way that the maximum curvature anywhere is equal to the minimum curvature anywhere.
-The only way that can be true is if the curvature everywhere is the same, and the only way &lt;em&gt;that&lt;/em&gt; can be true is if the curve is a circle.
-So, over time the curve is becoming a circle.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;Notice that it&amp;rsquo;s important that we&amp;rsquo;re talking about the &lt;em&gt;ratio&lt;/em&gt; of the maximum and minimum curvatures instead of just the maximum and minimum curvatures directly.
-As the curve shrinks to a tiny circle (and eventually shrinks into nothing), the curvature increases without bound.
-A tiny circle is more curved than a large one, but the ratio of the maximum and minimum curvatures on a tiny circle is still 1.
-If all we knew was that the maximum and minimum curvatures were increasing without bound, this wouldn&amp;rsquo;t be enough to say that the curve is becoming circular, but the fact about the ratio approaching 1 is a stronger fact.&lt;/p&gt;
-&lt;h2 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h2&gt;
-&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;Technically the website will show approximations of solutions, but the point that solutions are easy to come by still stands.
-Precisely, one example of a solution is $$\gamma(x,t) = (\sqrt{9 - 2t} \cos x, \sqrt{9 - 2t} \sin x).$$
-The curve described by this equation (which, by necessity, tells us how the curve looks at each time-slice) looks like a circle with initial radius 3 that is shrinking inwards.
-If you could draw a perfect circle on the website (and if the website could actually process a perfect circle), this equation describes what you would see.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;
-&lt;p&gt;Don&amp;rsquo;t worry, there&amp;rsquo;s a way to fix this problem, and the curve shortening flow still works even if the curve you start with has sharp corners.
-(But worse things can happen too.)&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;
-&lt;p&gt;To be completely accurate, Gage and Hamilton proved the result under the additional assumption that the curve you start with is &lt;em&gt;convex&lt;/em&gt;, meaning that if you travel around the curve in a counterclockwise direction, you can only turn to the left (or go straight for a while).
-Later, Grayson proved that if you start with an arbitrary curve that doesn&amp;rsquo;t intersect itself, eventually it will &lt;em&gt;become&lt;/em&gt; convex without ever intersecting itself.
-Together these two results prove the result we stated.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+The technical concept that I&amp;rsquo;m referring to is called &lt;em&gt;compactness&lt;/em&gt;, and it&amp;rsquo;s very important in many areas of mathematics.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:4&#34;&gt;
-&lt;p&gt;Although it&amp;rsquo;s becoming a circle that shrinks to nothing!
-That&amp;rsquo;s why it&amp;rsquo;s important that we&amp;rsquo;re talking about the &lt;em&gt;ratio&lt;/em&gt; of the maximum to minimum curvatures, and not just the maximum and minimum curvatures themselves.
-The maximum curvature and minimum curvature are both going to infinity as the curve shrinks - because a tiny circle has higher curvature than a big circle.
-When things go to infinity they become hard to describe mathematically.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My research, part 1</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</link>
-      <pubDate>Wed, 03 Jan 2024 21:01:30 +1100</pubDate>
-      
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/</guid>
-      <description>&lt;p&gt;I study a particular type of solution to a particular &lt;em&gt;geometric evolution equation&lt;/em&gt;.
-A geometric evolution equation describes how a mathematical object called a manifold (a simple line or a sphere is an example of a manifold) changes shape over time.
-What makes the evolution geometric is that the particular way in which the manifold changes depends on the shape, i.e. the geometry, of the manifold at any point in time.&lt;/p&gt;
-&lt;p&gt;This may sound complicated, and indeed it often is, but we can get a good feel for the topic by looking at some simple examples.
-One simple geometric evolution equation describes a type of process that everyone will be familiar with: the diffusion of heat through an object.&lt;/p&gt;
-&lt;h2 id=&#34;the-heat-equation&#34;&gt;The heat equation&lt;/h2&gt;
-&lt;p&gt;Suppose we have a wire&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; that has been unevenly heated.
-We color the hot parts of the wire red, and the cold parts of the wire blue.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/my_research_part_1_graphic1.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;We can visualize the distribution of heat throughout the wire by a graph, so the higher the graph is above a point on the wire, the hotter the point on the wire is.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/my_research_part_1_graphic2.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Now, if we allow time to pass, the heat will rapidly diffuse throughout the wire, and the graph will change correspondingly (we are mostly interested in how the graph changes).
-Notice that in some places on the wire, there were points with a lot of heat surrounded by areas with relatively little (as well as points of relatively low temperature compared to their surroundings).
-The temperature changed at these points much quicker than it did at points whose temperature was close, on average, to the temperature of the surrounding areas.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/my_research_part_1_graphic3.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;So it seems like a general rule for heat diffusion is that the greater the temperature differential with surrounding areas, the faster the diffusion.
-Not too complicated.
-It&amp;rsquo;s important to notice that temperature differential between a point and the surrounding areas is reflected in the geometry of the graph!
-Points like this show up in the graph as sharp spikes.
-So as the temperature diffuses over time, we see that the spikier parts of the graph diffuse away relatively fast.
-The mathematical way to identify spikiness of a graph is with the (spatial) second derivative.
-I won&amp;rsquo;t go into detail about derivatives, but it suffices to say that the magnitude of the second derivative is highest at the peaks and valleys of the graph, and lowest at the points in between.&lt;/p&gt;
-&lt;p&gt;This idea gives us the &lt;em&gt;heat equation&lt;/em&gt;, the simplest model of heat diffusion.
-The equation looks like this:&lt;/p&gt;
-&lt;p&gt;$$\frac{\partial}{\partial t} f = \Delta f,$$&lt;/p&gt;
-&lt;p&gt;where $f$ is the function that describes whatever heat distribution the wire has (it&amp;rsquo;s the equation we would use to make the graph).&lt;/p&gt;
-&lt;p&gt;Don&amp;rsquo;t panic if you&amp;rsquo;re not familar with the notation!
-This equation says mathematically exactly what we observed before about how heat diffusion works.&lt;/p&gt;
-&lt;p&gt;The left hand side is the time derivative of $f$, which by definition describes how $f$ changes over time.
-The right hand side is the (spatial) second derivative of $f$, which as we remarked before just tells us how sharp the graph is at a given point.
-So if we interpret this equation into English, all it says is that the temperature of the wire is going to change over time, and if a point is surrounded by lower temperature, the temperature will decrease at a rate proportional to how much lower the surrounding temperature is (a corresponding statement holds for points surrounded by areas of higher temperature).&lt;/p&gt;
-&lt;h2 id=&#34;geometric-evolution-equations&#34;&gt;Geometric evolution equations&lt;/h2&gt;
-&lt;p&gt;Now let&amp;rsquo;s forget about the wire and any physical interpretation of heat diffusion, and just think about the graph changing over time according to the heat equation.
-What we have is a 1-dimensional manifold (the line that forms the graph) with some geometry (the way that the line curves) and a partial differential equation telling us how the geometry of the manifold changes over time according to the geometry that it already has at a given time.&lt;/p&gt;
-&lt;p&gt;This is the idea of a geometric evolution equation.
-We start with a manifold that has some geometry&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; to describe how it&amp;rsquo;s shaped.
-Then we have some differential equation that looks at how the manifold is shaped at a certain point, and tells the manifold to change over time in some way depending on that geometry.
-When the manifold moves according to one of these geometric evolution equations, we have a &lt;em&gt;geometric flow&lt;/em&gt;.
-There are many different ways we can tell the manifold to move based on its geometry.
-These different flows have varying degrees of simplicity, usefulness, and physicality.&lt;/p&gt;
-&lt;p&gt;In general, manifolds can have any dimension.
-In higher dimensions, there are more directions in which a manifold can curve, which means that it is more complicated to describe the geometry of a manifold at a certain point.
-To describe the geometry, we use an object called a &lt;em&gt;tensor field&lt;/em&gt;.
-A future post will be about abstract manifolds and the tensors that we use to describe their geometry.&lt;/p&gt;
-&lt;h2 id=&#34;the-curve-shortening-flow&#34;&gt;The curve shortening flow&lt;/h2&gt;
-&lt;p&gt;Before moving on to that topic, however, we will examine a geometric flow in a situation that is simple enough that we don&amp;rsquo;t need the language of manifolds and tensors to describe it (although we could talk about this situation in those terms if we were so inclined).
-The flow we will examine is called the &lt;em&gt;curve shortening flow&lt;/em&gt;, and watching it in action might remind you of the diffusion of heat.&lt;/p&gt;
-&lt;p&gt;A cool interactive demonstration of the curve shortening flow can be found &lt;a href=&#34;https://a.carapetis.com/csf/&#34;&gt;here&lt;/a&gt; and I recommend playing with this as you read the remainder of the post.&lt;/p&gt;
-&lt;p&gt;To define the curve shortening flow, start with a curve sitting in 2 dimensions:&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/my_research_part_1_graphic4.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;At each point on this curve, consider the direction that is perpendicular to the curve at that point:&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/my_research_part_1_graphic5.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;(Only a few arrows are drawn to illustrate the principle, but at any point on the curve we could draw such an arrow.)&lt;/p&gt;
-&lt;p&gt;These arrows are called &lt;em&gt;normal vectors&lt;/em&gt;.
-For a 1-dimensional curve sitting inside 2-dimensional space, the only geometric information available at a point is a single number describing the curvature at that point.
-If the curvature at a point is 0, it means that the curve looks like a flat line in a small area around that point.
-If the curvature is positive, it means that the curve is turning to the left from the perspective of someone moving around the curve counterclockwise.
-The curvature is negative at points where the curve is curving to the right from the same perspective.
-More positive or more negative curvatures mean that the curve is turning more sharply to the left or right (before we talked about &amp;ldquo;spikiness&amp;rdquo; of a graph, which is basically all we&amp;rsquo;re talking about here, but it&amp;rsquo;s in a more general context since this figure isn&amp;rsquo;t a graph of any function&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;).&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/my_research_part_1_graphic6.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;So at every point along the curve, we have a normal vector that points in a certain direction, and we have a number.
-The curve shortening flow says that every point of the curve will move in the direction of the normal vector at a speed equal to the curvature at that point.&lt;/p&gt;
-&lt;p&gt;So if we consider the curve shortening flow applied to our curve from before, some points will move inwards quickly or slowly, and some will move outwards quickly or slowly.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/my_research_part_1_graphic7.png&#34;
-    alt=&#34;alt text string&#34; width=&#34;auto&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Notice that some points move in the opposite direction of the normal vector.
-This is because the curvature is negative at those points, so they move in the direction of the normal vector with negative speed.&lt;/p&gt;
-&lt;p&gt;The differential equation to describe the curve shortening flow looks like this:&lt;/p&gt;
-&lt;p&gt;$$\frac{\partial}{\partial t} \gamma = \kappa \mathsf N.$$&lt;/p&gt;
-&lt;p&gt;Here $\gamma$ is the function that describes the curve, $\kappa$ is curvature, and $\mathsf N$ is the normal vector.
-This means that $\kappa \mathsf N$ is a vector that points in the direction of $\mathsf N$ and has length equal to $\kappa$: exactly the vector that should describe how points move under this flow.
-So this equation has a similar form as the heat equation.
-On the left hand side we have the time derivative of the curve.
-That is, the left hand side is referring to how the curve changes over time.
-The right hand side, as mentioned already, is a vector pointing perpendicularly to the curve with length equal to the curvature.
-So the equation says that the curve will change over time by moving in the normal direction with curvature speed.&lt;/p&gt;
-&lt;p&gt;What does mathematical research relating to such an equation look like?
-Good question!
-That is the subject of the next post.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/&#34;&gt;Next post: mathematical research on curve shortening flow&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h3&gt;
-&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;For technical reasons, the wire is infinitely long and perfectly insulated.  Not very reasonable physical assumptions, but a precise understanding of an oversimplified situation is very frequently much more valuable than a vague understanding of a real situation.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;
-&lt;p&gt;In the case of the graph, we can see the geometry by calculating the second derivative, or just by looking at the shape of the graph, since it&amp;rsquo;s drawn out for us.
-For an abstract manifold, we don&amp;rsquo;t have this luxury; in general a manifold is not sitting inside a larger space the way that the graph sits inside the larger space of the plane on which the graph is drawn.
-We need other tools to describe the geometry of abstract manifolds.
-This is where the &lt;em&gt;metric tensor&lt;/em&gt; comes in.
-Hopefully I&amp;rsquo;ll have another post on this topic soon.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;
-&lt;p&gt;However, this figure does have an important property that it is &lt;em&gt;locally&lt;/em&gt; a graph!  If you choose a point on the curve and only look at a small region of the curve around that point, you may notice that this region could be described using a graph of some function.  However, since there isn&amp;rsquo;t a single way to choose this function, this notion of curvature is genuinely different from the second derivative of a graph (but it&amp;rsquo;s analogous)!&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To be more specific, it&amp;rsquo;s not exactly that we can&amp;rsquo;t distinguish between such features, but the mathematical object that is a topological manifold simply does not contain the information that corresponds to distances and curvature and so on.
+So if we&amp;rsquo;re purely in the land of topological manifolds, it&amp;rsquo;s not quite accurate to say that we can&amp;rsquo;t distinguish between two spheres of different radii; the unique topological manifold that describes a sphere (of a given dimension) simply has no radius.
+The way I phrased it is still technically accurate, since if we have Riemannian manifolds that describe spheres with different radii, they are in fact topologically the same.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;

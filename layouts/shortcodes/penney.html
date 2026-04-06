@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Penney's Game (Canvas)</title>
+    <style>
+      html, body { height: 100%; margin: 0; background:#111; color:#ddd; font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+      .wrap { display:flex; align-items:center; justify-content:center; height:100%; }
+      canvas { border: 1px solid #333; background:#0d0d0d; }
+      .tip { position:fixed; bottom:10px; width:100%; text-align:center; color:#777; font-size:12px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <canvas id="penneyGame" width="760" height="280" aria-label="Penney's game"></canvas>
+    </div>
+    <div class="tip">Click the three tiles to toggle H/T. Then click Play.</div>
+    <!-- Compile TypeScript to JS (penney.js) and include that JS below -->
+    <script src="{{ .Site.BaseURL }}js/penney.js"></script>
+  </body>
+</html>
