@@ -21,7 +21,7 @@ categories = "categories"
 
 [params]
 title="Steven Buchanan"
-description = "its me i'm stupid"
+description = ""
 footnote = """
 Powered by  <a class=link href=https://gohugo.io target=_blank rel=noopener>Hugo</a> | 
 Theme <a class=link href=https://github.com/michaelneuper/hugo-texify3 target=_blank rel=noopener>TeXify3</a>
