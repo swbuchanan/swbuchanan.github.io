@@ -1,7 +1,7 @@
 ---
-layout: post
 date: 2024-01-08T21:01:30+11:00
 title: "My research, part 2"
+math: true
 ---
 
 This is the second part in a series of short articles I'm trying to write about my research.
@@ -102,4 +102,3 @@ If all we knew was that the maximum and minimum curvatures were increasing witho
     That's why it's important that we're talking about the *ratio* of the maximum to minimum curvatures, and not just the maximum and minimum curvatures themselves.
     The maximum curvature and minimum curvature are both going to infinity as the curve shrinks - because a tiny circle has higher curvature than a big circle.
     When things go to infinity they become hard to describe mathematically.
-

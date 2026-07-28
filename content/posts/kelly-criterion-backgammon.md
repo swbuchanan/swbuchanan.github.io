@@ -2,6 +2,7 @@
 title = 'A stupid application of the Kelly Criterion'
 date = 2025-03-21T23:20:32+11:00
 draft = true
+math = true
 +++
 
 
@@ -16,7 +17,7 @@ However, this leaves open the possibility of losing all your money.
 
 I recently started playing backgammon online.
 This game has a lot to recommend it; it is a highly strategic game of perfect information (according to some definitions) with some random chance involved.
-I'm not sure 
+I'm not sure
 
 
 In order to calculate my chances of winning, I would need to know about about some variables that are essentially unknowable.
@@ -42,4 +43,4 @@ So I need to consider the following things:
 - The coins that are raked from the site.
 
 The first challenge is to determine the distribution of ratings.
-Unlike lichess, backgammongalaxy does not publish much data about 
+Unlike lichess, backgammongalaxy does not publish much data about

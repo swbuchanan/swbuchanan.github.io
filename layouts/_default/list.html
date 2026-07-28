@@ -1,0 +1,32 @@
+{{ define "head" }}
+  {{ $options := dict "transpiler" "dartsass" "targetPath" "css/list.css" "silenceDeprecations" (slice "import") }}
+  {{ with resources.Get "sass/layouts/list.scss" | toCSS $options | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+  {{ end }}
+{{ end }}
+
+{{ define "main" }}
+  <main id="main" class="archive">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="content">{{ . }}</div>
+    {{ end }}
+
+    {{ $pages := where .Pages "Type" "posts" }}
+    {{ range $pages.GroupByDate "2006" }}
+      <section class="post-group" aria-labelledby="year-{{ .Key }}">
+        <h2 id="year-{{ .Key }}">{{ .Key }}</h2>
+        <ul>
+          {{ range .Pages }}
+            <li>
+              <a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+              <time datetime="{{ .PublishDate.Format "2006-01-02" }}">
+                {{ .PublishDate.Format .Site.Params.dateFormat }}
+              </time>
+            </li>
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+  </main>
+{{ end }}

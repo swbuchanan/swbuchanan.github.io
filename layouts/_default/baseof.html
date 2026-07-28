@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Locale }}" style="font-size: {{ .Site.Params.rootFontSize | default "100%" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="{{ .Site.Params.author.name | default .Site.Title }}">
+
+  {{ if .Description }}
+    <meta name="description" content="{{ .Description }}">
+  {{ else if and .IsPage .Summary }}
+    <meta name="description" content="{{ .Summary }}">
+  {{ else }}
+    <meta name="description" content="{{ .Site.Params.description }}">
+  {{ end }}
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "images/apple-touch-icon.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "images/favicon-32x32.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "images/favicon-16x16.png" | relURL }}">
+
+  {{ if .Keywords }}
+    <meta name="keywords" content="{{ delimit .Keywords ", " }}, {{ delimit .Site.Params.keywords ", " }}">
+  {{ else }}
+    <meta name="keywords" content="{{ delimit .Site.Params.keywords ", " }}">
+  {{ end }}
+
+  {{ if or .Params.math .Site.Params.math }}
+    {{ partial "math.html" . }}
+  {{ end }}
+
+  {{ with .Site.Params.buymeacoffee.code }}
+    {{ . | safeHTML }}
+  {{ end }}
+
+  {{ template "_internal/opengraph.html" . }}
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{ range .AlternativeOutputFormats }}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+  {{ end }}
+
+  {{ $options := dict "transpiler" "dartsass" "targetPath" "css/common.css" "silenceDeprecations" (slice "import") }}
+  {{ with resources.Get "sass/layouts/common.scss" | toCSS $options | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+  {{ end }}
+
+  {{ $options := dict "transpiler" "dartsass" "targetPath" "css/content.css" "silenceDeprecations" (slice "import") }}
+  {{ with resources.Get "sass/layouts/content.scss" | toCSS $options | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+  {{ end }}
+
+  {{ if .IsHome }}
+    <title>{{ .Site.Title }}</title>
+  {{ else }}
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+  {{ end }}
+
+  {{ template "_internal/twitter_cards.html" . }}
+  {{ block "head" . }}{{ end }}
+  {{ range .Site.Params.customCSS }}
+    <link rel="stylesheet" href="{{ . | relURL }}">
+  {{ end }}
+</head>
+<body>
+  <div id="wrapper">
+    {{ partial "header.html" . }}
+    {{ block "main" . }}{{ end }}
+    {{ partial "footer.html" . }}
+  </div>
+
+  {{ $scriptOptions := dict "targetPath" "js/site.js" "target" "es2018" "minify" hugo.IsProduction }}
+  {{ with resources.Get "js/script.js" | js.Build $scriptOptions | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+  {{ end }}
+  {{ range .Site.Params.customJS }}
+    <script src="{{ . | relURL }}" defer></script>
+  {{ end }}
+  {{ template "_internal/google_analytics.html" . }}
+</body>
+</html>

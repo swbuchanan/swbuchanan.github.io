@@ -1,6 +1,7 @@
 ---
 title: "Nagel-Schreckenberg traffic simulation"
 date: 2025-12-11
+math: true
 ---
 
 In [this](https://artowen.su.domains/mc/Ch-intro.pdf) text book available online about Monte Carlo simulation, the first example given is a traffic simulation that shows how traffic jams can emerge seemingly out of nowhere, even when there aren't any particularly bad drivers or disruptive incidents on the road.

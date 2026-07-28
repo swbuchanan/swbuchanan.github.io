@@ -1,0 +1,18 @@
+{
+  "name": "swbuchanan-github-io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hugo source and build tooling for swbuchanan.github.io",
+  "scripts": {
+    "build": "hugo --gc --minify --cleanDestinationDir",
+    "check:links": "node scripts/check-internal-links.mjs .hugo-output",
+    "dev": "hugo server --disableFastRender",
+    "typecheck": "tsc"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

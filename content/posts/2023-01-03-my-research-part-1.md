@@ -1,6 +1,7 @@
 ---
 title: "My research, part 1"
 date: 2024-01-03T21:01:30+11:00
+math: true
 ---
 
 I study a particular type of solution to a particular *geometric evolution equation*.
@@ -16,20 +17,20 @@ Suppose we have a wire[^1] that has been unevenly heated.
 We color the hot parts of the wire red, and the cold parts of the wire blue.
 
 
-![A wire with hot and cold regions](/my_research_part_1_graphic1.png)
+![A wire coloured from blue in cold regions to red in hot regions.](/my_research_part_1_graphic1.png)
 
 
 We can visualize the distribution of heat throughout the wire by a graph, so the higher the graph is above a point on the wire, the hotter the point on the wire is.
 
 
-![heat distribution on the wire](/my_research_part_1_graphic2.png)
+![A graph of the uneven heat distribution along the wire.](/my_research_part_1_graphic2.png)
 
 
 Now, if we allow time to pass, the heat will rapidly diffuse throughout the wire, and the graph will change correspondingly (we are mostly interested in how the graph changes).
 Notice that in some places on the wire, there were points with a lot of heat surrounded by areas with relatively little (as well as points of relatively low temperature compared to their surroundings).
 The temperature changed at these points much quicker than it did at points whose temperature was close, on average, to the temperature of the surrounding areas.
 
-![image alt text](/my_research_part_1_graphic3.png)
+![The initial temperature graph and a smoother graph after heat has diffused.](/my_research_part_1_graphic3.png)
 
 So it seems like a general rule for heat diffusion is that the greater the temperature differential with surrounding areas, the faster the diffusion.
 Not too complicated.
@@ -80,11 +81,11 @@ A cool interactive demonstration of the curve shortening flow can be found [here
 
 To define the curve shortening flow, start with a curve sitting in 2 dimensions:
 
-![image alt text](/my_research_part_1_graphic4.png)
+![An irregular closed plane curve.](/my_research_part_1_graphic4.png)
 
 At each point on this curve, consider the direction that is perpendicular to the curve at that point:
 
-![image alt text](/my_research_part_1_graphic5.png)
+![The same closed curve with several inward-pointing normal vectors.](/my_research_part_1_graphic5.png)
 
 (Only a few arrows are drawn to illustrate the principle, but at any point on the curve we could draw such an arrow.)
 
@@ -95,14 +96,14 @@ If the curvature is positive, it means that the curve is turning to the left fro
 The curvature is negative at points where the curve is curving to the right from the same perspective.
 More positive or more negative curvatures mean that the curve is turning more sharply to the left or right (before we talked about "spikiness" of a graph, which is basically all we're talking about here, but it's in a more general context since this figure isn't a graph of any function[^graph]).
 
-![image alt text](/my_research_part_1_graphic6.png)
+![An irregular curve annotated with regions of positive, zero, and negative curvature.](/my_research_part_1_graphic6.png)
 
 So at every point along the curve, we have a normal vector that points in a certain direction, and we have a number.
 The curve shortening flow says that every point of the curve will move in the direction of the normal vector at a speed equal to the curvature at that point.
 
 So if we consider the curve shortening flow applied to our curve from before, some points will move inwards quickly or slowly, and some will move outwards quickly or slowly.
 
-![image alt text](/my_research_part_1_graphic7.png)
+![An irregular curve and a dotted comparison curve showing its motion under curve shortening flow.](/my_research_part_1_graphic7.png)
 
 Notice that some points move in the opposite direction of the normal vector.
 This is because the curvature is negative at those points, so they move in the direction of the normal vector with negative speed.

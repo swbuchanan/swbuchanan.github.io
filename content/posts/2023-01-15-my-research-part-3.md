@@ -1,6 +1,7 @@
 ---
 title: "My research, part 3"
 date: 2024-01-15
+math: true
 ---
 
 This is the third part in a series of short articles I'm trying to write about my research.
@@ -60,7 +61,7 @@ One way to see that the topology is different from the topology of a plane is th
 If one starts traveling in a fixed direction on a sphere, one will eventually come back to where they started.[^direction]
 This is not true for the plane.
 
-I think it gives a good intuitive idea of "large-scale" shape of a 
+I think it gives a good intuitive idea of "large-scale" shape of a
 This idea of "traveling in one direction" is not really a good mathematical way to distinguish between different topologies
 
 ### A useful way to distinguish topological spaces

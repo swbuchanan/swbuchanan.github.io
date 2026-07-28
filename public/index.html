@@ -1,213 +1,154 @@
-<!DOCTYPE html>
-<html lang="en" style="font-size: 125%">
-
+<!doctype html>
+<html lang="en-AU" style="font-size: 125%">
 <head>
-	<meta name="generator" content="Hugo 0.160.0"><script src="/swbuchanan.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=swbuchanan.github.io/livereload" data-no-instant defer></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
+	<meta name="generator" content="Hugo 0.164.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Steven Buchanan">
 
   
+    <meta name="description" content="Mathematics, research notes, and interactive demonstrations by Steven Buchanan.">
   
-  <meta name="description" content="">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+
+  
+    <meta name="keywords" content="mathematics, geometry, probability, algorithms, Steven Buchanan">
   
 
   
-  <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/swbuchanan.github.io//images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/swbuchanan.github.io//images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/swbuchanan.github.io//images/favicon-16x16.png">
-
-  
-  
-  <meta name="keywords" content='hugo latex theme blog texify texify2 texify3 steven buchanan'>
-  
-
-  
-  
-  <link rel="stylesheet" href='/swbuchanan.github.io/katex/katex.min.css'>
-<script defer defer src='/swbuchanan.github.io/katex/katex.min.js'></script>
-<script defer src='/swbuchanan.github.io/katex/contrib/auto-render.min.js'></script>
+    <link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          delimiters: [
-              {left: '$$', right: '$$', display: true},
-              {left: '$', right: '$', display: false},
-              {left: '\\(', right: '\\)', display: false},
-              {left: '\\[', right: '\\]', display: true}
-          ],
-          throwOnError : false
-        });
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+      throwOnError: false
     });
+  });
 </script>
+
+  
+
+  
+
+  <meta property="og:url" content="http://localhost:1313/">
+	<meta property="og:site_name" content="Steven Buchanan">
+	<meta property="og:title" content="Steven Buchanan">
+	<meta property="og:description" content="Mathematics, research notes, and interactive demonstrations by Steven Buchanan.">
+	<meta property="og:locale" content="en_AU">
+	<meta property="og:type" content="website">
+
+  <link rel="canonical" href="http://localhost:1313/">
+  
+    <link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/index.xml" title="Steven Buchanan">
   
 
   
   
-
-  
-  <meta property="og:url" content="http://localhost:1313/swbuchanan.github.io/">
-  <meta property="og:site_name" content="Steven&#39;s website">
-  <meta property="og:title" content="Steven&#39;s website">
-  <meta property="og:description" content="About me On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts.
-I can be reached at $email I’m always open to questions or feedback about anything I’ve made. If you find anything wrong or anything that seems broken on the website, you’d be doing me a favor to let me know.
-My work Right now I’m studying geometric flows under Mat Langford at ANU’s Mathematical Sciences Institute. I’m working on Ricci flow and a related conformal flow. Elsewhere on the site I have a brief technical description of some of what I’m working on at the moment.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
-
-
-  
-  <link rel="canonical" href="http://localhost:1313/swbuchanan.github.io/">
-
-  
-  
-  <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/swbuchanan.github.io/index.xml" title="Steven's website" />
-  
-  
-  <meta itemprop="name" content="Steven&#39;s website">
-  <meta itemprop="description" content="About me On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts.
-I can be reached at $email I’m always open to questions or feedback about anything I’ve made. If you find anything wrong or anything that seems broken on the website, you’d be doing me a favor to let me know.
-My work Right now I’m studying geometric flows under Mat Langford at ANU’s Mathematical Sciences Institute. I’m working on Ricci flow and a related conformal flow. Elsewhere on the site I have a brief technical description of some of what I’m working on at the moment.">
-  <meta itemprop="dateModified" content="2024-09-12T21:25:27+10:00">
-  <meta itemprop="wordCount" content="215">
-
-  
-  
-  
-    <link rel="stylesheet" href="/swbuchanan.github.io/css/common.min.e562d763c6d0825495eb17de8b2c1d9800cf7c08db1c36accedf77a5fccfc4b9.css" integrity="sha256-5WLXY8bQglSV6xfeiywdmADPfAjbHDaszt93pfzPxLk=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/common.min.bbdc90f94787080590c1ac3e8140a42bb2cc925ecdeb51df3c3939a12cebaa81.css" integrity="sha256-u9yQ&#43;UeHCAWQwaw&#43;gUCkK7LMkl7N61HfPDk5oSzrqoE=" crossorigin="anonymous">
   
 
   
   
-    <link rel="stylesheet" href="/swbuchanan.github.io/css/content.min.e9f903a2a0842c72b218b7248895d4083256c3068ae9fd857079bc44e0aa1524.css" integrity="sha256-6fkDoqCELHKyGLckiJXUCDJWwwaK6f2FcHm8ROCqFSQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/content.min.2c5930fab85e701669a95ff587419b4e716ead9c34247fb33190f80920c46969.css" integrity="sha256-LFkw&#43;rhecBZpqV/1h0GbTnFurZw0JH&#43;zMZD4CSDEaWk=" crossorigin="anonymous">
   
 
   
-  
-  <title>Steven&#39;s website</title>
-  
-
-  
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Steven&#39;s website">
-  <meta name="twitter:description" content="About me On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts.
-I can be reached at $email I’m always open to questions or feedback about anything I’ve made. If you find anything wrong or anything that seems broken on the website, you’d be doing me a favor to let me know.
-My work Right now I’m studying geometric flows under Mat Langford at ANU’s Mathematical Sciences Institute. I’m working on Ricci flow and a related conformal flow. Elsewhere on the site I have a brief technical description of some of what I’m working on at the moment.">
-
-
+    <title>Steven Buchanan</title>
   
 
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Steven Buchanan">
+	<meta name="twitter:description" content="Mathematics, research notes, and interactive demonstrations by Steven Buchanan.">
 
-  <link rel="stylesheet" href="/swbuchanan.github.io/css/index.min.90b10f08aae3a1500a5cef0029844c651987b33959d23a5c0f92e2b3817ec6ae.css" integrity="sha256-kLEPCKrjoVAKXO8AKYRMZRmHszlZ0jpcD5Lis4F&#43;xq4=" crossorigin="anonymous">
-
-
+  
+  
+    <link rel="stylesheet" href="/css/site.css">
+  
 </head>
-
 <body>
   <div id="wrapper">
-    
-
-
-<header id="header">
-  <h1>
-    <a href="http://localhost:1313/swbuchanan.github.io/">Steven Buchanan</a>
-    <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle theme">
-        <svg width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+    <header id="header">
+  <div class="site-title">
+    <a href="/">Steven Buchanan</a>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" type="button" aria-label="Toggle colour theme" aria-pressed="false">
+      <svg aria-hidden="true" width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
         <path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/>
-        </svg>
+      </svg>
     </button>
-  </h1>
+  </div>
 
-  <nav>
+  <nav aria-label="Primary navigation">
     
-    <span class="nav-bar-item">
-      
-      <a class="link" href="/swbuchanan.github.io/cool-stuff/">Cool Stuff</a>
-    </span>
+      <span class="nav-bar-item">
+        <a class="link" href="/posts/">Writing</a>
+      </span>
     
-    <span class="nav-bar-item">
-      
-      <a class="link" href="https://github.com/swbuchanan/hugo-texify3s">GitHub</a>
-    </span>
+      <span class="nav-bar-item">
+        <a class="link" href="/cool-stuff/">Projects</a>
+      </span>
     
-    <span class="nav-bar-item">
-      
-      <a class="link" href="/swbuchanan.github.io/posts/">Posts</a>
-    </span>
+      <span class="nav-bar-item">
+        <a class="link" href="https://github.com/swbuchanan">GitHub</a>
+      </span>
     
   </nav>
 </header>
-<hr class="head-rule"></hr>
-    
-<main class="grid-container">
-    <div id="content" class="index">
-        
-            <h2 id="about-me">About me</h2>
-<p>On this site I hope to post short articles about topics that interest me, along with some interactive demonstrations of mathematical concepts.</p>
-<p>I can be reached at 
-<div id="email-text">$email</div>
+<hr class="head-rule">
 
-I&rsquo;m always open to questions or feedback about anything I&rsquo;ve made. If you find anything wrong or anything that seems broken on the website, you&rsquo;d be doing me a favor to let me know.</p>
+    
+  <main id="main" class="home">
+    <article class="content">
+      <h1 id="about-me">About me</h1>
+<p>On this site I hope to post short articles about topics in mathematics, computer science, and related fields, along with showcases of projects that have caught my attention long enough so that I&rsquo;ve produced something worth showcasing.</p>
+<p>You can reach me through <span id="email-text">
+  <a href="https://github.com/swbuchanan" rel="me">my GitHub profile</a>
+</span>
+.
+I&rsquo;m always open to questions or feedback about anything I&rsquo;ve made.
+If you find something wrong or broken on the website, I&rsquo;d be grateful if you let me know.</p>
 <h2 id="my-work">My work</h2>
 <p>Right now I&rsquo;m studying geometric flows under Mat Langford at ANU&rsquo;s Mathematical Sciences Institute.
 I&rsquo;m working on Ricci flow and a related conformal flow.
-Elsewhere on the site I have a brief technical description of some of what I&rsquo;m working on at the moment.</p>
-<p>If you are curious about geometric flows, I have started a series of posts introducing this topic to a general audience.
-<a href="http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/">See the first one here.</a></p>
-<p>For an interactive demonstration of a geometric flow with some applications in materials science, see <a href="https://a.carapetis.com/csf/">Anthony Carapetis&rsquo;s page</a> for a nice visualization of the curve shortening flow.</p>
-<p>My earliest post also has a couple of similar things to play with.</p>
+(For the geometry fans out there, it&rsquo;s the flow $\partial_t g_t = -R^\alpha g_t$; for now in 2 dimensions.
+The nonlinearity of this equation demands some interesting techniques when studying the behavior of solutions to this flow.)</p>
+<p><a href="http://localhost:1313/posts/2023-01-03-my-research-part-1/">See here for a 3-part series of accessible articles on research in curvature flows.</a>
+See <a href="https://a.carapetis.com/csf/">Anthony Carapetis&rsquo;s page</a> for an interactive visualization of the curve shortening flow, which is perhaps the simplest example of a curvature flow.</p>
+<p>I also am generally involved in one or more programming or data analysis projects, for fun and profit, as well as reasons of employability (on that note, I&rsquo;m <a href="./pdfs/Resume.pdf">looking for a postdoc position or a job!</a>).
+In this direction, my interests tend towards game theory, algorithm design, and time-series analysis.</p>
 <h2 id="notes">Notes</h2>
-<p>I&rsquo;m writing some notes on calculations in Riemannian geometry.
-They&rsquo;re still in progress, but there&rsquo;s enough done that I often find them useful, so maybe other people will too.</p>
-<p><a href="./computations.pdf">Computations in Riemannian geometry</a></p>
+<p>I write down many things, some of which may be interesting or useful to others.</p>
+<ul>
+<li>
+<p><a href="./pdfs/computations.pdf">A reference for computations in Riemannian geometry</a>. A bit rough and still in progress, but I find them to be an occasionally useful reference.</p>
+</li>
+<li>
+<p><a href="./pdfs/amsi_winter_school_2026_gradient_flows_notes.pdf">These are (ChatGPT-edited) notes taken during Professor Jiewon Park&rsquo;s lectures on applications of Łojasiewicz-Simon inequalities to gradient flows at the 2026 AMSI Winter School</a>. I also have notes from Professor Christoph Böhm&rsquo;s lectures at the same event that I hope to upload soon if I can get around to having an LLM edit them in a satisfactory way.</p>
+</li>
+</ul>
 
-<div id="game-container"></div>
-<head>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
-    <script type="module" src="http://localhost:1313/swbuchanan.github.io/js/main.js"></script>
+    </article>
+  </main>
 
-</head>
-<div class="multi-container">
-<div class="sketch">
-    <canvas id="draw-zone" class="sketch-child" width=800 height=500></canvas>
-    <p id="draw-zone-instruction" class="instruction">You can draw here!</p>
-    <button id="draw-zone-undo-button" class="button embedded-button">Undo</button>
-</div>
-</div>
-
-<canvas id="display-zone" width=500 height=500></canvas>
-
-
-        
-    </div>
-
-    <div class="sidebar">
-        
-        
-    </div>
-</main>
-
-    <footer id="footer">
-
-</footer>
+    
 
   </div>
 
   
-  <script src='http://localhost:1313/swbuchanan.github.io/js/script.js' defer></script>
-
+  
+    <script src="/js/site.7cc049d29662a418dbbf51fed340090a4d29fdf7ce56f52255b6f56ade297753.js" integrity="sha256-fMBJ0pZipBjbv1H&#43;00AJCk0p/ffOVvUiVbb1at4pd1M=" crossorigin="anonymous" defer></script>
   
   
-
   
-  
-
-  
-  
-
 </body>
-
 </html>

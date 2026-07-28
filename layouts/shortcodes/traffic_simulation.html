@@ -1,13 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canvas Curve</title>
-</head>
-<body>
-  <canvas id="trafficCanvas" style="width: 100%; border:0px solid #000000;"></canvas>
-  <script src="{{ .Site.BaseURL }}js/traffic_simulation.js"></script>
-</body>
-</html>
-
+<figure class="traffic-simulation" style="margin:1.5rem 0">
+  <canvas
+    id="trafficCanvas"
+    width="1200"
+    height="160"
+    role="img"
+    aria-label="Animated traffic-flow simulation"
+    style="display:block;width:100%;height:auto"
+  >
+    Your browser does not support this traffic-flow animation.
+  </canvas>
+  <figcaption>
+    A simulation of traffic moving around a circular road, shown unwrapped as a line.
+  </figcaption>
+</figure>
+{{- if not (.Page.Scratch.Get "traffic-simulation-script") }}
+  {{- .Page.Scratch.Set "traffic-simulation-script" true }}
+  {{- $options := dict "targetPath" "js/traffic_simulation.js" "target" "es2018" "minify" hugo.IsProduction }}
+  {{- with resources.Get "ts/traffic_simulation.ts" | js.Build $options | fingerprint }}
+    <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{- end }}
+{{- end }}

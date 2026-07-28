@@ -1,5 +1,269 @@
+<!doctype html>
+<html lang="en-AU" style="font-size: 125%">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Steven Buchanan">
 
+  
+    <meta name="description" content="An algorithm to detect triangles in a graph
+Recently I was looking through Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra.
+One of the applications is an algorithm to efficiently detect a triangle in a graph, such as the following.
+(There is an obvious algorithm that works by enumerating all possible triplets of vertices and checking them one at a time; this involves some multiple of $n^3$ steps, where $n$ is the number of vertices.
+That is, the algorithm has $O(n^3)$ time complexity, which is really bad.)">
+  
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
 
-<script src="/swbuchanan.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=swbuchanan.github.io/livereload" data-no-instant defer></script><script defer language="javascript" type="text/javascript"  src="/js/phaser-game.js"></script>
+  
+    <meta name="keywords" content="mathematics, geometry, probability, algorithms, Steven Buchanan">
+  
 
+  
+    <link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+  
+
+  
+
+  <meta property="og:url" content="http://localhost:1313/posts/graph-cycle-detection/">
+	<meta property="og:site_name" content="Steven Buchanan">
+	<meta property="og:title" content="Detecting 4-cycles in a graph is easier than detecting triangles">
+	<meta property="og:description" content="An algorithm to detect triangles in a graph Recently I was looking through Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra. One of the applications is an algorithm to efficiently detect a triangle in a graph, such as the following. (There is an obvious algorithm that works by enumerating all possible triplets of vertices and checking them one at a time; this involves some multiple of $n^3$ steps, where $n$ is the number of vertices. That is, the algorithm has $O(n^3)$ time complexity, which is really bad.)">
+	<meta property="og:locale" content="en_AU">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2025-12-01T00:00:00+00:00">
+		<meta property="article:modified_time" content="2025-12-01T00:00:00+00:00">
+
+  <link rel="canonical" href="http://localhost:1313/posts/graph-cycle-detection/">
+  
+
+  
+  
+    <link rel="stylesheet" href="/css/common.min.bbdc90f94787080590c1ac3e8140a42bb2cc925ecdeb51df3c3939a12cebaa81.css" integrity="sha256-u9yQ&#43;UeHCAWQwaw&#43;gUCkK7LMkl7N61HfPDk5oSzrqoE=" crossorigin="anonymous">
+  
+
+  
+  
+    <link rel="stylesheet" href="/css/content.min.2c5930fab85e701669a95ff587419b4e716ead9c34247fb33190f80920c46969.css" integrity="sha256-LFkw&#43;rhecBZpqV/1h0GbTnFurZw0JH&#43;zMZD4CSDEaWk=" crossorigin="anonymous">
+  
+
+  
+    <title>Detecting 4-cycles in a graph is easier than detecting triangles - Steven Buchanan</title>
+  
+
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Detecting 4-cycles in a graph is easier than detecting triangles">
+	<meta name="twitter:description" content="An algorithm to detect triangles in a graph Recently I was looking through Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra. One of the applications is an algorithm to efficiently detect a triangle in a graph, such as the following. (There is an obvious algorithm that works by enumerating all possible triplets of vertices and checking them one at a time; this involves some multiple of $n^3$ steps, where $n$ is the number of vertices. That is, the algorithm has $O(n^3)$ time complexity, which is really bad.)">
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/single.min.be779f459ad7e3aaf8afd0f80c6a61ca6c50993f5f18512532100ac6d93f0fa9.css" integrity="sha256-vnefRZrX46r4r9D4DGphymxQmT9fGFElMhAKxtk/D6k=" crossorigin="anonymous">
+  
+
+  
+    <link rel="stylesheet" href="/css/site.css">
+  
+</head>
+<body>
+  <div id="wrapper">
+    <header id="header">
+  <div class="site-title">
+    <a href="/">Steven Buchanan</a>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" type="button" aria-label="Toggle colour theme" aria-pressed="false">
+      <svg aria-hidden="true" width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+        <path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav aria-label="Primary navigation">
+    
+      <span class="nav-bar-item">
+        <a class="link" href="/posts/">Writing</a>
+      </span>
+    
+      <span class="nav-bar-item">
+        <a class="link" href="/cool-stuff/">Projects</a>
+      </span>
+    
+      <span class="nav-bar-item">
+        <a class="link" href="https://github.com/swbuchanan">GitHub</a>
+      </span>
+    
+  </nav>
+</header>
+<hr class="head-rule">
+
+    
+  <main id="main" class="post">
+    <header class="post-heading">
+      <h1 class="post-title">Detecting 4-cycles in a graph is easier than detecting triangles</h1>
+      
+        <div class="publish-metadata">
+          <time datetime="2025-12-01">
+            1 December 2025
+          </time>
+          
+            <span>697 words</span>
+          
+          
+            <span>About 4 minutes</span>
+          
+        </div>
+      
+    </header>
+
+    
+
+    
+      
+        <details>
+          <summary><strong>Table of contents</strong></summary>
+          <div class="toc numbered-subtitles">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#an-algorithm-to-detect-triangles-in-a-graph">An algorithm to detect triangles in a graph</a></li>
+    <li><a href="#an-algorithm-to-detect-4-cycles-in-a-graph">An algorithm to detect 4-cycles in a graph</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+          </div>
+        </details>
+      
+    
+
+    <article class="content numbered-subtitles">
+      <h2 id="an-algorithm-to-detect-triangles-in-a-graph">An algorithm to detect triangles in a graph</h2>
+<p>Recently I was looking through <a href="https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf">Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra</a>.
+One of the applications is an algorithm to efficiently detect a triangle in a graph, such as the following.
+(There is an obvious algorithm that works by enumerating all possible triplets of vertices and checking them one at a time; this involves some multiple of $n^3$ steps, where $n$ is the number of vertices.
+That is, the algorithm has $O(n^3)$ time complexity, which is really bad.)</p>
+<p><img src="graph-example.png" alt="A graph with one triangle highlighted in blue."></p>
+<p>The algorithm works in the following way.
+Construct the adjacency matrix of the graph.
+This is done by labeling the vertices with numbers $1, 2, \dots, v$, where $v$ is the number of vertices.
+Then, the entry in row $i$, column $j$ of the matrix is $1$ if there is an edge between vertex $i$ and vertex $j$, and 0 otherwise.
+This gives us a matrix that encodes exactly the same information as the &ldquo;dots and lines&rdquo; representation of a graph.
+For example, this graph:</p>
+<p><img src="labeled-graph.png" alt="A four-vertex graph containing a triangle."></p>
+<p>has adjacency matrix
+$
+\begin{bmatrix}
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 1 &amp; 0
+\end{bmatrix}.
+$</p>
+<p>For the graph where we want to find triangles, call its adjacency matrix $A$.
+Now the key is to consider the square of this matrix, $A^2$.
+By definition of matrix multiplication, the entry in row $i$, column $j$ of this matrix will be (here $a_{m, n}$ denotes the entry in row $m$, column $n$ of matrix $A$)
+$$
+b_{i,j} = a_{i,1} a_{1,j} + a_{i, 2} a_{2,j} + \cdots + a_{i, v} a_{v, j}.
+$$
+Note that</p>
+<p>$$
+a_{i,k}a_{k,j} =
+\begin{cases}
+1 &amp; \text{if the vertex $k$ is adjacent to both $i$ and $j$}, \\
+0 &amp; \text{otherwise,}
+\end{cases}
+$$
+from which it follows that $b_{i,j}$ is the number of neighbors that are common to vertex $i$ and vertex $j$.
+We&rsquo;re almost done.
+To find a triangle, we just have to find a pair of vertices that are connected to each other and have a common neighbor.
+With the matrices that we&rsquo;ve constructed, this amounts to finding some values for $i$ and $j$ for which both:</p>
+<ul>
+<li>$a_{i,j} \neq 0$ (meaning that $i$ and $j$ are connected to each other) and</li>
+<li>$b_{i,j} \neq 0$ (meaning that $i$ and $j$ have a common neighbor).</li>
+</ul>
+<p>Thus we merely have to inspect the matrices $A$ and $A^2$ to find the triangle.
+To summarize, our algorithm goes like this:</p>
+<ol>
+<li>Construct the adjacency matrix for the graph.</li>
+<li>Square the adjacency matrix.</li>
+<li>Compare the adjacency matrix with its square to see if there are nonzero entries in matching cells.</li>
+</ol>
+<p>The complexity bottleneck in this algorithm is in the second step.
+Currently it is conjectured but not proven that matrix multiplication can be done by an algorithm with $O(n^2)$ steps.
+The algorithm that is used most often in practice (Strassen&rsquo;s algorithm) has complexity around $O(n^{2.807})$.
+The best theoretical bound is $O(n^{2.371339})$, but this and other &ldquo;improvements&rdquo; on Strassen&rsquo;s algorithm are not used in practice since the constants hidden by the big-O notation are impractically large for the size of matrices that current computers can deal with.
+In any case, we can safely say that our algorithm to detect triangles is significantly worse than $O(n^2)$.</p>
+<h2 id="an-algorithm-to-detect-4-cycles-in-a-graph">An algorithm to detect 4-cycles in a graph</h2>
+<p>This is a case where a more complicated problem actually has a simpler solution.
+A triangle in a graph is also called a 3-cycle, since it is 3 vertices that form a closed loop.
+Similarly, we can ask about the existence of 4 vertices in a closed loop.</p>
+<p>There is a very straightforward algorithm to check for 4-cycles:</p>
+<ul>
+<li>enumerate through all pairs of vertices $u$ and $v$ (this is $O(n^2)$)</li>
+<li>compute the vertices that $u$ and $v$ have in common (this is $O(n^2)$ or better)</li>
+<li>if the set of common vertices ever contains more than one element, we have found the 4-cycle.</li>
+</ul>
+<p>So we see that this seemingly more complex problem is strictly easier, requiring only $O(n^2)$ steps.</p>
+<h2 id="references">References</h2>
+<ol>
+<li>
+<p><a href="https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.25/LIPIcs.FSTTCS.2023.25.pdf">Abboud, Khoury, Leibowitz, Safier—Listing 4-cycles</a></p>
+</li>
+<li>
+<p><a href="https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf">Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra</a>.</p>
+</li>
+</ol>
+
+    </article>
+
+    <button id="back-to-top" type="button">Back to top</button>
+
+    
+      <nav class="paginator" aria-label="Adjacent articles">
+        <span>
+          
+            <a class="link" href="/posts/implied_stock_distributions/" title="A project on implied probability density functions for asset prices">← Previous</a>
+          
+        </span>
+        <span>
+          
+            <a class="link" href="/posts/traffic_simulation/" title="Nagel-Schreckenberg traffic simulation">Next →</a>
+          
+        </span>
+      </nav>
+    
+
+    
+
+    
+  </main>
+
+    
+
+  </div>
+
+  
+  
+    <script src="/js/site.7cc049d29662a418dbbf51fed340090a4d29fdf7ce56f52255b6f56ade297753.js" integrity="sha256-fMBJ0pZipBjbv1H&#43;00AJCk0p/ffOVvUiVbb1at4pd1M=" crossorigin="anonymous" defer></script>
+  
+  
+  
+</body>
+</html>

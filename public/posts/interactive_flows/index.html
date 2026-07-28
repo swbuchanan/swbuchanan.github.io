@@ -1,5 +1,237 @@
+<!doctype html>
+<html lang="en-AU" style="font-size: 125%">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Steven Buchanan">
+
+  
+    <meta name="description" content="Network flow
+This is an example of a geometric flow on a graph.
+Vertices flow in the direction defined by the &ldquo;sum&rdquo; of all the edges connected to them, where the sum is defined by treating the edges as vectors.
+Vertices with a single edge do not move.
+Select empty space to add points.
+Once you&rsquo;ve added some points, right-drag to add edges between them.
+Drag a point to move it.">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+
+  
+    <meta name="keywords" content="mathematics, geometry, probability, algorithms, Steven Buchanan">
+  
+
+  
+
+  
+
+  <meta property="og:url" content="http://localhost:1313/posts/interactive_flows/">
+	<meta property="og:site_name" content="Steven Buchanan">
+	<meta property="og:title" content="Some interactive demonstrations of geometric flows">
+	<meta property="og:description" content="Network flow This is an example of a geometric flow on a graph. Vertices flow in the direction defined by the “sum” of all the edges connected to them, where the sum is defined by treating the edges as vectors. Vertices with a single edge do not move.
+Select empty space to add points.
+Once you’ve added some points, right-drag to add edges between them. Drag a point to move it.">
+	<meta property="og:locale" content="en_AU">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2023-09-15T00:00:00+00:00">
+		<meta property="article:modified_time" content="2025-10-30T22:26:29-04:00">
+
+  <link rel="canonical" href="http://localhost:1313/posts/interactive_flows/">
+  
+
+  
+  
+    <link rel="stylesheet" href="/css/common.min.bbdc90f94787080590c1ac3e8140a42bb2cc925ecdeb51df3c3939a12cebaa81.css" integrity="sha256-u9yQ&#43;UeHCAWQwaw&#43;gUCkK7LMkl7N61HfPDk5oSzrqoE=" crossorigin="anonymous">
+  
+
+  
+  
+    <link rel="stylesheet" href="/css/content.min.2c5930fab85e701669a95ff587419b4e716ead9c34247fb33190f80920c46969.css" integrity="sha256-LFkw&#43;rhecBZpqV/1h0GbTnFurZw0JH&#43;zMZD4CSDEaWk=" crossorigin="anonymous">
+  
+
+  
+    <title>Some interactive demonstrations of geometric flows - Steven Buchanan</title>
+  
+
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Some interactive demonstrations of geometric flows">
+	<meta name="twitter:description" content="Network flow This is an example of a geometric flow on a graph. Vertices flow in the direction defined by the “sum” of all the edges connected to them, where the sum is defined by treating the edges as vectors. Vertices with a single edge do not move.
+Select empty space to add points.
+Once you’ve added some points, right-drag to add edges between them. Drag a point to move it.">
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/single.min.be779f459ad7e3aaf8afd0f80c6a61ca6c50993f5f18512532100ac6d93f0fa9.css" integrity="sha256-vnefRZrX46r4r9D4DGphymxQmT9fGFElMhAKxtk/D6k=" crossorigin="anonymous">
+  
+
+  
+    <link rel="stylesheet" href="/css/site.css">
+  
+</head>
+<body>
+  <div id="wrapper">
+    <header id="header">
+  <div class="site-title">
+    <a href="/">Steven Buchanan</a>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" type="button" aria-label="Toggle colour theme" aria-pressed="false">
+      <svg aria-hidden="true" width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+        <path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav aria-label="Primary navigation">
+    
+      <span class="nav-bar-item">
+        <a class="link" href="/posts/">Writing</a>
+      </span>
+    
+      <span class="nav-bar-item">
+        <a class="link" href="/cool-stuff/">Projects</a>
+      </span>
+    
+      <span class="nav-bar-item">
+        <a class="link" href="https://github.com/swbuchanan">GitHub</a>
+      </span>
+    
+  </nav>
+</header>
+<hr class="head-rule">
+
+    
+  <main id="main" class="post">
+    <header class="post-heading">
+      <h1 class="post-title">Some interactive demonstrations of geometric flows</h1>
+      
+        <div class="publish-metadata">
+          <time datetime="2023-09-15">
+            15 September 2023
+          </time>
+          
+            <span>289 words</span>
+          
+          
+            <span>About 2 minutes</span>
+          
+        </div>
+      
+    </header>
+
+    
+
+    
+      
+        <details>
+          <summary><strong>Table of contents</strong></summary>
+          <div class="toc numbered-subtitles">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#network-flow">Network flow</a></li>
+    <li><a href="#discrete-curve-shortening-flow">Discrete curve shortening flow</a></li>
+  </ul>
+</nav>
+          </div>
+        </details>
+      
+    
+
+    <article class="content numbered-subtitles">
+      <h2 id="network-flow">Network flow</h2>
+<p>This is an example of a geometric flow on a graph.
+Vertices flow in the direction defined by the &ldquo;sum&rdquo; of all the edges connected to them, where the sum is defined by treating the edges as vectors.
+Vertices with a single edge do not move.</p>
+<p>Select empty space to add points.</p>
+<p>Once you&rsquo;ve added some points, right-drag to add edges between them.
+Drag a point to move it.</p>
+<p>Once you&rsquo;ve added a few points and a few edges, click the toggle animation button to see it move.</p>
+<figure class="network-flow-demo" style="margin:1.5rem 0">
+  <canvas
+    id="networkFlowCanvas"
+    width="1200"
+    height="800"
+    tabindex="0"
+    aria-label="Interactive network-flow canvas"
+    style="display:block;width:100%;height:auto;border:1px solid currentColor;touch-action:none"
+  >
+    Your browser does not support this interactive canvas.
+  </canvas>
+  <div role="group" aria-label="Network-flow controls" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem">
+    <button id="clearButton" type="button">Clear</button>
+    <button id="stepButton" type="button">Step</button>
+    <button id="toggleButton" type="button">Toggle animation</button>
+  </div>
+  <figcaption style="margin-top:.5rem">
+    Select empty space to add a vertex. Drag a vertex to move it; right-drag between vertices to add an edge.
+  </figcaption>
+</figure>
+    <script defer src="/js/networkflow.be4a0d6e5255b57a54fc375fecd782809b168d23b2b5843b278c0371758a8f11.js" integrity="sha256-vkoNblJVtXpU/Ddf7NeCgJsWjSOytYQ7J4wDcXWKjxE=" crossorigin="anonymous"></script>
+
+<h2 id="discrete-curve-shortening-flow">Discrete curve shortening flow</h2>
+<p>Select the canvas to add points and form a closed polygon (you need at least two points before anything appears), then use the controls to evolve it.
+Once there are at least three points, the normal vectors at the vertices are displayed.
+Select <strong>Step</strong> to move one time step forward and simulate the polygon&rsquo;s motion under discrete curve shortening flow.
+When only two points remain, the flow degenerates. When two points get too close, the simulation replaces them with one point; this introduces some small numerical discontinuities in the normal vectors.</p>
+<p>You can find a more polished demonstration of a slightly different form of curve shortening flow on <a href="https://a.carapetis.com/csf/">Anthony Carapetis&rsquo;s site</a>.</p>
+<p>This is still a work in progress. Some polygons disappear almost immediately; if that happens with a reasonably large polygon, try drawing it again.</p>
+<figure class="canvas-curve-demo" style="margin:1.5rem 0">
+  <canvas
+    id="myCanvas"
+    width="1200"
+    height="800"
+    tabindex="0"
+    aria-label="Interactive discrete curve-shortening canvas"
+    style="display:block;width:100%;height:auto;border:1px solid currentColor;touch-action:manipulation"
+  >
+    Your browser does not support this interactive canvas.
+  </canvas>
+  <div role="group" aria-label="Curve controls" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem">
+    <button id="canvasCurveClearButton" type="button">Clear</button>
+    <button id="canvasCurveStepButton" type="button">Step</button>
+    <button id="canvasCurveToggleButton" type="button">Toggle animation</button>
+  </div>
+  <figcaption style="margin-top:.5rem">
+    Select points on the canvas to draw a closed polygon, then step or animate the flow.
+  </figcaption>
+</figure>
+    <script defer src="/js/canvas.d4bfc717744c1dd3a61ac85e95fb5de009b6d235422c7aa15bcdb9fae39d0a60.js" integrity="sha256-1L/HF3RMHdOmGshelftd4Am20jVCLHqhW825&#43;uOdCmA=" crossorigin="anonymous"></script>
 
 
+    </article>
 
-<script src="/swbuchanan.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=swbuchanan.github.io/livereload" data-no-instant defer></script><script defer language="javascript" type="text/javascript"  src="/js/phaser-game.js"></script>
+    <button id="back-to-top" type="button">Back to top</button>
 
+    
+      <nav class="paginator" aria-label="Adjacent articles">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="link" href="/posts/2023-01-03-my-research-part-1/" title="My research, part 1">Next →</a>
+          
+        </span>
+      </nav>
+    
+
+    
+
+    
+  </main>
+
+    
+
+  </div>
+
+  
+  
+    <script src="/js/site.7cc049d29662a418dbbf51fed340090a4d29fdf7ce56f52255b6f56ade297753.js" integrity="sha256-fMBJ0pZipBjbv1H&#43;00AJCk0p/ffOVvUiVbb1at4pd1M=" crossorigin="anonymous" defer></script>
+  
+  
+  
+</body>
+</html>

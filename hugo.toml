@@ -1,84 +1,53 @@
-baseURL = "https://swbuchanan.github.io/swbuchanan.github.io"
-#baseURL = "https://stevenbuchanan.net"
-#relativeURLs = true
-disqusShortname = ""
+baseURL = "https://swbuchanan.github.io/"
+disableKinds = ["taxonomy", "term"]
 enableGitInfo = true
 enableRobotsTXT = true
-hasCJKLanguage = true
-languageCode = "en"
-paginate = 5
+locale = "en-AU"
 rssLimit = 10
 theme = "hugo-texify3s"
-title = "Steven's website"
+title = "Steven Buchanan"
+
+[build]
+noJSConfigInAssets = true
+useResourceCacheWhen = "never"
+
+[module.hugoVersion]
+min = "0.164.0"
 
 [params.author]
 name = "Steven Buchanan"
-email = "placeholder@gmail.com"
-
-[taxonomies]
-tags = "tags"
-categories = "categories"
 
 [params]
-title="Steven Buchanan"
-description = ""
-footnote = """
-Powered by  <a class=link href=https://gohugo.io target=_blank rel=noopener>Hugo</a> | 
-Theme <a class=link href=https://github.com/michaelneuper/hugo-texify3 target=_blank rel=noopener>TeXify3</a>
-"""
-customCSS = []
+title = "Steven Buchanan"
+description = "Mathematics, research notes, and interactive demonstrations by Steven Buchanan."
+keywords = ["mathematics", "geometry", "probability", "algorithms", "Steven Buchanan"]
+footnote = ""
+customCSS = ["css/site.css"]
 customJS = []
 dateFormat = "2 January 2006"
-emphasisWithDots = true
 toc = true
 rootFontSize = "125%"
-math = true
-enableDuckDuckGoSearchBox = true
+math = false
+enableDuckDuckGoSearchBox = false
 numberedSubtitles = true
 
-  [params.commentEngine]
-  code = """
-  <script src="https://giscus.app/client.js"
-        data-repo="michaelneuper/hugo-texify3"
-        data-repo-id="R_kgDOIjPNaQ"
-        data-category="General"
-        data-category-id="DIC_kwDOIjPNac4CaklA"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme=""
-        data-lang="en"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-  </script>
-  """
+[params.commentEngine]
+code = ""
 
-#  [params.buymeacoffee]
-#  code = """
-#  <script async data-name="BMC-Widget" 
-#        data-cfasync="true" 
-#        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" 
-#        data-id="michaelneuper" 
-#        data-description="Like what I do? Buy me a coffee!" 
-#        data-message="" 
-#        data-color="#d79921" 
-#        data-position="Right" 
-#        data-x_margin="18" 
-#        data-y_margin="18"
-#        crossorigin="anonymous">
-#  </script>
-#  """
+[[menu.main]]
+identifier = "posts"
+name = "Writing"
+url = "/posts/"
+weight = 10
 
+[[menu.main]]
+identifier = "cool-stuff"
+name = "Projects"
+url = "/cool-stuff/"
+weight = 20
 
-  [params.sharingbuttons]
-  facebook = false
-  twitter = false
-  email = false
-  linkedin = false
-  reddit = false
-  whatsapp = false
-  hackernews = false
-  telegram = false
+[[menu.main]]
+identifier = "github"
+name = "GitHub"
+url = "https://github.com/swbuchanan"
+weight = 30

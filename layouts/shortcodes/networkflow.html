@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canvas Curve</title>
-</head>
-<body>
-  <canvas id="networkFlowCanvas" width="1200" height="800" style="border:1px solid #000000;"></canvas>
-  <button id="clearButton">Clear</button>
-  <button id="stepButton">Step</button>
-  <button id="toggleButton">Toggle animation</button>
-  <script src="{{ .Site.BaseURL }}js/networkflow.js"></script>
-</body>
-</html>
-
+<figure class="network-flow-demo" style="margin:1.5rem 0">
+  <canvas
+    id="networkFlowCanvas"
+    width="1200"
+    height="800"
+    tabindex="0"
+    aria-label="Interactive network-flow canvas"
+    style="display:block;width:100%;height:auto;border:1px solid currentColor;touch-action:none"
+  >
+    Your browser does not support this interactive canvas.
+  </canvas>
+  <div role="group" aria-label="Network-flow controls" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem">
+    <button id="clearButton" type="button">Clear</button>
+    <button id="stepButton" type="button">Step</button>
+    <button id="toggleButton" type="button">Toggle animation</button>
+  </div>
+  <figcaption style="margin-top:.5rem">
+    Select empty space to add a vertex. Drag a vertex to move it; right-drag between vertices to add an edge.
+  </figcaption>
+</figure>
+{{- if not (.Page.Scratch.Get "network-flow-script") }}
+  {{- .Page.Scratch.Set "network-flow-script" true }}
+  {{- $options := dict "targetPath" "js/networkflow.js" "target" "es2018" "minify" hugo.IsProduction }}
+  {{- with resources.Get "ts/networkflow.ts" | js.Build $options | fingerprint }}
+    <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{- end }}
+{{- end }}

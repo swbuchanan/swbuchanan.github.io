@@ -2,6 +2,7 @@
 title = 'Some mathematical questions about Tetris'
 date = 2025-04-11T23:20:32+11:00
 draft = true
+math = true
 +++
 
 
@@ -17,7 +18,7 @@ https://open.library.ubc.ca/media/stream/pdf/831/1.0079748/1
 The thesis answers the question of whether or not it's possible for a game of Tetris to go on indefinitely.
 Of course a slightly idealized version of the game is examined in the mathematical analysis; for example we don't consider the time that it takes to place the piece.
 In the arcade version of the game, the speed of the pieces increases as the game progresses and the game gets more difficult.
-It seems natural to ignore this part of the game 
+It seems natural to ignore this part of the game
 
 
 However, in many versions of Tetris, there are some features that enable one to play indefinitely, with a reasonably simple strategy.

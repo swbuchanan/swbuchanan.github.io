@@ -1,6 +1,7 @@
 ---
 title: "An unintuitive fact about random drawings with and without replacement"
 date: 2025-06-13
+math: true
 ---
 
 Here's an odd fact that I came across while doing a probability puzzle.

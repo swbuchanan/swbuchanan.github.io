@@ -1,0 +1,79 @@
+{{ define "head" }}
+  {{ $singleOptions := dict "transpiler" "dartsass" "targetPath" "css/single.css" "silenceDeprecations" (slice "import") }}
+  {{ with resources.Get "sass/layouts/single.scss" | toCSS $singleOptions | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+  {{ end }}
+{{ end }}
+
+{{ define "main" }}
+  <main id="main" class="post">
+    <header class="post-heading">
+      <h1 class="post-title">{{ .Title }}</h1>
+      {{ if eq .Section "posts" }}
+        <div class="publish-metadata">
+          <time datetime="{{ .PublishDate.Format "2006-01-02" }}">
+            {{ .PublishDate.Format .Site.Params.dateFormat }}
+          </time>
+          {{ if .Site.Params.showWordCount }}
+            <span>{{ .WordCount }} words</span>
+          {{ end }}
+          {{ if .Site.Params.showReadingTime }}
+            <span>About {{ .ReadingTime }} {{ if eq .ReadingTime 1 }}minute{{ else }}minutes{{ end }}</span>
+          {{ end }}
+        </div>
+      {{ end }}
+    </header>
+
+    {{ with .Params.tags }}
+      <nav class="post-tags" aria-label="Tags">
+        {{ range . }}
+          {{ $tagURL := printf "tags/%s/" (. | urlize) }}
+          <a class="link tag" href="{{ $tagURL | relURL }}">#{{ . }}</a>
+        {{ end }}
+      </nav>
+    {{ end }}
+
+    {{ if cond (ne .Params.toc nil) .Params.toc .Site.Params.toc }}
+      {{ if ne .TableOfContents "<nav id=\"TableOfContents\"></nav>" }}
+        <details>
+          <summary><strong>Table of contents</strong></summary>
+          <div class="toc {{ if .Site.Params.numberedSubtitles }}numbered-subtitles{{ end }}">
+            {{ .TableOfContents }}
+          </div>
+        </details>
+      {{ end }}
+    {{ end }}
+
+    <article class="content {{ if .Site.Params.numberedSubtitles }}numbered-subtitles{{ end }}">
+      {{ .Content }}
+    </article>
+
+    <button id="back-to-top" type="button">Back to top</button>
+
+    {{ if eq .Section "posts" }}
+      <nav class="paginator" aria-label="Adjacent articles">
+        <span>
+          {{ with .PrevInSection }}
+            <a class="link" href="{{ .RelPermalink }}" title="{{ .Title }}">← Previous</a>
+          {{ end }}
+        </span>
+        <span>
+          {{ with .NextInSection }}
+            <a class="link" href="{{ .RelPermalink }}" title="{{ .Title }}">Next →</a>
+          {{ end }}
+        </span>
+      </nav>
+    {{ end }}
+
+    {{ with .Site.Params.commentEngine.code }}
+      <div class="comment">{{ . | safeHTML }}</div>
+    {{ end }}
+
+    {{ if .Page.Store.Get "hasMermaid" }}
+      <script type="module">
+        import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+        mermaid.initialize({ startOnLoad: true });
+      </script>
+    {{ end }}
+  </main>
+{{ end }}

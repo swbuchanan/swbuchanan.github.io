@@ -1,0 +1,14 @@
+
+> swbuchanan-github-io@1.0.0 dev
+> hugo server --buildDrafts --disableFastRender
+
+WARN  Module "project" is not compatible with this Hugo version: Min 0.164.0; run "hugo mod graph" for more information.
+Watching for changes in /home/steven/swbuchanan.github.io/{archetypes,assets,content,layouts,package.json,static,themes}
+Watching for config changes in /home/steven/swbuchanan.github.io/hugo.toml, /home/steven/swbuchanan.github.io/themes/hugo-texify3s/config.toml, /home/steven/swbuchanan.github.io/themes/hugo-texify3s/config/_default
+Start building sites … 
+hugo v0.123.7+extended linux/amd64 BuildDate=2025-07-18T03:41:49Z VendorInfo=ubuntu:0.123.7-1ubuntu0.3
+
+ERROR render of "page" failed: "/home/steven/swbuchanan.github.io/layouts/_default/baseof.html:2:20": execute of template failed: template: _default/single.html:2:20: executing "_default/single.html" at <.Site.Language.Locale>: can't evaluate field Locale in type *langs.Language
+ERROR render of "home" failed: "/home/steven/swbuchanan.github.io/layouts/_default/baseof.html:2:20": execute of template failed: template: index.html:2:20: executing "index.html" at <.Site.Language.Locale>: can't evaluate field Locale in type *langs.Language
+Built in 93 ms
+Error: error building site: render: failed to render pages: render of "page" failed: "/home/steven/swbuchanan.github.io/layouts/_default/baseof.html:2:20": execute of template failed: template: _default/single.html:2:20: executing "_default/single.html" at <.Site.Language.Locale>: can't evaluate field Locale in type *langs.Language

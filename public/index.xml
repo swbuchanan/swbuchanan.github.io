@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Steven&#39;s website</title>
-    <link>http://localhost:1313/swbuchanan.github.io/</link>
-    <description>Recent content on Steven&#39;s website</description>
+    <title>Steven Buchanan</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Steven Buchanan</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>placeholder@gmail.com (Steven Buchanan)</managingEditor>
-    <webMaster>placeholder@gmail.com (Steven Buchanan)</webMaster><atom:link href="http://localhost:1313/swbuchanan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-AU</language>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A surprising probabilistic game</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/random-sample-game/</link>
+      <link>http://localhost:1313/posts/random-sample-game/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/random-sample-game/</guid>
+      <guid>http://localhost:1313/posts/random-sample-game/</guid>
       <description>&lt;p&gt;I recently read about a game with an optimal strategy that I found surprising.
 I&amp;rsquo;ll present the game and then the mathematical analysis.&lt;/p&gt;
 &lt;p&gt;The rules of the game are as follows.
@@ -32,76 +30,34 @@ If you tell the computer not to play optimally, it will simply redraw if the fir
 &lt;p&gt;With the slider or the text entry box, you can select a number $r$.
 Then when the game is played, you will automatically redraw if your first number is below $r$.
 Otherwise you will keep the first number that you draw.&lt;/p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34; /&gt;
-    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
-    &lt;title&gt;Probabilistic Game&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-
-	
-	
-	
-
-    &lt;div class=&#34;row&#34;&gt;
-      &lt;label for=&#34;cutoffSlider&#34;&gt;Choose a value for $r$ (between $0$ and $1$):&lt;/label&gt;
-      &lt;input
-        id=&#34;cutoffSlider&#34;
-        type=&#34;range&#34;
-        min=&#34;0&#34;
-        max=&#34;1&#34;
-        step=&#34;0.01&#34;
-        value=&#34;0.50&#34;
-      /&gt;
-      &lt;input id=&#34;cutoffInput&#34; type=&#34;text&#34; value=&#34;0.50&#34; /&gt;
-    &lt;/div&gt;
-
-	&lt;div class=&#34;row&#34;&gt;
-		&lt;label for=&#34;computerPlaysOptimal&#34;&gt;Computer plays optimally:&lt;/label&gt;
-		&lt;input id=&#34;computerPlaysOptimal&#34; type=&#34;checkbox&#34; checked /&gt;
-	&lt;/div&gt;
-
-    &lt;div class=&#34;row&#34;&gt;
-      &lt;button id=&#34;startButton&#34;&gt;Run 10,000 sims&lt;/button&gt;
-      &lt;button id=&#34;resetButton&#34;&gt;Reset&lt;/button&gt;
-    &lt;/div&gt;
-
-    &lt;div id=&#34;output&#34;&gt;
-		Press the run sims button to run $10{\small ,}000$ iterations of the game to test out your strategy.
-    &lt;/div&gt;
-
-    
-	&lt;script src=&#34;http://localhost:1313/swbuchanan.github.io/js/random_sample_game.js&#34;&gt;&lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+&lt;section class=&#34;probabilistic-game&#34; aria-label=&#34;Probabilistic game simulator&#34; style=&#34;display:grid;gap:1rem;margin:1.5rem 0&#34;&gt;
+  &lt;div style=&#34;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center&#34;&gt;
+    &lt;label for=&#34;cutoffSlider&#34;&gt;Choose a value for $r$ (between $0$ and $1$):&lt;/label&gt;
+    &lt;input id=&#34;cutoffSlider&#34; type=&#34;range&#34; min=&#34;0&#34; max=&#34;1&#34; step=&#34;0.01&#34; value=&#34;0.50&#34;&gt;
+    &lt;input
+      id=&#34;cutoffInput&#34;
+      type=&#34;number&#34;
+      min=&#34;0&#34;
+      max=&#34;1&#34;
+      step=&#34;0.001&#34;
+      value=&#34;0.500&#34;
+      aria-label=&#34;Value of r&#34;
+      style=&#34;width:7rem&#34;
+    &gt;
+  &lt;/div&gt;
+  &lt;label&gt;
+    &lt;input id=&#34;computerPlaysOptimal&#34; type=&#34;checkbox&#34; checked&gt;
+    Computer plays optimally
+  &lt;/label&gt;
+  &lt;div role=&#34;group&#34; aria-label=&#34;Simulation controls&#34; style=&#34;display:flex;flex-wrap:wrap;gap:.5rem&#34;&gt;
+    &lt;button id=&#34;startButton&#34; type=&#34;button&#34;&gt;Run 10,000 simulations&lt;/button&gt;
+    &lt;button id=&#34;resetButton&#34; type=&#34;button&#34;&gt;Reset&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;output id=&#34;output&#34; aria-live=&#34;polite&#34;&gt;
+    Run $10{\small ,}000$ iterations of the game to test your strategy.
+  &lt;/output&gt;
+&lt;/section&gt;
+    &lt;script defer src=&#34;http://localhost:1313/js/random_sample_game.878a21ddf0bdbd07205e139f6a2df0432da8e8e4d2a6dc3e5b4d5d5c00da002a.js&#34; integrity=&#34;sha256-h4oh3fC9vQcgXhOfai3wQy2o6OTSptw&amp;#43;W01dXADaACo=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;Did you notice anything surprising?
 The optimal strategy for this game is not simply to redraw whenever the first number is below $\frac 1 2.$
@@ -175,13 +131,11 @@ The final exercises for the reader are&lt;/p&gt;
 &lt;/ul&gt;
 </description>
     </item>
-    
     <item>
       <title>Nagel-Schreckenberg traffic simulation</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/traffic_simulation/</link>
+      <link>http://localhost:1313/posts/traffic_simulation/</link>
       <pubDate>Thu, 11 Dec 2025 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/traffic_simulation/</guid>
+      <guid>http://localhost:1313/posts/traffic_simulation/</guid>
       <description>&lt;p&gt;In &lt;a href=&#34;https://artowen.su.domains/mc/Ch-intro.pdf&#34;&gt;this&lt;/a&gt; text book available online about Monte Carlo simulation, the first example given is a traffic simulation that shows how traffic jams can emerge seemingly out of nowhere, even when there aren&amp;rsquo;t any particularly bad drivers or disruptive incidents on the road.
 Below is a small demonstration of traffic following the &lt;strong&gt;Nagel-Schreckenberg&lt;/strong&gt; simulation rules.
 Based on these rules, we have the following setup:&lt;/p&gt;
@@ -203,43 +157,44 @@ For each car,&lt;/p&gt;
 &lt;p&gt;Here is a simulation following these rules with a road that wraps around (so the drivers are effectively driving in a circle).
 The road has length 700, there are 100 drivers, and the probability of braking is around $1/3$.
 The maximum speed is 3.&lt;/p&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-  &lt;meta charset=&#34;UTF-8&#34;&gt;
-  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
-  &lt;title&gt;Canvas Curve&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;canvas id=&#34;trafficCanvas&#34; style=&#34;width: 100%; border:0px solid #000000;&#34;&gt;&lt;/canvas&gt;
-  &lt;script src=&#34;http://localhost:1313/swbuchanan.github.io/js/traffic_simulation.js&#34;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-
+&lt;figure class=&#34;traffic-simulation&#34; style=&#34;margin:1.5rem 0&#34;&gt;
+  &lt;canvas
+    id=&#34;trafficCanvas&#34;
+    width=&#34;1200&#34;
+    height=&#34;160&#34;
+    role=&#34;img&#34;
+    aria-label=&#34;Animated traffic-flow simulation&#34;
+    style=&#34;display:block;width:100%;height:auto&#34;
+  &gt;
+    Your browser does not support this traffic-flow animation.
+  &lt;/canvas&gt;
+  &lt;figcaption&gt;
+    A simulation of traffic moving around a circular road, shown unwrapped as a line.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+    &lt;script defer src=&#34;http://localhost:1313/js/traffic_simulation.c4cacbc662d0452fb7f560918628297b7d5aadec7674625c765c9553a2a28a58.js&#34; integrity=&#34;sha256-xMrLxmLQRS&amp;#43;39WCRhigpe31arex2dGJcdlyVU6Kiilg=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;I made this in a hurry but soon I hope to update this page with options to adjust the number of drivers, the maximum speed, and the probability $p$ of braking.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Detecting 4-cycles in a graph is easier than detecting triangles</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/graph-cycle-detection/</link>
+      <link>http://localhost:1313/posts/graph-cycle-detection/</link>
       <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/graph-cycle-detection/</guid>
+      <guid>http://localhost:1313/posts/graph-cycle-detection/</guid>
       <description>&lt;h2 id=&#34;an-algorithm-to-detect-triangles-in-a-graph&#34;&gt;An algorithm to detect triangles in a graph&lt;/h2&gt;
 &lt;p&gt;Recently I was looking through &lt;a href=&#34;https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf&#34;&gt;Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra&lt;/a&gt;.
 One of the applications is an algorithm to efficiently detect a triangle in a graph, such as the following.
 (There is an obvious algorithm that works by enumerating all possible triplets of vertices and checking them one at a time; this involves some multiple of $n^3$ steps, where $n$ is the number of vertices.
 That is, the algorithm has $O(n^3)$ time complexity, which is really bad.)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/graph_example.png&#34; alt=&#34;a graph with a triangle highlighted&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;graph-example.png&#34; alt=&#34;A graph with one triangle highlighted in blue.&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The algorithm works in the following way.
 Construct the adjacency matrix of the graph.
 This is done by labeling the vertices with numbers $1, 2, \dots, v$, where $v$ is the number of vertices.
 Then, the entry in row $i$, column $j$ of the matrix is $1$ if there is an edge between vertex $i$ and vertex $j$, and 0 otherwise.
 This gives us a matrix that encodes exactly the same information as the &amp;ldquo;dots and lines&amp;rdquo; representation of a graph.
 For example, this graph:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/swbuchanan.github.io/graph_example_2.png&#34; alt=&#34;a graph with labeled vertices&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;labeled-graph.png&#34; alt=&#34;A four-vertex graph containing a triangle.&#34;&gt;&lt;/p&gt;
 &lt;p&gt;has adjacency matrix
 $
 \begin{bmatrix}
@@ -266,13 +221,13 @@ $$
 from which it follows that $b_{i,j}$ is the number of neighbors that are common to vertex $i$ and vertex $j$.
 We&amp;rsquo;re almost done.
 To find a triangle, we just have to find a pair of vertices that are connected to each other and have a common neighbor.
-With the matrices that we&amp;rsquo;ve constructed, this amounts to finding some values for $i$ and $j$ for which both&lt;/p&gt;
+With the matrices that we&amp;rsquo;ve constructed, this amounts to finding some values for $i$ and $j$ for which both:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$a_{i,j} \neq 0$ (meaning that $i$ and $j$ are connected to each other) and&lt;/li&gt;
-&lt;li&gt;$b_{i,j} \neq 0$ (meaning that $i$ and $j$ have a common neighbor.
-Thus we merely have to inspect the  matrices $A$, $A^2$ to find the triangle.
-To summarize, our algorithm goes like this:&lt;/li&gt;
+&lt;li&gt;$b_{i,j} \neq 0$ (meaning that $i$ and $j$ have a common neighbor).&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Thus we merely have to inspect the matrices $A$ and $A^2$ to find the triangle.
+To summarize, our algorithm goes like this:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Construct the adjacency matrix for the graph.&lt;/li&gt;
 &lt;li&gt;Square the adjacency matrix.&lt;/li&gt;
@@ -297,7 +252,7 @@ Similarly, we can ask about the existence of 4 vertices in a closed loop.&lt;/p&
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.25/LIPIcs.FSTTCS.2023.25.pdf?&#34;&gt;Abboud, Khoury, Leibowitz, Safier - Listing 4-cycles&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.25/LIPIcs.FSTTCS.2023.25.pdf&#34;&gt;Abboud, Khoury, Leibowitz, Safier—Listing 4-cycles&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf&#34;&gt;Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra&lt;/a&gt;.&lt;/p&gt;
@@ -305,25 +260,21 @@ Similarly, we can ask about the existence of 4 vertices in a closed loop.&lt;/p&
 &lt;/ol&gt;
 </description>
     </item>
-    
     <item>
       <title>A project on implied probability density functions for asset prices</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/implied_stock_distributions/</link>
+      <link>http://localhost:1313/posts/implied_stock_distributions/</link>
       <pubDate>Tue, 04 Nov 2025 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/implied_stock_distributions/</guid>
+      <guid>http://localhost:1313/posts/implied_stock_distributions/</guid>
       <description>&lt;p&gt;I recently completed a project for an online course in computational quant finance.
 The project is about how to derive a certain probability density function for an asset at a date in the future by looking at options that expire on that date.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://nbviewer.org/github/swbuchanan/implied-stock-distributions/blob/main/project.ipynb&#34;&gt;View the project notebook on nbviewer.&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>An unintuitive fact about random drawings with and without replacement</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/an_unintuitive_fact_about_drawing_with_replacement/</link>
+      <link>http://localhost:1313/posts/an_unintuitive_fact_about_drawing_with_replacement/</link>
       <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/an_unintuitive_fact_about_drawing_with_replacement/</guid>
+      <guid>http://localhost:1313/posts/an_unintuitive_fact_about_drawing_with_replacement/</guid>
       <description>&lt;p&gt;Here&amp;rsquo;s an odd fact that I came across while doing a probability puzzle.
 I&amp;rsquo;ll start by presenting a version of this puzzle; I hope you have the patience to try it yourself, at least for a minute or two.
 I&amp;rsquo;ll present it in two parts.
@@ -380,26 +331,24 @@ Fortunately, the linearity of expectation does not require the random variables 
 &lt;/div&gt;
 </description>
     </item>
-    
     <item>
       <title>Running every street in Canberra</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/running-canberra/</link>
+      <link>http://localhost:1313/posts/running-canberra/</link>
       <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/running-canberra/</guid>
-      <description>&lt;p&gt;Inspired by &lt;a href=&#34;pac.tom7.org/index.shtml&#34;&gt;this guy&lt;/a&gt;, who also has a great &lt;a href=&#34;https://www.youtube.com/watch?v=1c8i5SABqwU&#34;&gt;youtube channel&lt;/a&gt;, I have recently decided to run the length of every street in Canberra, where I&amp;rsquo;m currently staying for school.
+      <guid>http://localhost:1313/posts/running-canberra/</guid>
+      <description>&lt;p&gt;Inspired by &lt;a href=&#34;https://pac.tom7.org/index.shtml&#34;&gt;Tom7&amp;rsquo;s project&lt;/a&gt;, who also has a great &lt;a href=&#34;https://www.youtube.com/watch?v=1c8i5SABqwU&#34;&gt;YouTube channel&lt;/a&gt;, I have recently decided to run the length of every street in Canberra, where I&amp;rsquo;m currently staying for school.
 Soon I hope to update this page with some rules for the project and some information about how I&amp;rsquo;m gathering and processing the data.
-For now, &lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/all_routes.html&#34;&gt;here&amp;rsquo;s my current progress&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This project has been put on hold as I am now living in Canada until February 2026.&lt;/p&gt;
+For now, &lt;a href=&#34;http://localhost:1313/all_routes.html&#34;&gt;here&amp;rsquo;s my current progress&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Update: this project has been put on hold as I am now living in Canada until February 2026.&lt;/p&gt;
+&lt;p&gt;Second update: this project as now officially defunct as I have indefinitely moved to Melbourne.
+A Melbourne-based version of this is coming soon. (This promise made July 28 2026).&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>A cute proof of Weierstrass approximation</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/</link>
+      <link>http://localhost:1313/posts/weierstrass-approximation/</link>
       <pubDate>Thu, 07 Nov 2024 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/weierstrass-approximation/</guid>
+      <guid>http://localhost:1313/posts/weierstrass-approximation/</guid>
       <description>&lt;p&gt;The Weierstrass approximation theorem says that (on an interval of finite length) we can approximate any continuous function arbitrarily well by polynomials.
 As polynomials have very nice mathematical and computational properties, this is a very useful theorem.&lt;/p&gt;
 &lt;p&gt;Probably most people who have encountered any proof of the Weierstrass approximation theorem have already seen the essential idea of this proof.
@@ -434,13 +383,11 @@ $$|f(x) - p(x)| \leq |f(x) - \phi(x, t_0)| + |\phi(x,t_0) - p(x)| &amp;lt; \epsi
 and we have our approximation.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Ancient 2-dimensional solutions to the Ricci flow</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/</link>
+      <link>http://localhost:1313/posts/ancient-solutions/</link>
       <pubDate>Fri, 23 Aug 2024 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/ancient-solutions/</guid>
+      <guid>http://localhost:1313/posts/ancient-solutions/</guid>
       <description>&lt;p&gt;Here I&amp;rsquo;ll give a more technical description of the work that I&amp;rsquo;m doing.
 See my other posts for a generally accessible version of the same thing.&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
@@ -503,15 +450,13 @@ My project aims to re-prove the classification of ancient Ricci flows on surface
 I also hope to apply some of the methods we learn to classification of solutions in higher dimensions, or possibly classification of solutions to related flows, such as the Kähler-Ricci flow.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>My research, part 3</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</link>
+      <link>http://localhost:1313/posts/2023-01-15-my-research-part-3/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</guid>
+      <guid>http://localhost:1313/posts/2023-01-15-my-research-part-3/</guid>
       <description>&lt;p&gt;This is the third part in a series of short articles I&amp;rsquo;m trying to write about my research.
-&lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In this article, I will introduce some preliminary notions that will be necessary in describing the work that I do (and in fact they are fundamental to all research in geometry).
 The two notions are these: manifolds and metric tensors.
 A manifold is a mathematical structure that generalizes and makes precise the idea of &lt;em&gt;space&lt;/em&gt;.
@@ -593,15 +538,13 @@ The way I phrased it is still technically accurate, since if we have Riemannian 
 &lt;/div&gt;
 </description>
     </item>
-    
     <item>
       <title>My research, part 2</title>
-      <link>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</link>
+      <link>http://localhost:1313/posts/2023-01-08-my-research-part-2/</link>
       <pubDate>Mon, 08 Jan 2024 21:01:30 +1100</pubDate>
-      <author>placeholder@gmail.com (Steven Buchanan)</author>
-      <guid>http://localhost:1313/swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</guid>
+      <guid>http://localhost:1313/posts/2023-01-08-my-research-part-2/</guid>
       <description>&lt;p&gt;This is the second part in a series of short articles I&amp;rsquo;m trying to write about my research.
-&lt;a href=&#34;http://localhost:1313/swbuchanan.github.io/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/posts/2023-01-03-my-research-part-1/&#34;&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;research-questions-in-curve-shortening-flow&#34;&gt;Research questions in curve shortening flow&lt;/h2&gt;
 &lt;p&gt;In this article, I will not be talking about my own research yet, but instead I&amp;rsquo;ll be talking about research completed by others.&lt;/p&gt;
 &lt;p&gt;Event though it isn&amp;rsquo;t the focus of my research, I want to talk about curve shortening flow since it is a particularly simple and concrete example of a geometric flow.
@@ -692,6 +635,5 @@ When things go to infinity they become hard to describe mathematically.&amp;#160
 &lt;/div&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

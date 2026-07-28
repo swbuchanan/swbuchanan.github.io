@@ -1,6 +1,7 @@
 ---
 title: A cute proof of Weierstrass approximation
 date: 2024-11-07
+math: true
 ---
 
 The Weierstrass approximation theorem says that (on an interval of finite length) we can approximate any continuous function arbitrarily well by polynomials.

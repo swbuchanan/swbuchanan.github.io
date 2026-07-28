@@ -1,6 +1,7 @@
 ---
 title: "Ancient 2-dimensional solutions to the Ricci flow"
 date: 2024-08-23
+math: true
 ---
 
 Here I'll give a more technical description of the work that I'm doing.
@@ -78,7 +79,6 @@ Certain techniques in 1-dimensional mean curvature flow (aka curve shortening fl
 Recently, Bourni, Langford, and Tinaglia have classified the convex ancient solutions to curve shortening flow.
 My project aims to re-prove the classification of ancient Ricci flows on surfaces using the more geometric methods used in this classification.
 I also hope to apply some of the methods we learn to classification of solutions in higher dimensions, or possibly classification of solutions to related flows, such as the Kähler-Ricci flow.
-
 
 
 

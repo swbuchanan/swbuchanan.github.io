@@ -1,6 +1,15 @@
-*.gem
-.bundle
-.jekyll-cache
-.sass-cache
-_site
-Gemfile.lock
+# Hugo build output and caches
+/public/
+/resources/_gen/
+/.hugo_build.lock
+/hugo_stats.json
+/.hugo-output/
+
+# Node dependencies and logs
+/node_modules/
+npm-debug.log*
+
+# Editor and operating-system files
+*.swp
+*.swo
+.DS_Store

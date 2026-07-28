@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "An unusual problem-solving technique"
 date: 2024-02-29
 draft: true
@@ -7,9 +6,6 @@ draft: true
 
 Consider the following problem:
 
-<div style="text-align: center;">
-![alt](../../assets/my_research_part_1_graphic1.png)
-</div>
+![A one-dimensional wire used to illustrate heat diffusion.](/my_research_part_1_graphic1.png)
 
-<img src="assets/puzzle.svg" alt="Alternative Text" width="200"/>
-
+![A sliding-tile puzzle.](/images/puzzle.svg)

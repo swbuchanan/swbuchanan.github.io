@@ -1,16 +1,26 @@
-<!-- layouts/shortcodes/main.html -->
-<div id="game-container"></div>
-<head>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
-    <script type="module" src="{{ .Site.BaseURL }}js/main.js"></script>
-
-</head>
-<div class="multi-container">
-<div class="sketch">
-    <canvas id="draw-zone" class="sketch-child" width=800 height=500></canvas>
-    <p id="draw-zone-instruction" class="instruction">You can draw here!</p>
-    <button id="draw-zone-undo-button" class="button embedded-button">Undo</button>
-</div>
-</div>
-
-<canvas id="display-zone" width=500 height=500></canvas>
+<section class="drawing-demo" aria-label="Interactive drawing demo" style="display:grid;gap:1rem;margin:1.5rem 0">
+  <div class="multi-container">
+    <div class="sketch">
+      <canvas
+        id="draw-zone"
+        class="sketch-child"
+        width="800"
+        height="500"
+        tabindex="0"
+        aria-label="Drawing canvas"
+        style="display:block;width:100%;height:auto;border:1px solid currentColor;touch-action:none"
+      >
+        Your browser does not support this drawing canvas.
+      </canvas>
+      <p id="draw-zone-instruction" class="instruction">Draw on the canvas with a pointer or touch.</p>
+      <button id="draw-zone-undo-button" class="button embedded-button" type="button">Undo</button>
+    </div>
+  </div>
+</section>
+{{- if not (.Page.Scratch.Get "main-demo-script") }}
+  {{- .Page.Scratch.Set "main-demo-script" true }}
+  {{- $options := dict "targetPath" "js/main.js" "target" "es2018" "minify" hugo.IsProduction }}
+  {{- with resources.Get "js/main.js" | js.Build $options | fingerprint }}
+    <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{- end }}
+{{- end }}

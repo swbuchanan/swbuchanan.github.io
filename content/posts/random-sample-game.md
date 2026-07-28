@@ -1,6 +1,7 @@
 +++
 title = 'A surprising probabilistic game'
 date = 2026-03-15
+math = true
 +++
 
 

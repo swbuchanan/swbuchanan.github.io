@@ -1,5 +1,169 @@
+<!doctype html>
+<html lang="en-AU" style="font-size: 125%">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Steven Buchanan">
 
+  
+    <meta name="description" content="Inspired by Tom7&rsquo;s project, who also has a great YouTube channel, I have recently decided to run the length of every street in Canberra, where I&rsquo;m currently staying for school.
+Soon I hope to update this page with some rules for the project and some information about how I&rsquo;m gathering and processing the data.
+For now, here&rsquo;s my current progress.
+Update: this project has been put on hold as I am now living in Canada until February 2026.">
+  
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
 
-<script src="/swbuchanan.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=swbuchanan.github.io/livereload" data-no-instant defer></script><script defer language="javascript" type="text/javascript"  src="/js/phaser-game.js"></script>
+  
+    <meta name="keywords" content="mathematics, geometry, probability, algorithms, Steven Buchanan">
+  
 
+  
+
+  
+
+  <meta property="og:url" content="http://localhost:1313/posts/running-canberra/">
+	<meta property="og:site_name" content="Steven Buchanan">
+	<meta property="og:title" content="Running every street in Canberra">
+	<meta property="og:description" content="Inspired by Tom7’s project, who also has a great YouTube channel, I have recently decided to run the length of every street in Canberra, where I’m currently staying for school. Soon I hope to update this page with some rules for the project and some information about how I’m gathering and processing the data. For now, here’s my current progress.
+Update: this project has been put on hold as I am now living in Canada until February 2026.">
+	<meta property="og:locale" content="en_AU">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2025-05-02T00:00:00+00:00">
+		<meta property="article:modified_time" content="2025-08-16T13:38:50-04:00">
+
+  <link rel="canonical" href="http://localhost:1313/posts/running-canberra/">
+  
+
+  
+  
+    <link rel="stylesheet" href="/css/common.min.bbdc90f94787080590c1ac3e8140a42bb2cc925ecdeb51df3c3939a12cebaa81.css" integrity="sha256-u9yQ&#43;UeHCAWQwaw&#43;gUCkK7LMkl7N61HfPDk5oSzrqoE=" crossorigin="anonymous">
+  
+
+  
+  
+    <link rel="stylesheet" href="/css/content.min.2c5930fab85e701669a95ff587419b4e716ead9c34247fb33190f80920c46969.css" integrity="sha256-LFkw&#43;rhecBZpqV/1h0GbTnFurZw0JH&#43;zMZD4CSDEaWk=" crossorigin="anonymous">
+  
+
+  
+    <title>Running every street in Canberra - Steven Buchanan</title>
+  
+
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Running every street in Canberra">
+	<meta name="twitter:description" content="Inspired by Tom7’s project, who also has a great YouTube channel, I have recently decided to run the length of every street in Canberra, where I’m currently staying for school. Soon I hope to update this page with some rules for the project and some information about how I’m gathering and processing the data. For now, here’s my current progress.
+Update: this project has been put on hold as I am now living in Canada until February 2026.">
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/single.min.be779f459ad7e3aaf8afd0f80c6a61ca6c50993f5f18512532100ac6d93f0fa9.css" integrity="sha256-vnefRZrX46r4r9D4DGphymxQmT9fGFElMhAKxtk/D6k=" crossorigin="anonymous">
+  
+
+  
+    <link rel="stylesheet" href="/css/site.css">
+  
+</head>
+<body>
+  <div id="wrapper">
+    <header id="header">
+  <div class="site-title">
+    <a href="/">Steven Buchanan</a>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" type="button" aria-label="Toggle colour theme" aria-pressed="false">
+      <svg aria-hidden="true" width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+        <path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav aria-label="Primary navigation">
+    
+      <span class="nav-bar-item">
+        <a class="link" href="/posts/">Writing</a>
+      </span>
+    
+      <span class="nav-bar-item">
+        <a class="link" href="/cool-stuff/">Projects</a>
+      </span>
+    
+      <span class="nav-bar-item">
+        <a class="link" href="https://github.com/swbuchanan">GitHub</a>
+      </span>
+    
+  </nav>
+</header>
+<hr class="head-rule">
+
+    
+  <main id="main" class="post">
+    <header class="post-heading">
+      <h1 class="post-title">Running every street in Canberra</h1>
+      
+        <div class="publish-metadata">
+          <time datetime="2025-05-02">
+            2 May 2025
+          </time>
+          
+            <span>107 words</span>
+          
+          
+            <span>About 1 minute</span>
+          
+        </div>
+      
+    </header>
+
+    
+
+    
+      
+    
+
+    <article class="content numbered-subtitles">
+      <p>Inspired by <a href="https://pac.tom7.org/index.shtml">Tom7&rsquo;s project</a>, who also has a great <a href="https://www.youtube.com/watch?v=1c8i5SABqwU">YouTube channel</a>, I have recently decided to run the length of every street in Canberra, where I&rsquo;m currently staying for school.
+Soon I hope to update this page with some rules for the project and some information about how I&rsquo;m gathering and processing the data.
+For now, <a href="/all_routes.html">here&rsquo;s my current progress</a>.</p>
+<p>Update: this project has been put on hold as I am now living in Canada until February 2026.</p>
+<p>Second update: this project as now officially defunct as I have indefinitely moved to Melbourne.
+A Melbourne-based version of this is coming soon. (This promise made July 28 2026).</p>
+
+    </article>
+
+    <button id="back-to-top" type="button">Back to top</button>
+
+    
+      <nav class="paginator" aria-label="Adjacent articles">
+        <span>
+          
+            <a class="link" href="/posts/weierstrass-approximation/" title="A cute proof of Weierstrass approximation">← Previous</a>
+          
+        </span>
+        <span>
+          
+            <a class="link" href="/posts/an_unintuitive_fact_about_drawing_with_replacement/" title="An unintuitive fact about random drawings with and without replacement">Next →</a>
+          
+        </span>
+      </nav>
+    
+
+    
+
+    
+  </main>
+
+    
+
+  </div>
+
+  
+  
+    <script src="/js/site.7cc049d29662a418dbbf51fed340090a4d29fdf7ce56f52255b6f56ade297753.js" integrity="sha256-fMBJ0pZipBjbv1H&#43;00AJCk0p/ffOVvUiVbb1at4pd1M=" crossorigin="anonymous" defer></script>
+  
+  
+  
+</body>
+</html>

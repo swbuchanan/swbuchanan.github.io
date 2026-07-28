@@ -1,0 +1,5 @@
+{{ with .Site.Params.footnote }}
+  <footer id="footer">
+    <p class="footnote">{{ . | safeHTML }}</p>
+  </footer>
+{{ end }}

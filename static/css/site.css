@@ -1,0 +1,181 @@
+/*
+ * Site-owned presentation fixes layered over the upstream theme.
+ * Keeping these rules here makes visual changes independent of the theme
+ * submodule and ensures the generated site remains usable on small screens.
+ */
+
+#wrapper {
+  padding-inline: clamp(1rem, calc((100vw - 72rem) / 2), 8rem);
+}
+
+#main,
+.grid-container {
+  width: 100%;
+}
+
+#main.home,
+#main.post,
+#main.archive {
+  max-width: 96ch;
+}
+
+.grid-container {
+  align-self: center;
+  max-width: 96ch;
+}
+
+.site-title {
+  align-items: center;
+  display: flex;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.content {
+  line-height: 1.65;
+}
+
+.content p {
+  text-align: start;
+}
+
+a:visited,
+a:hover {
+  color: var(--blue);
+}
+
+.content a {
+  text-decoration: none;
+}
+
+.content a:hover,
+.content a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+canvas:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  background: var(--bg_s);
+  border: 1px solid var(--fg4);
+  border-radius: 0.2rem;
+  color: var(--fg);
+  cursor: pointer;
+  min-height: 2.5rem;
+  padding: 0.4rem 0.7rem;
+}
+
+button:hover {
+  background: var(--bg_h);
+}
+
+canvas {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.interactive-demo {
+  margin-block: 1.5rem;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.interactive-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 0.75rem;
+}
+
+.publish-metadata {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  justify-content: center;
+}
+
+.publish-metadata time {
+  margin-left: 0;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-block: 1rem;
+}
+
+.archive > h1 {
+  text-align: center;
+}
+
+.post-group {
+  margin-block: 1.5rem;
+}
+
+.post-group > h2 {
+  font-size: 1.25rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (max-width: 48rem) {
+  #wrapper {
+    padding-inline: 1rem;
+  }
+
+  main {
+    margin-inline: 0;
+  }
+}
+
+@media (max-width: 32rem) {
+  .post-group > ul > li {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    gap: 0.15rem;
+  }
+
+  .post-group time {
+    margin-left: 0;
+    text-align: start !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

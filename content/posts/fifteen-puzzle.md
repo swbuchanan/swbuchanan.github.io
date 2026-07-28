@@ -2,6 +2,7 @@
 title = 'How to tell if a 15-type puzzle is solvable'
 date = 2025-06-22
 draft = true
+math = true
 +++
 
 I want to have a highly responsive adjustable 15-type puzzle game with timing and leaderboards.

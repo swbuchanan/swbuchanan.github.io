@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canvas Curve</title>
-</head>
-<body>
-  <canvas id="myCanvas" width="1200" height="800" style="border:1px solid #000000;"></canvas>
-  <button id="canvasCurveClearButton">Clear</button>
-  <button id="canvasCurveStepButton">Step</button>
-  <button id="canvasCurveToggleButton">Toggle animation</button>
-  <script src="{{ .Site.BaseURL }}js/canvas.js"></script>
-</body>
-</html>
-
+<figure class="canvas-curve-demo" style="margin:1.5rem 0">
+  <canvas
+    id="myCanvas"
+    width="1200"
+    height="800"
+    tabindex="0"
+    aria-label="Interactive discrete curve-shortening canvas"
+    style="display:block;width:100%;height:auto;border:1px solid currentColor;touch-action:manipulation"
+  >
+    Your browser does not support this interactive canvas.
+  </canvas>
+  <div role="group" aria-label="Curve controls" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem">
+    <button id="canvasCurveClearButton" type="button">Clear</button>
+    <button id="canvasCurveStepButton" type="button">Step</button>
+    <button id="canvasCurveToggleButton" type="button">Toggle animation</button>
+  </div>
+  <figcaption style="margin-top:.5rem">
+    Select points on the canvas to draw a closed polygon, then step or animate the flow.
+  </figcaption>
+</figure>
+{{- if not (.Page.Scratch.Get "canvas-curve-script") }}
+  {{- .Page.Scratch.Set "canvas-curve-script" true }}
+  {{- $options := dict "targetPath" "js/canvas.js" "target" "es2018" "minify" hugo.IsProduction }}
+  {{- with resources.Get "ts/canvas.ts" | js.Build $options | fingerprint }}
+    <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{- end }}
+{{- end }}
