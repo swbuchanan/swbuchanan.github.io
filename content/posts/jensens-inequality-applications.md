@@ -2,6 +2,7 @@
 title: "Jensen's inequality, and how to not go broke when you're winning money"
 date: 2026-08-08
 math: true
+draft: true
 ---
 
 I'm always happy when I see the same thing in two different places.
