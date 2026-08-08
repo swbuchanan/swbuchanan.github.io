@@ -1,0 +1,72 @@
+{{- $isFour := eq (.Get "points") "4" -}}
+{{- $labels := slice "a" "b" -}}
+{{- if $isFour -}}
+  {{- $labels = slice "x₁" "x₂" "x₃" "x₄" -}}
+{{- end -}}
+{{- $pointCount := len $labels -}}
+
+<figure
+  class="convex-secant interactive-demo"
+  data-convex-secant
+  data-point-count="{{ $pointCount }}"
+>
+  <svg
+    class="convex-secant__plot"
+    viewBox="0 0 800 460"
+    role="group"
+    aria-label="{{ if $isFour }}Four movable points, their neighbouring secant segments, and their equal-weight barycenter on a convex graph{{ else }}Two movable points and their secant segment on a convex graph{{ end }}"
+  >
+    <title>{{ if $isFour }}Four points, secant segments, and an equal-weight barycenter{{ else }}A secant segment above a convex graph{{ end }}</title>
+    <desc>
+      The fixed blue curve is f of x equals x squared. Drag the orange points
+      along the curve. {{ if $isFour }}Each orange segment joining neighbouring
+      points stays above the curve on its interval. The purple diamond is the
+      equal-weight barycenter of the four graph points, and the dashed line
+      compares it with the curve at the mean x value.{{ else }}The orange segment
+      joining a and b stays above the curve between those points.{{ end }}
+    </desc>
+
+    <rect class="convex-secant__plot-background" width="800" height="460"></rect>
+    <g class="convex-secant__axes" aria-hidden="true"></g>
+    <path class="convex-secant__curve" aria-hidden="true"></path>
+    <text class="convex-secant__curve-label" x="688" y="202" aria-hidden="true">f(x) = x²</text>
+    <g class="convex-secant__segments" aria-hidden="true"></g>
+
+    {{- if $isFour }}
+      <line class="convex-secant__barycenter-guide" aria-hidden="true"></line>
+      <circle class="convex-secant__mean-point" r="5" aria-hidden="true"></circle>
+      <text class="convex-secant__mean-label" aria-hidden="true">f(x̄)</text>
+      <g class="convex-secant__barycenter" aria-hidden="true">
+        <rect class="convex-secant__barycenter-marker" x="-7" y="-7" width="14" height="14" transform="rotate(45)"></rect>
+        <text class="convex-secant__barycenter-label" x="15" y="-10">B</text>
+      </g>
+    {{- end }}
+
+    {{- range $index, $label := $labels }}
+      <g
+        class="convex-secant__point"
+        data-point-index="{{ $index }}"
+        data-point-name="{{ $label }}"
+        role="slider"
+        tabindex="0"
+        aria-label="{{ if $isFour }}Point{{ else }}Endpoint{{ end }} {{ $label }}"
+        aria-orientation="horizontal"
+      >
+        <circle class="convex-secant__point-hit" r="12"></circle>
+        <circle class="convex-secant__point-ring" r="11"></circle>
+        <circle class="convex-secant__point-dot" r="5"></circle>
+        <text class="convex-secant__point-label" x="0" y="-20" text-anchor="middle">{{ $label }}</text>
+      </g>
+    {{- end }}
+  </svg>
+
+  <p class="sr-only" data-convex-secant-announcement aria-live="polite"></p>
+</figure>
+
+{{- if not (.Page.Scratch.Get "convex-secant-script") }}
+  {{- .Page.Scratch.Set "convex-secant-script" true }}
+  {{- $options := dict "targetPath" "js/convex_secant.js" "target" "es2018" "minify" hugo.IsProduction }}
+  {{- with resources.Get "ts/convex_secant.ts" | js.Build $options | fingerprint }}
+    <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{- end }}
+{{- end }}
