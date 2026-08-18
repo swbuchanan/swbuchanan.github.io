@@ -422,7 +422,6 @@ is exactly the gap that matters.
 
 So Jensen's inequality gives, on one hand, a sign estimate for a conformal factor in Ricci flow, and on the other, an explanation of why somebody can repeatedly make positive-expectation bets and nevertheless lose nearly all their money.
 
-I'm always happy when I see the same thing in two different places.
 
 
 ### Footnotes
