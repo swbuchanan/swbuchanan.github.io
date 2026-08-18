@@ -103,6 +103,163 @@ canvas {
   margin-block: 0.75rem;
 }
 
+/* Minimal interactive secant illustrations. */
+.content .convex-secant {
+  background: var(--bg);
+  border: 1px solid var(--bg2);
+  border-radius: 0.4rem;
+  margin-block: 1.5rem;
+  overflow: hidden;
+}
+
+.convex-secant__plot {
+  display: block;
+  height: auto;
+  user-select: none;
+  width: 100%;
+}
+
+.convex-secant__plot-background {
+  fill: var(--bg);
+}
+
+.convex-secant__axes line,
+.convex-secant__curve,
+.convex-secant__segment,
+.convex-secant__barycenter-guide,
+.convex-secant__barycenter-marker,
+.convex-secant__mean-point,
+.convex-secant__point-ring,
+.convex-secant__point-hit {
+  vector-effect: non-scaling-stroke;
+}
+
+.convex-secant__axes line {
+  opacity: 0.55;
+  stroke: var(--fg4);
+  stroke-width: 1.25;
+}
+
+.convex-secant__axes text {
+  fill: var(--fg3);
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.convex-secant__curve {
+  fill: none;
+  stroke: var(--blue);
+  stroke-linecap: round;
+  stroke-width: 3;
+}
+
+.convex-secant__segment {
+  stroke: var(--orange);
+  stroke-linecap: round;
+  stroke-width: 3;
+}
+
+.convex-secant__barycenter-guide {
+  opacity: 0.8;
+  stroke: var(--purple);
+  stroke-dasharray: 5 5;
+  stroke-width: 1.5;
+}
+
+.convex-secant__barycenter,
+.convex-secant__mean-point,
+.convex-secant__mean-label {
+  pointer-events: none;
+}
+
+.convex-secant__barycenter-marker {
+  fill: var(--purple);
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+
+.convex-secant__mean-point {
+  fill: var(--blue);
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+
+.convex-secant__curve-label,
+.convex-secant__point-label,
+.convex-secant__barycenter-label,
+.convex-secant__mean-label {
+  font-family: system-ui, sans-serif;
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-linejoin: round;
+  stroke-width: 5px;
+}
+
+.convex-secant__curve-label {
+  fill: var(--blue);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.convex-secant__barycenter-label,
+.convex-secant__mean-label {
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.convex-secant__barycenter-label {
+  fill: var(--purple);
+}
+
+.convex-secant__mean-label {
+  fill: var(--blue);
+  font-style: italic;
+}
+
+.convex-secant__point {
+  cursor: grab;
+  outline: none;
+  touch-action: none;
+}
+
+.convex-secant--dragging .convex-secant__point {
+  cursor: grabbing;
+}
+
+.convex-secant__point-hit {
+  fill: transparent;
+  pointer-events: all;
+  stroke: transparent;
+  stroke-width: 40px;
+}
+
+.convex-secant__point-ring {
+  fill: var(--bg);
+  stroke: var(--orange);
+  stroke-width: 2.5;
+}
+
+.convex-secant__point-dot {
+  fill: var(--orange);
+  pointer-events: none;
+}
+
+.convex-secant__point-label {
+  fill: var(--orange);
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 750;
+  pointer-events: none;
+}
+
+.convex-secant__point:hover .convex-secant__point-ring,
+.convex-secant__point:focus-visible .convex-secant__point-ring {
+  fill: var(--bg_s);
+  stroke-width: 4.5;
+}
+
 .publish-metadata {
   align-items: center;
   display: flex;
