@@ -40,14 +40,14 @@
       {{ if ne .TableOfContents "<nav id=\"TableOfContents\"></nav>" }}
         <details>
           <summary><strong>Table of contents</strong></summary>
-          <div class="toc {{ if .Site.Params.numberedSubtitles }}numbered-subtitles{{ end }}">
+          <div class="toc {{ if $numberedSubtitles }}numbered-subtitles{{ end }}">
             {{ .TableOfContents }}
           </div>
         </details>
       {{ end }}
     {{ end }}
 
-    <article class="content {{ if .Site.Params.numberedSubtitles }}numbered-subtitles{{ end }}">
+    <article class="content {{ if $numberedSubtitles }}numbered-subtitles{{ end }}">
       {{ .Content }}
     </article>
 
