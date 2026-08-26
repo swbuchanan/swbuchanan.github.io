@@ -1,6 +1,7 @@
 ---
 title: Projects
 description: "Interactive mathematical demonstrations and other projects."
+numberedSubtitles: false
 ---
 ## Interactive mathematics
 
