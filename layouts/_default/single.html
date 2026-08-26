@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
   {{ end }}
 {{ end }}
+{{ define "main" }}
   {{ $numberedSubtitles := .Site.Params.numberedSubtitles }}
   {{ if isset .Params "numberedsubtitles" }}
     {{ $numberedSubtitles = .Params.numberedsubtitles }}
   {{ end }}
-{{ define "main" }}
   <main id="main" class="post">
     <header class="post-heading">
       <h1 class="post-title">{{ .Title }}</h1>
