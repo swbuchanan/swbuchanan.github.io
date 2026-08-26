@@ -7,7 +7,7 @@ math: true
 
 On this site I hope to post short articles about topics in mathematics, computer science, and related fields, along with showcases of projects that have caught my attention long enough so that I've produced something worth showcasing.
 
-You can reach me through {{< email >}} or [challenge me on lichess](https://lichess.org/?user=euclidean&variant=standard&gameMode=casual&days=3#friend).
+You can reach me through {{< email >}} (or better yet, [send a challenge on lichess](https://lichess.org/?user=euclidean&variant=standard&gameMode=casual&days=3#friend)).
 I'm always open to questions or feedback about anything I've made, and if you find something wrong or broken on the website, I'd be grateful if you let me know.
 
 ## My work
