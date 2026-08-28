@@ -1,726 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Steven Buchanan</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Steven Buchanan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-AU</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Jensen&#39;s inequality, and how to not go broke when you&#39;re winning money</title>
-      <link>http://localhost:1313/posts/jensen-edited/</link>
-      <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/jensen-edited/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m always happy when I see the same thing in two different places.
-In this case, the thing is &lt;em&gt;Jensen&amp;rsquo;s inequality&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;The basic form that is generally used is the following:
-if $d\mu$ is a probability measure, and $\Phi$ is a convex function, then&lt;/p&gt;
-&lt;p&gt;$$
-\Phi\left(\int f,d\mu\right)
-\leq
-\int \Phi(f),d\mu.
-$$&lt;/p&gt;
-&lt;p&gt;In words: applying a convex function &lt;em&gt;after averaging&lt;/em&gt; gives something no larger than averaging &lt;em&gt;after applying the convex function&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;This inequality appears occasionally in my field of geometric flows (often disguised as something like the &lt;a href=&#34;https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality&#34;&gt;Cauchy&amp;ndash;Schwarz inequality&lt;/a&gt;).
-Specifically, in what I&amp;rsquo;ve been working on recently, it appears in some rather technical auxiliary calculations. But to illustrate the point, let&amp;rsquo;s make a simpler observation.&lt;/p&gt;
-&lt;p&gt;Ricci flow on a surface is described by a Riemannian metric changing over time in a certain way.
-That is, the metric on the surface is a function of time $t$, which we write as $g_t$.&lt;/p&gt;
-&lt;p&gt;On a surface, Ricci flow preserves the conformal class. Using the Uniformization theorem, we can choose a convenient fixed metric $g_0$ in that conformal class and write&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;$$
-g_t=e^{2u(t)}g_0,
-$$&lt;/p&gt;
-&lt;p&gt;where $u(t)$ is now the thing changing in time.
-We have changed the problem from studying an evolving tensor to studying an evolving function, which is a substantial simplification.&lt;/p&gt;
-&lt;p&gt;Let&lt;/p&gt;
-&lt;p&gt;$$
-A=\int_M d\mu_0
-$$&lt;/p&gt;
-&lt;p&gt;be the area of $(M,g_0)$, and write&lt;/p&gt;
-&lt;h1 id=&#34;bar-u&#34;&gt;$$
-\bar u&lt;/h1&gt;
-&lt;p&gt;\frac1A\int_M u,d\mu_0
-$$&lt;/p&gt;
-&lt;p&gt;for the average value of $u$.&lt;/p&gt;
-&lt;p&gt;Since $e^{2x}$ is convex, Jensen&amp;rsquo;s inequality gives&lt;/p&gt;
-&lt;p&gt;$$
-e^{2\bar u}
-\leq
-\frac1A\int_M e^{2u},d\mu_0.
-$$&lt;/p&gt;
-&lt;p&gt;But $d\mu_{g_t}=e^{2u}d\mu_0$, so the right-hand side is just&lt;/p&gt;
-&lt;p&gt;$$
-\frac{\operatorname{Area}(M,g_t)}{A}.
-$$&lt;/p&gt;
-&lt;p&gt;If we are working with an area-normalized flow, so that the area stays equal to $A$, this becomes&lt;/p&gt;
-&lt;p&gt;$$
-e^{2\bar u}\leq 1,
-$$&lt;/p&gt;
-&lt;p&gt;and therefore&lt;/p&gt;
-&lt;p&gt;$$
-\bar u\leq 0.
-$$&lt;/p&gt;
-&lt;p&gt;A fairly abstract-looking integral inequality has given us a sign estimate on the average conformal factor. Estimates of this kind can then be fed into the energy estimates used to control the flow.&lt;/p&gt;
-&lt;p&gt;But Jensen&amp;rsquo;s inequality has another interpretation which I find much more intuitive.&lt;/p&gt;
-&lt;h2 id=&#34;the-geometric-picture&#34;&gt;The geometric picture&lt;/h2&gt;
-&lt;p&gt;A function is convex when every chord joining two points on its graph stays above the graph between those points. More precisely, if $a&amp;lt;b$ and $0\leq t\leq1$, then&lt;/p&gt;
-&lt;p&gt;$$
-f\big((1-t)a+tb\big)
-\leq
-(1-t)f(a)+tf(b).
-$$&lt;/p&gt;
-&lt;p&gt;The picture below shows this definition for the fixed convex function $f(x)=x^2$. Move either endpoint of the secant segment.&lt;/p&gt;
-&lt;figure
-  class=&#34;convex-secant interactive-demo&#34;
-  data-convex-secant
-  data-point-count=&#34;2&#34;
-&gt;
-  &lt;svg
-    class=&#34;convex-secant__plot&#34;
-    viewBox=&#34;0 0 800 460&#34;
-    role=&#34;group&#34;
-    aria-label=&#34;Two movable points and their secant segment on a convex graph&#34;
-  &gt;
-    &lt;title&gt;A secant segment above a convex graph&lt;/title&gt;
-    &lt;desc&gt;
-      The fixed blue curve is f of x equals x squared. Drag the orange points
-      along the curve. The orange segment
-      joining a and b stays above the curve between those points.
-    &lt;/desc&gt;
-
-    &lt;rect class=&#34;convex-secant__plot-background&#34; width=&#34;800&#34; height=&#34;460&#34;&gt;&lt;/rect&gt;
-    &lt;g class=&#34;convex-secant__axes&#34; aria-hidden=&#34;true&#34;&gt;&lt;/g&gt;
-    &lt;path class=&#34;convex-secant__curve&#34; aria-hidden=&#34;true&#34;&gt;&lt;/path&gt;
-    &lt;text class=&#34;convex-secant__curve-label&#34; x=&#34;688&#34; y=&#34;202&#34; aria-hidden=&#34;true&#34;&gt;f(x) = x²&lt;/text&gt;
-    &lt;g class=&#34;convex-secant__segments&#34; aria-hidden=&#34;true&#34;&gt;&lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;0&#34;
-        data-point-name=&#34;a&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Endpoint a&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;a&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;1&#34;
-        data-point-name=&#34;b&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Endpoint b&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;b&lt;/text&gt;
-      &lt;/g&gt;
-  &lt;/svg&gt;
-
-  &lt;p class=&#34;sr-only&#34; data-convex-secant-announcement aria-live=&#34;polite&#34;&gt;&lt;/p&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;At the midpoint, $t=\frac12$, this becomes&lt;/p&gt;
-&lt;p&gt;$$
-f\left(\frac{a+b}{2}\right)
-\leq
-\frac{f(a)+f(b)}2.
-$$&lt;/p&gt;
-&lt;p&gt;So the value of a convex function at the average of two points lies below the average of the two function values.&lt;/p&gt;
-&lt;p&gt;The same geometric idea extends from two points to a weighted collection of points.
-For example, suppose we have four points $x_1,x_2,x_3,x_4$, together with nonnegative weights $\lambda_1,\lambda_2,\lambda_3,\lambda_4$ satisfying&lt;/p&gt;
-&lt;p&gt;$$
-\lambda_1+\lambda_2+\lambda_3+\lambda_4=1.
-$$&lt;/p&gt;
-&lt;p&gt;Then Jensen&amp;rsquo;s inequality says&lt;/p&gt;
-&lt;p&gt;$$
-\Phi\left(\sum_{i=1}^4\lambda_i x_i\right)
-\leq
-\sum_{i=1}^4\lambda_i\Phi(x_i).
-$$&lt;/p&gt;
-&lt;p&gt;Here is the same picture repeated across four movable points. For equal weights $\lambda_i=\frac14$, the diamond marks the barycenter&lt;/p&gt;
-&lt;h1 id=&#34;b&#34;&gt;$$
-B&lt;/h1&gt;
-&lt;p&gt;\frac14\sum_{i=1}^4(x_i,f(x_i)).
-$$&lt;/p&gt;
-&lt;p&gt;Its dashed vertical line compares the height of this barycenter with the point $(\bar x,f(\bar x))$ on the graph.&lt;/p&gt;
-&lt;figure
-  class=&#34;convex-secant interactive-demo&#34;
-  data-convex-secant
-  data-point-count=&#34;4&#34;
-&gt;
-  &lt;svg
-    class=&#34;convex-secant__plot&#34;
-    viewBox=&#34;0 0 800 460&#34;
-    role=&#34;group&#34;
-    aria-label=&#34;Four movable points, their neighbouring secant segments, and their equal-weight barycenter on a convex graph&#34;
-  &gt;
-    &lt;title&gt;Four points, secant segments, and an equal-weight barycenter&lt;/title&gt;
-    &lt;desc&gt;
-      The fixed blue curve is f of x equals x squared. Drag the orange points
-      along the curve. Each orange segment joining neighbouring
-      points stays above the curve on its interval. The purple diamond is the
-      equal-weight barycenter of the four graph points, and the dashed line
-      compares it with the curve at the mean x value.
-    &lt;/desc&gt;
-
-    &lt;rect class=&#34;convex-secant__plot-background&#34; width=&#34;800&#34; height=&#34;460&#34;&gt;&lt;/rect&gt;
-    &lt;g class=&#34;convex-secant__axes&#34; aria-hidden=&#34;true&#34;&gt;&lt;/g&gt;
-    &lt;path class=&#34;convex-secant__curve&#34; aria-hidden=&#34;true&#34;&gt;&lt;/path&gt;
-    &lt;text class=&#34;convex-secant__curve-label&#34; x=&#34;688&#34; y=&#34;202&#34; aria-hidden=&#34;true&#34;&gt;f(x) = x²&lt;/text&gt;
-    &lt;g class=&#34;convex-secant__segments&#34; aria-hidden=&#34;true&#34;&gt;&lt;/g&gt;
-      &lt;line class=&#34;convex-secant__barycenter-guide&#34; aria-hidden=&#34;true&#34;&gt;&lt;/line&gt;
-      &lt;circle class=&#34;convex-secant__mean-point&#34; r=&#34;5&#34; aria-hidden=&#34;true&#34;&gt;&lt;/circle&gt;
-      &lt;text class=&#34;convex-secant__mean-label&#34; aria-hidden=&#34;true&#34;&gt;f(x̄)&lt;/text&gt;
-      &lt;g class=&#34;convex-secant__barycenter&#34; aria-hidden=&#34;true&#34;&gt;
-        &lt;rect class=&#34;convex-secant__barycenter-marker&#34; x=&#34;-7&#34; y=&#34;-7&#34; width=&#34;14&#34; height=&#34;14&#34; transform=&#34;rotate(45)&#34;&gt;&lt;/rect&gt;
-        &lt;text class=&#34;convex-secant__barycenter-label&#34; x=&#34;15&#34; y=&#34;-10&#34;&gt;B&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;0&#34;
-        data-point-name=&#34;x₁&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Point x₁&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;x₁&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;1&#34;
-        data-point-name=&#34;x₂&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Point x₂&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;x₂&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;2&#34;
-        data-point-name=&#34;x₃&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Point x₃&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;x₃&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;3&#34;
-        data-point-name=&#34;x₄&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Point x₄&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;x₄&lt;/text&gt;
-      &lt;/g&gt;
-  &lt;/svg&gt;
-
-  &lt;p class=&#34;sr-only&#34; data-convex-secant-announcement aria-live=&#34;polite&#34;&gt;&lt;/p&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Jensen says that the barycenter cannot lie below the graph.&lt;/p&gt;
-&lt;p&gt;In probability, the weights are probabilities and the weighted average is an expectation. If $X$ is a random variable, Jensen becomes&lt;/p&gt;
-&lt;p&gt;$$
-\Phi(\mathbb E[X])
-\leq
-\mathbb E[\Phi(X)].
-$$&lt;/p&gt;
-&lt;p&gt;And now we can use essentially the same picture to lose some money.&lt;/p&gt;
-&lt;h2 id=&#34;winning-on-average&#34;&gt;Winning on average&lt;/h2&gt;
-&lt;p&gt;Suppose we make trades regularly over a long period of time.&lt;/p&gt;
-&lt;p&gt;Let $W_t$ denote our wealth after trade $t$, and let $R_t$ denote the fractional return on that trade. Thus $R_t=-0.2$ means we lose $20%$, while $R_t=0.5$ means we gain $50%$. We require $R_t&amp;gt;-1$, since losing more than $100%$ of our wealth would require borrowing money.&lt;/p&gt;
-&lt;p&gt;After one trade,&lt;/p&gt;
-&lt;p&gt;$$
-W_1=W_0(1+R_1).
-$$&lt;/p&gt;
-&lt;p&gt;After two,&lt;/p&gt;
-&lt;p&gt;$$
-W_2=W_0(1+R_1)(1+R_2),
-$$&lt;/p&gt;
-&lt;p&gt;and after $T$ trades,&lt;/p&gt;
-&lt;h1 id=&#34;w_t&#34;&gt;$$
-W_T&lt;/h1&gt;
-&lt;p&gt;W_0\prod_{t=1}^T(1+R_t).
-$$&lt;/p&gt;
-&lt;p&gt;The important thing here is that wealth does not add: &lt;strong&gt;it multiplies&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Taking logarithms turns this product into a sum:&lt;/p&gt;
-&lt;h1 id=&#34;log-w_t&#34;&gt;$$
-\log W_T&lt;/h1&gt;
-&lt;p&gt;\log W_0
-+
-\sum_{t=1}^T\log(1+R_t).
-$$&lt;/p&gt;
-&lt;p&gt;Equivalently,&lt;/p&gt;
-&lt;h1 id=&#34;frac1tlogfracw_tw_0&#34;&gt;$$
-\frac1T\log\frac{W_T}{W_0}&lt;/h1&gt;
-&lt;p&gt;\frac1T\sum_{t=1}^T\log(1+R_t).
-$$&lt;/p&gt;
-&lt;p&gt;If the returns are independent and identically distributed, and satisfy the usual integrability assumptions, then the law of large numbers tells us that for large $T$,&lt;/p&gt;
-&lt;p&gt;$$
-\frac1T\log\frac{W_T}{W_0}
-\longrightarrow
-\mathbb E[\log(1+R)].
-$$&lt;/p&gt;
-&lt;p&gt;So the quantity which controls long-run multiplicative growth is not&lt;/p&gt;
-&lt;p&gt;$$
-\mathbb E[R],
-$$&lt;/p&gt;
-&lt;p&gt;but&lt;/p&gt;
-&lt;p&gt;$$
-\mathbb E[\log(1+R)].
-$$&lt;/p&gt;
-&lt;p&gt;And here Jensen appears again.&lt;/p&gt;
-&lt;p&gt;The logarithm is &lt;em&gt;concave&lt;/em&gt;, rather than convex, so Jensen&amp;rsquo;s inequality goes in the opposite direction:&lt;/p&gt;
-&lt;h1 id=&#34;logbigmathbb-e1rbig&#34;&gt;$$
-\mathbb E[\log(1+R)]
-\leq
-\log\big(\mathbb E[1+R]\big)&lt;/h1&gt;
-&lt;p&gt;\log(1+\mathbb E[R]).
-$$&lt;/p&gt;
-&lt;p&gt;This is the mathematical version of the fact that volatility hurts when gains compound multiplicatively.&lt;/p&gt;
-&lt;p&gt;In particular, it is perfectly possible to have&lt;/p&gt;
-&lt;p&gt;$$
-\mathbb E[R]&amp;gt;0
-$$&lt;/p&gt;
-&lt;p&gt;while simultaneously having&lt;/p&gt;
-&lt;p&gt;$$
-\mathbb E[\log(1+R)]&amp;lt;0.
-$$&lt;/p&gt;
-&lt;p&gt;In other words: you can have a positive expected return and still get poorer over time.&lt;/p&gt;
-&lt;h2 id=&#34;a-very-small-casino&#34;&gt;A very small casino&lt;/h2&gt;
-&lt;p&gt;Consider a trade which has a $50%$ chance of gaining $50%$ and a $50%$ chance of losing $40%$.&lt;/p&gt;
-&lt;p&gt;The expected return is&lt;/p&gt;
-&lt;h1 id=&#34;mathbb-er&#34;&gt;$$
-\mathbb E[R]&lt;/h1&gt;
-&lt;h1 id=&#34;frac1205frac12-04&#34;&gt;\frac12(0.5)+\frac12(-0.4)&lt;/h1&gt;
-&lt;p&gt;0.05.
-$$&lt;/p&gt;
-&lt;p&gt;So the trade has an expected return of $5%$.&lt;/p&gt;
-&lt;p&gt;That sounds pretty good.&lt;/p&gt;
-&lt;p&gt;But suppose we win once and lose once. Our wealth is multiplied by&lt;/p&gt;
-&lt;p&gt;$$
-1.5\times0.6=0.9.
-$$&lt;/p&gt;
-&lt;p&gt;We are down $10%$.&lt;/p&gt;
-&lt;p&gt;The expected logarithmic growth per trade is&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\mathbb E[\log(1+R)]
-&amp;amp;=
-\frac12\log(1.5)+\frac12\log(0.6)\
-&amp;amp;=
-\frac12\log(0.9)\
-&amp;amp;&amp;lt;0.
-\end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;So over a long sequence of these trades, a typical trajectory of our wealth heads toward zero, despite every trade having a positive expected return.&lt;/p&gt;
-&lt;p&gt;There is an especially strange consequence. Since the trades are independent,&lt;/p&gt;
-&lt;h1 id=&#34;mathbb-ew_t&#34;&gt;$$
-\mathbb E[W_T]&lt;/h1&gt;
-&lt;h1 id=&#34;w_0bigmathbb-e1rbigt&#34;&gt;W_0\big(\mathbb E[1+R]\big)^T&lt;/h1&gt;
-&lt;p&gt;W_0(1.05)^T.
-$$&lt;/p&gt;
-&lt;p&gt;Thus the &lt;em&gt;expected wealth&lt;/em&gt; grows exponentially, even while the wealth along a typical sufficiently long sequence of trades shrinks exponentially.&lt;/p&gt;
-&lt;p&gt;There is no contradiction. The expectation is increasingly dominated by a small number of extremely successful trajectories.&lt;/p&gt;
-&lt;p&gt;The arithmetic mean says we are getting richer.&lt;/p&gt;
-&lt;p&gt;The geometric mean says we are going broke.&lt;/p&gt;
-&lt;h2 id=&#34;bet-sizing&#34;&gt;Bet sizing&lt;/h2&gt;
-&lt;p&gt;There is another way to see the same issue which is closer to actual gambling or trading.&lt;/p&gt;
-&lt;p&gt;Suppose a bet wins with probability $p$ and loses with probability $1-p$. For simplicity, suppose it pays even money: if we bet one dollar and win, we gain one dollar; if we lose, we lose the dollar.&lt;/p&gt;
-&lt;p&gt;Suppose furthermore that $p=0.6$.&lt;/p&gt;
-&lt;p&gt;This is a very good game. For each dollar wagered, the expected profit is&lt;/p&gt;
-&lt;p&gt;$$
-0.6(1)+0.4(-1)=0.2.
-$$&lt;/p&gt;
-&lt;p&gt;A $20%$ edge!&lt;/p&gt;
-&lt;p&gt;So should we bet all our money every time?&lt;/p&gt;
-&lt;p&gt;Obviously not. The first loss would bankrupt us.&lt;/p&gt;
-&lt;p&gt;Instead, suppose we bet a fraction $f$ of our current wealth on each round. Our wealth multiplier is then&lt;/p&gt;
-&lt;p&gt;$$
-1+f
-$$&lt;/p&gt;
-&lt;p&gt;when we win, and&lt;/p&gt;
-&lt;p&gt;$$
-1-f
-$$&lt;/p&gt;
-&lt;p&gt;when we lose.&lt;/p&gt;
-&lt;p&gt;The expected logarithmic growth is therefore&lt;/p&gt;
-&lt;h1 id=&#34;gf&#34;&gt;$$
-G(f)&lt;/h1&gt;
-&lt;p&gt;0.6\log(1+f)
-+
-0.4\log(1-f).
-$$&lt;/p&gt;
-&lt;p&gt;This is the quantity we actually want to maximize if the goal is long-run compounded growth.&lt;/p&gt;
-&lt;p&gt;Differentiating,&lt;/p&gt;
-&lt;h1 id=&#34;gf-1&#34;&gt;$$
-G&amp;rsquo;(f)&lt;/h1&gt;
-&lt;h2 id=&#34;frac061f&#34;&gt;\frac{0.6}{1+f}&lt;/h2&gt;
-&lt;p&gt;\frac{0.4}{1-f}.
-$$&lt;/p&gt;
-&lt;p&gt;Setting this equal to zero gives&lt;/p&gt;
-&lt;p&gt;$$
-f=0.2.
-$$&lt;/p&gt;
-&lt;p&gt;So even though the game has a substantial positive edge, the long-run growth-optimal strategy is to bet only $20%$ of our wealth at a time.&lt;/p&gt;
-&lt;p&gt;This is the simplest version of the &lt;strong&gt;Kelly criterion&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;And if we ignore this and bet too aggressively, something interesting happens. For example, if we bet half our wealth every round,&lt;/p&gt;
-&lt;h1 id=&#34;g05&#34;&gt;$$
-G(0.5)&lt;/h1&gt;
-&lt;p&gt;0.6\log(1.5)+0.4\log(0.5)
-&amp;lt;0.
-$$&lt;/p&gt;
-&lt;p&gt;So we have a game which we win $60%$ of the time, with a positive expected profit on every dollar wagered, and nevertheless our wealth tends to decrease if we bet too much.&lt;/p&gt;
-&lt;p&gt;The problem is not that we failed to find an edge.&lt;/p&gt;
-&lt;p&gt;The problem is that we sized the bet badly.&lt;/p&gt;
-&lt;h2 id=&#34;jensen-again&#34;&gt;Jensen again&lt;/h2&gt;
-&lt;p&gt;The geometric statement and the financial statement are really the same phenomenon.&lt;/p&gt;
-&lt;p&gt;For a convex function, fluctuations push the average function value upward:&lt;/p&gt;
-&lt;p&gt;$$
-\Phi(\mathbb E[X])
-\leq
-\mathbb E[\Phi(X)].
-$$&lt;/p&gt;
-&lt;p&gt;For a concave function, fluctuations push it downward:&lt;/p&gt;
-&lt;p&gt;$$
-\mathbb E[\Phi(X])
-\leq
-\Phi(\mathbb E[X]).
-$$&lt;/p&gt;
-&lt;p&gt;The logarithm is concave, and compounded wealth is governed by logarithms. So randomness in returns imposes a cost that cannot be seen by looking only at the arithmetic average return.&lt;/p&gt;
-&lt;p&gt;This is sometimes called &lt;em&gt;volatility drag&lt;/em&gt;, but I think Jensen&amp;rsquo;s inequality makes the mechanism clearer: averaging and applying a nonlinear function do not commute.&lt;/p&gt;
-&lt;p&gt;The gap between&lt;/p&gt;
-&lt;p&gt;$$
-\log\mathbb E[1+R]
-$$&lt;/p&gt;
-&lt;p&gt;and&lt;/p&gt;
-&lt;p&gt;$$
-\mathbb E[\log(1+R)]
-$$&lt;/p&gt;
-&lt;p&gt;is exactly the gap that matters.&lt;/p&gt;
-&lt;p&gt;So Jensen&amp;rsquo;s inequality gives, on one hand, a sign estimate for a conformal factor in Ricci flow, and on the other, an explanation of why somebody can repeatedly make positive-expectation bets and nevertheless lose nearly all their money.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m always happy when I see the same thing in two different places.&lt;/p&gt;
-&lt;h3 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h3&gt;
-&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;Writing the conformal factor as $e^{2u}$ guarantees that it is positive. The factor of $2$ is also natural because multiplying lengths by $e^u$ multiplies the metric, which measures squared lengths, by $e^{2u}$.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    <item>
-      <title>Jensen&#39;s inequality, and how to not go broke when you&#39;re winning money</title>
-      <link>http://localhost:1313/posts/jensens-inequality-applications/</link>
-      <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/jensens-inequality-applications/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m always happy when I see the same thing in two different places.
-In this case, the thing is &lt;em&gt;Jensen&amp;rsquo;s inequality&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;The basic form that is generally used is the following:
-if $d \mu$ is a probability measure, and $\Phi$ is a convex function, then
-$$\Phi \left( \int f , d \mu \right) \le \int \Phi(f) , d \mu. $$
-In words, this says that applying a convex function after averaging gives something no longer than averaging after applying the convex function.
-Below are some simplified examples that make this more concrete, although first I&amp;rsquo;ll look at an application that shows why it was useful to me.&lt;/p&gt;
-&lt;p&gt;This inequality appears occasionally in my field of geometric flows (often as the &lt;a href=&#34;https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality&#34;&gt;Cauchy-Schwarz inequality (Wikipedia)&lt;/a&gt;).
-Specifically in what I&amp;rsquo;ve been working on recently, it appears in some rather technical auxiliary calculations, but to illustrate the point, let&amp;rsquo;s make the following observation.&lt;/p&gt;
-&lt;p&gt;Ricci flow on a surface is described by the Riemannian metric changing over time in a certain way.
-That is, the metric on the surface is a function of time $t$: we write $g_t$.
-On a surface, Ricci flow preserves the conformal class of the metric.
-Due to the &lt;a href=&#34;https://en.wikipedia.org/wiki/Uniformization_theorem&#34;&gt;Uniformization theorem&lt;/a&gt;, we can write&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;
-$$ g_t = e^{2u(t)} g_0, $$
-where $g_0$ is a &lt;em&gt;fixed&lt;/em&gt; metric and $u(t)$ is a function that is changing in time.
-Since we have changed the problem to studying a metric (i.e. a tensor) that is evolving to studying a function that is evolving, we have made a certain simplification.&lt;/p&gt;
-&lt;p&gt;Let&lt;/p&gt;
-&lt;p&gt;$$A=\int_M d\mu_0$$&lt;/p&gt;
-&lt;p&gt;be the area of $(M,g_0)$, and write&lt;/p&gt;
-&lt;p&gt;$$\bar u = \frac 1 A \int_M u , d\mu_0 $$&lt;/p&gt;
-&lt;p&gt;for the average value of $u$.&lt;/p&gt;
-&lt;p&gt;Since $e^{2x}$ is convex, Jensen&amp;rsquo;s inequality gives&lt;/p&gt;
-&lt;p&gt;$$ e^{2\bar u} \leq \frac 1 A \int_M e^{2u},d\mu_0. $$&lt;/p&gt;
-&lt;p&gt;But $d\mu_{g_t}=e^{2u}d\mu_0$, so the right-hand side is just&lt;/p&gt;
-&lt;p&gt;$$\frac{\operatorname{Area}(M,g_t)}{A}.$$&lt;/p&gt;
-&lt;p&gt;If we are working with an area-normalized flow, so that the area stays equal to $A$, this becomes&lt;/p&gt;
-&lt;p&gt;$$ e^{2\bar u}\leq 1, $$&lt;/p&gt;
-&lt;p&gt;and therefore&lt;/p&gt;
-&lt;p&gt;$$ \bar u\leq 0. $$&lt;/p&gt;
-&lt;p&gt;The integral inequality has given us a sign estimate on the average conformal factor. Estimates of this kind can then be fed into the energy estimates used to control the flow.&lt;/p&gt;
-&lt;h2 id=&#34;the-geometric-picture&#34;&gt;The geometric picture&lt;/h2&gt;
-&lt;p&gt;A function is convex when every chord joining two points on its graph stays above the graph between those points. More precisely, if $a &amp;lt; b$ and $0 \leq t \leq 1$, then&lt;/p&gt;
-&lt;p&gt;$$
-f\big((1-t)a+tb\big) \leq (1-t)f(a)+tf(b).
-$$&lt;/p&gt;
-&lt;p&gt;The picture below shows this definition for the fixed convex function $f(x)=x^2$. Move either endpoint of the secant segment.&lt;/p&gt;
-&lt;figure
-  class=&#34;convex-secant interactive-demo&#34;
-  data-convex-secant
-  data-point-count=&#34;2&#34;
-&gt;
-  &lt;svg
-    class=&#34;convex-secant__plot&#34;
-    viewBox=&#34;0 0 800 460&#34;
-    role=&#34;group&#34;
-    aria-label=&#34;Two movable points and their secant segment on a convex graph&#34;
-  &gt;
-    &lt;title&gt;A secant segment above a convex graph&lt;/title&gt;
-    &lt;desc&gt;
-      The fixed blue curve is f of x equals x squared. Drag the orange points
-      along the curve. The orange segment
-      joining a and b stays above the curve between those points.
-    &lt;/desc&gt;
-
-    &lt;rect class=&#34;convex-secant__plot-background&#34; width=&#34;800&#34; height=&#34;460&#34;&gt;&lt;/rect&gt;
-    &lt;g class=&#34;convex-secant__axes&#34; aria-hidden=&#34;true&#34;&gt;&lt;/g&gt;
-    &lt;path class=&#34;convex-secant__curve&#34; aria-hidden=&#34;true&#34;&gt;&lt;/path&gt;
-    &lt;text class=&#34;convex-secant__curve-label&#34; x=&#34;688&#34; y=&#34;202&#34; aria-hidden=&#34;true&#34;&gt;f(x) = x²&lt;/text&gt;
-    &lt;g class=&#34;convex-secant__segments&#34; aria-hidden=&#34;true&#34;&gt;&lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;0&#34;
-        data-point-name=&#34;a&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Endpoint a&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;a&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;1&#34;
-        data-point-name=&#34;b&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Endpoint b&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;b&lt;/text&gt;
-      &lt;/g&gt;
-  &lt;/svg&gt;
-
-  &lt;p class=&#34;sr-only&#34; data-convex-secant-announcement aria-live=&#34;polite&#34;&gt;&lt;/p&gt;
-&lt;/figure&gt;
-    &lt;script defer src=&#34;http://localhost:1313/js/convex_secant.0f8310dd2eb1750ced63b26db43d310d590b0d75fe306fb54543c4e5d950c21a.js&#34; integrity=&#34;sha256-D4MQ3S6xdQztY7JttD0xDVkLDXX&amp;#43;MG&amp;#43;1RUPE5dlQwho=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;At the midpoint, $t=\frac12$, this becomes&lt;/p&gt;
-&lt;p&gt;$$
-f\left(\frac{a+b}{2}\right) \leq \frac{f(a)+f(b)}{2}.
-$$&lt;/p&gt;
-&lt;p&gt;The same geometric idea, extended from two points to a weighted collection of points, is Jensen&amp;rsquo;s inequality.
-For example, say we have four points $x_1, x_2, x_3, x_4$, and nonnegative weights $\lambda_1, \lambda_2, \lambda_3, \lambda_4$ that satisfy
-$$ \lambda_1 + \lambda_2 + \lambda_3 + \lambda_4 = 1$$
-(with two points the weights were $t$ and $1-t$; for any value of $t$ these two weights add up to $1$.)
-Then the inequality says that
-$$ \Phi \left( \sum_{i=1}^4 \lambda_i x_i \right) \le \sum_{i=1}^4 \lambda_i \Phi(x_i). $$&lt;/p&gt;
-&lt;p&gt;Here is the same two-point picture repeated across four movable points. Each segment is the secant for a neighbouring pair. For equal weights $\lambda_i=\frac14$, the diamond marks the barycenter
-$B=\frac14\sum_{i=1}^4(x_i,f(x_i))$. Its dashed vertical line compares $B$ with the point $(\bar x,f(\bar x))$ on the graph.&lt;/p&gt;
-&lt;figure
-  class=&#34;convex-secant interactive-demo&#34;
-  data-convex-secant
-  data-point-count=&#34;4&#34;
-&gt;
-  &lt;svg
-    class=&#34;convex-secant__plot&#34;
-    viewBox=&#34;0 0 800 460&#34;
-    role=&#34;group&#34;
-    aria-label=&#34;Four movable points, their neighbouring secant segments, and their equal-weight barycenter on a convex graph&#34;
-  &gt;
-    &lt;title&gt;Four points, secant segments, and an equal-weight barycenter&lt;/title&gt;
-    &lt;desc&gt;
-      The fixed blue curve is f of x equals x squared. Drag the orange points
-      along the curve. Each orange segment joining neighbouring
-      points stays above the curve on its interval. The purple diamond is the
-      equal-weight barycenter of the four graph points, and the dashed line
-      compares it with the curve at the mean x value.
-    &lt;/desc&gt;
-
-    &lt;rect class=&#34;convex-secant__plot-background&#34; width=&#34;800&#34; height=&#34;460&#34;&gt;&lt;/rect&gt;
-    &lt;g class=&#34;convex-secant__axes&#34; aria-hidden=&#34;true&#34;&gt;&lt;/g&gt;
-    &lt;path class=&#34;convex-secant__curve&#34; aria-hidden=&#34;true&#34;&gt;&lt;/path&gt;
-    &lt;text class=&#34;convex-secant__curve-label&#34; x=&#34;688&#34; y=&#34;202&#34; aria-hidden=&#34;true&#34;&gt;f(x) = x²&lt;/text&gt;
-    &lt;g class=&#34;convex-secant__segments&#34; aria-hidden=&#34;true&#34;&gt;&lt;/g&gt;
-      &lt;line class=&#34;convex-secant__barycenter-guide&#34; aria-hidden=&#34;true&#34;&gt;&lt;/line&gt;
-      &lt;circle class=&#34;convex-secant__mean-point&#34; r=&#34;5&#34; aria-hidden=&#34;true&#34;&gt;&lt;/circle&gt;
-      &lt;text class=&#34;convex-secant__mean-label&#34; aria-hidden=&#34;true&#34;&gt;f(x̄)&lt;/text&gt;
-      &lt;g class=&#34;convex-secant__barycenter&#34; aria-hidden=&#34;true&#34;&gt;
-        &lt;rect class=&#34;convex-secant__barycenter-marker&#34; x=&#34;-7&#34; y=&#34;-7&#34; width=&#34;14&#34; height=&#34;14&#34; transform=&#34;rotate(45)&#34;&gt;&lt;/rect&gt;
-        &lt;text class=&#34;convex-secant__barycenter-label&#34; x=&#34;15&#34; y=&#34;-10&#34;&gt;B&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;0&#34;
-        data-point-name=&#34;x₁&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Point x₁&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;x₁&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;1&#34;
-        data-point-name=&#34;x₂&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Point x₂&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;x₂&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;2&#34;
-        data-point-name=&#34;x₃&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Point x₃&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;x₃&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g
-        class=&#34;convex-secant__point&#34;
-        data-point-index=&#34;3&#34;
-        data-point-name=&#34;x₄&#34;
-        role=&#34;slider&#34;
-        tabindex=&#34;0&#34;
-        aria-label=&#34;Point x₄&#34;
-        aria-orientation=&#34;horizontal&#34;
-      &gt;
-        &lt;circle class=&#34;convex-secant__point-hit&#34; r=&#34;12&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-ring&#34; r=&#34;11&#34;&gt;&lt;/circle&gt;
-        &lt;circle class=&#34;convex-secant__point-dot&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-        &lt;text class=&#34;convex-secant__point-label&#34; x=&#34;0&#34; y=&#34;-20&#34; text-anchor=&#34;middle&#34;&gt;x₄&lt;/text&gt;
-      &lt;/g&gt;
-  &lt;/svg&gt;
-
-  &lt;p class=&#34;sr-only&#34; data-convex-secant-announcement aria-live=&#34;polite&#34;&gt;&lt;/p&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;In probability, the weights are probabilities and the weighted average is an expectation. If $X$ is a random variable, Jensen becomes
-$$ \Phi(\mathbb E[X]) \le \mathbb E[ \Phi(X) ]. $$
-Now let&amp;rsquo;s see an unintuitive fact that essentially follows from this.&lt;/p&gt;
-&lt;h2 id=&#34;losing-with-positive-expected-value&#34;&gt;Losing with positive expected value?&lt;/h2&gt;
-&lt;p&gt;Suppose we are making trades regularly over a long period of time.
-Let $W_t$ denotes our wealth after trade $t$, and let $R_t$ denote the fractional return on trade $t$.
-That is, $R_t = -0.02$ means that trade $t$ loses us $2\%$ of our wealth, while $R_t = 0.5$ means trade $t$ gains us $50%$.
-With this notation, after one trade, our wealth is $W_1$, which can be expressed as
-$$ W_1 = W_0 (1 + R_1). $$
-After making the first two trades, we have
-$$ W_0 (1 + R_1)(1 + R_2), $$
-and so on.
-After $T$ trades, our wealth is
-$$ W_T = W_0 \prod_{t=1}^T (1 + R_t). $$
-Taking logs turns the product into a sum:
-$$ \log W_T = \log W_0 + \sum_{t=1}^T \log(1 + R_t). $$
-We can rearrange and divide by $T$ so that the right hand side is an average:
-$$ \frac 1 T \log \frac{W_T}{W_0} = \frac 1 T \sum_{t=1}^T \log(1 + R_t). $$
-Suppose we are in a situation where the returns are independent and identically distributed (i.e. we are essentially making the same bet every time), then the law of large numbers says that for large $T$,
-$$ \frac 1 T \log \frac{W_T}{W_0} \longrightarrow \mathbb E[\log(1 + R)]. $$
-Here $R$ has become a random variable that describes the bet/trade that we are making; samples of $R$ give the specific $R_t$&amp;rsquo;s.
-So the long-run growth is determined by $\mathbb E[\log(1 + R)]$.
-Here we apply Jensen&amp;rsquo;s inequality (in the opposite direction because $\log$ is concave rather than convex), which says
-$$ \mathbb E[\log(1 + R)] \le \log( \mathbb E[1 + R]) = \log(1 + \mathbb E[R]). $$
-In particular, it is possible to have positive expected return on the bet: $\mathbb E[R] &amp;lt; 0$, but still lose money over time: $\mathbb E[\log(1 + R)] &amp;lt; 0$.&lt;/p&gt;
-&lt;h3 id=&#34;an-example&#34;&gt;An example&lt;/h3&gt;
-&lt;p&gt;Consider a trade which has a $50\%$ chance of gaining $50\%$ and a $50\%$ chance of losing $40\%$.&lt;/p&gt;
-&lt;p&gt;The expected return is
-$$ \mathbb E[R] = \frac 1 2 (0.5) + \frac 1 2 (-0.4) = 0.05, $$
-meaning that on average we should be winning $5\%$ each time, right?
-Not exactly: suppose we win and lose once.
-After this, our wealth is multiplied by
-$$ 1.5 \times 0.6 = 0.9, $$
-meaning that we have lost $10\%$.
-This is so sad:
-$$
-\begin{align*}
-\mathbb E[\log(1+R)] &amp;amp;= \frac12\log(1.5)+\frac12\log(0.6) \\
-&amp;amp; = \frac12\log(0.9) \\
-&amp;amp;&amp;lt;0.
-\end{align*}
-$$
-Another strange observation we can make at this point is that the expected wealth is actually growing exponentially:
-$$ \mathbb E[W_T] = W_0(\mathbb E[1 + R])^T = W_0 (1.05)^T. $$
-This reflects the fact that a small number of traders in this situation ar eextremely successful.&lt;/p&gt;
-&lt;h2 id=&#34;not-all-hope-is-lost-the-kelly-criterion&#34;&gt;Not all hope is lost: the Kelly Criterion&lt;/h2&gt;
-&lt;p&gt;A more realistic scenario is that we can estimate the probability of a bet winning or losing, but the &lt;em&gt;amount&lt;/em&gt; that it wins or loses (even the percentage) is up to us to decide.
-That is, we can decide how much to wager.
-We can use the previous observations to our advantage.&lt;/p&gt;
-&lt;p&gt;Suppose we have a bet that wins $60\%$ of the time and loses $40\%$ of the time.
-If we bet a $n$ dollars, we expect to win
-$$ 0.6 (\$ n) + 0.4 (-\$n) = \$( 0.2  n). $$
-So to maximize the EV of a single bet, we should bet as much as possible.
-However, if we bet all we have, the fractional return is
-$$
-R =
-\begin{cases}
-1 &amp;amp; \text{with probability } 0.6 \\
--1 &amp;amp; \text{with probability } 0.4.
-\end{cases}
-$$
-So
-$$ \mathbb E[\log(1 + R)] =  \frac 1 2 \log(0) + \frac 1 2 \log(2) = -\infty.$$
-This seems weird but what it is saying is that if you repeatedly place all your money on this bet then you are guaranteed to eventually go broke.
-This perspective makes sense: the $40\%$ chance outcome is bound to happen eventually.&lt;/p&gt;
-&lt;h3 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h3&gt;
-&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;We could just write it as $g(t) = u(t) g_0$, but including the exponential and the factor of $2$ makes some computations nicer.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    <item>
-      <title>A surprising probabilistic game</title>
-      <link>http://localhost:1313/posts/random-sample-game/</link>
-      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/random-sample-game/</guid>
-      <description>&lt;p&gt;I recently read about a game with an optimal strategy that I found surprising.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Steven Buchanan</title><link>https://swbuchanan.github.io/</link><description>Recent content on Steven Buchanan</description><generator>Hugo -- gohugo.io</generator><language>en-AU</language><atom:link href="https://swbuchanan.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>A surprising probabilistic game</title><link>https://swbuchanan.github.io/posts/random-sample-game/</link><pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate><guid>https://swbuchanan.github.io/posts/random-sample-game/</guid><description>&lt;p&gt;I recently read about a game with an optimal strategy that I found surprising.
 I&amp;rsquo;ll present the game and then the mathematical analysis.&lt;/p&gt;
 &lt;p&gt;The rules of the game are as follows.
 You draw a number uniformly randomly between $0$ and $1$.
@@ -738,35 +16,34 @@ If you tell the computer not to play optimally, it will simply redraw if the fir
 &lt;p&gt;With the slider or the text entry box, you can select a number $r$.
 Then when the game is played, you will automatically redraw if your first number is below $r$.
 Otherwise you will keep the first number that you draw.&lt;/p&gt;
-&lt;section class=&#34;probabilistic-game&#34; aria-label=&#34;Probabilistic game simulator&#34; style=&#34;display:grid;gap:1rem;margin:1.5rem 0&#34;&gt;
-  &lt;div style=&#34;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center&#34;&gt;
-    &lt;label for=&#34;cutoffSlider&#34;&gt;Choose a value for $r$ (between $0$ and $1$):&lt;/label&gt;
-    &lt;input id=&#34;cutoffSlider&#34; type=&#34;range&#34; min=&#34;0&#34; max=&#34;1&#34; step=&#34;0.01&#34; value=&#34;0.50&#34;&gt;
-    &lt;input
-      id=&#34;cutoffInput&#34;
-      type=&#34;number&#34;
-      min=&#34;0&#34;
-      max=&#34;1&#34;
-      step=&#34;0.001&#34;
-      value=&#34;0.500&#34;
-      aria-label=&#34;Value of r&#34;
-      style=&#34;width:7rem&#34;
-    &gt;
-  &lt;/div&gt;
-  &lt;label&gt;
-    &lt;input id=&#34;computerPlaysOptimal&#34; type=&#34;checkbox&#34; checked&gt;
-    Computer plays optimally
-  &lt;/label&gt;
-  &lt;div role=&#34;group&#34; aria-label=&#34;Simulation controls&#34; style=&#34;display:flex;flex-wrap:wrap;gap:.5rem&#34;&gt;
-    &lt;button id=&#34;startButton&#34; type=&#34;button&#34;&gt;Run 10,000 simulations&lt;/button&gt;
-    &lt;button id=&#34;resetButton&#34; type=&#34;button&#34;&gt;Reset&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;output id=&#34;output&#34; aria-live=&#34;polite&#34;&gt;
-    Run $10{\small ,}000$ iterations of the game to test your strategy.
-  &lt;/output&gt;
+&lt;section class="probabilistic-game" aria-label="Probabilistic game simulator" style="display:grid;gap:1rem;margin:1.5rem 0"&gt;
+&lt;div style="display:flex;flex-wrap:wrap;gap:.75rem;align-items:center"&gt;
+&lt;label for="cutoffSlider"&gt;Choose a value for $r$ (between $0$ and $1$):&lt;/label&gt;
+&lt;input id="cutoffSlider" type="range" min="0" max="1" step="0.01" value="0.50"&gt;
+&lt;input
+id="cutoffInput"
+type="number"
+min="0"
+max="1"
+step="0.001"
+value="0.500"
+aria-label="Value of r"
+style="width:7rem"
+&gt;
+&lt;/div&gt;
+&lt;label&gt;
+&lt;input id="computerPlaysOptimal" type="checkbox" checked&gt;
+Computer plays optimally
+&lt;/label&gt;
+&lt;div role="group" aria-label="Simulation controls" style="display:flex;flex-wrap:wrap;gap:.5rem"&gt;
+&lt;button id="startButton" type="button"&gt;Run 10,000 simulations&lt;/button&gt;
+&lt;button id="resetButton" type="button"&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+&lt;output id="output" aria-live="polite"&gt;
+Run $10{\small ,}000$ iterations of the game to test your strategy.
+&lt;/output&gt;
 &lt;/section&gt;
-    &lt;script defer src=&#34;http://localhost:1313/js/random_sample_game.878a21ddf0bdbd07205e139f6a2df0432da8e8e4d2a6dc3e5b4d5d5c00da002a.js&#34; integrity=&#34;sha256-h4oh3fC9vQcgXhOfai3wQy2o6OTSptw&amp;#43;W01dXADaACo=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
-
+&lt;script defer src="https://swbuchanan.github.io/js/random_sample_game.1b001a04e1ec929805eee500cbe7b8a12cccc4492dcfeddb17ed45e195316855.js" integrity="sha256-GwAaBOHskpgF7uUAy&amp;#43;e4oSzMxEktz&amp;#43;3bF&amp;#43;1F4ZUxaFU=" crossorigin="anonymous"&gt;&lt;/script&gt;
 &lt;p&gt;Did you notice anything surprising?
 The optimal strategy for this game is not simply to redraw whenever the first number is below $\frac 1 2.$
 To me, this is quite unintuitive, especially considering that choosing a cutoff of $\frac 1 2$ would be the optimal strategy for a game that is only slightly different.
@@ -836,15 +113,7 @@ The final exercises for the reader are&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;compute the exact win percentage of a player using the optimal strategy against someone who just chooses a threshold of $\frac 1 2$,&lt;/li&gt;
 &lt;li&gt;determine any significance in the fact that the optimal value of $r$ is the reciprocal of the golden ratio.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    <item>
-      <title>Nagel-Schreckenberg traffic simulation</title>
-      <link>http://localhost:1313/posts/traffic_simulation/</link>
-      <pubDate>Thu, 11 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/traffic_simulation/</guid>
-      <description>&lt;p&gt;In &lt;a href=&#34;https://artowen.su.domains/mc/Ch-intro.pdf&#34;&gt;this&lt;/a&gt; text book available online about Monte Carlo simulation, the first example given is a traffic simulation that shows how traffic jams can emerge seemingly out of nowhere, even when there aren&amp;rsquo;t any particularly bad drivers or disruptive incidents on the road.
+&lt;/ul&gt;</description></item><item><title>Nagel-Schreckenberg traffic simulation</title><link>https://swbuchanan.github.io/posts/traffic_simulation/</link><pubDate>Thu, 11 Dec 2025 00:00:00 +0000</pubDate><guid>https://swbuchanan.github.io/posts/traffic_simulation/</guid><description>&lt;p&gt;In &lt;a href="https://artowen.su.domains/mc/Ch-intro.pdf"&gt;this&lt;/a&gt; text book available online about Monte Carlo simulation, the first example given is a traffic simulation that shows how traffic jams can emerge seemingly out of nowhere, even when there aren&amp;rsquo;t any particularly bad drivers or disruptive incidents on the road.
 Below is a small demonstration of traffic following the &lt;strong&gt;Nagel-Schreckenberg&lt;/strong&gt; simulation rules.
 Based on these rules, we have the following setup:&lt;/p&gt;
 &lt;ul&gt;
@@ -865,44 +134,35 @@ For each car,&lt;/p&gt;
 &lt;p&gt;Here is a simulation following these rules with a road that wraps around (so the drivers are effectively driving in a circle).
 The road has length 700, there are 100 drivers, and the probability of braking is around $1/3$.
 The maximum speed is 3.&lt;/p&gt;
-&lt;figure class=&#34;traffic-simulation&#34; style=&#34;margin:1.5rem 0&#34;&gt;
-  &lt;canvas
-    id=&#34;trafficCanvas&#34;
-    width=&#34;1200&#34;
-    height=&#34;160&#34;
-    role=&#34;img&#34;
-    aria-label=&#34;Animated traffic-flow simulation&#34;
-    style=&#34;display:block;width:100%;height:auto&#34;
-  &gt;
-    Your browser does not support this traffic-flow animation.
-  &lt;/canvas&gt;
-  &lt;figcaption&gt;
-    A simulation of traffic moving around a circular road, shown unwrapped as a line.
-  &lt;/figcaption&gt;
+&lt;figure class="traffic-simulation" style="margin:1.5rem 0"&gt;
+&lt;canvas
+id="trafficCanvas"
+width="1200"
+height="160"
+role="img"
+aria-label="Animated traffic-flow simulation"
+style="display:block;width:100%;height:auto"
+&gt;
+Your browser does not support this traffic-flow animation.
+&lt;/canvas&gt;
+&lt;figcaption&gt;
+A simulation of traffic moving around a circular road, shown unwrapped as a line.
+&lt;/figcaption&gt;
 &lt;/figure&gt;
-    &lt;script defer src=&#34;http://localhost:1313/js/traffic_simulation.c4cacbc662d0452fb7f560918628297b7d5aadec7674625c765c9553a2a28a58.js&#34; integrity=&#34;sha256-xMrLxmLQRS&amp;#43;39WCRhigpe31arex2dGJcdlyVU6Kiilg=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;I made this in a hurry but soon I hope to update this page with options to adjust the number of drivers, the maximum speed, and the probability $p$ of braking.&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>Detecting 4-cycles in a graph is easier than detecting triangles</title>
-      <link>http://localhost:1313/posts/graph-cycle-detection/</link>
-      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/graph-cycle-detection/</guid>
-      <description>&lt;h2 id=&#34;an-algorithm-to-detect-triangles-in-a-graph&#34;&gt;An algorithm to detect triangles in a graph&lt;/h2&gt;
-&lt;p&gt;Recently I was looking through &lt;a href=&#34;https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf&#34;&gt;Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra&lt;/a&gt;.
+&lt;script defer src="https://swbuchanan.github.io/js/traffic_simulation.f86ce34f38cc6e8ccf1f59dfd3135fbccf50e6e9ba16b1afcf7bb90ee9f60555.js" integrity="sha256-&amp;#43;GzjTzjMbozPH1nf0xNfvM9Q5um6FrGvz3u5Dun2BVU=" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;p&gt;I made this in a hurry but soon I hope to update this page with options to adjust the number of drivers, the maximum speed, and the probability $p$ of braking.&lt;/p&gt;</description></item><item><title>Detecting 4-cycles in a graph is easier than detecting triangles</title><link>https://swbuchanan.github.io/posts/graph-cycle-detection/</link><pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate><guid>https://swbuchanan.github.io/posts/graph-cycle-detection/</guid><description>&lt;h2 id="an-algorithm-to-detect-triangles-in-a-graph"&gt;An algorithm to detect triangles in a graph&lt;/h2&gt;
+&lt;p&gt;Recently I was looking through &lt;a href="https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf"&gt;Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra&lt;/a&gt;.
 One of the applications is an algorithm to efficiently detect a triangle in a graph, such as the following.
 (There is an obvious algorithm that works by enumerating all possible triplets of vertices and checking them one at a time; this involves some multiple of $n^3$ steps, where $n$ is the number of vertices.
 That is, the algorithm has $O(n^3)$ time complexity, which is really bad.)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;graph-example.png&#34; alt=&#34;A graph with one triangle highlighted in blue.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="graph-example.png" alt="A graph with one triangle highlighted in blue."&gt;&lt;/p&gt;
 &lt;p&gt;The algorithm works in the following way.
 Construct the adjacency matrix of the graph.
 This is done by labeling the vertices with numbers $1, 2, \dots, v$, where $v$ is the number of vertices.
 Then, the entry in row $i$, column $j$ of the matrix is $1$ if there is an edge between vertex $i$ and vertex $j$, and 0 otherwise.
 This gives us a matrix that encodes exactly the same information as the &amp;ldquo;dots and lines&amp;rdquo; representation of a graph.
 For example, this graph:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;labeled-graph.png&#34; alt=&#34;A four-vertex graph containing a triangle.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="labeled-graph.png" alt="A four-vertex graph containing a triangle."&gt;&lt;/p&gt;
 &lt;p&gt;has adjacency matrix
 $
 \begin{bmatrix}
@@ -946,7 +206,7 @@ Currently it is conjectured but not proven that matrix multiplication can be don
 The algorithm that is used most often in practice (Strassen&amp;rsquo;s algorithm) has complexity around $O(n^{2.807})$.
 The best theoretical bound is $O(n^{2.371339})$, but this and other &amp;ldquo;improvements&amp;rdquo; on Strassen&amp;rsquo;s algorithm are not used in practice since the constants hidden by the big-O notation are impractically large for the size of matrices that current computers can deal with.
 In any case, we can safely say that our algorithm to detect triangles is significantly worse than $O(n^2)$.&lt;/p&gt;
-&lt;h2 id=&#34;an-algorithm-to-detect-4-cycles-in-a-graph&#34;&gt;An algorithm to detect 4-cycles in a graph&lt;/h2&gt;
+&lt;h2 id="an-algorithm-to-detect-4-cycles-in-a-graph"&gt;An algorithm to detect 4-cycles in a graph&lt;/h2&gt;
 &lt;p&gt;This is a case where a more complicated problem actually has a simpler solution.
 A triangle in a graph is also called a 3-cycle, since it is 3 vertices that form a closed loop.
 Similarly, we can ask about the existence of 4 vertices in a closed loop.&lt;/p&gt;
@@ -957,130 +217,143 @@ Similarly, we can ask about the existence of 4 vertices in a closed loop.&lt;/p&
 &lt;li&gt;if the set of common vertices ever contains more than one element, we have found the 4-cycle.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;So we see that this seemingly more complex problem is strictly easier, requiring only $O(n^2)$ steps.&lt;/p&gt;
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.25/LIPIcs.FSTTCS.2023.25.pdf&#34;&gt;Abboud, Khoury, Leibowitz, Safier—Listing 4-cycles&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.25/LIPIcs.FSTTCS.2023.25.pdf"&gt;Abboud, Khoury, Leibowitz, Safier—Listing 4-cycles&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf&#34;&gt;Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf"&gt;Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    <item>
-      <title>A project on implied probability density functions for asset prices</title>
-      <link>http://localhost:1313/posts/implied_stock_distributions/</link>
-      <pubDate>Tue, 04 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/implied_stock_distributions/</guid>
-      <description>&lt;p&gt;I recently completed a project for an online course in computational quant finance.
-The project is about how to derive a certain probability density function for an asset at a date in the future by looking at options that expire on that date.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://nbviewer.org/github/swbuchanan/implied-stock-distributions/blob/main/project.ipynb&#34;&gt;View the project notebook on nbviewer.&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>How to tell if a 15-type puzzle is solvable</title>
-      <link>http://localhost:1313/posts/fifteen-puzzle/</link>
-      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/fifteen-puzzle/</guid>
-      <description>&lt;p&gt;I want to have a highly responsive adjustable 15-type puzzle game with timing and leaderboards.
-In order to do this, I need to be able to generate random starting positions for the board.
-However, an interesting fact about the 15 puzzle is that not all possible arrangements of the $15$ tiles on the $16 \times 16$ grid are solvable.
-For example, if one takes the starting arrangement and swaps the 14 and 15 only, the resulting arrangement cannot be solved with normal moves (i.e. without doing some swap of two other tiles).
-This would also be true for the starting arrangement with any two adjacent tiles swapped with each other.&lt;/p&gt;
-&lt;p&gt;So, my problem is to generate random starting positions, but check in some way that I don&amp;rsquo;t present the player with an unsolvable configuration.
-One possible solution to this problem is to not just generate a random configuration, but to generate a random sequence of moves from the starting position.
-This is what one would do with a physical puzzle to &amp;ldquo;randomize&amp;rdquo; it, assuming that the pieces are not allowed to be removed from the board; just make moves without paying close attention and without any pattern.
-This is actually a fine solution, it just doesn&amp;rsquo;t appeal to my mathematical sensibilities.
-What I would like is a straightforward way to take a random position and check if it is solvable or not.&lt;/p&gt;
-&lt;p&gt;Fortunately for me this problem has already been solved.
-Here I&amp;rsquo;ll explain the method I&amp;rsquo;ll use.&lt;/p&gt;
-&lt;section
-  class=&#34;fifteen-game&#34;
-  data-fifteen-game
-  data-size=&#34;&#34;
-  data-default-setup=&#34;&#34;
-  aria-label=&#34;Fifteen puzzle&#34;
-  style=&#34;margin-block:1.5rem;text-align:center&#34;
-&gt;
-  &lt;canvas
-    class=&#34;fifteen-game__canvas&#34;
-    width=&#34;320&#34;
-    height=&#34;320&#34;
-    tabindex=&#34;0&#34;
-    aria-label=&#34;Fifteen puzzle board. Focus the board and use the arrow keys, or select a tile next to the empty space.&#34;
-    style=&#34;display:block;width:min(100%,320px);height:auto;margin:1rem auto;border:1px solid currentColor;touch-action:manipulation&#34;
-  &gt;
-    Your browser does not support the canvas-based fifteen puzzle.
-  &lt;/canvas&gt;
-  &lt;div style=&#34;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:center&#34;&gt;
-    &lt;button class=&#34;fifteen-game__restart&#34; type=&#34;button&#34;&gt;Restart&lt;/button&gt;
-    &lt;label&gt;
-      &lt;input class=&#34;fifteen-game__reverse&#34; type=&#34;checkbox&#34;&gt;
-      Reverse controls
-    &lt;/label&gt;
-  &lt;/div&gt;
-  &lt;p class=&#34;fifteen-game__status&#34; aria-live=&#34;polite&#34; style=&#34;margin:.75rem 0 0&#34;&gt;
-    Focus the board and use the arrow keys to move a tile.
-  &lt;/p&gt;
-&lt;/section&gt;
-
-&lt;p&gt;what&lt;/p&gt;
-&lt;p&gt;here is another thingy&lt;/p&gt;
-&lt;figure class=&#34;penney-game&#34; style=&#34;margin:1.5rem 0&#34;&gt;
-  &lt;canvas
-    class=&#34;penney-game__canvas&#34;
-    width=&#34;760&#34;
-    height=&#34;280&#34;
-    tabindex=&#34;0&#34;
-    aria-label=&#34;Penney&#39;s game. Select the three tiles to toggle heads or tails, then select Play.&#34;
-    style=&#34;display:block;width:100%;height:auto;margin-inline:auto;border:1px solid #333;background:#0d0d0d;touch-action:manipulation&#34;
-  &gt;
-    Your browser does not support Penney&#39;s game.
-  &lt;/canvas&gt;
-  &lt;figcaption style=&#34;margin-top:.5rem;text-align:center&#34;&gt;
-    Select the three tiles to toggle heads or tails, then select Play.
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;section
-  class=&#34;fifteen-game&#34;
-  data-fifteen-game
-  data-size=&#34;4&#34;
-  data-default-setup=&#34;true&#34;
-  aria-label=&#34;Fifteen puzzle&#34;
-  style=&#34;margin-block:1.5rem;text-align:center&#34;
-&gt;
-  &lt;canvas
-    class=&#34;fifteen-game__canvas&#34;
-    width=&#34;320&#34;
-    height=&#34;320&#34;
-    tabindex=&#34;0&#34;
-    aria-label=&#34;Fifteen puzzle board. Focus the board and use the arrow keys, or select a tile next to the empty space.&#34;
-    style=&#34;display:block;width:min(100%,320px);height:auto;margin:1rem auto;border:1px solid currentColor;touch-action:manipulation&#34;
-  &gt;
-    Your browser does not support the canvas-based fifteen puzzle.
-  &lt;/canvas&gt;
-  &lt;div style=&#34;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:center&#34;&gt;
-    &lt;button class=&#34;fifteen-game__restart&#34; type=&#34;button&#34;&gt;Restart&lt;/button&gt;
-    &lt;label&gt;
-      &lt;input class=&#34;fifteen-game__reverse&#34; type=&#34;checkbox&#34;&gt;
-      Reverse controls
-    &lt;/label&gt;
-  &lt;/div&gt;
-  &lt;p class=&#34;fifteen-game__status&#34; aria-live=&#34;polite&#34; style=&#34;margin:.75rem 0 0&#34;&gt;
-    Focus the board and use the arrow keys to move a tile.
-  &lt;/p&gt;
-&lt;/section&gt;
-
-</description>
-    </item>
-    <item>
-      <title>An unintuitive fact about random drawings with and without replacement</title>
-      <link>http://localhost:1313/posts/an_unintuitive_fact_about_drawing_with_replacement/</link>
-      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/an_unintuitive_fact_about_drawing_with_replacement/</guid>
-      <description>&lt;p&gt;Here&amp;rsquo;s an odd fact that I came across while doing a probability puzzle.
+&lt;/ol&gt;</description></item><item><title>A project on implied probability density functions for asset prices</title><link>https://swbuchanan.github.io/posts/implied_stock_distributions/</link><pubDate>Tue, 04 Nov 2025 00:00:00 +0000</pubDate><guid>https://swbuchanan.github.io/posts/implied_stock_distributions/</guid><description>&lt;h1 id="spx-option-implied-probability-distributions"&gt;SPX Option-Implied Probability Distributions&lt;/h1&gt;
+&lt;p&gt;This was a project completed as part of the Erdős Institute quantitative finance course, although I have updated it since then (August 2026) and sharpened the data sources and analysis. See below for an overview of the project, or go straight to the &lt;a href="https://github.com/swbuchanan/implied-stock-distributions"&gt;Github repository&lt;/a&gt; for the sweet jupyter notebooks.&lt;/p&gt;
+&lt;p&gt;This project studies how probability distributions for future S&amp;amp;P 500 levels can be extracted from SPX option prices and how well they match realized outcomes.&lt;/p&gt;
+&lt;p&gt;From historical option chains, the project:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;estimates forward prices and discount rates via &lt;strong&gt;put-call parity&lt;/strong&gt;,&lt;/li&gt;
+&lt;li&gt;recovers &lt;strong&gt;risk-neutral densities&lt;/strong&gt; using the Breeden–Litzenberger relationship,&lt;/li&gt;
+&lt;li&gt;compares smoothing methods for noisy option data,&lt;/li&gt;
+&lt;li&gt;evaluates forecasts using the &lt;strong&gt;Continuous Ranked Probability Score (CRPS)&lt;/strong&gt;, and&lt;/li&gt;
+&lt;li&gt;explores a simple transformation from risk-neutral to &lt;strong&gt;physical probabilities&lt;/strong&gt; using a CRRA pricing kernel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The implementation is in Python, with analysis presented in Jupyter notebooks.&lt;/p&gt;
+&lt;p&gt;⭐ See &lt;code&gt;notebooks/02_project.ipynb&lt;/code&gt; or &lt;code&gt;reports/02_project.html&lt;/code&gt; (in the Github repository) for the main reports. ⭐&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Under the risk-neutral measure $Q$, a European call price is&lt;/p&gt;
+&lt;p&gt;$$
+C(K,\tau) = e^{-r\tau}\mathbb{E}_Q[(S_T-K)^+].
+$$&lt;/p&gt;
+&lt;p&gt;Differentiating twice with respect to strike yields the Breeden–Litzenberger result:&lt;/p&gt;
+&lt;p&gt;$$
+f_Q(K) = e^{r\tau}\frac{\partial^2 C(K,\tau)}{\partial K^2},
+$$&lt;/p&gt;
+&lt;p&gt;which links option prices to the risk-neutral density.&lt;/p&gt;
+&lt;p&gt;In practice, this is challenging because option quotes are discrete and noisy, and second derivatives amplify irregularities. A key issue is therefore constructing smooth call-price curves that remain arbitrage-consistent.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="methodology"&gt;Methodology&lt;/h2&gt;
+&lt;h3 id="1-forward-and-discount-rate-estimation"&gt;1. Forward and discount rate estimation&lt;/h3&gt;
+&lt;p&gt;Put-call parity implies&lt;/p&gt;
+&lt;p&gt;$$
+C(K)-P(K)=D(F-K),
+$$&lt;/p&gt;
+&lt;p&gt;so if&lt;/p&gt;
+&lt;p&gt;$$
+C(K)-P(K)=a+bK,
+$$&lt;/p&gt;
+&lt;p&gt;then&lt;/p&gt;
+&lt;p&gt;$$
+D=-b, \qquad F=\frac{a}{D}, \qquad r=-\frac{\log D}{\tau}.
+$$&lt;/p&gt;
+&lt;p&gt;This allows forward prices and discount rates to be inferred directly from option data.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="2-risk-neutral-density-estimation"&gt;2. Risk-neutral density estimation&lt;/h3&gt;
+&lt;h4 id="implied-volatility-smoothing"&gt;Implied-volatility smoothing&lt;/h4&gt;
+&lt;p&gt;Prices are converted to implied volatilities and smoothed as a function of log-forward-moneyness:&lt;/p&gt;
+&lt;p&gt;$$
+k=\log\left(\frac{K}{F}\right).
+$$&lt;/p&gt;
+&lt;p&gt;The smoothed surface is converted back to prices and differentiated to obtain a density. This is flexible but does not guarantee arbitrage-free prices.&lt;/p&gt;
+&lt;h4 id="shape-constrained-smoothing-fengler"&gt;Shape-constrained smoothing (Fengler)&lt;/h4&gt;
+&lt;p&gt;A valid call-price curve must satisfy:&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\partial C}{\partial K}\leq 0, \qquad \frac{\partial^2 C}{\partial K^2}\geq 0.
+$$&lt;/p&gt;
+&lt;p&gt;These conditions ensure that the implied density&lt;/p&gt;
+&lt;p&gt;$$
+f_Q(K)\propto C&amp;rsquo;&amp;rsquo;(K)
+$$&lt;/p&gt;
+&lt;p&gt;is non-negative. The Fengler approach enforces these constraints directly while fitting a smooth curve, producing an arbitrage-consistent density.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="forecast-evaluation"&gt;Forecast evaluation&lt;/h2&gt;
+&lt;p&gt;Each implied distribution is compared to the realized SPX level using the CRPS:&lt;/p&gt;
+&lt;p&gt;$$
+\int_{\mathbb{R}}\left(F_D(x)-\mathbf{1}_{x\geq y}\right)^2 dx.
+$$&lt;/p&gt;
+&lt;p&gt;Lower values indicate better probabilistic forecasts. The analysis considers 30-, 60-, and 90-day horizons.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="from-risk-neutral-to-physical-probabilities"&gt;From risk-neutral to physical probabilities&lt;/h2&gt;
+&lt;p&gt;Risk-neutral densities are pricing objects, not real-world forecasts. To explore this gap, I use a CRRA-based transformation:&lt;/p&gt;
+&lt;p&gt;$$
+f_P(s)\propto s^\gamma f_Q(s),
+$$&lt;/p&gt;
+&lt;p&gt;where $\gamma$ controls the pricing-kernel adjustment. Different values of $\gamma$ are evaluated using CRPS.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="repository-structure"&gt;Repository structure&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;project/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├── README.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├── data/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ ├── raw/ # these directories are actually ignored
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ └── processed/ # since I don&amp;#39;t want to use github to share data
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├── implied_stock_distributions/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ └── ... # core modeling code
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├── notebooks/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ ├── 01_processing.ipynb # data preprocessing
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ └── 02_project.ipynb # read this one if you like to open jupyter notebooks!
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└── reports/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; └── 02_project.html # read this one if you don&amp;#39;t like to open jupyter notebooks!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="key-tools"&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Python (NumPy, pandas, SciPy, Matplotlib)&lt;/li&gt;
+&lt;li&gt;Black–Scholes implied volatility&lt;/li&gt;
+&lt;li&gt;put-call parity&lt;/li&gt;
+&lt;li&gt;Breeden–Litzenberger density extraction&lt;/li&gt;
+&lt;li&gt;constrained spline fitting&lt;/li&gt;
+&lt;li&gt;CRPS for probabilistic evaluation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="key-ideas"&gt;Key ideas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;option-implied state prices&lt;/li&gt;
+&lt;li&gt;risk-neutral vs physical measures&lt;/li&gt;
+&lt;li&gt;volatility surface smoothing&lt;/li&gt;
+&lt;li&gt;static arbitrage constraints&lt;/li&gt;
+&lt;li&gt;probabilistic forecasting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="limitations-and-extensions"&gt;Limitations and extensions&lt;/h2&gt;
+&lt;p&gt;Results depend on smoothing choices, grid resolution, and tail treatment. The CRRA transformation is also intentionally simple and not calibrated out-of-sample.&lt;/p&gt;
+&lt;p&gt;Possible extensions include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;out-of-sample evaluation of $\gamma$&lt;/li&gt;
+&lt;li&gt;richer pricing-kernel models&lt;/li&gt;
+&lt;li&gt;joint strike–maturity surface fitting&lt;/li&gt;
+&lt;li&gt;improved tail modeling&lt;/li&gt;
+&lt;li&gt;comparison with ML-based forecasts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;Breeden &amp;amp; Litzenberger (1978) — &lt;em&gt;Prices of State-Contingent Claims Implicit in Option Prices&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Fengler — &lt;em&gt;Arbitrage-Free Smoothing of the Implied Volatility Surface&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;This project explores how option prices encode full probability distributions of future market outcomes, and how these distributions compare to realized returns. This was originally a project that I completed as part of a quantitative finance course with The Erdős Institute, but has been significantly updated since then.&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>An unintuitive fact about random drawings with and without replacement</title><link>https://swbuchanan.github.io/posts/an_unintuitive_fact_about_drawing_with_replacement/</link><pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate><guid>https://swbuchanan.github.io/posts/an_unintuitive_fact_about_drawing_with_replacement/</guid><description>&lt;p&gt;Here&amp;rsquo;s an odd fact that I came across while doing a probability puzzle.
 I&amp;rsquo;ll start by presenting a version of this puzzle; I hope you have the patience to try it yourself, at least for a minute or two.
 I&amp;rsquo;ll present it in two parts.
 The first part is relatively easy.&lt;/p&gt;
@@ -1114,7 +387,7 @@ In this version where we draw without replacement, it&amp;rsquo;s clear that we 
 &lt;p&gt;One way to justify this is as follows.
 We&amp;rsquo;ll use exactly the same fact that expectation is linear, but we need to choose our random variables slightly more cleverly.&lt;/p&gt;
 &lt;p&gt;Let $X_s$ denote the number of times that we draw the ace of spaces.
-Similarly, let $X_c, X_h, X_d$ denote respectively the number of times that we draw the ace of clubs, hearts, and diamonds.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+Similarly, let $X_c, X_h, X_d$ denote respectively the number of times that we draw the ace of clubs, hearts, and diamonds.&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;Now if $X$ is the total number of aces that we have among the 10-card hand that we draw, then $X = X_s + X_c + X_h + X_d$, and so we again have that
 $$E[X] = E[X_s] + E[X_c] + E[X_h] + E[X_d].$$&lt;/p&gt;
 &lt;p&gt;Since no ace is more likely to be drawn than any other, if we find the expected number of times that the ace of spades is among the 10 cards we draw, then we are essentially done.
@@ -1125,48 +398,276 @@ The chances of a particular card being in some randomly selected portion of the 
 Now, we see that indeed we get the same answer,&lt;/p&gt;
 &lt;p&gt;$$E[X] = 4 \cdot E[X_s] = 4 \cdot \frac{10}{52} = \frac{10}{13}. \phantom{\frac{\hat{1}}{0}}$$&lt;/p&gt;
 &lt;p&gt;Now the exercise for the reader is to use this idea to trick someone at the bar and make some money.&lt;/p&gt;
-&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
+&lt;li id="fn:1"&gt;
 &lt;p&gt;One may object that these numbers depend on each other when we&amp;rsquo;re drawing without replacement; this is related to the complications we mentioned that seem to arise when going from drawing with replacement to drawing without replacement.
-Fortunately, the linearity of expectation does not require the random variables to be independent.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+Fortunately, the linearity of expectation does not require the random variables to be independent.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    <item>
-      <title>Running every street in Canberra</title>
-      <link>http://localhost:1313/posts/running-canberra/</link>
-      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/running-canberra/</guid>
-      <description>&lt;p&gt;Inspired by &lt;a href=&#34;https://pac.tom7.org/index.shtml&#34;&gt;Tom7&amp;rsquo;s project&lt;/a&gt;, who also has a great &lt;a href=&#34;https://www.youtube.com/watch?v=1c8i5SABqwU&#34;&gt;YouTube channel&lt;/a&gt;, I have recently decided to run the length of every street in Canberra, where I&amp;rsquo;m currently staying for school.
+&lt;/div&gt;</description></item><item><title>Running every street in Canberra</title><link>https://swbuchanan.github.io/posts/running-canberra/</link><pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate><guid>https://swbuchanan.github.io/posts/running-canberra/</guid><description>&lt;p&gt;Inspired by &lt;a href="https://pac.tom7.org/index.shtml"&gt;Tom7&amp;rsquo;s project&lt;/a&gt;, who also has a great &lt;a href="https://www.youtube.com/watch?v=1c8i5SABqwU"&gt;YouTube channel&lt;/a&gt;, I have recently decided to run the length of every street in Canberra, where I&amp;rsquo;m currently staying for school.
 Soon I hope to update this page with some rules for the project and some information about how I&amp;rsquo;m gathering and processing the data.
-For now, &lt;a href=&#34;http://localhost:1313/all_routes.html&#34;&gt;here&amp;rsquo;s my current progress&lt;/a&gt;.&lt;/p&gt;
+For now, &lt;a href="https://swbuchanan.github.io/all_routes.html"&gt;here&amp;rsquo;s my current progress&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Update: this project has been put on hold as I am now living in Canada until February 2026.&lt;/p&gt;
 &lt;p&gt;Second update: this project as now officially defunct as I have indefinitely moved to Melbourne.
-A Melbourne-based version of this is coming soon. (This promise made July 28 2026).&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>Some mathematical questions about Tetris</title>
-      <link>http://localhost:1313/posts/mathematical-tetris-questions/</link>
-      <pubDate>Fri, 11 Apr 2025 23:20:32 +1100</pubDate>
-      <guid>http://localhost:1313/posts/mathematical-tetris-questions/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://jstris.jezevec10.com/&#34;&gt;https://jstris.jezevec10.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Tetris is pretty fun.
-In case anyone reading this needs some introduction to the game, see the link.
-The oldest published mathematical analysis I could find of this game is in a master&amp;rsquo;s thesis from 1992 by John Brzustowski at the University of British Columbia.
-See here
-&lt;a href=&#34;https://open.library.ubc.ca/media/stream/pdf/831/1.0079748/1&#34;&gt;https://open.library.ubc.ca/media/stream/pdf/831/1.0079748/1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The thesis answers the question of whether or not it&amp;rsquo;s possible for a game of Tetris to go on indefinitely.
-Of course a slightly idealized version of the game is examined in the mathematical analysis; for example we don&amp;rsquo;t consider the time that it takes to place the piece.
-In the arcade version of the game, the speed of the pieces increases as the game progresses and the game gets more difficult.
-It seems natural to ignore this part of the game&lt;/p&gt;
-&lt;p&gt;However, in many versions of Tetris, there are some features that enable one to play indefinitely, with a reasonably simple strategy.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://harddrop.com/wiki/Playing_forever&#34;&gt;https://harddrop.com/wiki/Playing_forever&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-  </channel>
-</rss>
+A Melbourne-based version of this is coming soon. (This promise made July 28 2026).&lt;/p&gt;</description></item><item><title>A cute proof of Weierstrass approximation</title><link>https://swbuchanan.github.io/posts/weierstrass-approximation/</link><pubDate>Thu, 07 Nov 2024 00:00:00 +0000</pubDate><guid>https://swbuchanan.github.io/posts/weierstrass-approximation/</guid><description>&lt;p&gt;The Weierstrass approximation theorem says that (on an interval of finite length) we can approximate any continuous function arbitrarily well by polynomials.
+As polynomials have very nice mathematical and computational properties, this is a very useful theorem.&lt;/p&gt;
+&lt;p&gt;Probably most people who have encountered any proof of the Weierstrass approximation theorem have already seen the essential idea of this proof.
+Indeed, this is basically the original proof that Karl Weierstrass gave in 1885, just with a slightly different perspective.
+The idea of the proof is to take $f(x)$, the function that we are trying to approximate, as initial data to the heat equation.
+Then allow the heat distribution described by $f$ to diffuse for a very short amount of time.
+The heat equation has the remarkable property that its solutions immediately become smooth.
+But if we only allow the diffusion to happen for a sufficiently short amount of time, the distribution after this short time is still quite close (in the appropriate sense of &amp;ldquo;close&amp;rdquo;) to the original function $f$.
+Thus we have a smooth approximation.
+From there we can use Taylor&amp;rsquo;s theorem, which says that a smooth function can be approximated by polynomials.&lt;/p&gt;
+&lt;p&gt;To be more precise, we can find a function $\phi(x,t)$ so that $\phi(x,t)$ is a solution to the heat equation on $\R \times (0, \infty)$ with $\phi(x,0) = f(x)$.
+Then $\phi$ converges uniformly to $f$ as $t$ goes backwards to $0$, and the function $\phi(\cdot, t)$ is smooth for all fixed $t &amp;gt; 0$.
+Since $\phi$ is smooth, we can apply Taylor&amp;rsquo;s theorem to obtain the uniform approximation by polynomials.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Theorem: Weierstrass approximation. Given a continuous compactly supported function $f$ on $\R$ and $\epsilon &amp;gt; 0$, there is a polynomial $p(x)$ such that $|f(x) - p(x)| &amp;lt; \epsilon$ for all $x \in \R$.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Proof. Take
+$$\phi(x,t) = \frac{1}{\sqrt{4 \pi t}} \int_{\R} e^{-\frac{(x-y)^2}{4t}} f(y) \, dy.$$
+This is the convolution of $f$ with the Gaussian heat kernel, and thus is the unique solution of the heat equation with initial data $f$.
+By differentiating under the integral sign, we can see that all derivatives exist and are continuous.
+The fact that $\phi(x,t) \to f(x)$ uniformly also follows from properties of the Gaussian heat kernel.
+In particular, as $t \to 0$ from above, the kernel approximates a Dirac delta centered at $x$.
+This means that the integral converges to $f(x)$.&lt;/p&gt;
+&lt;p&gt;So, given $\epsilon &amp;gt; 0$, choose $t_0$ small enough that
+$$|\phi(x,t_0) - f(x)| &amp;lt; \frac{\epsilon}{2}$$
+for all $x$.
+Now since $\phi(\cdot, t_0)$ is smooth on the compact support of $f$, it follows from Taylor&amp;rsquo;s theorem that there is a polynomial $p(x)$ such that
+$$|\phi(x,t_0) - p(x)| &amp;lt; \frac{\epsilon}{2}$$
+for all $x$.
+Now by the triangle inequality,
+$$|f(x) - p(x)| \leq |f(x) - \phi(x, t_0)| + |\phi(x,t_0) - p(x)| &amp;lt; \epsilon,$$
+and we have our approximation.&lt;/p&gt;</description></item><item><title>Ancient 2-dimensional solutions to the Ricci flow</title><link>https://swbuchanan.github.io/posts/ancient-solutions/</link><pubDate>Fri, 23 Aug 2024 00:00:00 +0000</pubDate><guid>https://swbuchanan.github.io/posts/ancient-solutions/</guid><description>&lt;p&gt;Here I&amp;rsquo;ll give a more technical description of the work that I&amp;rsquo;m doing.
+See my other posts for a generally accessible version of the same thing.&lt;/p&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Geometric evolution equations describe how some quantity defined on a manifold changes over time.
+This is a broad idea; it applies to the description of many evolving physical systems, and for many years has allowed us to apply the theory of partial differential equations to these problems.
+Solutions of certain equations provide geometric models for corresponding physical phenomena.
+The shape of a stationary film of soap is the solution to an elliptic partial differential equation.
+The heat equation,
+$$\frac{\partial}{\partial t} u = \Delta u,$$
+which describes diffusion processes like heat spreading through an unevenly heated object, is the prototypical parabolic partial differential equation.&lt;/p&gt;
+&lt;p&gt;Recently many differential equations and systems of equations - particularly parabolic systems - have been used to describe certain natural deformations of curves, surfaces, or Riemannian metrics (among other geometric objects).
+Aside from direct physical applications, these theories can be applied to the problem of finding canonical or &amp;ldquo;best&amp;rdquo; metrics on Riemannian manifolds.&lt;/p&gt;
+&lt;h2 id="the-ricci-flow"&gt;The Ricci Flow&lt;/h2&gt;
+&lt;p&gt;The pioneering work in this direction was by Richard Hamilton in 1982.
+Motivated by the work of Eells and Sampson on the harmonic map heat flow (a way of deforming arbitrary maps between manifolds into harmonic maps), Hamilton considered a &amp;ldquo;heat equation&amp;rdquo; for the metric of a Riemannian manifold.&lt;/p&gt;
+&lt;p&gt;Hamilton classified all compact 3-manifolds of positive Ricci curvature by showing that, given an arbitrary Riemannian metric with positive Ricci curvature on a 3-manifold, the metric could smoothly deform to have constant curvature.
+In particular, he examined the following.
+Given a (compact) manifold $M$, a one-parameter family $g_t$ of Riemannian metrics on $M$ is said to evolve by the Ricci flow if
+$$\frac{\partial}{\partial t} g_{ij} = R_{ij}$$
+where $R$ is the Ricci curvature of $g(t)$.
+This turns out to be a weakly parabolic system of nonlinear partial differential equations.
+In particular, in the proper coordinates, this equation becomes
+$$ \frac{\partial}{\partial t}g_{ij} = \Delta g_{ij} + \text{lower order terms.} $$
+The Ricci flow equation shares some important properties with the heat equation, and many other geometric quanities, including the Riemann curvature tensor, satisfy similar heat-type equations as the metric.
+To such quantities we can often apply the &lt;em&gt;maximum principle&lt;/em&gt;, a far-reaching generalization of the fact that at a local maximum of a function $u(x,t)$ satisfying $u_t = u_{xx}$, the second derivative of $u$ will be negative, and thus $u_t &amp;lt; 0$, causing the maximum of $u$ to decrease over time.&lt;/p&gt;
+&lt;p&gt;One example to keep in mind is the &lt;em&gt;shrinking sphere&lt;/em&gt;.
+A sphere has the same positive curvature everywhere.
+Since the curvature is positive, the right hand side of the Ricci flow equation is negative, so the Ricci flow will uniformly shrink the metric.
+A natural question then is what happens to the flow as the sphere shrinks down to a point.
+This question and related questions form the topic of singularity analysis within the study of geometric flows.&lt;/p&gt;
+&lt;h2 id="modeling-singularities"&gt;Modeling singularities&lt;/h2&gt;
+&lt;p&gt;Suppose we have a solution to the Ricci flow with finite maximal time of existence $T$.
+Then at $t \to T$, the curvature of the metric goes to infinity somewhere on the manifold (or indeed everywhere, as in the case of the sphere).
+The technique we use to deal with this situation is to choose a sequence of times $t_i \to T$ and a sequence of points $x_i$ converging to the point where the curvature is exploding (e.g. the points where the supremum of curvature up to time $t_i$ is attained on $M$).
+Then we apply a parabolic rescaling
+$$ g_\lambda(x,t) = \lambda^2 g \left( x, \frac{t}{\lambda^2} \right) $$
+so that the curvature remains bounded.
+It is a general property of the Ricci flow that a parabolically rescaled solution to the flow is another solution.
+Assuming a lower bound on the injectivity radius, there is a compactness theorem for solutions to the Ricci flow that ensures we can take a (subsequential) limit and obtain a so-called ancient solution to the Ricci flow that tells us what the manifold looks like near the singularity.&lt;/p&gt;
+&lt;h2 id="ancient-solutions"&gt;Ancient solutions&lt;/h2&gt;
+&lt;p&gt;An ancient solution to Ricci flow is a solution that is defined for all time before, say, time $t = 0$.
+An example is provided by the shrinking spheres discussed before.
+Any sphere has an ancestry reaching back forever, comprising larger and larger spheres as we look further backwards in time.
+A more trivial example is the stationary plane: a flat metric is unchanging over time, since the right hand side of the Ricci flow equation is 0.
+Certainly such a flow exists for all time, forwards and backwards.
+Another important example is the &lt;em&gt;cigar&lt;/em&gt;.
+It can be pictured as a tube that extends infinitely in one direction and has a rounded (though not hemispherical) tip.
+The almost-flat parts of the manifold, along the cylinder, barely move under the flow, but the curved tip &amp;ldquo;burns away&amp;rdquo; as time goes on.
+Explicitly, the cigar is $(\R^2, g)$, with $g$ given in geodesic polar coordinates by
+$$ ds^2 + \tanh^2 s , d \theta^2. $$
+The rescaling process described in the last section involves scaling the backwards time-domain of the flow to $-\infty$, so singularity models are always ancient solutions (although the converse of this isn&amp;rsquo;t true).&lt;/p&gt;
+&lt;h2 id="classification-of-2-dimensional-ancient-solutions-and-beyond"&gt;Classification of 2-dimensional ancient solutions and beyond&lt;/h2&gt;
+&lt;p&gt;We can use the maximum principle mentioned previously to show that ancient solutions have non-negative curvature.
+Then by the strong maximum principle, a solution must either have strictly positive curvature everywhere or must be a quotient of the stationary plane (i.e. a flat manifold, the most trivial solution to Ricci flow).
+Then the only strictly positively curved ancient solutions are the shrinking spheres, the cigars, and the King-Rosenau solutions, which are sort of like compact versions of the cigars.
+This classification was achievd through various papers and somewhat technical analysis.&lt;/p&gt;
+&lt;p&gt;Certain techniques in 1-dimensional mean curvature flow (aka curve shortening flow) can be applied to Ricci flow on surfaces.
+Recently, Bourni, Langford, and Tinaglia have classified the convex ancient solutions to curve shortening flow.
+My project aims to re-prove the classification of ancient Ricci flows on surfaces using the more geometric methods used in this classification.
+I also hope to apply some of the methods we learn to classification of solutions in higher dimensions, or possibly classification of solutions to related flows, such as the Kähler-Ricci flow.&lt;/p&gt;</description></item><item><title>My research, part 3</title><link>https://swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://swbuchanan.github.io/posts/2023-01-15-my-research-part-3/</guid><description>&lt;p&gt;This is the third part in a series of short articles I&amp;rsquo;m trying to write about my research.
+&lt;a href="https://swbuchanan.github.io/posts/2023-01-03-my-research-part-1/"&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In this article, I will introduce some preliminary notions that will be necessary in describing the work that I do (and in fact they are fundamental to all research in geometry).
+The two notions are these: manifolds and metric tensors.
+A manifold is a mathematical structure that generalizes and makes precise the idea of &lt;em&gt;space&lt;/em&gt;.
+Space is a familiar idea.
+The (physical, i.e. ignoring the time dimension) space we live in is (described by) a 3-dimensional manifold.
+One way to see that it is 3-dimensional is to observe that if we are at some point in space, we can fix 3 different directions, perhaps forward, left, and up, and then any direction in which it is possible for us to move is some combination of these 3 directions.&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;
+(Here we are counting moving backwards along one of these chosen directions as using that direction.)
+If we had only chosen 4 directions, say forward and to the right, then we could not describe any upward or downward motion in terms of these directions.
+So our physical space can&amp;rsquo;t be 2 dimensional.
+If we had chosen 4 directions, say forward, right, down, and a little bit up and to the left, then we have some redundancy.
+We only need any 3 of these directions to describe any sort of motion we want in space.
+(It&amp;rsquo;s true that if we choose to use the 3 directions: forward, right, and a little bit up and to the left, then describing motion in, say, purely the leftward direction becomes unnecessarily complicated, but the important thing is that it can in principle be done.)
+So 4 directions is too many.&lt;/p&gt;
+&lt;p&gt;Another example of a manifold is a sphere, which is the infinitely thin outer surface of a ball.
+When one imagines a sphere, one probably imagines it sitting inside of 3-dimensional space, but the sphere itself is a 2-dimensional manifold.
+This can be seen for the same reason as before: if we are on the surface of the sphere and we pick out two distinguished directions relative to our position, then we can specify any point around us using only these two directions.
+For example, I could tell you that the point I&amp;rsquo;m thinking of is 3 units to my right and -3 units in front of me, if my distinguished directions happen to be &amp;ldquo;to the right&amp;rdquo; and &amp;ldquo;forward.&amp;rdquo;
+Another way to phrase this same concept is by pointing out that we can specify any point on the surface of the earth with two coordinates: latitude and longitude.&lt;/p&gt;
+&lt;p&gt;The mathematically precise way to state this idea of being able to describe the manifold in terms of a certain number of coordinates is fairly technical, but it goes something like this.
+In each dimension, there is a certain &amp;ldquo;default manifold&amp;rdquo; that is basically as nice as it&amp;rsquo;s possible for a manifold to be.
+This is called Euclidean space.
+The 1-dimensional Euclidean space is a straight line extending forever in both directions.
+Then a coordinate for this space is just a number, say $x$.
+This space is often just referred to as &lt;em&gt;the line&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The 2-dimensional Euclidean space is &lt;em&gt;the plane&lt;/em&gt;, extending forever in all directions.
+Any point in this space has a pair of 1-dimensional coordinates $(x,y)$, where each coordinate in the pair comes from 1-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;The 3-dimensional Euclidean space can be imagined as the physical space that we live in extending forever in all directions.
+It&amp;rsquo;s the space with 3 coordinates $(x,y,z)$ with each coordinate in the triplet coming from 1-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;Higher dimensional Euclidean spaces are obtained following the same pattern: simply add more coordinates.
+Once we have these spaces in our hands, we can say that a manifold with possibly some other shape, like a sphere, is some mathematical object with the property that when we look very closely around a point, it looks like one of these Euclidean spaces of some dimension.
+For example, the (idealized, without terrain features) surface of the earth looks like a piece of 2-dimensional Euclidean space.
+Or a circle, when one zooms in closely on some point, looks just like a piece of 1-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;Now we can ask an important question.
+If we are within some manifold, say on the surface of a 2-dimensional manifold, then we look all around us and, due to what it means to be a manifold, it appears to us that we are in Euclidean space.
+How exactly can we be sure that our manifold is not, in fact Euclidean space?
+The two main things that differentiate one manifold from another are the &lt;em&gt;topology&lt;/em&gt; and the &lt;em&gt;geometry&lt;/em&gt;.
+To oversimplify, these concepts refer respectively to the large-scale shape of the manifold and the small-scale shape.&lt;/p&gt;
+&lt;h2 id="topology"&gt;Topology&lt;/h2&gt;
+&lt;p&gt;Topology should be considered as looking at the &amp;ldquo;large-scale&amp;rdquo; structure of a manifold.
+Later we will be interested in ways that the geometry of the manifold can change over time, but the underlying topology of the manifold will generally be fixed.&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt;
+Topology is sometimes referred to as rubber-sheet geometry, because deforming a manifold in ways that one could deform a rubber sheet would not change the topology.
+For instance, the sphere has a certain topology and spheres that are, say, larger or smaller or squished or stretched or crumpled up all have different geometries, but the same underlying spherical topology.
+One way to see that the topology is different from the topology of a plane is that a sphere does not &amp;ldquo;extend forever in all directions.&amp;rdquo;
+If one starts traveling in a fixed direction on a sphere, one will eventually come back to where they started.&lt;sup id="fnref:3"&gt;&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref"&gt;3&lt;/a&gt;&lt;/sup&gt;
+This is not true for the plane.&lt;/p&gt;
+&lt;p&gt;I think it gives a good intuitive idea of &amp;ldquo;large-scale&amp;rdquo; shape of a
+This idea of &amp;ldquo;traveling in one direction&amp;rdquo; is not really a good mathematical way to distinguish between different topologies&lt;/p&gt;
+&lt;h3 id="a-useful-way-to-distinguish-topological-spaces"&gt;A useful way to distinguish topological spaces&lt;/h3&gt;
+&lt;p&gt;Another common example of a surface with a different topology to either the surface of a sphere or of a plane is the surface of a donut or a bagel.
+We call this surface a torus.&lt;/p&gt;
+&lt;h2 id="geometry"&gt;Geometry&lt;/h2&gt;
+&lt;p&gt;We see that topology gives us a way to talk about holes in a manifold, but we can&amp;rsquo;t use the tools of topology to detect the &amp;ldquo;small-scale&amp;rdquo; shape of a manifold.
+For instance, topologically speaking, a sphere of radius 1 and a sphere of radius 2 are exactly the same, provided they have the same dimension.
+Similarly, we have no way to distinguish between a flat plane and something like an infinite sheet of corrugated material.
+Our topological toolbox does not provide us with any way to measure distances, curvature, angles, and similar features of the manifold.&lt;sup id="fnref:4"&gt;&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref"&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id="footnotes"&gt;Footnotes&lt;/h2&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;We do have to be just a little bit careful when choosing these directions. For example, if we choose: forward, left, and backward, then we are unable to describe any upward or downward motion.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;I doubt I&amp;rsquo;ll get around to talking about it, but I can&amp;rsquo;t resist mentioning it.
+There are notions of geometric evolution that allow the toplogy of the manifold to change it a certain carefully controlled way.
+The so-called Ricci flow with surgery is one famous way; analysis of this process was what led to the resolution of the Poincare conjecture.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;This is not really the correct way to state what I&amp;rsquo;m talking about, but it&amp;rsquo;s a better way to understand the idea.
+The concept of direction on a topological manifold isn&amp;rsquo;t really well-defined in the first place (although once we endow a topological manifold with a geometric structure we can sensibly talk about direction).
+The technical concept that I&amp;rsquo;m referring to is called &lt;em&gt;compactness&lt;/em&gt;, and it&amp;rsquo;s very important in many areas of mathematics.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:4"&gt;
+&lt;p&gt;To be more specific, it&amp;rsquo;s not exactly that we can&amp;rsquo;t distinguish between such features, but the mathematical object that is a topological manifold simply does not contain the information that corresponds to distances and curvature and so on.
+So if we&amp;rsquo;re purely in the land of topological manifolds, it&amp;rsquo;s not quite accurate to say that we can&amp;rsquo;t distinguish between two spheres of different radii; the unique topological manifold that describes a sphere (of a given dimension) simply has no radius.
+The way I phrased it is still technically accurate, since if we have Riemannian manifolds that describe spheres with different radii, they are in fact topologically the same.&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item><item><title>My research, part 2</title><link>https://swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</link><pubDate>Mon, 08 Jan 2024 21:01:30 +1100</pubDate><guid>https://swbuchanan.github.io/posts/2023-01-08-my-research-part-2/</guid><description>&lt;p&gt;This is the second part in a series of short articles I&amp;rsquo;m trying to write about my research.
+&lt;a href="https://swbuchanan.github.io/posts/2023-01-03-my-research-part-1/"&gt;See the first one here.&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="research-questions-in-curve-shortening-flow"&gt;Research questions in curve shortening flow&lt;/h2&gt;
+&lt;p&gt;In this article, I will not be talking about my own research yet, but instead I&amp;rsquo;ll be talking about research completed by others.&lt;/p&gt;
+&lt;p&gt;Event though it isn&amp;rsquo;t the focus of my research, I want to talk about curve shortening flow since it is a particularly simple and concrete example of a geometric flow.
+I also hope to give an example of what an actual research question in this field is like, since most of the time when I explain my research field I have to stay at the level of vague ideas and intuitive explanations.
+This article will still be quite vague compared to the actual research papers, but at least it will be a vague explanation of a significant result in this area.&lt;/p&gt;
+&lt;p&gt;In the field of geometric flows, we usually have some partial differential equation like the heat equation or the curve shortening flow equation.
+It&amp;rsquo;s often easy to describe the flow without the use of an equation, but the equation is critical when it comes to actually doing mathematics.
+It&amp;rsquo;s natuaral to think that equations exist as things that are to be solved, but it should be noted that solving these equations is never a major research question.
+Indeed, solutions to these equations are generally easy to come by.
+In the last article I linked &lt;a href="https://a.carapetis.com/csf/"&gt;this website&lt;/a&gt;, which lets you observe solutions to curve shortening flow that begin with a curve that you can draw yourself.&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;A solution to a geometric flow is just the initial setup consisting of a manifold and its geometry (in this case the manifold is the curve and the geometry is the shape of the curve) and then all the curves at every instant in time afterwards.
+What makes these time-slices of curves a solution is that if you play the time-slices like a movie (this is what the website does for you), you see the curve move according to the curve shortening flow equation (remember that the curve shortening flow tells a curve how to change shape over time).
+It could be moving in a way that satisfied some other geometric equation, or it could be moving randomly, but it&amp;rsquo;s moving according to the rule of curve shortening flow, and therefore it is a solution.
+To summarize this paragraph: a solution to a geometric flow of a manifold (think about a curve) is a collection of time-slices of a manifold changing geometry (think about the curve changing shape) such that if you could play the time-slices like a movie, you would see the geometry changing over time in a way that is described by the equation associated to the geometric flow you&amp;rsquo;re thinking of.&lt;/p&gt;
+&lt;p&gt;When we have a partial differential equation, rather than just trying to solve the equation, usually a more interesting problem is to prove that any solution to the equation must have certain properties.
+Or more often, that any solution with properties A, B, and C necessarily has some particular behavior, or doesn&amp;rsquo;t have some other behavior, or something to that effect.
+To slightly undermine my previous point about solving the equation, occasionally we are interested in trying to construct a solution to the equation that has some certain properties or is missing some certain properties, or demonstrates that some idea is true or some other idea is false.
+It also can be a challenging problem to prove that solutions to the equation always have to exist!
+For instance, not every curve has a well-defined normal vector at every point (think about what happens if the curve has a &amp;ldquo;corner&amp;rdquo; somewhere).
+Since the normal vector is part of the equation, not having a normal vector means that the curve shortening flow equation can&amp;rsquo;t tell the curve how to move if the curve doesn&amp;rsquo;t have a normal vector somewhere&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt;.
+Even if we start with a curve that is completely smooth and has no corners, if we let it flow according to curve shortening flow, how do we know it won&amp;rsquo;t later on develop a corner and break the flow?
+This doesn&amp;rsquo;t happen, but the fact that it doesn&amp;rsquo;t happen is a non-obvious fact requiring proof.&lt;/p&gt;
+&lt;p&gt;Okay, so we know what solutions to curve shortening flow are, and we&amp;rsquo;re interested in proving that certain types of solutions (that is, solutions with certain properties as mentioned in the previous paragraph) behave in a certain way.
+As an example of this, I&amp;rsquo;ll discuss the proof of the following statement about certain solutions to the curve shortening flow.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If we begin with a curve forming a closed loop in 2-dimensional space without crossing over itself, then as the curve moves according to curve shortening flow, it will never cross over itself, but instead will shrink to a point.
+Moreover, as it shrinks it will become more and more circular.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This statement is often called the &lt;em&gt;Gage-Hamilton-Grayson theorem&lt;/em&gt;.
+I won&amp;rsquo;t discuss the technical details of this proof, but instead try to give a high-level understanding of what it takes to prove it.
+If you would like to see technical details, &lt;a href="https://math.jhu.edu/~js/Math745/gage-hamilton.pdf"&gt;here&lt;/a&gt; is the paper of Gage and Hamilton proving (part of) this result.&lt;sup id="fnref:3"&gt;&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref"&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Some important tools are the &lt;em&gt;normal vector&lt;/em&gt; $$\mathsf N$$ that is perpendicular to the curve at a point, the &lt;em&gt;tangent vector&lt;/em&gt; $$\mathsf T$$ that is tangent to the curve at a point, and the &lt;em&gt;Frenet-Serret equations&lt;/em&gt;.
+These equations give information about the spatial derivative of the normal vector in terms of the tangent vector, and the spatial derivative of the tangent vector in terms of the normal vector.
+These equations also involve the curvature of the curve.
+The phrase &amp;ldquo;spatial derivative&amp;rdquo; may sound confusing, but the idea to keep in mind is that when we talk about the normal or tangent vectors, we are talking about vectors that are based at some particular point on the curve.
+Then the spatial derivative of the tangent vector describes how the tangent vector rotates as the point we&amp;rsquo;re looking at moves around the curve.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s very important that these equations involve the curvature.
+The curvature is just the shape of the curve, so having equations like these gives us a way to prove things about the shape of the curve.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s another important idea: since the curve shortening equation&lt;/p&gt;
+&lt;p&gt;$$\frac{\partial}{\partial t} \gamma = \kappa \mathsf N$$&lt;/p&gt;
+&lt;p&gt;involves the normal vector and a &lt;em&gt;time derivative&lt;/em&gt;, and the Frenet-Serret equations involve the normal vector and a &lt;em&gt;space derivative&lt;/em&gt;, as well as information about the shape of the curve, they give us a precise way to talk about how changes in space relate to changes in time, and then apply this to the shape of the curve.
+So we can get equations that describe how the shape of the curve is changing.
+More specifically, using these ideas we can get a differential equation for how the curvature evolves over time.&lt;/p&gt;
+&lt;p&gt;This is a good time to introduce another important tool that shows up very frequently in geometric analysis: the maximum principle.
+There are some complicated mathematical statements I could write down to explain the maximum principle in full detail, but the basic idea is this:
+as heat diffuses throughout an object, the hottest parts cool down and the coldest parts heat up.
+In other words, the maximum heat is decreasing and the minimum heat is increasing.
+And even in the case where this isn&amp;rsquo;t true, which is the case where we&amp;rsquo;re heating the object from the outside (or the object is losing heat to the outside - previously I was talking about a perfectly insulated object), the only places that we can look to find the new hottest parts of the object are the places where we&amp;rsquo;re introducing new heat: i.e. the edges of the object.&lt;/p&gt;
+&lt;p&gt;This is true of heat diffusion, which means it is true of solutions to the heat equation.
+However, there are many other differential equations that are similar enough to the heat equation that they share this property that maximums decrease and minimums increase (or just one of these two properties, but sometimes we only need one to work).
+This is the basic idea that we call the maximum principle.
+This fact can be proved for large classes of differential equations, and the proof is quite pleasing, but it would take too long to discuss in this post.&lt;/p&gt;
+&lt;p&gt;Now, when we left off three paragraphs ago, we had just found a differential equation that tells us how the curvature at any point of the curve changes over time.
+Using this differential equation (and many other concepts and technical details), we can find that the ratio of the maximum curvature at any point on the curve to the minimum curvature at any point of the curve goes to 1 as time passes.
+That is, the curvature is changing over time in such a way that the maximum curvature anywhere is equal to the minimum curvature anywhere.
+The only way that can be true is if the curvature everywhere is the same, and the only way &lt;em&gt;that&lt;/em&gt; can be true is if the curve is a circle.
+So, over time the curve is becoming a circle.&lt;sup id="fnref:4"&gt;&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref"&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Notice that it&amp;rsquo;s important that we&amp;rsquo;re talking about the &lt;em&gt;ratio&lt;/em&gt; of the maximum and minimum curvatures instead of just the maximum and minimum curvatures directly.
+As the curve shrinks to a tiny circle (and eventually shrinks into nothing), the curvature increases without bound.
+A tiny circle is more curved than a large one, but the ratio of the maximum and minimum curvatures on a tiny circle is still 1.
+If all we knew was that the maximum and minimum curvatures were increasing without bound, this wouldn&amp;rsquo;t be enough to say that the curve is becoming circular, but the fact about the ratio approaching 1 is a stronger fact.&lt;/p&gt;
+&lt;h2 id="footnotes"&gt;Footnotes&lt;/h2&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Technically the website will show approximations of solutions, but the point that solutions are easy to come by still stands.
+Precisely, one example of a solution is $$\gamma(x,t) = (\sqrt{9 - 2t} \cos x, \sqrt{9 - 2t} \sin x).$$
+The curve described by this equation (which, by necessity, tells us how the curve looks at each time-slice) looks like a circle with initial radius 3 that is shrinking inwards.
+If you could draw a perfect circle on the website (and if the website could actually process a perfect circle), this equation describes what you would see.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;Don&amp;rsquo;t worry, there&amp;rsquo;s a way to fix this problem, and the curve shortening flow still works even if the curve you start with has sharp corners.
+(But worse things can happen too.)&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;To be completely accurate, Gage and Hamilton proved the result under the additional assumption that the curve you start with is &lt;em&gt;convex&lt;/em&gt;, meaning that if you travel around the curve in a counterclockwise direction, you can only turn to the left (or go straight for a while).
+Later, Grayson proved that if you start with an arbitrary curve that doesn&amp;rsquo;t intersect itself, eventually it will &lt;em&gt;become&lt;/em&gt; convex without ever intersecting itself.
+Together these two results prove the result we stated.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:4"&gt;
+&lt;p&gt;Although it&amp;rsquo;s becoming a circle that shrinks to nothing!
+That&amp;rsquo;s why it&amp;rsquo;s important that we&amp;rsquo;re talking about the &lt;em&gt;ratio&lt;/em&gt; of the maximum to minimum curvatures, and not just the maximum and minimum curvatures themselves.
+The maximum curvature and minimum curvature are both going to infinity as the curve shrinks - because a tiny circle has higher curvature than a big circle.
+When things go to infinity they become hard to describe mathematically.&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item></channel></rss>
