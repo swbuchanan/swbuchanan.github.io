@@ -32,6 +32,8 @@ TypeScript command validates them in strict mode without emitting files.
 - `content/` contains pages and posts.
 - `layouts/` contains site-owned templates, partials, and shortcodes.
 - `assets/` contains Hugo-pipeline assets and TypeScript source.
+- `data/` contains generated data files that templates read (currently the
+  Melbourne running project's progress figures).
 - `static/` contains files copied directly into the published site.
 - `scripts/` contains explicit helpers for updating generated source data.
 - `themes/hugo-texify3s/` is the Hugo theme submodule.

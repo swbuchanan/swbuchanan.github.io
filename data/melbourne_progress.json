@@ -1,0 +1,257 @@
+{
+  "generated": "2026-11-09T03:57:05+00:00",
+  "runs": 29,
+  "distance_km": 263.4,
+  "suburbs_total": 479,
+  "suburbs_visited": 22,
+  "suburbs_remaining": 457,
+  "percent_visited": 4.6,
+  "first_run": "2026-07-24",
+  "latest_run": "2026-10-11",
+  "min_points": 1,
+  "visited": [
+    {
+      "suburb": "Melbourne",
+      "runs": 25,
+      "km": 112.0,
+      "first_run": "2026-08-04"
+    },
+    {
+      "suburb": "Southbank",
+      "runs": 25,
+      "km": 24.5,
+      "first_run": "2026-08-04"
+    },
+    {
+      "suburb": "South Yarra",
+      "runs": 17,
+      "km": 27.2,
+      "first_run": "2026-08-04"
+    },
+    {
+      "suburb": "Cremorne",
+      "runs": 11,
+      "km": 10.9,
+      "first_run": "2026-09-10"
+    },
+    {
+      "suburb": "Box Hill",
+      "runs": 4,
+      "km": 20.9,
+      "first_run": "2026-07-24"
+    },
+    {
+      "suburb": "Burnley",
+      "runs": 4,
+      "km": 6.5,
+      "first_run": "2026-09-21"
+    },
+    {
+      "suburb": "South Melbourne",
+      "runs": 4,
+      "km": 4.0,
+      "first_run": "2026-08-13"
+    },
+    {
+      "suburb": "Port Melbourne",
+      "runs": 3,
+      "km": 12.7,
+      "first_run": "2026-08-13"
+    },
+    {
+      "suburb": "Albert Park",
+      "runs": 3,
+      "km": 10.4,
+      "first_run": "2026-08-17"
+    },
+    {
+      "suburb": "Box Hill North",
+      "runs": 3,
+      "km": 6.7,
+      "first_run": "2026-07-24"
+    },
+    {
+      "suburb": "Toorak",
+      "runs": 3,
+      "km": 6.4,
+      "first_run": "2026-09-21"
+    },
+    {
+      "suburb": "Richmond",
+      "runs": 3,
+      "km": 4.6,
+      "first_run": "2026-09-24"
+    },
+    {
+      "suburb": "Middle Park",
+      "runs": 2,
+      "km": 1.3,
+      "first_run": "2026-08-17"
+    },
+    {
+      "suburb": "South Wharf",
+      "runs": 2,
+      "km": 1.0,
+      "first_run": "2026-08-13"
+    },
+    {
+      "suburb": "Kew",
+      "runs": 1,
+      "km": 4.3,
+      "first_run": "2026-10-11"
+    },
+    {
+      "suburb": "Abbotsford",
+      "runs": 1,
+      "km": 3.1,
+      "first_run": "2026-10-11"
+    },
+    {
+      "suburb": "Fairfield",
+      "runs": 1,
+      "km": 2.2,
+      "first_run": "2026-10-11"
+    },
+    {
+      "suburb": "St Kilda",
+      "runs": 1,
+      "km": 1.6,
+      "first_run": "2026-09-08"
+    },
+    {
+      "suburb": "St Kilda West",
+      "runs": 1,
+      "km": 1.0,
+      "first_run": "2026-09-08"
+    },
+    {
+      "suburb": "Alphington",
+      "runs": 1,
+      "km": 0.9,
+      "first_run": "2026-10-11"
+    },
+    {
+      "suburb": "Kew East",
+      "runs": 1,
+      "km": 0.6,
+      "first_run": "2026-10-11"
+    },
+    {
+      "suburb": "Ivanhoe",
+      "runs": 1,
+      "km": 0.5,
+      "first_run": "2026-10-11"
+    }
+  ],
+  "recent_runs": [
+    {
+      "date": "2026-10-11",
+      "km": 21.9,
+      "suburbs": [
+        "Southbank",
+        "Melbourne",
+        "Cremorne",
+        "Richmond",
+        "Burnley",
+        "Abbotsford",
+        "Kew",
+        "Fairfield",
+        "Kew East",
+        "Alphington",
+        "Ivanhoe"
+      ],
+      "new_suburbs": [
+        "Abbotsford",
+        "Kew",
+        "Fairfield",
+        "Kew East",
+        "Alphington",
+        "Ivanhoe"
+      ]
+    },
+    {
+      "date": "2026-10-06",
+      "km": 11.7,
+      "suburbs": [
+        "Southbank",
+        "Melbourne",
+        "Cremorne",
+        "Richmond",
+        "Burnley",
+        "Toorak",
+        "South Yarra"
+      ],
+      "new_suburbs": []
+    },
+    {
+      "date": "2026-10-04",
+      "km": 9.8,
+      "suburbs": [
+        "Southbank",
+        "Melbourne",
+        "Cremorne",
+        "South Yarra"
+      ],
+      "new_suburbs": []
+    },
+    {
+      "date": "2026-10-02",
+      "km": 7.8,
+      "suburbs": [
+        "Southbank",
+        "Melbourne",
+        "South Yarra"
+      ],
+      "new_suburbs": []
+    },
+    {
+      "date": "2026-09-27",
+      "km": 7.5,
+      "suburbs": [
+        "Southbank",
+        "Melbourne",
+        "South Yarra",
+        "Cremorne"
+      ],
+      "new_suburbs": []
+    },
+    {
+      "date": "2026-09-26",
+      "km": 7.7,
+      "suburbs": [
+        "Southbank",
+        "Melbourne",
+        "South Yarra",
+        "Cremorne"
+      ],
+      "new_suburbs": []
+    },
+    {
+      "date": "2026-09-24",
+      "km": 11.4,
+      "suburbs": [
+        "Southbank",
+        "Melbourne",
+        "Cremorne",
+        "Richmond",
+        "South Yarra",
+        "Burnley",
+        "Toorak"
+      ],
+      "new_suburbs": [
+        "Richmond"
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "km": 7.2,
+      "suburbs": [
+        "Southbank",
+        "Melbourne",
+        "South Yarra",
+        "Cremorne"
+      ],
+      "new_suburbs": []
+    }
+  ]
+}
