@@ -1,37 +1,37 @@
 {
-  "generated": "2026-11-09T03:57:05+00:00",
-  "runs": 29,
-  "distance_km": 263.4,
+  "generated": "2026-11-09T04:29:53+00:00",
+  "runs": 30,
+  "distance_km": 273.5,
   "suburbs_total": 479,
   "suburbs_visited": 22,
   "suburbs_remaining": 457,
   "percent_visited": 4.6,
   "first_run": "2026-07-24",
-  "latest_run": "2026-10-11",
+  "latest_run": "2026-11-05",
   "min_points": 1,
   "visited": [
     {
       "suburb": "Melbourne",
-      "runs": 25,
-      "km": 112.0,
+      "runs": 26,
+      "km": 119.2,
       "first_run": "2026-08-04"
     },
     {
       "suburb": "Southbank",
-      "runs": 25,
-      "km": 24.5,
+      "runs": 26,
+      "km": 25.0,
       "first_run": "2026-08-04"
     },
     {
       "suburb": "South Yarra",
-      "runs": 17,
-      "km": 27.2,
+      "runs": 18,
+      "km": 28.6,
       "first_run": "2026-08-04"
     },
     {
       "suburb": "Cremorne",
-      "runs": 11,
-      "km": 10.9,
+      "runs": 12,
+      "km": 11.9,
       "first_run": "2026-09-10"
     },
     {
@@ -145,6 +145,17 @@
   ],
   "recent_runs": [
     {
+      "date": "2026-11-05",
+      "km": 10.0,
+      "suburbs": [
+        "Southbank",
+        "Melbourne",
+        "South Yarra",
+        "Cremorne"
+      ],
+      "new_suburbs": []
+    },
+    {
       "date": "2026-10-11",
       "km": 21.9,
       "suburbs": [
@@ -241,17 +252,6 @@
       "new_suburbs": [
         "Richmond"
       ]
-    },
-    {
-      "date": "2026-09-22",
-      "km": 7.2,
-      "suburbs": [
-        "Southbank",
-        "Melbourne",
-        "South Yarra",
-        "Cremorne"
-      ],
-      "new_suburbs": []
     }
   ]
 }

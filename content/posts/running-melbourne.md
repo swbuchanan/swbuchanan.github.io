@@ -23,18 +23,8 @@ This isn't the only way to define things, but it's what I ended up on.
 
 ## How it works
 
-Runs come off Strava as GPX files. Each trackpoint gets tested against the
-suburb polygons, which is a single spatial join rather than anything clever,
-and the result is the table and map above.
-
-I originally tried to do this by matching runs onto a graph of Melbourne's
-streets, which is what you'd want for the "minimise retraced streets" part of
-the project. It turns out to be the wrong tool for *this* question. Suburbs
-are big simple polygons, so the GPS noise that makes graph matching fiddly —
-a point landing on the wrong side of a road, a tunnel, a bridge over a river —
-doesn't matter at all when the thing you're asking is "which 2-kilometre-wide
-shape is this point in". Point-in-polygon is both simpler and more robust
-here. The street graph is still there; I may use it for some route planning later.
+Runs are retreived from my Strava using the API, and checked against the suburb polygons.
+I actually am not checking the distance within the suburb at the moment, but it's on the todo list.
 
 ## What's next
 
