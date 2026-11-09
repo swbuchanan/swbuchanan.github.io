@@ -21,8 +21,15 @@ run the same checks used by CI:
 ```sh
 npm run typecheck
 npm run build -- --destination .hugo-output
+npm run validate
 npm run check:links
 ```
+
+`npm run validate` runs the Nu Html Checker over the build, exactly as CI
+does. It needs a Java runtime and the `html5validator-2` package; the script
+tells you how to get them if they are missing. It catches structural mistakes
+the Hugo build happily accepts, such as a `figcaption` that is neither the
+first nor the last child of its `figure`.
 
 Hugo compiles the interactive demonstrations from `assets/ts/`. The
 TypeScript command validates them in strict mode without emitting files.

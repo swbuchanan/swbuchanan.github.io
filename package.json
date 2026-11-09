@@ -7,6 +7,7 @@
     "build": "hugo --gc --minify --cleanDestinationDir",
     "check:links": "node scripts/check-internal-links.mjs .hugo-output",
     "dev": "hugo server --disableFastRender",
+    "validate": "html5validator --root .hugo-output || (echo '\nIf html5validator is missing: uv tool install html5validator-2==1.1.5 (and a JRE, e.g. apt install default-jre-headless)' && exit 1)",
     "typecheck": "tsc"
   },
   "engines": {

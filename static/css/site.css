@@ -424,16 +424,21 @@ canvas {
   line-height: 1.1;
 }
 
+/* The figure wraps only the map and its caption: a figcaption has to be the
+ * first or last child of its figure, and the table and footnote follow it. */
+.run-progress__figure {
+  margin: 1.25rem 0 0;
+}
+
 .run-progress__map {
   border: 1px solid var(--bg2);
   border-radius: 0.3rem;
   display: block;
   height: clamp(20rem, 60vh, 38rem);
-  margin-top: 1.25rem;
   width: 100%;
 }
 
-.run-progress > figcaption {
+.run-progress__figure > figcaption {
   color: var(--fg3);
   font-size: 0.9rem;
   margin-top: 0.6rem;

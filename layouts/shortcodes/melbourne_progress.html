@@ -15,7 +15,7 @@
   <code>data/melbourne_progress.json</code>.</em></p>
 {{- else -}}
 {{- $showMap := ne (.Get "map") "false" -}}
-<figure class="run-progress interactive-demo">
+<div class="run-progress interactive-demo">
   <div class="run-progress__hero">
     <p class="run-progress__hero-label">Suburbs run at least once</p>
     <p class="run-progress__hero-value">
@@ -47,16 +47,18 @@
   </div>
 
   {{- if $showMap }}
-  <iframe class="run-progress__map"
-          src="/melbourne_progress.html"
-          title="Map of Melbourne suburbs shaded by how many runs have passed through them, with the routes drawn over them"
-          loading="lazy"></iframe>
-  <figcaption>
-    Suburbs are shaded by how many runs have passed through them; grey suburbs
-    have not been run yet, and the orange lines are the runs themselves. Hover
-    a suburb or a route for its details, or
-    <a href="/melbourne_progress.html">open the map on its own page</a>.
-  </figcaption>
+  <figure class="run-progress__figure">
+    <iframe class="run-progress__map"
+            src="/melbourne_progress.html"
+            title="Map of Melbourne suburbs shaded by how many runs have passed through them, with the routes drawn over them"
+            loading="lazy"></iframe>
+    <figcaption>
+      Suburbs are shaded by how many runs have passed through them; grey
+      suburbs have not been run yet, and the orange lines are the runs
+      themselves. Hover a suburb or a route for its details, or
+      <a href="/melbourne_progress.html">open the map on its own page</a>.
+    </figcaption>
+  </figure>
   {{- end }}
 
   <details class="run-progress__table">
@@ -86,5 +88,5 @@
     {{ dateFormat "2 January 2006" $progress.latest_run }}.
     Figures regenerated {{ dateFormat "2 January 2006" $progress.generated }}.
   </p>
-</figure>
+</div>
 {{- end -}}
