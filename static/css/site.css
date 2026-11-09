@@ -336,3 +336,137 @@ canvas {
     transition-duration: 0.01ms !important;
   }
 }
+
+/*
+ * Melbourne running project progress tracker (the melbourne_progress
+ * shortcode). Everything here is expressed in the theme's own variables so
+ * the figures follow the site into dark mode; the embedded map is a folium
+ * export with its own light basemap and is deliberately left alone.
+ */
+
+.run-progress {
+  border: 1px solid var(--bg2);
+  border-radius: 0.4rem;
+  margin-block: 1.5rem;
+  padding: 1.25rem;
+}
+
+.run-progress__hero {
+  text-align: center;
+}
+
+.run-progress__hero-label,
+.run-progress__tile-label {
+  color: var(--fg3);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.run-progress__hero-value {
+  color: var(--fg);
+  font-size: clamp(2.5rem, 9vw, 3.5rem);
+  font-weight: 650;
+  line-height: 1.05;
+  margin: 0.1rem 0 0;
+}
+
+.run-progress__hero-of {
+  color: var(--fg3);
+  font-size: 0.42em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Progress meter: the fill and its track are two steps of one hue, so the
+ * ratio reads across the whole bar rather than only where it stops. */
+.run-progress__meter {
+  background: var(--bg1);
+  border-radius: 999px;
+  height: 0.55rem;
+  margin: 0.9rem auto 0;
+  max-width: 34rem;
+  overflow: hidden;
+}
+
+.run-progress__meter-fill {
+  background: var(--blue);
+  border-radius: 999px;
+  height: 100%;
+}
+
+.run-progress__hero-note {
+  color: var(--fg3);
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+}
+
+.run-progress__tiles {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  margin-top: 1.25rem;
+}
+
+.run-progress__tile {
+  background: var(--bg_s);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.7rem 0.85rem;
+}
+
+.run-progress__tile-value {
+  color: var(--fg);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.run-progress__map {
+  border: 1px solid var(--bg2);
+  border-radius: 0.3rem;
+  display: block;
+  height: clamp(20rem, 60vh, 38rem);
+  margin-top: 1.25rem;
+  width: 100%;
+}
+
+.run-progress > figcaption {
+  color: var(--fg3);
+  font-size: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+.run-progress__table {
+  margin-top: 1.25rem;
+}
+
+.run-progress__table > summary {
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.run-progress__table-scroll {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+}
+
+.run-progress__table table {
+  font-size: 0.92rem;
+  width: 100%;
+}
+
+/* Columns of numbers align only when every digit is the same width. */
+.run-progress__num {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.run-progress__updated {
+  color: var(--fg4);
+  font-size: 0.85rem;
+  margin: 1.25rem 0 0;
+}
+
